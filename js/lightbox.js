@@ -2,7 +2,7 @@
 //
 //	Lightbox v2.05
 //	by Lokesh Dhakar - http://www.lokeshdhakar.com
-//	Last Modification: 3/18/11
+//	Last Modification: 11/16/11
 //
 //	For more information, visit:
 //	http://lokeshdhakar.com/projects/lightbox2/
