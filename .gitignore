@@ -14,3 +14,8 @@
 ehthumbs.db
 Icon?
 Thumbs.db
+
+
+# Software files #
+######################
+.espresso*
