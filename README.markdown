@@ -1,4 +1,4 @@
-#Lightbox2 v2.05
+#Lightbox2
 
 by Lokesh Dhakar  
 [lokeshdhakar.com](http://www.lokeshdhakar.com)  
