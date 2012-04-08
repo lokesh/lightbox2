@@ -1,212 +1,354 @@
-/* 
-	Lightbox v2 Project page styles	
-	Author: Lokesh Dhakar http://www.lokeshdhakar.com
-	Created: a long time ago (2006 I think)
-	Table of Contents:
-		layout
-		typography
-		
-*/
-
-
-
-
+/*	Lightbox v2 Project page styles	
+ *	Author: Lokesh Dhakar http://www.lokeshdhakar.com
+ *	Created: a long time ago (2006 I think)
+ *	Table of Contents:
+ *		layout
+ *		typography
+ *    content */
 /* layout
------------------------------------------------ */
-
-*{
-	margin: 0;
-	padding:0;
-	}
-
-body{
-	background: #161613;
-	color: #eee;
-	font: 86% 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-	}
-
-#topborder{	
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 1.0em;
-	background-color: #c0dB5A;
-	}
-
-#sidebar{ position:fixed; top: 38px; left:20px;	width: 230px; }
-* html div#sidebar  { top: 38px; left:20px;	width: 230px; position:absolute; }
-
-#content{ margin: 0 10% 5em 290px; padding-top: 45px; max-width: 600px; }
-
-
-/* typography
------------------------------------------------ */
-
-p {	line-height: 1.4em;	margin-bottom: 1.0em; font-size: 0.9em;}
-p.lead { font-size: 1.0em; }
-
-ol, ul{ margin: 0.5em 0 1.2em 2em; }	
-ol, ul, dl { line-height: 1.4em; }
-ol li{ margin-bottom: 0.2em; }
-li{ font-size: 0.9em; }
-li strong {color: #999;}
-dl{ margin: 0.5em 0 1.2em 0; }
-dt{
-	xfont-size: 0.9em;
-	font-weight: bold; color: #999;
-	padding-top: 0.4em;
-	}
-dd{	
-	font-size: 0.9em;
-	margin-bottom: 1.0em;
-	padding-bottom: 0.9em;
-	border-bottom: 1px dashed #3d3d33;
-	}
-
-
-h1, h2, h3{ font-family: "Trebuchet MS",Verdana,Sans-Serif;}
-
-h1 { font-size: 2.3em; }
-h1 a { color:#fff; border: none; }
-h1 em{ font-size: 1.25em; color: #D0EB6A; font-style: normal; }
-
-h2 {
-	font-size: 1.5em;
-	letter-spacing: 0.4pt;
-	color: #D0EB6A;
-	text-transform: uppercase;
-	padding-top: 0.5em;
-	}
-h3 {
-	font-size: 1.0em;
-	letter-spacing: 0.2pt;
-	color: #c0dB5A;
-	text-transform: uppercase;
-	padding-top: 0.5em;
-	}
-
-a, .contact-link{
-	color: #8ad459;
-	text-decoration: none;
-	cursor: hand;
-	}
-
-#content p a:hover,
-#content dd a:hover { border-bottom: 1px dotted #8ad459; }
-a img{ 	border: none;}
-
-small{ font-size: 0.8em; }
-
-pre{
-	display: block;
-	margin: 1em 0;
-	padding: 0.5em;
-	border-left: 6px solid #0d0d09;
-	background-color: #000;
-	overflow: auto;
-	}
-
-code{
-	font-size: 11px;
-	font-family: Verdana,Sans-Serif;
-	background-color: #000;
-	color: #8d8d73;
-	padding: 0.3em 0.4em;
-	}
-
-pre code{
-	padding: 0; margin: 0;
+ *----------------------------------------------- */
+/* line 13, ../sass/screen.sass */
+* {
+  margin: 0;
+  padding: 0;
 }
 
-kbd{
-	color: #555;
-	background-color: #ddd;
-	border-right: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
-	font-size: inherit;
-	font-family: inherit;
-	padding: 0 3px 2px 4px;
-	}
+/* line 17, ../sass/screen.sass */
+body {
+  background: #161613;
+  color: #eeeeee;
+  font: 86% "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+}
 
-fieldset{ border: none; }
+/* line 22, ../sass/screen.sass */
+#topborder {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1em;
+  background-color: #c0db5a;
+}
+
+/* line 30, ../sass/screen.sass */
+#sidebar {
+  position: fixed;
+  top: 38px;
+  left: 20px;
+  width: 230px;
+}
+
+/* line 36, ../sass/screen.sass */
+* html div#sidebar {
+  top: 38px;
+  left: 20px;
+  width: 230px;
+  position: absolute;
+}
+
+/* line 42, ../sass/screen.sass */
+#content {
+  margin: 0 10% 5em 290px;
+  padding-top: 45px;
+  max-width: 600px;
+}
+
+/* typography
+ *----------------------------------------------- */
+/* line 50, ../sass/screen.sass */
+p {
+  line-height: 1.4em;
+  margin-bottom: 1em;
+  font-size: 0.9em;
+}
+/* line 54, ../sass/screen.sass */
+p.lead {
+  font-size: 1em;
+}
+
+/* line 57, ../sass/screen.sass */
+ol, ul {
+  margin: 0.5em 0 1.2em 2em;
+}
+
+/* line 60, ../sass/screen.sass */
+ol, ul, dl {
+  line-height: 1.4em;
+}
+
+/* line 63, ../sass/screen.sass */
+ol li {
+  margin-bottom: 0.2em;
+}
+
+/* line 66, ../sass/screen.sass */
+li {
+  font-size: 0.9em;
+}
+/* line 68, ../sass/screen.sass */
+li strong {
+  color: #999999;
+}
+
+/* line 71, ../sass/screen.sass */
+dl {
+  margin: 0.5em 0 1.2em 0;
+}
+
+/* line 74, ../sass/screen.sass */
+dt {
+  xfont-size: 0.9em;
+  font-weight: bold;
+  color: #999999;
+  padding-top: 0.4em;
+}
+
+/* line 80, ../sass/screen.sass */
+dd {
+  font-size: 0.9em;
+  margin-bottom: 1em;
+  padding-bottom: 0.9em;
+  border-bottom: 1px dashed #3d3d33;
+}
+
+/* line 86, ../sass/screen.sass */
+h1, h2, h3 {
+  font-family: "Trebuchet MS", Verdana, Sans-Serif;
+}
+
+/* line 89, ../sass/screen.sass */
+h1 {
+  font-size: 2.3em;
+}
+/* line 91, ../sass/screen.sass */
+h1 a {
+  color: white;
+  border: none;
+}
+/* line 94, ../sass/screen.sass */
+h1 em {
+  font-size: 1.25em;
+  color: #d0eb6a;
+  font-style: normal;
+}
+
+/* line 99, ../sass/screen.sass */
+h2 {
+  font-size: 1.5em;
+  letter-spacing: 0.4pt;
+  color: #d0eb6a;
+  text-transform: uppercase;
+  padding-top: 0.5em;
+}
+
+/* line 106, ../sass/screen.sass */
+h3 {
+  font-size: 1em;
+  letter-spacing: 0.2pt;
+  color: #c0db5a;
+  text-transform: uppercase;
+  padding-top: 0.5em;
+}
+
+/* line 113, ../sass/screen.sass */
+a, .contact-link {
+  color: #8ad459;
+  text-decoration: none;
+  cursor: hand;
+}
+
+/* line 119, ../sass/screen.sass */
+#content p a:hover, #content dd a:hover {
+  border-bottom: 1px dotted #8ad459;
+}
+
+/* line 122, ../sass/screen.sass */
+a img {
+  border: none;
+}
+
+/* line 125, ../sass/screen.sass */
+small {
+  font-size: 0.8em;
+}
+
+/* line 128, ../sass/screen.sass */
+pre {
+  display: block;
+  margin: 1em 0;
+  padding: 0.5em;
+  border-left: 6px solid #0d0d09;
+  background-color: black;
+  overflow: auto;
+}
+
+/* line 136, ../sass/screen.sass */
+code {
+  font-size: 11px;
+  font-family: Verdana, Sans-Serif;
+  background-color: black;
+  color: #8d8d73;
+  padding: 0.3em 0.4em;
+}
+
+/* line 143, ../sass/screen.sass */
+pre code {
+  padding: 0;
+  margin: 0;
+}
+
+/* line 147, ../sass/screen.sass */
+kbd {
+  color: #555555;
+  background-color: #dddddd;
+  border-right: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0 3px 2px 4px;
+}
+
+/* line 156, ../sass/screen.sass */
+fieldset {
+  border: none;
+}
 
 /* sidebar
------------------------------------------------ */
-#sidebar a{
-	color: #fff;
-	}
+ *----------------------------------------------- */
+/* line 163, ../sass/screen.sass */
+#sidebar a {
+  color: white;
+}
+/* line 165, ../sass/screen.sass */
+#sidebar h1 a {
+  font-weight: bold;
+}
 
+/* line 168, ../sass/screen.sass */
+#nav {
+  list-style: none;
+  margin: 1.5em 0 1em 0;
+}
+/* line 171, ../sass/screen.sass */
+#nav li {
+  padding: 0;
+  margin: 0;
+}
+/* line 174, ../sass/screen.sass */
+#nav a {
+  display: block;
+  height: 2em;
+  padding: 0.3em 0.2em 0 0.8em;
+  margin-bottom: 1px;
+  color: #eeeeee;
+  background-color: #363633;
+}
+/* line 181, ../sass/screen.sass */
+#nav a:hover {
+  color: #1a1a1a;
+  background-color: #d0eb6a;
+}
 
-#sidebar h1 a{ font-weight: bold; }
-#sidebar h1 a:hover{  }
-
-#nav{ list-style: none; margin: 1.5em 0 1em 0;}
-#nav li{ padding: 0; margin: 0; }
-#nav a{
-	display: block;
-	height: 2.0em;
-	padding: 0.3em 0.2em 0 0.8em;
-	margin-bottom: 1px;
-	color: #eee;
-	background-color: #363633;
-	}
-
-#nav a:hover{
-	color: #1a1a1a;
-	background-color: #D0EB6A;
-	}	
-
-
-#sidebar .callout{ background-color: #ff0; font-size: 13px; padding: .5em .8em;   }
-#sidebar .callout .date{ font-size: 12px;}
-#sidebar .callout a{ color: #666;}
-#sidebar .callout ul{ margin-top: -.45em; margin-left: 1em; margin-bottom: .4em; }
+/* line 185, ../sass/screen.sass */
+#sidebar .callout {
+  background-color: yellow;
+  font-size: 13px;
+  padding: 0.5em 0.8em;
+}
+/* line 189, ../sass/screen.sass */
+#sidebar .callout .date {
+  font-size: 12px;
+}
+/* line 191, ../sass/screen.sass */
+#sidebar .callout a {
+  color: #666666;
+}
+/* line 193, ../sass/screen.sass */
+#sidebar .callout ul {
+  margin-top: -0.45em;
+  margin-left: 1em;
+  margin-bottom: 0.4em;
+}
 
 /* content
------------------------------------------------ */
-#content ul{ margin-left: 4px;}
-#content ul li{
-	list-style: none;
-	padding: 0 0 0 12px;
-	background: url(../images/bullet.gif) no-repeat 0 6px;
-	}
-#content ul ul{ margin-top: 0;}
-	
-.download{
-	background-color: #333;
-	border: 1px solid #444; 
-	padding: 0.7em 1.5em; }
-.download:hover{
-	background-color: #555;
-	border: 1px solid #777;
-	}
-#content ul.download li{
-	padding: 0.3em 0;
-	background-image:none;
-	}
-.download img{ padding-right: 0.3em; }
-.download li strong{ font-family: "Trebuchet MS",Verdana,Sans-Serif; font-size: 2.25em; color: #fff;}
-.download li em{ font-style: normal; color: #D0EB6A; }
+ *----------------------------------------------- */
+/* line 201, ../sass/screen.sass */
+#content ul {
+  margin-left: 4px;
+}
+/* line 203, ../sass/screen.sass */
+#content ul li {
+  list-style: none;
+  padding: 0 0 0 12px;
+  background: url(../images/bullet.gif) no-repeat 0 6px;
+}
+/* line 207, ../sass/screen.sass */
+#content ul ul {
+  margin-top: 0;
+}
+
+/* line 210, ../sass/screen.sass */
+.download {
+  background-color: #333333;
+  border: 1px solid #444444;
+  padding: 0.7em 1.5em;
+}
+/* line 214, ../sass/screen.sass */
+.download:hover {
+  background-color: #555555;
+  border: 1px solid #777777;
+}
+
+/* line 218, ../sass/screen.sass */
+#content ul.download li {
+  padding: 0.3em 0;
+  background-image: none;
+}
+
+/* line 223, ../sass/screen.sass */
+.download img {
+  padding-right: 0.3em;
+}
+/* line 226, ../sass/screen.sass */
+.download li strong {
+  font-family: "Trebuchet MS", Verdana, Sans-Serif;
+  font-size: 2.25em;
+  color: white;
+}
+/* line 230, ../sass/screen.sass */
+.download li em {
+  font-style: normal;
+  color: #d0eb6a;
+}
 
 /* misc
------------------------------------------------ */
+ *----------------------------------------------- */
+/* line 237, ../sass/screen.sass */
+.section {
+  border-top: 4px solid #3d3d33;
+  padding: 1.4em 0 3.2em 0;
+  overflow: auto;
+  width: 100%;
+}
 
-.section{
-	border-top: 4px solid #3d3d33;
-	padding: 1.4em 0 3.2em 0;
-	overflow: auto;
-	width: 100%;
-	}
-.first{ border-top: none; padding-top: 0; }
+/* line 243, ../sass/screen.sass */
+.first {
+  border-top: none;
+  padding-top: 0;
+}
 
-.thumbnail{
-	padding: 3px 3px 8px 3px;
-	background-color: #222;
-	border: 1px solid #2a2a2a;
-	float: left;
-	margin-right: 10px;
-	margin-bottom: 10px;
-	}	
+/* line 247, ../sass/screen.sass */
+.thumbnail {
+  padding: 3px 3px 8px 3px;
+  background-color: #222222;
+  border: 1px solid #2a2a2a;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
 
-.caption{ font-size: 0.9em; padding-top: 0.2em ;	}
+/* line 255, ../sass/screen.sass */
+.caption {
+  font-size: 0.9em;
+  padding-top: 0.2em;
+}
