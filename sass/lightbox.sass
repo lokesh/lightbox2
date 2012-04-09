@@ -1,3 +1,9 @@
+@import "compass/css3"
+@import "compass/utilities/general/clearfix"
+
+@import "variables"
+
+
 #lightbox
   position: absolute
   left: 0
@@ -17,6 +23,7 @@
   width: 250px
   height: 250px
   margin: 0 auto
+  +border-top-radius($radius)
 
 #imageContainer
   padding: 10px
@@ -74,6 +81,7 @@
   line-height: 1.4em
   overflow: auto
   width: 100%
+  +border-bottom-radius($radius)  
 
 #imageData
   padding: 0 10px

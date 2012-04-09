@@ -7,193 +7,178 @@
  *		typography
  *    content
 
+@import "compass/reset"
+@import "compass/css3"
+@import "compass/utilities/general/clearfix"
+
+@import "variables"
+
 /* layout
  *-----------------------------------------------
-
-*
-  margin: 0
-  padding: 0
-
-body
-  background: #161613
-  color: #eee
-  font: 86% 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif
-
-#topborder
-  position: fixed
-  top: 0
-  left: 0
-  width: 100%
-  height: 1.0em
-  background-color: #c0dB5A
-
 #sidebar
   position: fixed
-  top: 38px
-  left: 20px
-  width: 230px
-
-* html div#sidebar
-  top: 38px
-  left: 20px
-  width: 230px
-  position: absolute
+  top: $gutter
+  left: $gutter
+  width: $sidebarWidth
 
 #content
-  margin: 0 10% 5em 290px
-  padding-top: 45px
-  max-width: 600px
+  margin: 0 $gutter $gutter $sidebarWidth+$gutter*2
 
-/* typography
+
+/* Typography
  *-----------------------------------------------
 
-p
-  line-height: 1.4em
-  margin-bottom: 1.0em
-  font-size: 0.9em
-  &.lead
-    font-size: 1.0em
+body
+  background: $bodyBg url(../images/bg-checker.png)
 
-ol, ul
-  margin: 0.5em 0 1.2em 2em
+body, input, textarea
+  color: $color
+  text-shadow: 0 -1px 0 rgba(0,0,0,1)
+  font-size: $fontSize
+  line-height: $lineHeight
+  font-family: $fontFamily
+  font-weight: 600
+  -webkit-font-smoothing: antialiased
 
-ol, ul, dl
-  line-height: 1.4em
-
-ol li
-  margin-bottom: 0.2em
-
-li
-  font-size: 0.9em
-  strong
-    color: #999
-
-dl
-  margin: 0.5em 0 1.2em 0
-
-dt
-  xfont-size: 0.9em
-  font-weight: bold
-  color: #999
-  padding-top: 0.4em
-
-dd
-  font-size: 0.9em
-  margin-bottom: 1.0em
-  padding-bottom: 0.9em
-  border-bottom: 1px dashed #3d3d33
-
-h1, h2, h3
-  font-family: "Trebuchet MS",Verdana,Sans-Serif
+h1,h2,h3,h4,h5,h6
+  font-family: $headingFontFamily
+  font-weight: 400
+  letter-spacing: 0.03em
+  line-height: $lineHeight
+  margin: 0
+  color: $headingColor
 
 h1
-  font-size: 2.3em
-  a
-    color: #fff
-    border: none
-  em
-    font-size: 1.25em
-    color: #D0EB6A
-    font-style: normal
+  font-size: $fontSize + 24
+  line-height: 1.2em
 
 h2
-  font-size: 1.5em
-  letter-spacing: 0.4pt
-  color: #D0EB6A
-  text-transform: uppercase
-  padding-top: 0.5em
+  font-size: $fontSize + 18
+  line-height: 1.45em
+  margin-bottom: 0.2em
 
 h3
-  font-size: 1.0em
-  letter-spacing: 0.2pt
-  color: #c0dB5A
+  font-size: $fontSize
   text-transform: uppercase
-  padding-top: 0.5em
+  letter-spacing: 0.1em
+  color: darken($headingColor, 30%)
 
-a, .contact-link
-  color: #8ad459
-  text-decoration: none
-  cursor: hand
+h4
+  font-size: $fontSize
 
-#content
-  p a:hover, dd a:hover
-    border-bottom: 1px dotted #8ad459
 
-a img
-  border: none
 
-small
-  font-size: 0.8em
+/* Text elements
+p
+  margin: 0 0 1.25em 0
+  line-height: $lineHeight  
+
+ul, ol
+  margin: 0 0 1.25em 0
+
+dt
+  font-weight: bold
+
+dd
+  margin-bottom: 1.625em
+
+strong
+  font-weight: bold
+
+i
+  font-style: italic
 
 pre
-  display: block
-  margin: 1em 0
-  padding: 0.5em
-  border-left: 6px solid #0d0d09
-  background-color: #000
+  background: rgba(0,0,0,0.4)
+  color: $orange
+  font: 14px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace
+  line-height: 1.5
+  margin: $gutter/2 0 $gutter 0
   overflow: auto
+  padding: 1em
+  +border-radius($radius)
+  +box-shadow( 0 1px 0 0 rgba(255,255,255,0.1), inset 0 2px 6px 2px rgba(0,0,0,1))
 
-code
-  font-size: 11px
-  font-family: Verdana,Sans-Serif
-  background-color: #000
-  color: #8d8d73
-  padding: 0.3em 0.4em
+code, kbd
+  font: 14px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace
+  background: rgba(0,0,0,0.4)
+  +box-shadow( 0 1px 0 0 rgba(255,255,255,0.1), inset 0 2px 6px 2px rgba(0,0,0,1))
+  padding: 5px
+  +border-radius($radius)  
+  color: $orange
 
 pre code
+  font-size: 13px
+  background: transparent
+  +box-shadow(none)
   padding: 0
-  margin: 0
 
-kbd
-  color: #555
-  background-color: #ddd
-  border-right: 1px solid #ccc
-  border-bottom: 1px solid #ccc
-  font-size: inherit
-  font-family: inherit
-  padding: 0 3px 2px 4px
+/* Links
+a
+  color: $linkColor
+  text-decoration: none
+  &:hover
+    color: darken($linkColor, 20%)
+    
 
-fieldset
-  border: none
 
 /* sidebar
  *-----------------------------------------------
 
 #sidebar
+  +opacity(0.6)
+  +transition( opacity .2s)
+  &:hover
+    +opacity(1)
   a
     color: #fff
-  h1 a
-    font-weight: bold
-
+  .logo
+    +transition( all .2s ease-out)
+    em
+      color: $linkColor
+    &:hover
+      text-shadow: 0 0 20px rgba(208, 235, 106,1), 0 0 50px rgba(208, 235, 106,1)
+  .author
+    a
+      &:hover
+        text-shadow: 0 0 10px rgba(255,255,255, 1)
+    .twitter
+      font-size: $fontSize - 2
+      a
+        color: #4d9ed8
+      em
+        color: #4d9ed8
+        
 #nav
   list-style: none
   margin: 1.5em 0 1em 0
+  font-size: 14px
+  text-transform: uppercase
+  letter-spacing: 0.1em
+  font-family: $headingFontFamily
   li
     padding: 0
     margin: 0
   a
     display: block
     height: 2.0em
-    padding: 0.3em 0.2em 0 0.8em
-    margin-bottom: 1px
-    color: #eee
-    background-color: #363633
+    padding: 0.6em 0.2em 0.3em $gutter/2
+    background: rgba(80,80,80,1)
+    border-top: 1px solid rgba(255,255,255,0.15)
+    border-bottom: 1px solid rgba(0,0,0,0.4)
+    +transition( all .2s ease-out)
     &:hover
-      color: #1a1a1a
-      background-color: #D0EB6A
-
-#sidebar .callout
-  background-color: #ff0
-  font-size: 13px
-  padding: .5em .8em
-  .date
-    font-size: 12px
-  a
-    color: #666
-  ul
-    margin-top: -0.45em
-    margin-left: 1em
-    margin-bottom: .4em
+      text-shadow: 0 1px 0 rgba(0,0,0,0.8)
+      background-color: darken($headingColor, 30%)
+  a.first
+    +background( linear-gradient( rgba(110,110,110,1), rgba(80,80,80,1)))
+    border-bottom-color: rgba(0,0,0,0.5)
+    +border-top-radius($radius)
+    border-top-color: transparent
+  a.last
+    +background( linear-gradient( rgba(80,80,80,1), rgba(50,50,50,1)))
+    border-top-color: rgba(255,255,255,0.25)
+    +border-bottom-radius($radius)
 
 /* content
  *-----------------------------------------------
@@ -210,6 +195,7 @@ fieldset
 .download
   background-color: #333
   border: 1px solid #444
+  +border-radius($radius)
   padding: 0.7em 1.5em
   &:hover
     background-color: #555
@@ -224,7 +210,6 @@ fieldset
     padding-right: 0.3em
   li
     strong
-      font-family: "Trebuchet MS",Verdana,Sans-Serif
       font-size: 2.25em
       color: #fff
     em
@@ -234,24 +219,66 @@ fieldset
 /* misc
  *-----------------------------------------------
 
-.section
-  border-top: 4px solid #3d3d33
-  padding: 1.4em 0 3.2em 0
-  overflow: auto
-  width: 100%
+p.lead
+  font-size: $fontSize + 10
+  font-weight: 600
+  line-height: 1.4em
+  margin-bottom: 0
+  
 
-.first
-  border-top: none
-  padding-top: 0
+hr
+  height: 6px
+  background: #3d3d33
+  border: none
+  +border-radius($radius)
 
-.thumbnail
-  padding: 3px 3px 8px 3px
-  background-color: #222
-  border: 1px solid #2a2a2a
-  float: left
-  margin-right: 10px
-  margin-bottom: 10px
+section
+  padding: $gutter 0
+  &:first-child
+    border-top: none
 
-.caption
-  font-size: 0.9em
-  padding-top: 0.2em
+.imageRow
+  +pie-clearfix
+  margin: $gutter/2 0 
+  .single
+    float: left
+    a
+      float: left
+      display: block
+      background: rgba(255,255,255,.1)
+      padding: 7px
+      line-height: 1em
+      +border-radius($radius)
+      +box-shadow( 0 -1px 0 0 rgba(255,255,255,0.2), 0 1px 4px 0 rgba(0,0,0,0.5))
+      margin-right: $gutter
+      +transition( all .2s ease-out)
+      img
+        +border-radius($radius)
+        border: 1px solid rgba(0,0,0,0.3)
+      &:hover
+        background-color: darken($headingColor, 30%)
+  .set
+    float: left
+    background: rgba(255,255,255,.1)
+    +border-radius($radius)
+    +box-shadow( 0 -1px 0 0 rgba(255,255,255,0.2), 0 1px 4px 0 rgba(0,0,0,0.5))
+    +transition( all .2s ease-out)
+    &:hover
+      background: rgba(255,255,255,.2)
+    .single
+      a
+        background: none
+        +border-radius(0)
+        +box-shadow(none)
+        margin-right: 0
+        &:hover
+          background-color: darken($headingColor, 30%)        
+          +box-shadow( 0 -1px 0 0 rgba(255,255,255,0.2), 0 1px 4px 0 rgba(0,0,0,0.5))
+    .single.first
+      a
+        +border-left-radius($radius)
+    .single.last
+      a
+        +border-right-radius($radius)
+  
+        
