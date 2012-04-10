@@ -40,6 +40,9 @@ body, input, textarea
   font-weight: 600
   -webkit-font-smoothing: antialiased
 
+#lightbox
+  text-shadow: none
+
 h1,h2,h3,h4,h5,h6
   font-family: $headingFontFamily
   font-weight: 400
@@ -139,6 +142,8 @@ a
     &:hover
       text-shadow: 0 0 20px rgba(208, 235, 106,1), 0 0 50px rgba(208, 235, 106,1)
   .author
+    font-weight: 800
+    line-height: 1.4em
     a
       &:hover
         text-shadow: 0 0 10px rgba(255,255,255, 1)
@@ -175,10 +180,15 @@ a
     border-bottom-color: rgba(0,0,0,0.5)
     +border-top-radius($radius)
     border-top-color: transparent
+    &:hover
+      +background( linear-gradient( darken($headingColor, 20%), darken($headingColor, 30%) ))
   a.last
     +background( linear-gradient( rgba(80,80,80,1), rgba(50,50,50,1)))
     border-top-color: rgba(255,255,255,0.25)
     +border-bottom-radius($radius)
+    &:hover
+      +background( linear-gradient( darken($headingColor, 30%), darken($headingColor, 40%) ))
+
 
 /* content
  *-----------------------------------------------

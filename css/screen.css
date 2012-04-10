@@ -104,6 +104,11 @@ body, input, textarea {
 }
 
 /* line 43, ../sass/screen.sass */
+#lightbox {
+  text-shadow: none;
+}
+
+/* line 46, ../sass/screen.sass */
 h1, h2, h3, h4, h5, h6 {
   font-family: "Fredoka One", "lucida grande", tahoma, sans-serif;
   font-weight: 400;
@@ -113,20 +118,20 @@ h1, h2, h3, h4, h5, h6 {
   color: #d0eb6a;
 }
 
-/* line 51, ../sass/screen.sass */
+/* line 54, ../sass/screen.sass */
 h1 {
   font-size: 40px;
   line-height: 1.2em;
 }
 
-/* line 55, ../sass/screen.sass */
+/* line 58, ../sass/screen.sass */
 h2 {
   font-size: 34px;
   line-height: 1.45em;
   margin-bottom: 0.2em;
 }
 
-/* line 60, ../sass/screen.sass */
+/* line 63, ../sass/screen.sass */
 h3 {
   font-size: 16px;
   text-transform: uppercase;
@@ -134,44 +139,44 @@ h3 {
   color: #88a616;
 }
 
-/* line 66, ../sass/screen.sass */
+/* line 69, ../sass/screen.sass */
 h4 {
   font-size: 16px;
 }
 
 /* Text elements */
-/* line 72, ../sass/screen.sass */
+/* line 75, ../sass/screen.sass */
 p {
   margin: 0 0 1.25em 0;
   line-height: 1.625em;
 }
 
-/* line 76, ../sass/screen.sass */
+/* line 79, ../sass/screen.sass */
 ul, ol {
   margin: 0 0 1.25em 0;
 }
 
-/* line 79, ../sass/screen.sass */
+/* line 82, ../sass/screen.sass */
 dt {
   font-weight: bold;
 }
 
-/* line 82, ../sass/screen.sass */
+/* line 85, ../sass/screen.sass */
 dd {
   margin-bottom: 1.625em;
 }
 
-/* line 85, ../sass/screen.sass */
+/* line 88, ../sass/screen.sass */
 strong {
   font-weight: bold;
 }
 
-/* line 88, ../sass/screen.sass */
+/* line 91, ../sass/screen.sass */
 i {
   font-style: italic;
 }
 
-/* line 91, ../sass/screen.sass */
+/* line 94, ../sass/screen.sass */
 pre {
   background: rgba(0, 0, 0, 0.4);
   color: #e7931a;
@@ -190,7 +195,7 @@ pre {
   box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1), inset 0 2px 6px 2px black;
 }
 
-/* line 102, ../sass/screen.sass */
+/* line 105, ../sass/screen.sass */
 code, kbd {
   font: 14px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
   background: rgba(0, 0, 0, 0.4);
@@ -206,7 +211,7 @@ code, kbd {
   color: #e7931a;
 }
 
-/* line 110, ../sass/screen.sass */
+/* line 113, ../sass/screen.sass */
 pre code {
   font-size: 13px;
   background: transparent;
@@ -217,19 +222,19 @@ pre code {
 }
 
 /* Links */
-/* line 117, ../sass/screen.sass */
+/* line 120, ../sass/screen.sass */
 a {
   color: #8ad459;
   text-decoration: none;
 }
-/* line 120, ../sass/screen.sass */
+/* line 123, ../sass/screen.sass */
 a:hover {
   color: #589e29;
 }
 
 /* sidebar
  *----------------------------------------------- */
-/* line 128, ../sass/screen.sass */
+/* line 131, ../sass/screen.sass */
 #sidebar {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
   opacity: 0.6;
@@ -239,16 +244,16 @@ a:hover {
   -o-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
-/* line 131, ../sass/screen.sass */
+/* line 134, ../sass/screen.sass */
 #sidebar:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
-/* line 133, ../sass/screen.sass */
+/* line 136, ../sass/screen.sass */
 #sidebar a {
   color: white;
 }
-/* line 135, ../sass/screen.sass */
+/* line 138, ../sass/screen.sass */
 #sidebar .logo {
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
@@ -256,32 +261,37 @@ a:hover {
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-/* line 137, ../sass/screen.sass */
+/* line 140, ../sass/screen.sass */
 #sidebar .logo em {
   color: #8ad459;
 }
-/* line 139, ../sass/screen.sass */
+/* line 142, ../sass/screen.sass */
 #sidebar .logo:hover {
   text-shadow: 0 0 20px #d0eb6a, 0 0 50px #d0eb6a;
 }
-/* line 143, ../sass/screen.sass */
+/* line 144, ../sass/screen.sass */
+#sidebar .author {
+  font-weight: 800;
+  line-height: 1.4em;
+}
+/* line 148, ../sass/screen.sass */
 #sidebar .author a:hover {
   text-shadow: 0 0 10px white;
 }
-/* line 145, ../sass/screen.sass */
+/* line 150, ../sass/screen.sass */
 #sidebar .author .twitter {
   font-size: 14px;
 }
-/* line 147, ../sass/screen.sass */
+/* line 152, ../sass/screen.sass */
 #sidebar .author .twitter a {
   color: #4d9ed8;
 }
-/* line 149, ../sass/screen.sass */
+/* line 154, ../sass/screen.sass */
 #sidebar .author .twitter em {
   color: #4d9ed8;
 }
 
-/* line 152, ../sass/screen.sass */
+/* line 157, ../sass/screen.sass */
 #nav {
   list-style: none;
   margin: 1.5em 0 1em 0;
@@ -290,12 +300,12 @@ a:hover {
   letter-spacing: 0.1em;
   font-family: "Fredoka One", "lucida grande", tahoma, sans-serif;
 }
-/* line 159, ../sass/screen.sass */
+/* line 164, ../sass/screen.sass */
 #nav li {
   padding: 0;
   margin: 0;
 }
-/* line 162, ../sass/screen.sass */
+/* line 167, ../sass/screen.sass */
 #nav a {
   display: block;
   height: 2em;
@@ -309,12 +319,12 @@ a:hover {
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-/* line 170, ../sass/screen.sass */
+/* line 175, ../sass/screen.sass */
 #nav a:hover {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.8);
   background-color: #88a616;
 }
-/* line 173, ../sass/screen.sass */
+/* line 178, ../sass/screen.sass */
 #nav a.first {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #6e6e6e), color-stop(100%, #505050));
   background: -webkit-linear-gradient(#6e6e6e, #505050);
@@ -335,7 +345,16 @@ a:hover {
   border-top-right-radius: 4px;
   border-top-color: transparent;
 }
-/* line 178, ../sass/screen.sass */
+/* line 183, ../sass/screen.sass */
+#nav a.first:hover {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #add31c), color-stop(100%, #88a616));
+  background: -webkit-linear-gradient(#add31c, #88a616);
+  background: -moz-linear-gradient(#add31c, #88a616);
+  background: -o-linear-gradient(#add31c, #88a616);
+  background: -ms-linear-gradient(#add31c, #88a616);
+  background: linear-gradient(#add31c, #88a616);
+}
+/* line 185, ../sass/screen.sass */
 #nav a.last {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #505050), color-stop(100%, #323232));
   background: -webkit-linear-gradient(#505050, #323232);
@@ -355,25 +374,34 @@ a:hover {
   -o-border-bottom-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
+/* line 189, ../sass/screen.sass */
+#nav a.last:hover {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #88a616), color-stop(100%, #637910));
+  background: -webkit-linear-gradient(#88a616, #637910);
+  background: -moz-linear-gradient(#88a616, #637910);
+  background: -o-linear-gradient(#88a616, #637910);
+  background: -ms-linear-gradient(#88a616, #637910);
+  background: linear-gradient(#88a616, #637910);
+}
 
 /* content
  *----------------------------------------------- */
-/* line 186, ../sass/screen.sass */
+/* line 196, ../sass/screen.sass */
 #content ul {
   margin-left: 4px;
 }
-/* line 188, ../sass/screen.sass */
+/* line 198, ../sass/screen.sass */
 #content ul li {
   list-style: none;
   padding: 0 0 0 12px;
   background: url(../images/bullet.gif) no-repeat 0 6px;
 }
-/* line 192, ../sass/screen.sass */
+/* line 202, ../sass/screen.sass */
 #content ul ul {
   margin-top: 0;
 }
 
-/* line 195, ../sass/screen.sass */
+/* line 205, ../sass/screen.sass */
 .download {
   background-color: #333333;
   border: 1px solid #444444;
@@ -384,28 +412,28 @@ a:hover {
   border-radius: 4px;
   padding: 0.7em 1.5em;
 }
-/* line 200, ../sass/screen.sass */
+/* line 210, ../sass/screen.sass */
 .download:hover {
   background-color: #555555;
   border: 1px solid #777777;
 }
 
-/* line 204, ../sass/screen.sass */
+/* line 214, ../sass/screen.sass */
 #content ul.download li {
   padding: 0.3em 0;
   background-image: none;
 }
 
-/* line 209, ../sass/screen.sass */
+/* line 219, ../sass/screen.sass */
 .download img {
   padding-right: 0.3em;
 }
-/* line 212, ../sass/screen.sass */
+/* line 222, ../sass/screen.sass */
 .download li strong {
   font-size: 2.25em;
   color: white;
 }
-/* line 215, ../sass/screen.sass */
+/* line 225, ../sass/screen.sass */
 .download li em {
   font-style: normal;
   color: #d0eb6a;
@@ -413,7 +441,7 @@ a:hover {
 
 /* misc
  *----------------------------------------------- */
-/* line 222, ../sass/screen.sass */
+/* line 232, ../sass/screen.sass */
 p.lead {
   font-size: 26px;
   font-weight: 600;
@@ -421,7 +449,7 @@ p.lead {
   margin-bottom: 0;
 }
 
-/* line 229, ../sass/screen.sass */
+/* line 239, ../sass/screen.sass */
 hr {
   height: 6px;
   background: #3d3d33;
@@ -433,16 +461,16 @@ hr {
   border-radius: 4px;
 }
 
-/* line 235, ../sass/screen.sass */
+/* line 245, ../sass/screen.sass */
 section {
   padding: 40px 0;
 }
-/* line 237, ../sass/screen.sass */
+/* line 247, ../sass/screen.sass */
 section:first-child {
   border-top: none;
 }
 
-/* line 240, ../sass/screen.sass */
+/* line 250, ../sass/screen.sass */
 .imageRow {
   *zoom: 1;
   margin: 20px 0;
@@ -453,11 +481,11 @@ section:first-child {
   display: table;
   clear: both;
 }
-/* line 243, ../sass/screen.sass */
+/* line 253, ../sass/screen.sass */
 .imageRow .single {
   float: left;
 }
-/* line 245, ../sass/screen.sass */
+/* line 255, ../sass/screen.sass */
 .imageRow .single a {
   float: left;
   display: block;
@@ -479,7 +507,7 @@ section:first-child {
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-/* line 255, ../sass/screen.sass */
+/* line 265, ../sass/screen.sass */
 .imageRow .single a img {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -488,11 +516,11 @@ section:first-child {
   border-radius: 4px;
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
-/* line 258, ../sass/screen.sass */
+/* line 268, ../sass/screen.sass */
 .imageRow .single a:hover {
   background-color: #88a616;
 }
-/* line 260, ../sass/screen.sass */
+/* line 270, ../sass/screen.sass */
 .imageRow .set {
   float: left;
   background: rgba(255, 255, 255, 0.1);
@@ -510,11 +538,11 @@ section:first-child {
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-/* line 266, ../sass/screen.sass */
+/* line 276, ../sass/screen.sass */
 .imageRow .set:hover {
   background: rgba(255, 255, 255, 0.2);
 }
-/* line 269, ../sass/screen.sass */
+/* line 279, ../sass/screen.sass */
 .imageRow .set .single a {
   background: none;
   -webkit-border-radius: 0;
@@ -527,14 +555,14 @@ section:first-child {
   box-shadow: none;
   margin-right: 0;
 }
-/* line 274, ../sass/screen.sass */
+/* line 284, ../sass/screen.sass */
 .imageRow .set .single a:hover {
   background-color: #88a616;
   -webkit-box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
 }
-/* line 278, ../sass/screen.sass */
+/* line 288, ../sass/screen.sass */
 .imageRow .set .single.first a {
   -moz-border-radius-topleft: 4px;
   -webkit-border-top-left-radius: 4px;
@@ -547,7 +575,7 @@ section:first-child {
   -o-border-bottom-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
-/* line 281, ../sass/screen.sass */
+/* line 291, ../sass/screen.sass */
 .imageRow .set .single.last a {
   -moz-border-radius-topright: 4px;
   -webkit-border-top-right-radius: 4px;

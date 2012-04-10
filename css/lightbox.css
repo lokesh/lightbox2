@@ -1,4 +1,14 @@
-/* line 7, ../sass/lightbox.sass */
+/* line 6, ../sass/lightbox.sass */
+#lightboxOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+}
+
+/* line 14, ../sass/lightbox.sass */
 #lightbox {
   position: absolute;
   left: 0;
@@ -7,18 +17,18 @@
   text-align: center;
   line-height: 0;
 }
-/* line 14, ../sass/lightbox.sass */
+/* line 21, ../sass/lightbox.sass */
 #lightbox img {
   width: auto;
   height: auto;
 }
-/* line 17, ../sass/lightbox.sass */
+/* line 24, ../sass/lightbox.sass */
 #lightbox a img {
   border: none;
 }
 
-/* line 20, ../sass/lightbox.sass */
-#outerImageContainer {
+/* line 27, ../sass/lightbox.sass */
+.outerContainer {
   position: relative;
   background-color: white;
   width: 250px;
@@ -36,13 +46,13 @@
   border-top-right-radius: 4px;
 }
 
-/* line 28, ../sass/lightbox.sass */
-#imageContainer {
+/* line 35, ../sass/lightbox.sass */
+.container {
   padding: 10px;
 }
 
-/* line 31, ../sass/lightbox.sass */
-#loading {
+/* line 38, ../sass/lightbox.sass */
+.loader {
   position: absolute;
   top: 40%;
   left: 0%;
@@ -52,8 +62,8 @@
   line-height: 0;
 }
 
-/* line 40, ../sass/lightbox.sass */
-#hoverNav {
+/* line 47, ../sass/lightbox.sass */
+.nav {
   position: absolute;
   top: 0;
   left: 0;
@@ -62,18 +72,18 @@
   z-index: 10;
 }
 
-/* line 48, ../sass/lightbox.sass */
-#imageContainer > #hoverNav {
+/* line 55, ../sass/lightbox.sass */
+.container > .nav {
   left: 0;
 }
 
-/* line 51, ../sass/lightbox.sass */
-#hoverNav a {
+/* line 58, ../sass/lightbox.sass */
+.nav a {
   outline: none;
 }
 
-/* line 54, ../sass/lightbox.sass */
-#prevLink, #nextLink {
+/* line 61, ../sass/lightbox.sass */
+.prev, .next {
   width: 49%;
   height: 100%;
   background-image: url("data:image/gif;base64,AAAA");
@@ -81,30 +91,30 @@
   display: block;
 }
 
-/* line 61, ../sass/lightbox.sass */
-#prevLink {
+/* line 68, ../sass/lightbox.sass */
+.prev {
   left: 0;
   float: left;
 }
 
-/* line 65, ../sass/lightbox.sass */
-#nextLink {
+/* line 72, ../sass/lightbox.sass */
+.next {
   right: 0;
   float: right;
 }
 
-/* line 70, ../sass/lightbox.sass */
-#prevLink:hover, #prevLink:visited:hover {
+/* line 77, ../sass/lightbox.sass */
+.prev:hover, .prev:visited:hover {
   background: url(../images/prevlabel.gif) left 15% no-repeat;
 }
 
-/* line 74, ../sass/lightbox.sass */
-#nextLink:hover, #nextLink:visited:hover {
+/* line 81, ../sass/lightbox.sass */
+.next:hover, .next:visited:hover {
   background: url(../images/nextlabel.gif) right 15% no-repeat;
 }
 
-/* line 77, ../sass/lightbox.sass */
-#imageDataContainer {
+/* line 84, ../sass/lightbox.sass */
+.dataContainer {
   font: 10px Verdana, Helvetica, sans-serif;
   background-color: white;
   margin: 0 auto;
@@ -123,42 +133,35 @@
   border-bottom-right-radius: 4px;
 }
 
-/* line 86, ../sass/lightbox.sass */
-#imageData {
+/* line 93, ../sass/lightbox.sass */
+.data {
   padding: 0 10px;
   color: #666666;
 }
-/* line 89, ../sass/lightbox.sass */
-#imageData #imageDetails {
+/* line 96, ../sass/lightbox.sass */
+.data .details {
   width: 70%;
   float: left;
   text-align: left;
 }
-/* line 93, ../sass/lightbox.sass */
-#imageData #caption {
+/* line 100, ../sass/lightbox.sass */
+.data .caption {
   font-weight: bold;
 }
-/* line 95, ../sass/lightbox.sass */
-#imageData #numberDisplay {
+/* line 102, ../sass/lightbox.sass */
+.data .number {
   display: block;
   clear: left;
   padding-bottom: 1em;
 }
-/* line 99, ../sass/lightbox.sass */
-#imageData #bottomNavClose {
+/* line 106, ../sass/lightbox.sass */
+.data .close {
   width: 66px;
   float: right;
   padding-bottom: 0.7em;
   outline: none;
 }
-
-/* line 105, ../sass/lightbox.sass */
-#overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 90;
-  width: 100%;
-  height: 500px;
-  background-color: black;
+/* line 111, ../sass/lightbox.sass */
+.data .close:hover {
+  cursor: pointer;
 }
