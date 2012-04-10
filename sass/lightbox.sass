@@ -18,6 +18,8 @@
   z-index: 100
   text-align: center
   line-height: 0
+  font-family: 'lucida grande', tahoma, verdana, arial, sans-serif
+  font-weight: normal
   img
     width: auto
     height: auto
@@ -27,10 +29,14 @@
 .outerContainer
   position: relative
   background-color: #fff
+  +pie-clearfix
   width: 250px
   height: 250px
   margin: 0 auto
   +border-top-radius($radius)
+
+.outerContainer.animating
+  +border-bottom-radius($radius)
 
 .container
   padding: 10px
@@ -74,19 +80,17 @@
   float: right
 
 .prev
-  &:hover, &:visited:hover
-    background: url(../images/prevlabel.gif) left 15% no-repeat
+  &:hover
+    background: url(../images/prev.png) left 48% no-repeat
 
 .next
-  &:hover, &:visited:hover
-    background: url(../images/nextlabel.gif) right 15% no-repeat
+  &:hover
+    background: url(../images/next.png) right 48% no-repeat
 
 .dataContainer
-  font: 10px Verdana, Helvetica, sans-serif
   background-color: #fff
   margin: 0 auto
-  line-height: 1.4em
-  overflow: auto
+  +pie-clearfix
   width: 100%
   +border-bottom-radius($radius)  
 
@@ -94,17 +98,21 @@
   padding: 0 10px
   color: #666
   .details
-    width: 70%
+    width: 85%
     float: left
     text-align: left
+    line-height: 1.1em
   .caption
+    font-size: 13px
     font-weight: bold
+    line-height: 1em
   .number
     display: block
     clear: left
     padding-bottom: 1.0em
+    font-size: 11px    
   .close
-    width: 66px
+    width: 35px
     float: right
     padding-bottom: 0.7em
     outline: none

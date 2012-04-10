@@ -16,21 +16,24 @@
   z-index: 100;
   text-align: center;
   line-height: 0;
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-weight: normal;
 }
-/* line 21, ../sass/lightbox.sass */
+/* line 23, ../sass/lightbox.sass */
 #lightbox img {
   width: auto;
   height: auto;
 }
-/* line 24, ../sass/lightbox.sass */
+/* line 26, ../sass/lightbox.sass */
 #lightbox a img {
   border: none;
 }
 
-/* line 27, ../sass/lightbox.sass */
+/* line 29, ../sass/lightbox.sass */
 .outerContainer {
   position: relative;
   background-color: white;
+  *zoom: 1;
   width: 250px;
   height: 250px;
   margin: 0 auto;
@@ -45,82 +48,15 @@
   -o-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
 }
-
-/* line 35, ../sass/lightbox.sass */
-.container {
-  padding: 10px;
+/* line 38, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.outerContainer:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /* line 38, ../sass/lightbox.sass */
-.loader {
-  position: absolute;
-  top: 40%;
-  left: 0%;
-  height: 25%;
-  width: 100%;
-  text-align: center;
-  line-height: 0;
-}
-
-/* line 47, ../sass/lightbox.sass */
-.nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 10;
-}
-
-/* line 55, ../sass/lightbox.sass */
-.container > .nav {
-  left: 0;
-}
-
-/* line 58, ../sass/lightbox.sass */
-.nav a {
-  outline: none;
-}
-
-/* line 61, ../sass/lightbox.sass */
-.prev, .next {
-  width: 49%;
-  height: 100%;
-  background-image: url("data:image/gif;base64,AAAA");
-  /* Trick IE into showing hover */
-  display: block;
-}
-
-/* line 68, ../sass/lightbox.sass */
-.prev {
-  left: 0;
-  float: left;
-}
-
-/* line 72, ../sass/lightbox.sass */
-.next {
-  right: 0;
-  float: right;
-}
-
-/* line 77, ../sass/lightbox.sass */
-.prev:hover, .prev:visited:hover {
-  background: url(../images/prevlabel.gif) left 15% no-repeat;
-}
-
-/* line 81, ../sass/lightbox.sass */
-.next:hover, .next:visited:hover {
-  background: url(../images/nextlabel.gif) right 15% no-repeat;
-}
-
-/* line 84, ../sass/lightbox.sass */
-.dataContainer {
-  font: 10px Verdana, Helvetica, sans-serif;
-  background-color: white;
-  margin: 0 auto;
-  line-height: 1.4em;
-  overflow: auto;
-  width: 100%;
+.outerContainer.animating {
   -moz-border-radius-bottomleft: 4px;
   -webkit-border-bottom-left-radius: 4px;
   -ms-border-bottom-left-radius: 4px;
@@ -133,35 +69,130 @@
   border-bottom-right-radius: 4px;
 }
 
-/* line 93, ../sass/lightbox.sass */
+/* line 41, ../sass/lightbox.sass */
+.container {
+  padding: 10px;
+}
+
+/* line 44, ../sass/lightbox.sass */
+.loader {
+  position: absolute;
+  top: 40%;
+  left: 0%;
+  height: 25%;
+  width: 100%;
+  text-align: center;
+  line-height: 0;
+}
+
+/* line 53, ../sass/lightbox.sass */
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+/* line 61, ../sass/lightbox.sass */
+.container > .nav {
+  left: 0;
+}
+
+/* line 64, ../sass/lightbox.sass */
+.nav a {
+  outline: none;
+}
+
+/* line 67, ../sass/lightbox.sass */
+.prev, .next {
+  width: 49%;
+  height: 100%;
+  background-image: url("data:image/gif;base64,AAAA");
+  /* Trick IE into showing hover */
+  display: block;
+}
+
+/* line 74, ../sass/lightbox.sass */
+.prev {
+  left: 0;
+  float: left;
+}
+
+/* line 78, ../sass/lightbox.sass */
+.next {
+  right: 0;
+  float: right;
+}
+
+/* line 83, ../sass/lightbox.sass */
+.prev:hover {
+  background: url(../images/prev.png) left 48% no-repeat;
+}
+
+/* line 87, ../sass/lightbox.sass */
+.next:hover {
+  background: url(../images/next.png) right 48% no-repeat;
+}
+
+/* line 90, ../sass/lightbox.sass */
+.dataContainer {
+  background-color: white;
+  margin: 0 auto;
+  *zoom: 1;
+  width: 100%;
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  -ms-border-bottom-left-radius: 4px;
+  -o-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  -ms-border-bottom-right-radius: 4px;
+  -o-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+/* line 38, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.dataContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 97, ../sass/lightbox.sass */
 .data {
   padding: 0 10px;
   color: #666666;
 }
-/* line 96, ../sass/lightbox.sass */
+/* line 100, ../sass/lightbox.sass */
 .data .details {
-  width: 70%;
+  width: 85%;
   float: left;
   text-align: left;
+  line-height: 1.1em;
 }
-/* line 100, ../sass/lightbox.sass */
+/* line 105, ../sass/lightbox.sass */
 .data .caption {
+  font-size: 13px;
   font-weight: bold;
+  line-height: 1em;
 }
-/* line 102, ../sass/lightbox.sass */
+/* line 109, ../sass/lightbox.sass */
 .data .number {
   display: block;
   clear: left;
   padding-bottom: 1em;
+  font-size: 11px;
 }
-/* line 106, ../sass/lightbox.sass */
+/* line 114, ../sass/lightbox.sass */
 .data .close {
-  width: 66px;
+  width: 35px;
   float: right;
   padding-bottom: 0.7em;
   outline: none;
 }
-/* line 111, ../sass/lightbox.sass */
+/* line 119, ../sass/lightbox.sass */
 .data .close:hover {
   cursor: pointer;
 }
