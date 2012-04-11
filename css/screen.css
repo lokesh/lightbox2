@@ -462,37 +462,41 @@ a:hover {
 .filelist .folder {
   color: #999999;
 }
+/* line 237, ../sass/screen.sass */
+.filelist .note {
+  color: #999999;
+}
 
-/* line 239, ../sass/screen.sass */
+/* line 241, ../sass/screen.sass */
 .changelog {
   margin-bottom: 0.5em;
 }
-/* line 241, ../sass/screen.sass */
+/* line 243, ../sass/screen.sass */
 .changelog li {
   list-style: none;
   padding: 0 0 0 14px;
   background: url(../images/bullet.gif) no-repeat 0 11px;
   color: #999999;
 }
-/* line 246, ../sass/screen.sass */
+/* line 248, ../sass/screen.sass */
 .changelog li .version {
   color: #88a616;
 }
-/* line 248, ../sass/screen.sass */
+/* line 250, ../sass/screen.sass */
 .changelog li .date {
   color: white;
 }
-/* line 250, ../sass/screen.sass */
+/* line 252, ../sass/screen.sass */
 .changelog .old {
   display: none;
 }
 
-/* line 253, ../sass/screen.sass */
+/* line 255, ../sass/screen.sass */
 .showOlderChanges {
   color: #999999;
 }
 
-/* line 257, ../sass/screen.sass */
+/* line 259, ../sass/screen.sass */
 .forums {
   float: left;
   margin: 0 40px 40px 0;
@@ -510,17 +514,17 @@ a:hover {
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-/* line 265, ../sass/screen.sass */
+/* line 267, ../sass/screen.sass */
 .forums:hover {
   border-color: #8ad459;
   background-color: #444444;
 }
-/* line 268, ../sass/screen.sass */
+/* line 270, ../sass/screen.sass */
 .forums .speech {
   float: left;
   margin-right: 20px;
 }
-/* line 271, ../sass/screen.sass */
+/* line 273, ../sass/screen.sass */
 .forums .link {
   float: left;
   font-size: 36px;
@@ -529,14 +533,14 @@ a:hover {
   color: white;
   line-height: 1.1em;
 }
-/* line 278, ../sass/screen.sass */
+/* line 280, ../sass/screen.sass */
 .forums .link .sub {
   color: #8ad459;
 }
 
 /* misc
  *----------------------------------------------- */
-/* line 284, ../sass/screen.sass */
+/* line 286, ../sass/screen.sass */
 p.lead {
   font-size: 26px;
   font-weight: 600;
@@ -544,7 +548,7 @@ p.lead {
   margin-bottom: 0;
 }
 
-/* line 291, ../sass/screen.sass */
+/* line 293, ../sass/screen.sass */
 hr {
   height: 6px;
   background: #3d3d33;
@@ -557,16 +561,16 @@ hr {
   clear: both;
 }
 
-/* line 298, ../sass/screen.sass */
+/* line 300, ../sass/screen.sass */
 section {
   padding: 40px 0;
 }
-/* line 300, ../sass/screen.sass */
+/* line 302, ../sass/screen.sass */
 section:first-child {
   border-top: none;
 }
 
-/* line 303, ../sass/screen.sass */
+/* line 305, ../sass/screen.sass */
 .imageRow {
   *zoom: 1;
   margin: 20px 0;
@@ -577,11 +581,11 @@ section:first-child {
   display: table;
   clear: both;
 }
-/* line 306, ../sass/screen.sass */
+/* line 308, ../sass/screen.sass */
 .imageRow .single {
   float: left;
 }
-/* line 308, ../sass/screen.sass */
+/* line 310, ../sass/screen.sass */
 .imageRow .single a {
   float: left;
   display: block;
@@ -603,7 +607,7 @@ section:first-child {
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-/* line 318, ../sass/screen.sass */
+/* line 320, ../sass/screen.sass */
 .imageRow .single a img {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -612,11 +616,11 @@ section:first-child {
   border-radius: 4px;
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
-/* line 321, ../sass/screen.sass */
+/* line 323, ../sass/screen.sass */
 .imageRow .single a:hover {
   background-color: #8ad459;
 }
-/* line 323, ../sass/screen.sass */
+/* line 325, ../sass/screen.sass */
 .imageRow .set {
   float: left;
   background: rgba(255, 255, 255, 0.1);
@@ -634,11 +638,11 @@ section:first-child {
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-/* line 329, ../sass/screen.sass */
+/* line 331, ../sass/screen.sass */
 .imageRow .set:hover {
   background: rgba(255, 255, 255, 0.2);
 }
-/* line 332, ../sass/screen.sass */
+/* line 334, ../sass/screen.sass */
 .imageRow .set .single a {
   background: none;
   -webkit-border-radius: 0;
@@ -651,14 +655,14 @@ section:first-child {
   box-shadow: none;
   margin-right: 0;
 }
-/* line 337, ../sass/screen.sass */
+/* line 339, ../sass/screen.sass */
 .imageRow .set .single a:hover {
   background-color: #8ad459;
   -webkit-box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
 }
-/* line 341, ../sass/screen.sass */
+/* line 343, ../sass/screen.sass */
 .imageRow .set .single.first a {
   -moz-border-radius-topleft: 4px;
   -webkit-border-top-left-radius: 4px;
@@ -671,7 +675,7 @@ section:first-child {
   -o-border-bottom-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
-/* line 344, ../sass/screen.sass */
+/* line 346, ../sass/screen.sass */
 .imageRow .set .single.last a {
   -moz-border-radius-topright: 4px;
   -webkit-border-top-right-radius: 4px;
@@ -686,141 +690,141 @@ section:first-child {
 }
 
 @media only screen and (max-width: 1000px) {
-  /* line 351, ../sass/screen.sass */
+  /* line 353, ../sass/screen.sass */
   body, input, textarea {
     font-size: 14px;
   }
 
-  /* line 354, ../sass/screen.sass */
+  /* line 356, ../sass/screen.sass */
   body {
     padding-top: 20px;
   }
 
-  /* line 357, ../sass/screen.sass */
+  /* line 359, ../sass/screen.sass */
   section {
     padding: 20px 0;
   }
 
-  /* line 360, ../sass/screen.sass */
+  /* line 362, ../sass/screen.sass */
   p.lead {
     font-size: 20px;
   }
 
-  /* line 363, ../sass/screen.sass */
+  /* line 365, ../sass/screen.sass */
   h1 {
     font-size: 30px;
   }
 
-  /* line 366, ../sass/screen.sass */
+  /* line 368, ../sass/screen.sass */
   h2 {
     font-size: 24px;
   }
 
-  /* line 369, ../sass/screen.sass */
+  /* line 371, ../sass/screen.sass */
   h3 {
     font-size: 16px;
   }
 
-  /* line 372, ../sass/screen.sass */
+  /* line 374, ../sass/screen.sass */
   code, kbd {
     font-size: 13px;
   }
 
-  /* line 375, ../sass/screen.sass */
+  /* line 377, ../sass/screen.sass */
   pre code {
     font-size: 12px;
   }
 
-  /* line 378, ../sass/screen.sass */
+  /* line 380, ../sass/screen.sass */
   pre {
     padding: 0.75em;
   }
 
-  /* line 381, ../sass/screen.sass */
+  /* line 383, ../sass/screen.sass */
   #sidebar {
     width: 160px;
     left: 20px;
   }
 
-  /* line 385, ../sass/screen.sass */
+  /* line 387, ../sass/screen.sass */
   #content {
     margin-left: 200px;
   }
 }
 @media only screen and (max-width: 700px) {
-  /* line 390, ../sass/screen.sass */
+  /* line 392, ../sass/screen.sass */
   body, input, textarea {
     font-size: 12px;
   }
 
-  /* line 393, ../sass/screen.sass */
+  /* line 395, ../sass/screen.sass */
   p.lead {
     font-size: 16px;
   }
 
-  /* line 396, ../sass/screen.sass */
+  /* line 398, ../sass/screen.sass */
   code, kbd {
     font-size: 12px;
   }
 
-  /* line 399, ../sass/screen.sass */
+  /* line 401, ../sass/screen.sass */
   pre code {
     font-size: 11px;
   }
 
-  /* line 402, ../sass/screen.sass */
+  /* line 404, ../sass/screen.sass */
   pre {
     padding: 0.5em;
   }
 
-  /* line 406, ../sass/screen.sass */
+  /* line 408, ../sass/screen.sass */
   #sidebar {
     width: 120px;
   }
-  /* line 408, ../sass/screen.sass */
+  /* line 410, ../sass/screen.sass */
   #sidebar h1 {
     font-size: 24px;
   }
-  /* line 410, ../sass/screen.sass */
+  /* line 412, ../sass/screen.sass */
   #sidebar .twitter {
     font-size: 14px;
   }
-  /* line 412, ../sass/screen.sass */
+  /* line 414, ../sass/screen.sass */
   #sidebar #nav {
     font-size: 10px;
   }
 
-  /* line 415, ../sass/screen.sass */
+  /* line 417, ../sass/screen.sass */
   h2 {
     font-size: 18px;
   }
 
-  /* line 418, ../sass/screen.sass */
+  /* line 420, ../sass/screen.sass */
   h3 {
     font-size: 14px;
   }
 
-  /* line 421, ../sass/screen.sass */
+  /* line 423, ../sass/screen.sass */
   #content {
     margin-left: 160px;
   }
 
-  /* line 424, ../sass/screen.sass */
+  /* line 426, ../sass/screen.sass */
   .download {
     text-align: center;
     width: 95%;
   }
-  /* line 427, ../sass/screen.sass */
+  /* line 429, ../sass/screen.sass */
   .download .box, .download .file {
     float: none;
   }
 
-  /* line 430, ../sass/screen.sass */
+  /* line 432, ../sass/screen.sass */
   .forums {
     text-align: center;
     width: 95%;
   }
-  /* line 433, ../sass/screen.sass */
+  /* line 435, ../sass/screen.sass */
   .forums .speech, .forums .link {
     float: none;
   }
