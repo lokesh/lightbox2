@@ -40,7 +40,6 @@ lightbox = new Lightbox options
 
 ###
 
-
 class LightboxOptions
   constructor: ->
     @fileLoadingImage = 'images/loading.gif'     
