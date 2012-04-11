@@ -684,3 +684,144 @@ section:first-child {
   -o-border-bottom-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
+
+@media only screen and (max-width: 1000px) {
+  /* line 351, ../sass/screen.sass */
+  body, input, textarea {
+    font-size: 14px;
+  }
+
+  /* line 354, ../sass/screen.sass */
+  body {
+    padding-top: 20px;
+  }
+
+  /* line 357, ../sass/screen.sass */
+  section {
+    padding: 20px 0;
+  }
+
+  /* line 360, ../sass/screen.sass */
+  p.lead {
+    font-size: 20px;
+  }
+
+  /* line 363, ../sass/screen.sass */
+  h1 {
+    font-size: 30px;
+  }
+
+  /* line 366, ../sass/screen.sass */
+  h2 {
+    font-size: 24px;
+  }
+
+  /* line 369, ../sass/screen.sass */
+  h3 {
+    font-size: 16px;
+  }
+
+  /* line 372, ../sass/screen.sass */
+  code, kbd {
+    font-size: 13px;
+  }
+
+  /* line 375, ../sass/screen.sass */
+  pre code {
+    font-size: 12px;
+  }
+
+  /* line 378, ../sass/screen.sass */
+  pre {
+    padding: 0.75em;
+  }
+
+  /* line 381, ../sass/screen.sass */
+  #sidebar {
+    width: 160px;
+    left: 20px;
+  }
+
+  /* line 385, ../sass/screen.sass */
+  #content {
+    margin-left: 200px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  /* line 390, ../sass/screen.sass */
+  body, input, textarea {
+    font-size: 12px;
+  }
+
+  /* line 393, ../sass/screen.sass */
+  p.lead {
+    font-size: 16px;
+  }
+
+  /* line 396, ../sass/screen.sass */
+  code, kbd {
+    font-size: 12px;
+  }
+
+  /* line 399, ../sass/screen.sass */
+  pre code {
+    font-size: 11px;
+  }
+
+  /* line 402, ../sass/screen.sass */
+  pre {
+    padding: 0.5em;
+  }
+
+  /* line 406, ../sass/screen.sass */
+  #sidebar {
+    width: 120px;
+  }
+  /* line 408, ../sass/screen.sass */
+  #sidebar h1 {
+    font-size: 24px;
+  }
+  /* line 410, ../sass/screen.sass */
+  #sidebar .twitter {
+    font-size: 14px;
+  }
+  /* line 412, ../sass/screen.sass */
+  #sidebar #nav {
+    font-size: 10px;
+  }
+
+  /* line 415, ../sass/screen.sass */
+  h2 {
+    font-size: 18px;
+  }
+
+  /* line 418, ../sass/screen.sass */
+  h3 {
+    font-size: 14px;
+  }
+
+  /* line 421, ../sass/screen.sass */
+  #content {
+    margin-left: 160px;
+  }
+
+  /* line 424, ../sass/screen.sass */
+  .download {
+    text-align: center;
+    width: 95%;
+  }
+  /* line 427, ../sass/screen.sass */
+  .download .box, .download .file {
+    float: none;
+  }
+
+  /* line 430, ../sass/screen.sass */
+  .forums {
+    text-align: center;
+    width: 95%;
+  }
+  /* line 433, ../sass/screen.sass */
+  .forums .speech, .forums .link {
+    float: none;
+  }
+}

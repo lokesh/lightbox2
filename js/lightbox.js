@@ -326,7 +326,7 @@ lightbox = new Lightbox options
           scale: '.9',
           opacity: 0,
           duration: 500,
-          easing: 'in-out'
+          easing: 'linear'
         }, function() {
           return $(this).hide();
         });

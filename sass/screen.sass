@@ -344,4 +344,95 @@ section
       a
         +border-right-radius($radius)
   
-        
+      
+// Drop comments below content
+@media only screen and (max-width: 1000px)
+
+  body, input, textarea
+    font-size: $fontSize - 2
+
+  body
+    padding-top: 20px
+    
+  section
+    padding: 20px 0
+
+  p.lead
+    font-size: $fontSize + 4
+    
+  h1
+    font-size: 30px
+
+  h2
+    font-size: 24px
+
+  h3
+    font-size: 16px
+  
+  code, kbd
+    font-size: 13px
+
+  pre code
+    font-size: 12px
+  
+  pre
+    padding: .75em
+    
+  #sidebar
+    width: $sidebarWidth - 40
+    left: 20px
+
+  #content
+    margin-left: $sidebarWidth+$gutter - 40
+
+
+@media only screen and (max-width: 700px)
+  body, input, textarea
+    font-size: $fontSize - 4
+
+  p.lead
+    font-size: $fontSize
+
+  code, kbd
+    font-size: 12px
+
+  pre code
+    font-size: 11px
+
+  pre
+    padding: .5em
+
+
+  #sidebar
+    width: $sidebarWidth - 80
+    h1
+      font-size: 24px
+    .twitter
+      font-size: 14px
+    #nav
+      font-size: 10px
+
+  h2
+    font-size: 18px
+
+  h3
+    font-size: 14px
+
+  #content
+    margin-left: $sidebarWidth+$gutter - 80
+  
+  .download
+    text-align: center
+    width: 95%
+    .box, .file
+      float: none
+      
+  .forums
+    text-align: center
+    width: 95%
+    .speech, .link
+      float: none
+      
+
+
+    
