@@ -166,8 +166,6 @@ class Lightbox
     $lightbox = $('#lightbox')
     $lightbox
       .css
-        opacity: 1
-        scale: 1
         top: top + 'px'
         left: left + 'px'
       .fadeIn( @options.fadeDuration)
@@ -226,15 +224,15 @@ class Lightbox
       $outerContainer.animate
         width: newWidth,
         height: newHeight
-      , @options.resizeDuration, 'easeInOutCubic'
+      , @options.resizeDuration, 'swing'
     else if newWidth != oldWidth
       $outerContainer.animate
         width: newWidth
-      , @options.resizeDuration, 'easeInOutCubic'
+      , @options.resizeDuration, 'swing'
     else if newHeight != oldHeight
       $outerContainer.animate
         height: newHeight
-      , @options.resizeDuration, 'easeInOutCubic'
+      , @options.resizeDuration, 'swing'
 
     # Wait for resize animation to finsh before showing the image
     setTimeout =>
@@ -339,18 +337,8 @@ class Lightbox
   # Closing time. :-(
   end: ->
     @disableKeyboardNav()
-    
-    if Modernizr.csstransforms && Modernizr.csstransitions
-      $('#lightbox').transition
-        scale: '.9', opacity: 0
-        duration: 500
-        easing: 'linear'
-        ->
-          $(this).hide()
-    else 
-      $('#lightbox').fadeOut 'fast'
-
-    $('#lightboxOverlay').fadeOut 'slow'
+    $('#lightbox').fadeOut @options.fadeDuration
+    $('#lightboxOverlay').fadeOut @options.fadeDuration
     $('select, object, embed').css visibility: "visible"
         
     

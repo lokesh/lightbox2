@@ -100,8 +100,6 @@
   	  <li>index.html</li>
       <li><span class="folder">js/</span>lightbox.js</li>	
       <li><span class="folder">js/</span>jquery-1.7.2.min.js</li>
-      <li><span class="folder">js/</span>jquery-ui-1.8.18.custom.min.js</li>
-      <li><span class="folder">js/</span>jquery.transit.min.js</li>	
       <li><span class="folder">css/</span>lightbox.css</li>	
       <li><span class="folder">images/</span>close.png</li>	
       <li><span class="folder">images/</span>loading.gif</li>	
@@ -144,10 +142,8 @@
 	<h2>How to use</h2>
 	<h3>Part 1 - Setup</h3>
 	<ol>
-		<li>Lightbox 2 uses jQuery, jQuery UI, and a plugin called jQuery Transit. Load these three files plus the Lightbox javascript in the proper order.
+		<li>Lightbox 2 uses the <a href="http://jquery.com/">jQuery</a> framework. Load jQuery and the Lightbox javascript files in the proper order.
 <pre><code>&lt;script src=&quot;js/jquery-1.7.2.min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;js/jquery-ui-1.8.18.custom.min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;js/jquery.transit.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;js/lightbox.js&quot;&gt;&lt;/script&gt;
 </code></pre>
 		</li>
@@ -178,9 +174,9 @@
 
 <section id="support">
 	<h2>Support</h2>
-	<p>For feature requests, personal support issues, and general Lightbox related discussion, post a message in the forums. I do not have time to personally respond to support emails, please use the forum. Thanks!
+	<p>For personal support issues and feature requests please post a message in the forums. I do not have time to personally respond to support emails, please use the forum. Thanks!
 	</p>
-	<p>To send me a non-support related note or a bug report, my address is lokesh.dhakar@[ google's email service ].com. If you are sending a bug report, please note the browser you were using, the version of Lightbox, and send a live link where I can view the issue.</p>
+	<p>For bug reports, send a note with the browser you are using and the version of Lightbox to lokesh.dhakar@[ google's email service ].com.</p>
 
   	<a href="http://lokeshdhakar.com/forums/" class="forums">
   	  <img src="images/speech-bubbles.png" alt="Speech bubbles" class="speech" />
@@ -218,7 +214,6 @@
 
 <script src="js/jquery-1.7.2.min.js"></script>
 <script src="js/jquery-ui-1.8.18.custom.min.js"></script>
-<script src="js/jquery.transit.min.js"></script>
 <script src="js/jquery.smooth-scroll.min.js"></script>
 <script src="js/lightbox.js"></script>
 
@@ -228,7 +223,7 @@
         speed: 1000,
         easing: 'easeInOutCubic'
       });
-      
+
       $('.showOlderChanges').on('click', function(e){
         $('.changelog .old').slideDown('slow');
         $(this).fadeOut();

@@ -178,8 +178,6 @@ lightbox = new Lightbox options
       left = $window.scrollLeft();
       $lightbox = $('#lightbox');
       $lightbox.css({
-        opacity: 1,
-        scale: 1,
         top: top + 'px',
         left: left + 'px'
       }).fadeIn(this.options.fadeDuration);
@@ -224,15 +222,15 @@ lightbox = new Lightbox options
         $outerContainer.animate({
           width: newWidth,
           height: newHeight
-        }, this.options.resizeDuration, 'easeInOutCubic');
+        }, this.options.resizeDuration, 'swing');
       } else if (newWidth !== oldWidth) {
         $outerContainer.animate({
           width: newWidth
-        }, this.options.resizeDuration, 'easeInOutCubic');
+        }, this.options.resizeDuration, 'swing');
       } else if (newHeight !== oldHeight) {
         $outerContainer.animate({
           height: newHeight
-        }, this.options.resizeDuration, 'easeInOutCubic');
+        }, this.options.resizeDuration, 'swing');
       }
       setTimeout(function() {
         $lightbox.find('.dataContainer').width(newWidth);
@@ -321,19 +319,8 @@ lightbox = new Lightbox options
 
     Lightbox.prototype.end = function() {
       this.disableKeyboardNav();
-      if (Modernizr.csstransforms && Modernizr.csstransitions) {
-        $('#lightbox').transition({
-          scale: '.9',
-          opacity: 0,
-          duration: 500,
-          easing: 'linear'
-        }, function() {
-          return $(this).hide();
-        });
-      } else {
-        $('#lightbox').fadeOut('fast');
-      }
-      $('#lightboxOverlay').fadeOut('slow');
+      $('#lightbox').fadeOut(this.options.fadeDuration);
+      $('#lightboxOverlay').fadeOut(this.options.fadeDuration);
       return $('select, object, embed').css({
         visibility: "visible"
       });
