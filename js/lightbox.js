@@ -63,7 +63,7 @@ lightbox = new Lightbox options
     function Lightbox(options) {
       this.options = options;
       this.album = [];
-      this.currentImageNumber = void 0;
+      this.currentImageIndex = void 0;
       this.init();
     }
 
@@ -122,12 +122,12 @@ lightbox = new Lightbox options
       }).append($('<img/>', {
         src: this.options.fileCloseImage
       }))))))).appendTo($('body'));
-      $('#lightboxOverlay').on('click', function(e) {
+      $('#lightboxOverlay').hide().on('click', function(e) {
         _this.end();
         return false;
       });
       $lightbox = $('#lightbox');
-      $lightbox.on('click', function(e) {
+      $lightbox.hide().on('click', function(e) {
         if ($(e.target).attr('id') === 'lightbox') _this.end();
         return false;
       });
@@ -136,11 +136,11 @@ lightbox = new Lightbox options
         return false;
       });
       $lightbox.find('.prev').on('click', function(e) {
-        _this.changeImage(_this.currentImageNumber - 1);
+        _this.changeImage(_this.currentImageIndex - 1);
         return false;
       });
       $lightbox.find('.next').on('click', function(e) {
-        _this.changeImage(_this.currentImageNumber + 1);
+        _this.changeImage(_this.currentImageIndex + 1);
         return false;
       });
       $lightbox.find('.loader, .close').on('click', function(e) {
@@ -177,16 +177,19 @@ lightbox = new Lightbox options
       top = $window.scrollTop() + $window.height() / 10;
       left = $window.scrollLeft();
       $lightbox = $('#lightbox');
-      $lightbox.fadeIn(this.options.fadeDuration).css({
+      $lightbox.css({
+        opacity: 1,
+        scale: 1,
         top: top + 'px',
         left: left + 'px'
-      });
+      }).fadeIn(this.options.fadeDuration);
       this.changeImage(imageNumber);
     };
 
     Lightbox.prototype.changeImage = function(imageNumber) {
       var $image, $lightbox, preloader,
         _this = this;
+      this.disableKeyboardNav();
       $lightbox = $('#lightbox');
       $image = $lightbox.find('.image');
       $('.loader').fadeIn('slow');
@@ -194,24 +197,29 @@ lightbox = new Lightbox options
       $lightbox.find('.outerContainer').addClass('animating');
       preloader = new Image;
       preloader.onload = function() {
-        $image.attr('src', _this.album[_this.currentImageNumber].link);
+        $image.attr('src', _this.album[_this.currentImageIndex].link);
         $image.width = preloader.width;
         $image.height = preloader.height;
         return _this.sizeContainer(preloader.width, preloader.height);
       };
       preloader.src = this.album[imageNumber].link;
-      this.currentImageNumber = imageNumber;
+      this.currentImageIndex = imageNumber;
     };
 
     Lightbox.prototype.sizeContainer = function(imageWidth, imageHeight) {
-      var $lightbox, $outerContainer, newHeight, newWidth, oldHeight, oldWidth,
+      var $container, $lightbox, $outerContainer, containerBottomPadding, containerLeftPadding, containerRightPadding, containerTopPadding, newHeight, newWidth, oldHeight, oldWidth,
         _this = this;
       $lightbox = $('#lightbox');
       $outerContainer = $lightbox.find('.outerContainer');
       oldWidth = $outerContainer.outerWidth();
       oldHeight = $outerContainer.outerHeight();
-      newWidth = imageWidth + 20;
-      newHeight = imageHeight + 20;
+      $container = $lightbox.find('.container');
+      containerTopPadding = parseInt($container.css('padding-top'), 10);
+      containerRightPadding = parseInt($container.css('padding-right'), 10);
+      containerBottomPadding = parseInt($container.css('padding-bottom'), 10);
+      containerLeftPadding = parseInt($container.css('padding-left'), 10);
+      newWidth = imageWidth + containerLeftPadding + containerRightPadding;
+      newHeight = imageHeight + containerTopPadding + containerBottomPadding;
       if (newWidth !== oldWidth && newHeight !== oldHeight) {
         $outerContainer.animate({
           width: newWidth,
@@ -249,8 +257,8 @@ lightbox = new Lightbox options
       var $lightbox;
       $lightbox = $('#lightbox');
       $lightbox.find('.nav').show();
-      if (this.currentImageNumber > 0) $lightbox.find('.prev').show();
-      if (this.currentImageNumber < this.album.length - 1) {
+      if (this.currentImageIndex > 0) $lightbox.find('.prev').show();
+      if (this.currentImageIndex < this.album.length - 1) {
         $lightbox.find('.next').show();
       }
     };
@@ -259,9 +267,9 @@ lightbox = new Lightbox options
       var $lightbox,
         _this = this;
       $lightbox = $('#lightbox');
-      $lightbox.find('.caption').html(this.album[this.currentImageNumber].title).fadeIn('fast');
+      $lightbox.find('.caption').html(this.album[this.currentImageIndex].title).fadeIn('fast');
       if (this.album.length > 1) {
-        $lightbox.find('.number').html(this.options.labelImage + ' ' + (this.currentImageNumber + 1) + ' ' + this.options.labelOf + '  ' + this.album.length).fadeIn('fast');
+        $lightbox.find('.number').html(this.options.labelImage + ' ' + (this.currentImageIndex + 1) + ' ' + this.options.labelOf + '  ' + this.album.length).fadeIn('fast');
       } else {
         $lightbox.find('.number').hide();
       }
@@ -273,22 +281,22 @@ lightbox = new Lightbox options
 
     Lightbox.prototype.preloadNeighboringImages = function() {
       var preloadNext, preloadPrev;
-      if (this.album.length > this.currentImageNumber + 1) {
+      if (this.album.length > this.currentImageIndex + 1) {
         preloadNext = new Image;
-        preloadNext.src = this.album[this.currentImageNumber + 1].link;
+        preloadNext.src = this.album[this.currentImageIndex + 1].link;
       }
-      if (this.currentImageNumber > 0) {
+      if (this.currentImageIndex > 0) {
         preloadPrev = new Image;
-        preloadPrev.src = this.album[this.currentImageNumber - 1].link;
+        preloadPrev.src = this.album[this.currentImageIndex - 1].link;
       }
     };
 
     Lightbox.prototype.enableKeyboardNav = function() {
-      $(document).on('keyup', $.proxy(this.keyboardAction, this));
+      $(document).on('keyup.keyboard', $.proxy(this.keyboardAction, this));
     };
 
     Lightbox.prototype.disableKeyboardNav = function() {
-      $(document).off('keyup', this.keyboardAction);
+      $(document).off('.keyboard');
     };
 
     Lightbox.prototype.keyboardAction = function(event) {
@@ -301,21 +309,30 @@ lightbox = new Lightbox options
       if (keycode === KEYCODE_ESC || key.match(/x|o|c/)) {
         this.end();
       } else if (key === 'p' || keycode === KEYCODE_LEFTARROW) {
-        if (this.currentImageNumber !== 0) {
-          this.disableKeyboardNav();
-          this.changeImage(this.currentImageNumber - 1);
+        if (this.currentImageIndex !== 0) {
+          this.changeImage(this.currentImageIndex - 1);
         }
       } else if (key === 'n' || keycode === KEYCODE_RIGHTARROW) {
-        if (this.currentImageNumber !== this.album.length - 1) {
-          this.disableKeyboardNav();
-          this.changeImage(this.currentImageNumber + 1);
+        if (this.currentImageIndex !== this.album.length - 1) {
+          this.changeImage(this.currentImageIndex + 1);
         }
       }
     };
 
     Lightbox.prototype.end = function() {
       this.disableKeyboardNav();
-      $('#lightbox').fadeOut('fast');
+      if (Modernizr.csstransforms && Modernizr.csstransitions) {
+        $('#lightbox').transition({
+          scale: '.9',
+          opacity: 0,
+          duration: 500,
+          easing: 'in-out'
+        }, function() {
+          return $(this).hide();
+        });
+      } else {
+        $('#lightbox').fadeOut('fast');
+      }
       $('#lightboxOverlay').fadeOut('slow');
       return $('select, object, embed').css({
         visibility: "visible"

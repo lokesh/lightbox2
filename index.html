@@ -15,13 +15,12 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="shortcut icon" type="image/ico" href="/images/favicon.gif" />	
+	<link rel="shortcut icon" type="image/ico" href="images/favicon.gif" />	
 	<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
 
-  <script src="js/modernizr-2.0.js"></script>
+  <script src="js/modernizr-2.5.3.min.js"></script>
 
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
   <link href='http://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans:400,700' rel='stylesheet' type='text/css'>
 
 </head>
@@ -34,10 +33,9 @@
 	
 	<ul id="nav">
 		<li><a href="#example" class="first">Example</a></li>
-		<li><a href="#how">How to Use</a></li>
 		<li><a href="#download">Download</a></li>
+		<li><a href="#how">How to Use</a></li>
 		<li><a href="#support">Support</a></li>
-		<li><a href="#contact">Contact</a></li>
 		<li><a href="#donate" class="last">Donate</a></li>
 	</ul>
 </div>
@@ -88,29 +86,87 @@
 
 <hr />
 
+<section id="download">
+  <h2>Download</h2>
+
+  <div class="row">
+    
+  	<a href="releases/lightbox2.5.zip" class="download">
+  	  <img src="images/box.png" alt="Box" class="box" />
+  	  <div class="file">
+  	    Lightbox <div class="version">v2.5</div>
+  	  </div>
+  	</a>
+
+  	<ul class="filelist">
+      <li class="header">Includes:</li>
+  	  <li>index.html</li>
+      <li><span class="folder">js/</span>lightbox.js</li>	
+      <li><span class="folder">js/</span>jquery-1.7.2.min.js</li>
+      <li><span class="folder">js/</span>jquery-ui-1.8.18.custom.min.js</li>
+      <li><span class="folder">js/</span>jquery.transit.min.js</li>	
+      <li><span class="folder">css/</span>lightbox.css</li>	
+      <li><span class="folder">images/</span>close.png</li>	
+      <li><span class="folder">images/</span>loading.gif</li>	
+      <li><span class="folder">images/</span>next.png</li>	
+      <li><span class="folder">images/</span>prev.png</li>	
+    </ul>
+  </div>
+
+  <p>Lightbox2 is open-source.<br /> Fork the code on <a href="https://github.com/lokesh/lightbox2">Github</a>.</p>
+
+  
+	
+	<h3>Changelog</h3>
+	<ul class="changelog">
+		<li><span class="version">v2.5 </span> - <span class="date">4/10/12</span> - Switch to jQuery. Code put in Github. Compiling with Coffeescript and SASS.</li>
+		<li class="old"><span class="version">v2.05 </span> - <span class="date">3/18/11</span> - Upgraded Prototype (now works in IE9) and Scriptaculous. Minor bug fixes.</li>
+		<li class="old"><span class="version">v2.04 </span> - <span class="date">3/9/08</span>
+			<ul>	
+				<li>NEW - Upgraded Prototype from v1.4 to v1.6.0.2
+				<li>NEW - Moved label text into configuration for easier localization</li>
+				<li>UPDATED - Code cleaned up. Respect for the global namespace and native javascript objects.</li>
+				<li>FIXED - Caption displays as "null" when viewing an uncaptioned image after viewing a captioned image.</li>
+				<li>FIXED - Clicking 'close' button shifts layout as link focus' dotted line appears.</li>
+			</ul>
+		</li>
+		<li class="old"><span class="version">v2.03.3 </span> - <span class="date">5/21/07 </span>- Support for horizontally scrolling pages. Added updateImageList method for ajax'y pages.</li>	
+		<li class="old"><span class="version">v2.03.2 </span> - <span class="date">4/30/07</span> - Fixed animated gif support in IE/Opera.</li>
+		<li class="old"><span class="version">v2.03.1 </span> - <span class="date">4/18/07</span> - Fixed embed hiding. Overlay opacity var added to config. Image sets w/Imagemaps fix. Clearfix removed.</li>
+		<li class="old"><span class="version">v2.03</span> - <span class="date">4/10/07 </span>- Improved keyboard navigation. Animation off toggle. Hides Flash movies under overlay. Imagemap support. Valid CSS.</li>
+		<li class="old"><span class="version">v2.02</span> - Fixed layout issues caused by multiline captions. Added keyboard navigation.</li>
+		<li class="old"><span class="version">v2.01</span> - Centering in IE6 (any DOCTYPE) fixed. Smoothed out resize transition.</li>
+	</ul>
+	<a href="#" class="showOlderChanges">Show older changes</a>
+</section>
+
+<hr />
+
+
 <section id="how">
 	<h2>How to use</h2>
 	<h3>Part 1 - Setup</h3>
 	<ol>
-		<li>Lightbox 2 uses jQuery and a bit of jQuery UI. You will need to include these three Javascript files in your header (in this order).
-<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;js/prototype.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;js/scriptaculous.js?load=effects,builder&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;js/lightbox.js&quot;&gt;&lt;/script&gt;
+		<li>Lightbox 2 uses jQuery, jQuery UI, and a plugin called jQuery Transit. Load these three files plus the Lightbox javascript in the proper order.
+<pre><code>&lt;script src=&quot;js/jquery-1.7.2.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/jquery-ui-1.8.18.custom.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/jquery.transit.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/lightbox.js&quot;&gt;&lt;/script&gt;
 </code></pre>
 		</li>
-		<li>Include the Lightbox CSS file (or append your active stylesheet with the Lightbox styles).
-<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;css/lightbox.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot; /&gt;
+		<li>Include the Lightbox CSS file.
+<pre><code>&lt;link href=&quot;css/lightbox.css&quot; rel=&quot;stylesheet&quot; /&gt;
 </code></pre>
 		</li>
-		<li>Check the CSS and make sure the referenced <code>prev.gif</code> and <code>next.gif</code> files are in the right location. Also, make sure the <code>loading.gif</code> and <code>close.gif</code> files as referenced near the top of the <code>lightbox.js</code> file are in the right location.</li>
+		<li>Check the CSS and make sure the referenced <code>prev.png</code> and <code>next.png</code> files are in the right location. Also, make sure the <code>loading.gif</code> and <code>close.png</code> files as referenced near the top of the <code>lightbox.js</code> file are in the right location.</li>
 	</ol>
 	<h3>Part 2 - Activate</h3>
 	<ol>
-		<li>Add a <code>rel="lightbox"</code> attribute to any link tag to activate the lightbox. For example:
+		<li>Add a <code>rel="lightbox"</code> attribute to any link tag to activate Lightbox.
 <pre><code>&lt;a href=&quot;images/image-1.jpg&quot; rel=&quot;lightbox&quot; title=&quot;my caption&quot;&gt;image #1&lt;/a&gt;
 </code></pre>
 		<em>Optional: </em>Use the <code>title</code> attribute if you want to show a caption.		</li>
-		<li>If you have a set of related images that you would like to group, follow step one but additionally include a group name between square brackets in the rel attribute. For example: 
+		<li>If you have a set of related images that you would like to group, follow step one but additionally include a group name between square brackets in the rel attribute. 
 <pre><code>&lt;a href=&quot;images/image-1.jpg&quot; rel=&quot;lightbox[roadtrip]&quot;&gt;image #1&lt;/a&gt;
 &lt;a href=&quot;images/image-2.jpg&quot; rel=&quot;lightbox[roadtrip]&quot;&gt;image #2&lt;/a&gt;
 &lt;a href=&quot;images/image-3.jpg&quot; rel=&quot;lightbox[roadtrip]&quot;&gt;image #3&lt;/a&gt;
@@ -120,79 +176,25 @@
 </section>
 
 
-<hr />
-
-
-<section id="download">
-  <h2>Download</h2>
-	<ul class="download">
-		<li><a href="releases/lightbox2.05.zip"><img src="images/download-icon.gif" width="22" height="22" alt="download Lightbox" /> <strong>Lightbox <em><small>v2.05</small></em></strong></a></li>
-	</ul>
-	
-	<h3>Changelog</h3>
-	<ul>
-		<li><strong>v2.05 </strong> - 3/18/11 - Upgraded Prototype (now works in IE9) and Scriptaculous. Minor bug fixes.</li>
-		<li><strong>v2.04 </strong> - 3/9/08
-			<ul>	
-				<li>NEW - Upgraded Prototype from v1.4 to v1.6.0.2
-				<li>NEW - Moved label text into configuration for easier localization</li>
-				<li>UPDATED - Code cleaned up. Respect for the global namespace and native javascript objects.</li>
-				<li>FIXED - Caption displays as "null" when viewing an uncaptioned image after viewing a captioned image.</li>
-				<li>FIXED - Clicking 'close' button shifts layout as link focus' dotted line appears.</li>
-			</ul>
-		</li>
-		<li><strong>v2.03.3 </strong> - 5/21/07 - Support for horizontally scrolling pages. Added updateImageList method for ajax'y pages.</li>	
-		<li><strong>v2.03.2 </strong> - 4/30/07 - Fixed animated gif support in IE/Opera.</li>
-		<li><strong>v2.03.1 </strong> - 4/18/07 - Fixed embed hiding. Overlay opacity var added to config. Image sets w/Imagemaps fix. Clearfix removed.</li>
-		<li><strong>v2.03</strong> - 4/10/07 - Improved keyboard navigation. Animation off toggle. Hides Flash movies under overlay. Imagemap support. Valid CSS.</li>
-		<li><strong>v2.02</strong> - Fixed layout issues caused by multiline captions. Added keyboard navigation.</li>
-		<li><strong>v2.01</strong> - Centering in IE6 (any DOCTYPE) fixed. Smoothed out resize transition.</li>
-	</ul>
-</section>
-
 
 <hr />
-
 
 <section id="support">
-  <h2>Support</h2>
-	<dl>
-		<dt>It doesn't work at all. The image opens up in a new page. What's wrong?</dt>
-		<dd>This is commonly caused by a conflict between scripts. Check your body tag and look for an onload attribute. Example:<br />
-			<code>&lt;body onload=&quot;MM_preloadImages(&lsquo;/images/menu_on.gif&rsquo;)&hellip;;&quot;&gt;</code><br />
-			A quick fix to this problem is to append the <code>initLightbox()</code> to the onload attribute as so:<br />
-			<code>&lt;body onload=&quot;MM_preloadImages(&lsquo;/images/menu_on.gif&rsquo;)&hellip;;initLightbox()&quot;&gt;</code><br /></dd>
-		<dt>It doesn't work if I click an image link before the page has finished loading.</dt>
-		<dd>The script is activated only after the page has finished loading.</dd>
-		<dt>The shadow overlay doesn't stretch to cover full browser window.</dt>
-		<dd>Remove the default margin and padding from the body tag. Add <code>body{ margin: 0; padding: 0; }</code> to your stylesheet.</dd>
-		<dt>Can I insert links in the caption?</dt>
-		<dd>Yes, but you need to <a href="http://centricle.com/tools/html-entities/">convert</a> quotes and greater and less than symbols into their html entity equivalents. For example:<br />
-		<code>&lt;a href="images/image-4.jpg" rel="lightbox" title="&amp;lt;a href=&amp;quot;link.html&amp;quot;&amp;gt;my link&amp;lt;/a&amp;gt;">Image&lt;/a&gt;</code></dd>
-		<dt>Can I display flash, video, or other content using the script?</dt>
-		<dd>Sorry, photos only. For other content, google for Lightbox modifications or try an alternative script such as Cody Lindley's <a href="http://jquery.com/demo/thickbox/">ThickBox</a>.</dd>
-		<dt>Can the script be called from an iframe?</dt>
-		<dd>If you're using iframes, try the <a href="http://www.dolem.com/lytebox/">Lytebox</a> modification which has better support.</dd>
-		<dt>Can I use the script in a commercial project?</dt>
-		<dd>Yes. It is licensed under the <a href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 License</a>. A <a href="#donate">donation</a> would be nice, hint hint.<br /><br />
-			As for proper attribution, all that is required is that you leave my name and link atop the lightbox javascript file. I do appreciate an html link, but it is not required.
-			</dd>
-	</dl>
-</section>
-
-
-<hr />
-
-
-<section id="contact">
-	<h2>Contact</h2>
-	<p>For troubleshooting, feature requests, and general help, post a message in the <a href="http://lokeshdhakar.com/forums/">Lightbox Forum</a>. Make sure to
-	include details on your browser, operating system, Lightbox version, and a link (or relevant code). 
-	I do not have time to personally respond to support emails, please use the forum.
+	<h2>Support</h2>
+	<p>For troubleshooting, feature requests, and general Lightbox related discussion, post a message in the forums.
+	  If it is a support question, include details on your browser, Lightbox version, and a link if possible. 
+	I do not have time to personally respond to support emails, please use the forum. Thanks!
 	</p>
-	<p>To send me a non-support related note, use lokesh.dhakar@[ google's email service ].com. Thanks.</p>
-	
-	<h3> <a href="http://lokeshdhakar.com/forums/">Lightbox Forum</a></h3>
+	<p>To send me a non-support related note, my address is lokesh.dhakar@[ google's email service ].com.</p>
+
+  	<a href="http://lokeshdhakar.com/forums/" class="forums">
+  	  <img src="images/speech-bubbles.png" alt="Speech bubbles" class="speech" />
+  	  <div class="link">
+  	    Lightbox<br />
+  	    <span class="sub">Forums</span>
+  	  </div>
+  	</a>	
+
 </section>
 
 
@@ -201,7 +203,7 @@
 
 <section id="donate">
 	<h2>Donate</h2>
-	<p>If you're feeling generous, consider a donation. Any and all PayPal donations are sincerely appreciated. Thanks.</p>
+	<p>Lightbox is completely free to use. If you're using Lightbox on a commercial project and feeling generous, consider a donation. All donations are sincerely appreciated. Thanks!</p>
     
     <form name="_xclick" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 		<fieldset>
@@ -212,24 +214,31 @@
 			<input type="hidden" name="currency_code" value="USD" />
 			<input type="hidden" name="tax" value="0" />
 			<input type="hidden" name="bn" value="PP-DonationsBF" />
-			<input type="image" src="images/donate-button.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" />
+			<input type="image" src="images/donate.png" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" />
 		</fieldset>
 	</form>
 </section>
 
 </div><!-- end #content -->
 
-<script src="js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/jquery-ui-1.8.18.custom.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/jquery.smooth-scroll.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/lightbox-jquery.js" type="text/javascript"></script>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/jquery-ui-1.8.18.custom.min.js"></script>
+<script src="js/jquery.transit.min.js"></script>
+<script src="js/jquery.smooth-scroll.min.js"></script>
+<script src="js/lightbox.js"></script>
 
-<script type="text/javascript">
+<script>
   jQuery(document).ready(function($) {
       $('a').smoothScroll({
         speed: 1000,
         easing: 'easeInOutCubic'
       });
+      
+      $('.showOlderChanges').on('click', function(e){
+        $('.changelog .old').slideDown('slow');
+        $(this).fadeOut();
+        e.preventDefault();
+      })
   });
 
   var _gaq = _gaq || [];
@@ -242,4 +251,5 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
-</script></html>
+</script>
+</html>

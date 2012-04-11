@@ -24,6 +24,8 @@
 #content
   margin: 0 $gutter $gutter $sidebarWidth+$gutter*2
 
+.row
+  +pie-clearfix
 
 /* Typography
  *-----------------------------------------------
@@ -96,7 +98,7 @@ pre
   color: $orange
   font: 14px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace
   line-height: 1.5
-  margin: $gutter/2 0 $gutter 0
+  margin: $gutter/2 0 $gutter/2 0
   overflow: auto
   padding: 1em
   +border-radius($radius)
@@ -123,8 +125,12 @@ a
   &:hover
     color: darken($linkColor, 20%)
     
+::-moz-selection,
+::selection
+  background: $orange
+  color: white
 
-
+    
 /* sidebar
  *-----------------------------------------------
 
@@ -173,7 +179,7 @@ a
     border-bottom: 1px solid rgba(0,0,0,0.4)
     +transition( all .2s ease-out)
     &:hover
-      text-shadow: 0 1px 0 rgba(0,0,0,0.8)
+      text-shadow: 0 1px 0 rgba(0,0,0,0.6)
       background-color: darken($headingColor, 30%)
   a.first
     +background( linear-gradient( rgba(110,110,110,1), rgba(80,80,80,1)))
@@ -193,38 +199,84 @@ a
 /* content
  *-----------------------------------------------
 
-#content ul
-  margin-left: 4px
+.download
+  float: left
+  margin: 0 $gutter $gutter 0
+  padding: 10px 20px 10px 10px
+  background-color: #333
+  border: 5px solid #333
+  +border-radius($radius)
+  +transition( all .2s ease-out)
+  &:hover
+    border-color: $linkColor
+    background-color: #444
+  .box
+    float: left
+  .file
+    float: left
+    font-size: 36px
+    font-family: $headingFontFamily
+    font-weight: 400
+    color: white
+    line-height: 1.1em
+    .version
+      font-size: 24px
+      color: $linkColor
+    
+
+.filelist
+  float: left
+  font-size: 12px
+  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace
+  line-height: 1.5em
+  .header
+    text-transform: uppercase
+    font-weight: bold
+  .folder
+    color: #999
+
+
+.changelog
+  margin-bottom: 0.5em
   li
     list-style: none
-    padding: 0 0 0 12px
-    background: url(../images/bullet.gif) no-repeat 0 6px
-  ul
-    margin-top: 0
-
-.download
-  background-color: #333
-  border: 1px solid #444
-  +border-radius($radius)
-  padding: 0.7em 1.5em
-  &:hover
-    background-color: #555
-    border: 1px solid #777
-
-#content ul.download li
-  padding: 0.3em 0
-  background-image: none
-
-.download
-  img
-    padding-right: 0.3em
-  li
-    strong
-      font-size: 2.25em
+    padding: 0 0 0 14px
+    background: url(../images/bullet.gif) no-repeat 0 11px
+    color: #999
+    .version
+      color: #88A616
+    .date
       color: #fff
-    em
-      font-style: normal
-      color: #D0EB6A
+  .old
+    display: none
+
+.showOlderChanges
+  color: #999
+
+
+.forums
+  float: left
+  margin: 0 $gutter $gutter 0
+  padding: 10px
+  background-color: #333
+  border: 5px solid #333
+  +border-radius($radius)
+  +transition( all .2s ease-out)
+  &:hover
+    border-color: $linkColor
+    background-color: #444
+  .speech
+    float: left
+    margin-right: 20px
+  .link
+    float: left
+    font-size: 36px
+    font-family: $headingFontFamily
+    font-weight: 400
+    color: white
+    line-height: 1.1em
+    .sub
+      color: $linkColor
 
 /* misc
  *-----------------------------------------------
@@ -241,6 +293,7 @@ hr
   background: #3d3d33
   border: none
   +border-radius($radius)
+  clear: both
 
 section
   padding: $gutter 0
@@ -259,19 +312,19 @@ section
       padding: 7px
       line-height: 1em
       +border-radius($radius)
-      +box-shadow( 0 -1px 0 0 rgba(255,255,255,0.2), 0 1px 4px 0 rgba(0,0,0,0.5))
+      +box-shadow( 0 1px 4px 0 rgba(0,0,0,0.5))
       margin-right: $gutter
       +transition( all .2s ease-out)
       img
         +border-radius($radius)
         border: 1px solid rgba(0,0,0,0.3)
       &:hover
-        background-color: darken($headingColor, 30%)
+        background-color: $linkColor
   .set
     float: left
     background: rgba(255,255,255,.1)
     +border-radius($radius)
-    +box-shadow( 0 -1px 0 0 rgba(255,255,255,0.2), 0 1px 4px 0 rgba(0,0,0,0.5))
+    +box-shadow( 0 1px 4px 0 rgba(0,0,0,0.5))
     +transition( all .2s ease-out)
     &:hover
       background: rgba(255,255,255,.2)
@@ -282,7 +335,7 @@ section
         +box-shadow(none)
         margin-right: 0
         &:hover
-          background-color: darken($headingColor, 30%)        
+          background-color: $linkColor       
           +box-shadow( 0 -1px 0 0 rgba(255,255,255,0.2), 0 1px 4px 0 rgba(0,0,0,0.5))
     .single.first
       a
