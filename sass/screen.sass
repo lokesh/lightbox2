@@ -182,18 +182,12 @@ a
       text-shadow: 0 1px 0 rgba(0,0,0,0.6)
       background-color: darken($headingColor, 30%)
   a.first
-    +background( linear-gradient( rgba(110,110,110,1), rgba(80,80,80,1)))
     border-bottom-color: rgba(0,0,0,0.5)
     +border-top-radius($radius)
     border-top-color: transparent
-    &:hover
-      +background( linear-gradient( darken($headingColor, 20%), darken($headingColor, 30%) ))
   a.last
-    +background( linear-gradient( rgba(80,80,80,1), rgba(50,50,50,1)))
     border-top-color: rgba(255,255,255,0.25)
     +border-bottom-radius($radius)
-    &:hover
-      +background( linear-gradient( darken($headingColor, 30%), darken($headingColor, 40%) ))
 
 
 /* content
@@ -280,6 +274,24 @@ a
     .sub
       color: $linkColor
 
+#elsewhere
+  .button
+    font-family: $headingFontFamily
+    font-weight: normal
+    font-size: 24px
+    display: block
+    float: left
+    margin: $gutter/2 $gutter/2 $gutter 0
+    padding: 10px 10px 10px 10px
+    background-color: #333
+    border: 5px solid #333
+    +border-radius($radius)
+    +transition( all .2s ease-out)
+    color: #fff
+    &:hover
+      background-color: #444
+      border-color: $linkColor
+
 /* misc
  *-----------------------------------------------
 
@@ -297,7 +309,7 @@ hr
   +border-radius($radius)
   clear: both
 
-section
+.section
   padding: $gutter 0
   &:first-child
     border-top: none
@@ -356,7 +368,7 @@ section
   body
     padding-top: 20px
     
-  section
+  .section
     padding: 20px 0
 
   p.lead

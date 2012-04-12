@@ -66,7 +66,7 @@ class Lightbox
   # On clicking these, start lightbox.
   enable: ->
     $('a[rel^=lightbox], area[rel^=lightbox]').on 'click', (e) =>
-      @start e.currentTarget
+      @start $(e.currentTarget)
       false
 
 
@@ -138,7 +138,7 @@ class Lightbox
     return
 
   # Show overlay and lightbox. If the image is part of a set, add siblings to album array.
-  start: (link) ->
+  start: ($link) ->
     $('select, object, embed').css visibility: "hidden"
     $('#lightboxOverlay')
       .width( $(document).width() )
@@ -148,14 +148,14 @@ class Lightbox
     @album = []
     imageNumber = 0
 
-    if link.rel == 'lightbox'
+    if $link.attr('rel') == 'lightbox'
       # If image is not part of a set
-      @album.push link: link.href, title: link.title
+      @album.push link: $link.attr('href'), title: $link.attr('title')
     else
       # Image is part of a set
-      for a, i in $( link.tagName+'[rel="' + link.rel + '"]')
-        @album.push link: a.href, title: a.title
-        if a.href == link.href
+      for a, i in $( $link.prop("tagName") + '[rel="' + $link.attr('rel') + '"]')
+        @album.push link: $(a).attr('href'), title: $(a).attr('title')
+        if $(a).attr('href') == $link.attr('href')
           imageNumber = i
 
     # Position lightbox 

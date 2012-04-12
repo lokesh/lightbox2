@@ -75,7 +75,7 @@ lightbox = new Lightbox options
     Lightbox.prototype.enable = function() {
       var _this = this;
       return $('a[rel^=lightbox], area[rel^=lightbox]').on('click', function(e) {
-        _this.start(e.currentTarget);
+        _this.start($(e.currentTarget));
         return false;
       });
     };
@@ -149,7 +149,7 @@ lightbox = new Lightbox options
       });
     };
 
-    Lightbox.prototype.start = function(link) {
+    Lightbox.prototype.start = function($link) {
       var $lightbox, $window, a, i, imageNumber, left, top, _len, _ref;
       $('select, object, embed').css({
         visibility: "hidden"
@@ -157,20 +157,20 @@ lightbox = new Lightbox options
       $('#lightboxOverlay').width($(document).width()).height($(document).height()).fadeIn(this.options.fadeDuration);
       this.album = [];
       imageNumber = 0;
-      if (link.rel === 'lightbox') {
+      if ($link.attr('rel') === 'lightbox') {
         this.album.push({
-          link: link.href,
-          title: link.title
+          link: $link.attr('href'),
+          title: $link.attr('title')
         });
       } else {
-        _ref = $(link.tagName + '[rel="' + link.rel + '"]');
+        _ref = $($link.prop("tagName") + '[rel="' + $link.attr('rel') + '"]');
         for (i = 0, _len = _ref.length; i < _len; i++) {
           a = _ref[i];
           this.album.push({
-            link: a.href,
-            title: a.title
+            link: $(a).attr('href'),
+            title: $(a).attr('title')
           });
-          if (a.href === link.href) imageNumber = i;
+          if ($(a).attr('href') === $link.attr('href')) imageNumber = i;
         }
       }
       $window = $(window);
