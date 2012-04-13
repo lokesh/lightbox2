@@ -1,0 +1,830 @@
+/*	Lightbox v2 Project page styles	
+ *	Author: Lokesh Dhakar http://www.lokeshdhakar.com
+ *	Created: a long time ago (2006 I think)
+ *	Table of Contents:
+ *		layout
+ *		typography
+ *    content */
+/* line 17, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 20, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+}
+
+/* line 22, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 24, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 26, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 28, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 101, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 30, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 114, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* layout
+ *----------------------------------------------- */
+/* line 18, ../sass/screen.sass */
+#sidebar {
+  position: fixed;
+  top: 40px;
+  left: 40px;
+  width: 200px;
+}
+
+/* line 24, ../sass/screen.sass */
+#content {
+  margin: 0 40px 40px 280px;
+}
+
+/* line 27, ../sass/screen.sass */
+.row {
+  *zoom: 1;
+}
+/* line 38, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Typography
+ *----------------------------------------------- */
+/* line 33, ../sass/screen.sass */
+body {
+  background: #222222 url(../images/bg-checker.png);
+}
+
+/* line 36, ../sass/screen.sass */
+body, input, textarea {
+  color: white;
+  text-shadow: 0 -1px 0 black;
+  font-size: 16px;
+  line-height: 1.625em;
+  font-family: "Open Sans", "lucida grande", tahoma, sans-serif;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 45, ../sass/screen.sass */
+#lightbox {
+  text-shadow: none;
+}
+
+/* line 48, ../sass/screen.sass */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Fredoka One", "lucida grande", tahoma, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 1.625em;
+  margin: 0;
+  color: #d0eb6a;
+}
+
+/* line 56, ../sass/screen.sass */
+h1 {
+  font-size: 40px;
+  line-height: 1.2em;
+}
+
+/* line 60, ../sass/screen.sass */
+h2 {
+  font-size: 34px;
+  line-height: 1.45em;
+  margin-bottom: 0.2em;
+}
+
+/* line 65, ../sass/screen.sass */
+h3 {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #88a616;
+}
+
+/* line 71, ../sass/screen.sass */
+h4 {
+  font-size: 16px;
+}
+
+/* Text elements */
+/* line 77, ../sass/screen.sass */
+p {
+  margin: 0 0 1.25em 0;
+  line-height: 1.625em;
+}
+
+/* line 81, ../sass/screen.sass */
+ul, ol {
+  margin: 0 0 1.25em 0;
+}
+
+/* line 84, ../sass/screen.sass */
+dt {
+  font-weight: bold;
+}
+
+/* line 87, ../sass/screen.sass */
+dd {
+  margin-bottom: 1.625em;
+}
+
+/* line 90, ../sass/screen.sass */
+strong {
+  font-weight: bold;
+}
+
+/* line 93, ../sass/screen.sass */
+i {
+  font-style: italic;
+}
+
+/* line 96, ../sass/screen.sass */
+pre {
+  background: rgba(0, 0, 0, 0.4);
+  color: #e7931a;
+  font: 14px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  line-height: 1.5;
+  margin: 20px 0 20px 0;
+  overflow: auto;
+  padding: 1em;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1), inset 0 2px 6px 2px black;
+  -moz-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1), inset 0 2px 6px 2px black;
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1), inset 0 2px 6px 2px black;
+}
+
+/* line 107, ../sass/screen.sass */
+code, kbd {
+  font: 14px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  background: rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1), inset 0 2px 6px 2px black;
+  -moz-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1), inset 0 2px 6px 2px black;
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1), inset 0 2px 6px 2px black;
+  padding: 5px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  color: #e7931a;
+}
+
+/* line 115, ../sass/screen.sass */
+pre code {
+  font-size: 13px;
+  background: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Links */
+/* line 122, ../sass/screen.sass */
+a {
+  color: #8ad459;
+  text-decoration: none;
+}
+/* line 125, ../sass/screen.sass */
+a:hover {
+  color: #589e29;
+}
+
+/* line 128, ../sass/screen.sass */
+::-moz-selection,
+::selection {
+  background: #e7931a;
+  color: white;
+}
+
+/* sidebar
+ *----------------------------------------------- */
+/* line 137, ../sass/screen.sass */
+#sidebar {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+  opacity: 0.6;
+  -webkit-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+/* line 140, ../sass/screen.sass */
+#sidebar:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+/* line 142, ../sass/screen.sass */
+#sidebar a {
+  color: white;
+}
+/* line 144, ../sass/screen.sass */
+#sidebar .logo {
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+/* line 146, ../sass/screen.sass */
+#sidebar .logo em {
+  color: #8ad459;
+}
+/* line 148, ../sass/screen.sass */
+#sidebar .logo:hover {
+  text-shadow: 0 0 20px #d0eb6a, 0 0 50px #d0eb6a;
+}
+/* line 150, ../sass/screen.sass */
+#sidebar .author {
+  font-weight: 800;
+  line-height: 1.4em;
+}
+/* line 154, ../sass/screen.sass */
+#sidebar .author a:hover {
+  text-shadow: 0 0 10px white;
+}
+/* line 156, ../sass/screen.sass */
+#sidebar .author .twitter {
+  font-size: 14px;
+}
+/* line 158, ../sass/screen.sass */
+#sidebar .author .twitter a {
+  color: #4d9ed8;
+}
+/* line 160, ../sass/screen.sass */
+#sidebar .author .twitter em {
+  color: #4d9ed8;
+}
+
+/* line 163, ../sass/screen.sass */
+#nav {
+  list-style: none;
+  margin: 1.5em 0 1em 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: "Fredoka One", "lucida grande", tahoma, sans-serif;
+}
+/* line 170, ../sass/screen.sass */
+#nav li {
+  padding: 0;
+  margin: 0;
+}
+/* line 173, ../sass/screen.sass */
+#nav a {
+  display: block;
+  height: 2em;
+  padding: 0.6em 0.2em 0.3em 20px;
+  background: #505050;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+/* line 181, ../sass/screen.sass */
+#nav a:hover {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+  background-color: #88a616;
+}
+/* line 184, ../sass/screen.sass */
+#nav a.first {
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  -ms-border-top-left-radius: 4px;
+  -o-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  -ms-border-top-right-radius: 4px;
+  -o-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  border-top-color: transparent;
+}
+/* line 188, ../sass/screen.sass */
+#nav a.last {
+  border-top-color: rgba(255, 255, 255, 0.25);
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  -ms-border-bottom-left-radius: 4px;
+  -o-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  -ms-border-bottom-right-radius: 4px;
+  -o-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+/* content
+ *----------------------------------------------- */
+/* line 196, ../sass/screen.sass */
+.download {
+  float: left;
+  margin: 0 40px 40px 0;
+  padding: 10px 20px 10px 10px;
+  background-color: #333333;
+  border: 5px solid #333333;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+/* line 204, ../sass/screen.sass */
+.download:hover {
+  border-color: #8ad459;
+  background-color: #444444;
+}
+/* line 207, ../sass/screen.sass */
+.download .box {
+  float: left;
+}
+/* line 209, ../sass/screen.sass */
+.download .file {
+  float: left;
+  font-size: 36px;
+  font-family: "Fredoka One", "lucida grande", tahoma, sans-serif;
+  font-weight: 400;
+  color: white;
+  line-height: 1.1em;
+}
+/* line 216, ../sass/screen.sass */
+.download .file .version {
+  font-size: 24px;
+  color: #8ad459;
+}
+
+/* line 221, ../sass/screen.sass */
+.filelist {
+  float: left;
+  font-size: 12px;
+  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  line-height: 1.5em;
+}
+/* line 226, ../sass/screen.sass */
+.filelist .header {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+/* line 229, ../sass/screen.sass */
+.filelist .folder {
+  color: #999999;
+}
+/* line 231, ../sass/screen.sass */
+.filelist .note {
+  color: #999999;
+}
+
+/* line 235, ../sass/screen.sass */
+.changelog {
+  margin-bottom: 0.5em;
+}
+/* line 237, ../sass/screen.sass */
+.changelog li {
+  list-style: none;
+  padding: 0 0 0 14px;
+  background: url(../images/bullet.gif) no-repeat 0 11px;
+  color: #999999;
+}
+/* line 242, ../sass/screen.sass */
+.changelog li .version {
+  color: #88a616;
+}
+/* line 244, ../sass/screen.sass */
+.changelog li .date {
+  color: white;
+}
+/* line 246, ../sass/screen.sass */
+.changelog .old {
+  display: none;
+}
+
+/* line 249, ../sass/screen.sass */
+.showOlderChanges {
+  color: #999999;
+}
+
+/* line 253, ../sass/screen.sass */
+.forums {
+  float: left;
+  margin: 0 40px 40px 0;
+  padding: 10px;
+  background-color: #333333;
+  border: 5px solid #333333;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+/* line 261, ../sass/screen.sass */
+.forums:hover {
+  border-color: #8ad459;
+  background-color: #444444;
+}
+/* line 264, ../sass/screen.sass */
+.forums .speech {
+  float: left;
+  margin-right: 20px;
+}
+/* line 267, ../sass/screen.sass */
+.forums .link {
+  float: left;
+  font-size: 36px;
+  font-family: "Fredoka One", "lucida grande", tahoma, sans-serif;
+  font-weight: 400;
+  color: white;
+  line-height: 1.1em;
+}
+/* line 274, ../sass/screen.sass */
+.forums .link .sub {
+  color: #8ad459;
+}
+
+/* line 278, ../sass/screen.sass */
+#elsewhere .button {
+  font-family: "Fredoka One", "lucida grande", tahoma, sans-serif;
+  font-weight: normal;
+  font-size: 24px;
+  display: block;
+  float: left;
+  margin: 20px 20px 40px 0;
+  padding: 10px 10px 10px 10px;
+  background-color: #333333;
+  border: 5px solid #333333;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  color: white;
+}
+/* line 291, ../sass/screen.sass */
+#elsewhere .button:hover {
+  background-color: #444444;
+  border-color: #8ad459;
+}
+
+/* misc
+ *----------------------------------------------- */
+/* line 298, ../sass/screen.sass */
+p.lead {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.4em;
+  margin-bottom: 0;
+}
+
+/* line 305, ../sass/screen.sass */
+hr {
+  height: 6px;
+  background: #3d3d33;
+  border: none;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  clear: both;
+}
+
+/* line 312, ../sass/screen.sass */
+.section {
+  padding: 40px 0;
+}
+/* line 314, ../sass/screen.sass */
+.section:first-child {
+  border-top: none;
+}
+
+/* line 317, ../sass/screen.sass */
+.imageRow {
+  *zoom: 1;
+  margin: 20px 0;
+}
+/* line 38, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.imageRow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 320, ../sass/screen.sass */
+.imageRow .single {
+  float: left;
+}
+/* line 322, ../sass/screen.sass */
+.imageRow .single a {
+  float: left;
+  display: block;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 7px;
+  line-height: 1em;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  margin-right: 40px;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+/* line 332, ../sass/screen.sass */
+.imageRow .single a img {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+/* line 335, ../sass/screen.sass */
+.imageRow .single a:hover {
+  background-color: #8ad459;
+}
+/* line 337, ../sass/screen.sass */
+.imageRow .set {
+  float: left;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+/* line 343, ../sass/screen.sass */
+.imageRow .set:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+/* line 346, ../sass/screen.sass */
+.imageRow .set .single a {
+  background: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  margin-right: 0;
+}
+/* line 351, ../sass/screen.sass */
+.imageRow .set .single a:hover {
+  background-color: #8ad459;
+  -webkit-box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+}
+/* line 355, ../sass/screen.sass */
+.imageRow .set .single.first a {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  -ms-border-top-left-radius: 4px;
+  -o-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  -ms-border-bottom-left-radius: 4px;
+  -o-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+/* line 358, ../sass/screen.sass */
+.imageRow .set .single.last a {
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  -ms-border-top-right-radius: 4px;
+  -o-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  -ms-border-bottom-right-radius: 4px;
+  -o-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+@media only screen and (max-width: 1000px) {
+  /* line 365, ../sass/screen.sass */
+  body, input, textarea {
+    font-size: 14px;
+  }
+
+  /* line 368, ../sass/screen.sass */
+  body {
+    padding-top: 20px;
+  }
+
+  /* line 371, ../sass/screen.sass */
+  .section {
+    padding: 20px 0;
+  }
+
+  /* line 374, ../sass/screen.sass */
+  p.lead {
+    font-size: 20px;
+  }
+
+  /* line 377, ../sass/screen.sass */
+  h1 {
+    font-size: 30px;
+  }
+
+  /* line 380, ../sass/screen.sass */
+  h2 {
+    font-size: 24px;
+  }
+
+  /* line 383, ../sass/screen.sass */
+  h3 {
+    font-size: 16px;
+  }
+
+  /* line 386, ../sass/screen.sass */
+  code, kbd {
+    font-size: 13px;
+  }
+
+  /* line 389, ../sass/screen.sass */
+  pre code {
+    font-size: 12px;
+  }
+
+  /* line 392, ../sass/screen.sass */
+  pre {
+    padding: 0.75em;
+  }
+
+  /* line 395, ../sass/screen.sass */
+  #sidebar {
+    width: 160px;
+    left: 20px;
+  }
+
+  /* line 399, ../sass/screen.sass */
+  #content {
+    margin-left: 200px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  /* line 404, ../sass/screen.sass */
+  body, input, textarea {
+    font-size: 12px;
+  }
+
+  /* line 407, ../sass/screen.sass */
+  p.lead {
+    font-size: 16px;
+  }
+
+  /* line 410, ../sass/screen.sass */
+  code, kbd {
+    font-size: 12px;
+  }
+
+  /* line 413, ../sass/screen.sass */
+  pre code {
+    font-size: 11px;
+  }
+
+  /* line 416, ../sass/screen.sass */
+  pre {
+    padding: 0.5em;
+  }
+
+  /* line 420, ../sass/screen.sass */
+  #sidebar {
+    width: 120px;
+  }
+  /* line 422, ../sass/screen.sass */
+  #sidebar h1 {
+    font-size: 24px;
+  }
+  /* line 424, ../sass/screen.sass */
+  #sidebar .twitter {
+    font-size: 14px;
+  }
+  /* line 426, ../sass/screen.sass */
+  #sidebar #nav {
+    font-size: 10px;
+  }
+
+  /* line 429, ../sass/screen.sass */
+  h2 {
+    font-size: 18px;
+  }
+
+  /* line 432, ../sass/screen.sass */
+  h3 {
+    font-size: 14px;
+  }
+
+  /* line 435, ../sass/screen.sass */
+  #content {
+    margin-left: 160px;
+  }
+
+  /* line 438, ../sass/screen.sass */
+  .download {
+    text-align: center;
+    width: 95%;
+  }
+  /* line 441, ../sass/screen.sass */
+  .download .box, .download .file {
+    float: none;
+  }
+
+  /* line 444, ../sass/screen.sass */
+  .forums {
+    text-align: center;
+    width: 95%;
+  }
+  /* line 447, ../sass/screen.sass */
+  .forums .speech, .forums .link {
+    float: none;
+  }
+}

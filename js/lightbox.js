@@ -88,37 +88,37 @@ lightbox = new Lightbox options
       }).after($('<div/>', {
         id: 'lightbox'
       }).append($('<div/>', {
-        "class": 'outerContainer'
+        "class": 'lb-outerContainer'
       }).append($('<div/>', {
-        "class": 'container'
+        "class": 'lb-container'
       }).append($('<img/>', {
-        "class": 'image'
+        "class": 'lb-image'
       }), $('<div/>', {
-        "class": 'nav'
+        "class": 'lb-nav'
       }).append($('<a/>', {
-        "class": 'prev'
+        "class": 'lb-prev'
       }), $('<a/>', {
-        "class": 'next'
+        "class": 'lb-next'
       })), $('<div/>', {
-        "class": 'loader'
+        "class": 'lb-loader'
       }).append($('<a/>', {
-        "class": 'cancel'
+        "class": 'lb-cancel'
       }).append($('<img/>', {
         src: this.options.fileLoadingImage
       }))))), $('<div/>', {
-        "class": 'dataContainer'
+        "class": 'lb-dataContainer'
       }).append($('<div/>', {
-        "class": 'data'
+        "class": 'lb-data'
       }).append($('<div/>', {
-        "class": 'details'
+        "class": 'lb-details'
       }).append($('<span/>', {
-        "class": 'caption'
+        "class": 'lb-caption'
       }), $('<span/>', {
-        "class": 'number'
+        "class": 'lb-number'
       })), $('<div/>', {
-        "class": 'closeContainer'
+        "class": 'lb-closeContainer'
       }).append($('<a/>', {
-        "class": 'close'
+        "class": 'lb-close'
       }).append($('<img/>', {
         src: this.options.fileCloseImage
       }))))))).appendTo($('body'));
@@ -131,19 +131,19 @@ lightbox = new Lightbox options
         if ($(e.target).attr('id') === 'lightbox') _this.end();
         return false;
       });
-      $lightbox.find('.outerContainer').on('click', function(e) {
+      $lightbox.find('.lb-outerContainer').on('click', function(e) {
         if ($(e.target).attr('id') === 'lightbox') _this.end();
         return false;
       });
-      $lightbox.find('.prev').on('click', function(e) {
+      $lightbox.find('.lb-prev').on('click', function(e) {
         _this.changeImage(_this.currentImageIndex - 1);
         return false;
       });
-      $lightbox.find('.next').on('click', function(e) {
+      $lightbox.find('.lb-next').on('click', function(e) {
         _this.changeImage(_this.currentImageIndex + 1);
         return false;
       });
-      $lightbox.find('.loader, .close').on('click', function(e) {
+      $lightbox.find('.lb-loader, .lb-close').on('click', function(e) {
         _this.end();
         return false;
       });
@@ -151,6 +151,7 @@ lightbox = new Lightbox options
 
     Lightbox.prototype.start = function($link) {
       var $lightbox, $window, a, i, imageNumber, left, top, _len, _ref;
+      $(window).on("resize", this.sizeOverlay);
       $('select, object, embed').css({
         visibility: "hidden"
       });
@@ -189,10 +190,12 @@ lightbox = new Lightbox options
         _this = this;
       this.disableKeyboardNav();
       $lightbox = $('#lightbox');
-      $image = $lightbox.find('.image');
+      $image = $lightbox.find('.lb-image');
+      this.sizeOverlay();
+      $('#lightboxOverlay').fadeIn(this.options.fadeDuration);
       $('.loader').fadeIn('slow');
-      $lightbox.find('.image, .nav, .prev, .next, .dataContainer, .numbers').hide();
-      $lightbox.find('.outerContainer').addClass('animating');
+      $lightbox.find('.lb-image, .lb-nav, .lb-prev, .lb-next, .lb-dataContainer, .lb-numbers, .lb-caption').hide();
+      $lightbox.find('.lb-outerContainer').addClass('animating');
       preloader = new Image;
       preloader.onload = function() {
         $image.attr('src', _this.album[_this.currentImageIndex].link);
@@ -204,14 +207,18 @@ lightbox = new Lightbox options
       this.currentImageIndex = imageNumber;
     };
 
+    Lightbox.prototype.sizeOverlay = function() {
+      return $('#lightboxOverlay').width($(document).width()).height($(document).height());
+    };
+
     Lightbox.prototype.sizeContainer = function(imageWidth, imageHeight) {
       var $container, $lightbox, $outerContainer, containerBottomPadding, containerLeftPadding, containerRightPadding, containerTopPadding, newHeight, newWidth, oldHeight, oldWidth,
         _this = this;
       $lightbox = $('#lightbox');
-      $outerContainer = $lightbox.find('.outerContainer');
+      $outerContainer = $lightbox.find('.lb-outerContainer');
       oldWidth = $outerContainer.outerWidth();
       oldHeight = $outerContainer.outerHeight();
-      $container = $lightbox.find('.container');
+      $container = $lightbox.find('.lb-container');
       containerTopPadding = parseInt($container.css('padding-top'), 10);
       containerRightPadding = parseInt($container.css('padding-right'), 10);
       containerBottomPadding = parseInt($container.css('padding-bottom'), 10);
@@ -233,9 +240,9 @@ lightbox = new Lightbox options
         }, this.options.resizeDuration, 'swing');
       }
       setTimeout(function() {
-        $lightbox.find('.dataContainer').width(newWidth);
-        $lightbox.find('.prevLink').height(newHeight);
-        $lightbox.find('.nextLink').height(newHeight);
+        $lightbox.find('.lb-dataContainer').width(newWidth);
+        $lightbox.find('.lb-prevLink').height(newHeight);
+        $lightbox.find('.lb-nextLink').height(newHeight);
         _this.showImage();
       }, this.options.resizeDuration);
     };
@@ -243,8 +250,8 @@ lightbox = new Lightbox options
     Lightbox.prototype.showImage = function() {
       var $lightbox;
       $lightbox = $('#lightbox');
-      $lightbox.find('.loader').hide();
-      $lightbox.find('.image').fadeIn('slow');
+      $lightbox.find('.lb-loader').hide();
+      $lightbox.find('.lb-image').fadeIn('slow');
       this.updateNav();
       this.updateDetails();
       this.preloadNeighboringImages();
@@ -254,10 +261,10 @@ lightbox = new Lightbox options
     Lightbox.prototype.updateNav = function() {
       var $lightbox;
       $lightbox = $('#lightbox');
-      $lightbox.find('.nav').show();
-      if (this.currentImageIndex > 0) $lightbox.find('.prev').show();
+      $lightbox.find('.lb-nav').show();
+      if (this.currentImageIndex > 0) $lightbox.find('.lb-prev').show();
       if (this.currentImageIndex < this.album.length - 1) {
-        $lightbox.find('.next').show();
+        $lightbox.find('.lb-next').show();
       }
     };
 
@@ -265,15 +272,19 @@ lightbox = new Lightbox options
       var $lightbox,
         _this = this;
       $lightbox = $('#lightbox');
-      $lightbox.find('.caption').html(this.album[this.currentImageIndex].title).fadeIn('fast');
-      if (this.album.length > 1) {
-        $lightbox.find('.number').html(this.options.labelImage + ' ' + (this.currentImageIndex + 1) + ' ' + this.options.labelOf + '  ' + this.album.length).fadeIn('fast');
-      } else {
-        $lightbox.find('.number').hide();
+      console.log(this.album[this.currentImageIndex].title !== "");
+      console.log(typeof this.album[this.currentImageIndex].title !== 'undefined');
+      if (typeof this.album[this.currentImageIndex].title !== 'undefined' && this.album[this.currentImageIndex].title !== "") {
+        $lightbox.find('.lb-caption').html(this.album[this.currentImageIndex].title).fadeIn('fast');
       }
-      $lightbox.find('.outerContainer').removeClass('animating');
-      $lightbox.find('.dataContainer').slideDown(this.resizeDuration, function() {
-        return $('#lightboxOverlay').width($(document).width()).height($(document).height());
+      if (this.album.length > 1) {
+        $lightbox.find('.lb-number').html(this.options.labelImage + ' ' + (this.currentImageIndex + 1) + ' ' + this.options.labelOf + '  ' + this.album.length).fadeIn('fast');
+      } else {
+        $lightbox.find('.lb-number').hide();
+      }
+      $lightbox.find('.lb-outerContainer').removeClass('animating');
+      $lightbox.find('.lb-dataContainer').fadeIn(this.resizeDuration, function() {
+        return _this.sizeOverlay();
       });
     };
 
@@ -319,6 +330,7 @@ lightbox = new Lightbox options
 
     Lightbox.prototype.end = function() {
       this.disableKeyboardNav();
+      $(window).off("resize", this.sizeOverlay);
       $('#lightbox').fadeOut(this.options.fadeDuration);
       $('#lightboxOverlay').fadeOut(this.options.fadeDuration);
       return $('select, object, embed').css({

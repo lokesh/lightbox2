@@ -70,33 +70,33 @@ class Lightbox
       false
 
 
-  # Insert html at the bottom of the page that is used for the overlay to darken the page
-  # and also for showing the image and it's details. Attach event handlers to the new DOM elements as well.
+  # Build html for the lightbox and the overlay.
+  # Attach event handlers to the new DOM elements. click click click
   build: ->
     $("<div>", id: 'lightboxOverlay' ).after(
       $('<div/>', id: 'lightbox').append(
-        $('<div/>', class: 'outerContainer').append(
-          $('<div/>', class: 'container').append(
-            $('<img/>', class: 'image'),
-            $('<div/>',class: 'nav').append(
-              $('<a/>', class: 'prev'),
-              $('<a/>', class: 'next')
+        $('<div/>', class: 'lb-outerContainer').append(
+          $('<div/>', class: 'lb-container').append(
+            $('<img/>', class: 'lb-image'),
+            $('<div/>',class: 'lb-nav').append(
+              $('<a/>', class: 'lb-prev'),
+              $('<a/>', class: 'lb-next')
             ),
-            $('<div/>', class: 'loader').append(
-              $('<a/>', class: 'cancel').append(
+            $('<div/>', class: 'lb-loader').append(
+              $('<a/>', class: 'lb-cancel').append(
                 $('<img/>', src: @options.fileLoadingImage)
               )
             )
           )
         ),
-        $('<div/>', class: 'dataContainer').append(
-          $('<div/>', class: 'data').append(          
-            $('<div/>', class: 'details').append(
-              $('<span/>', class: 'caption'),
-              $('<span/>', class: 'number')
+        $('<div/>', class: 'lb-dataContainer').append(
+          $('<div/>', class: 'lb-data').append(          
+            $('<div/>', class: 'lb-details').append(
+              $('<span/>', class: 'lb-caption'),
+              $('<span/>', class: 'lb-number')
             ),
-            $('<div/>', class: 'closeContainer').append(
-              $('<a/>', class: 'close').append(
+            $('<div/>', class: 'lb-closeContainer').append(
+              $('<a/>', class: 'lb-close').append(
                 $('<img/>', src: @options.fileCloseImage)
               )
             )
@@ -105,6 +105,7 @@ class Lightbox
       )
     ).appendTo $('body')
 
+    # Attach event handlers to the newly minted DOM elements
     $('#lightboxOverlay')
       .hide()
       .on 'click', (e) =>
@@ -119,19 +120,19 @@ class Lightbox
         if $(e.target).attr('id') == 'lightbox' then @end()
         return false
       
-    $lightbox.find('.outerContainer').on 'click', (e) =>
+    $lightbox.find('.lb-outerContainer').on 'click', (e) =>
       if $(e.target).attr('id') == 'lightbox' then @end()
       return false
       
-    $lightbox.find('.prev').on 'click', (e) =>
+    $lightbox.find('.lb-prev').on 'click', (e) =>
       @changeImage @currentImageIndex - 1
       return false
       
-    $lightbox.find('.next').on 'click', (e) =>
+    $lightbox.find('.lb-next').on 'click', (e) =>
       @changeImage @currentImageIndex + 1
       return false
 
-    $lightbox.find('.loader, .close').on 'click', (e) =>
+    $lightbox.find('.lb-loader, .lb-close').on 'click', (e) =>
       @end()
       return false
 
@@ -139,9 +140,11 @@ class Lightbox
 
   # Show overlay and lightbox. If the image is part of a set, add siblings to album array.
   start: ($link) ->
+    $(window).on "resize", @sizeOverlay
+
     $('select, object, embed').css visibility: "hidden"
     $('#lightboxOverlay')
-      .width( $(document).width() )
+      .width( $(document).width())
       .height( $(document).height() )
       .fadeIn( @options.fadeDuration )
 
@@ -177,14 +180,16 @@ class Lightbox
   changeImage: (imageNumber) ->
 
     @disableKeyboardNav()    
-
     $lightbox = $('#lightbox')
-    $image = $lightbox.find('.image')
+    $image = $lightbox.find('.lb-image')
 
+    @sizeOverlay()
+    $('#lightboxOverlay').fadeIn( @options.fadeDuration )
+    
     $('.loader').fadeIn 'slow'
-    $lightbox.find('.image, .nav, .prev, .next, .dataContainer, .numbers').hide()
+    $lightbox.find('.lb-image, .lb-nav, .lb-prev, .lb-next, .lb-dataContainer, .lb-numbers, .lb-caption').hide()
 
-    $lightbox.find('.outerContainer').addClass 'animating'
+    $lightbox.find('.lb-outerContainer').addClass 'animating'
     
     # When image to show is preloaded, we send the width and height to sizeContainer()
     preloader = new Image
@@ -199,17 +204,24 @@ class Lightbox
     preloader.src = @album[imageNumber].link
     @currentImageIndex = imageNumber
     return  
+
+
+  # Stretch overlay to fit the document
+  sizeOverlay: () ->
+    $('#lightboxOverlay')
+      .width( $(document).width())
+      .height( $(document).height() )
   
   
   # Animate the size of the lightbox to fit the image we are showing
   sizeContainer: (imageWidth, imageHeight) ->
     $lightbox = $('#lightbox')
 
-    $outerContainer = $lightbox.find('.outerContainer')
+    $outerContainer = $lightbox.find('.lb-outerContainer')
     oldWidth = $outerContainer.outerWidth()
     oldHeight = $outerContainer.outerHeight()
 
-    $container = $lightbox.find('.container')
+    $container = $lightbox.find('.lb-container')
     containerTopPadding = parseInt $container.css('padding-top'), 10
     containerRightPadding = parseInt $container.css('padding-right'), 10
     containerBottomPadding = parseInt $container.css('padding-bottom'), 10
@@ -235,9 +247,9 @@ class Lightbox
 
     # Wait for resize animation to finsh before showing the image
     setTimeout =>
-      $lightbox.find('.dataContainer').width(newWidth)
-      $lightbox.find('.prevLink').height(newHeight)
-      $lightbox.find('.nextLink').height(newHeight)
+      $lightbox.find('.lb-dataContainer').width(newWidth)
+      $lightbox.find('.lb-prevLink').height(newHeight)
+      $lightbox.find('.lb-nextLink').height(newHeight)
       @showImage()
       return
     , @options.resizeDuration 
@@ -248,8 +260,8 @@ class Lightbox
   # Display the image and it's details and begin preload neighboring images.
   showImage: ->
     $lightbox = $('#lightbox')
-    $lightbox.find('.loader').hide()
-    $lightbox.find('.image').fadeIn 'slow'
+    $lightbox.find('.lb-loader').hide()
+    $lightbox.find('.lb-image').fadeIn 'slow'
 
     @updateNav()
     @updateDetails()
@@ -262,33 +274,36 @@ class Lightbox
   # Display previous and next navigation if appropriate.
   updateNav: ->
     $lightbox = $('#lightbox')
-    $lightbox.find('.nav').show()
-    if @currentImageIndex > 0 then $lightbox.find('.prev').show();
-    if @currentImageIndex < @album.length - 1 then $lightbox.find('.next').show();
+    $lightbox.find('.lb-nav').show()
+    if @currentImageIndex > 0 then $lightbox.find('.lb-prev').show();
+    if @currentImageIndex < @album.length - 1 then $lightbox.find('.lb-next').show();
     return
   
   
   # Display caption, image number, and closing button. 
   updateDetails: ->
     $lightbox = $('#lightbox')
-    $lightbox.find('.caption')
-      .html( @album[@currentImageIndex].title)
-      .fadeIn('fast')
+
+    console.log @album[@currentImageIndex].title != ""
+    console.log typeof @album[@currentImageIndex].title != 'undefined'
+    
+    if typeof @album[@currentImageIndex].title != 'undefined' && @album[@currentImageIndex].title != ""
+      $lightbox.find('.lb-caption')
+        .html( @album[@currentImageIndex].title)
+        .fadeIn('fast')
 
     if @album.length > 1
-      $lightbox.find('.number')
+      $lightbox.find('.lb-number')
         .html( @options.labelImage + ' ' + (@currentImageIndex + 1) + ' ' + @options.labelOf + '  ' + @album.length)
         .fadeIn('fast')
     else 
-      $lightbox.find('.number').hide()
+      $lightbox.find('.lb-number').hide()
 
-    $lightbox.find('.outerContainer').removeClass 'animating'
+    $lightbox.find('.lb-outerContainer').removeClass 'animating'
     
-    $lightbox.find('.dataContainer')
-      .slideDown @resizeDuration, () =>
-        $('#lightboxOverlay')
-          .width( $(document).width() )
-          .height( $(document).height() )
+    $lightbox.find('.lb-dataContainer')
+      .fadeIn @resizeDuration, () =>
+        @sizeOverlay()
     return
     
     
@@ -336,6 +351,7 @@ class Lightbox
   # Closing time. :-(
   end: ->
     @disableKeyboardNav()
+    $(window).off "resize", @sizeOverlay
     $('#lightbox').fadeOut @options.fadeDuration
     $('#lightboxOverlay').fadeOut @options.fadeDuration
     $('select, object, embed').css visibility: "visible"

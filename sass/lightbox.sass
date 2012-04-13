@@ -7,16 +7,16 @@
   position: absolute
   top: 0
   left: 0
-  z-index: 90
-  background-color: #222
-  background-color: rgba(0,0,0,0.8)
+  z-index: 9999
+  background-color: #000
+  +opacity(0.85)
   display: none
 
 #lightbox
   position: absolute
   left: 0
   width: 100%
-  z-index: 100
+  z-index: 10000
   text-align: center
   line-height: 0
   font-family: 'lucida grande', tahoma, verdana, arial, sans-serif
@@ -27,22 +27,19 @@
   a img
     border: none
 
-.outerContainer
+.lb-outerContainer
   position: relative
   background-color: #fff
   +pie-clearfix
   width: 250px
   height: 250px
   margin: 0 auto
-  +border-top-radius($radius)
+  +border-radius($radius)
 
-.outerContainer.animating
-  +border-bottom-radius($radius)
-
-.container
+.lb-container
   padding: 10px
 
-.loader
+.lb-loader
   position: absolute
   top: 40%
   left: 0%
@@ -51,7 +48,7 @@
   text-align: center
   line-height: 0
 
-.nav
+.lb-nav
   position: absolute
   top: 0
   left: 0
@@ -59,60 +56,60 @@
   width: 100%
   z-index: 10
 
-.container > .nav
+.lb-container > .nav
   left: 0
 
-.nav a
+.lb-nav a
   outline: none
 
-.prev, .next
+.lb-prev, .lb-next
   width: 49%
   height: 100%
   background-image: url("data:image/gif;base64,AAAA")
   /* Trick IE into showing hover
   display: block
 
-.prev
+.lb-prev
   left: 0
   float: left
 
-.next
+.lb-next
   right: 0
   float: right
 
-.prev
+.lb-prev
   &:hover
     background: url(../images/prev.png) left 48% no-repeat
 
-.next
+.lb-next
   &:hover
     background: url(../images/next.png) right 48% no-repeat
 
-.dataContainer
-  background-color: #fff
+.lb-dataContainer
   margin: 0 auto
+  padding-top: 5px
   +pie-clearfix
   width: 100%
   +border-bottom-radius($radius)  
 
-.data
+.lb-data
   padding: 0 10px
-  color: #666
-  .details
+  color: #bbb
+  .lb-details
     width: 85%
     float: left
     text-align: left
     line-height: 1.1em
-  .caption
+  .lb-caption
     font-size: 13px
     font-weight: bold
     line-height: 1em
-  .number
+  .lb-number
     display: block
     clear: left
     padding-bottom: 1.0em
     font-size: 11px    
-  .close
+  .lb-close
     width: 35px
     float: right
     padding-bottom: 0.7em
