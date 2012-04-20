@@ -1,5 +1,4 @@
 ## -- Rsync Deploy config -- ##
-# Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
 ssh_user       = "lokesh@lokesh.webfactional.com"
 ssh_port       = "22"
 document_root  = "~/webapps/lokeshdhakar/projects/lightbox2/"
@@ -11,14 +10,6 @@ sass_dir         = "sass"      # sass file directory
 css_dir          = "css"       # compiled css directory
 coffeescript_dir = "coffee"    # coffeescript file directory
 js_dir           = "js"        # compiled js directory
-#blog_index_dir  = 'source'    # directory for your blog's index page (if you put your index in source/blog/index.html, set this to 'source/blog')
-#deploy_dir      = "_deploy"   # deploy directory (for Github pages deployment)
-#stash_dir       = "_stash"    # directory to stash posts for speedy generation
-#posts_dir       = "_posts"    # directory for blog files
-#themes_dir      = ".themes"   # directory for blog files
-#new_post_ext    = "markdown"  # default new post file extension when using the new_post task
-#new_page_ext    = "markdown"  # default new page file extension when using the new_page task
-#server_port     = "4000"      # port for preview server eg. localhost:4000
 
 desc "Watches for SASS and Coffeescript file changes to compile."
 task :watch do
