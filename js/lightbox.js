@@ -41,7 +41,9 @@ lightbox = new Lightbox options
 */
 
 (function() {
-  var Lightbox, LightboxOptions;
+  var $, Lightbox, LightboxOptions;
+
+  $ = jQuery;
 
   LightboxOptions = (function() {
 

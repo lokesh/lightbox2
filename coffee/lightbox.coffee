@@ -40,6 +40,9 @@ lightbox = new Lightbox options
 
 ###
 
+# Use local alias
+$ = jQuery
+
 class LightboxOptions
   constructor: ->
     @fileLoadingImage = 'images/loading.gif'     
