@@ -76,7 +76,7 @@ lightbox = new Lightbox options
 
     Lightbox.prototype.enable = function() {
       var _this = this;
-      return $('a[rel^=lightbox], area[rel^=lightbox]').on('click', function(e) {
+      return $('body').on('click', 'a[rel^=lightbox], area[rel^=lightbox]', function(e) {
         _this.start($(e.currentTarget));
         return false;
       });
