@@ -357,8 +357,7 @@ hr
     .single.last
       a
         +border-right-radius($radius)
-  
-      
+       
 // Drop comments below content
 @media only screen and (max-width: 1000px)
 
@@ -403,6 +402,7 @@ hr
 @media only screen and (max-width: 700px)
   body, input, textarea
     font-size: $fontSize - 4
+    padding-top: 0
 
   p.lead
     font-size: $fontSize
@@ -418,13 +418,25 @@ hr
 
 
   #sidebar
-    width: $sidebarWidth - 80
+    +opacity(1)
+    position: static
+    text-align: center
+    width: auto
+    margin: 20px 20px 0 20px
+    border-bottom: 6px solid #3d3d33
     h1
       font-size: 24px
     .twitter
       font-size: 14px
     #nav
-      font-size: 10px
+      font-size: 12px
+      li
+        display: inline-block
+        a
+          padding: 10px
+          height: auto
+          margin: 0 5px 10px 5px
+          +border-radius(6px)
 
   h2
     font-size: 18px
@@ -433,17 +445,23 @@ hr
     font-size: 14px
 
   #content
-    margin-left: $sidebarWidth+$gutter - 80
-  
+    margin: 10px 20px 20px 20px
+
   .download
     text-align: center
     width: 95%
+    margin-right: 0
+    padding-right: 0
+    padding-left: 0
     .box, .file
       float: none
       
   .forums
     text-align: center
     width: 95%
+    margin-right: 0
+    padding-right: 0
+    padding-left: 0
     .speech, .link
       float: none
       

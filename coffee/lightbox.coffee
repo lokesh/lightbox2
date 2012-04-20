@@ -1,5 +1,5 @@
 ###
-Lightbox v2.5
+Lightbox v2.51
 by Lokesh Dhakar - http://www.lokeshdhakar.com
 
 For more information, visit:
@@ -279,13 +279,9 @@ class Lightbox
     if @currentImageIndex < @album.length - 1 then $lightbox.find('.lb-next').show();
     return
   
-  
   # Display caption, image number, and closing button. 
   updateDetails: ->
     $lightbox = $('#lightbox')
-
-    console.log @album[@currentImageIndex].title != ""
-    console.log typeof @album[@currentImageIndex].title != 'undefined'
     
     if typeof @album[@currentImageIndex].title != 'undefined' && @album[@currentImageIndex].title != ""
       $lightbox.find('.lb-caption')

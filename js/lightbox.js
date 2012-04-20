@@ -1,6 +1,6 @@
 
 /*
-Lightbox v2.5
+Lightbox v2.51
 by Lokesh Dhakar - http://www.lokeshdhakar.com
 
 For more information, visit:
@@ -272,8 +272,6 @@ lightbox = new Lightbox options
       var $lightbox,
         _this = this;
       $lightbox = $('#lightbox');
-      console.log(this.album[this.currentImageIndex].title !== "");
-      console.log(typeof this.album[this.currentImageIndex].title !== 'undefined');
       if (typeof this.album[this.currentImageIndex].title !== 'undefined' && this.album[this.currentImageIndex].title !== "") {
         $lightbox.find('.lb-caption').html(this.album[this.currentImageIndex].title).fadeIn('fast');
       }

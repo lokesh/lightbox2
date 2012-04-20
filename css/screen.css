@@ -689,71 +689,72 @@ hr {
 }
 
 @media only screen and (max-width: 1000px) {
-  /* line 365, ../sass/screen.sass */
+  /* line 364, ../sass/screen.sass */
   body, input, textarea {
     font-size: 14px;
   }
 
-  /* line 368, ../sass/screen.sass */
+  /* line 367, ../sass/screen.sass */
   body {
     padding-top: 20px;
   }
 
-  /* line 371, ../sass/screen.sass */
+  /* line 370, ../sass/screen.sass */
   .section {
     padding: 20px 0;
   }
 
-  /* line 374, ../sass/screen.sass */
+  /* line 373, ../sass/screen.sass */
   p.lead {
     font-size: 20px;
   }
 
-  /* line 377, ../sass/screen.sass */
+  /* line 376, ../sass/screen.sass */
   h1 {
     font-size: 30px;
   }
 
-  /* line 380, ../sass/screen.sass */
+  /* line 379, ../sass/screen.sass */
   h2 {
     font-size: 24px;
   }
 
-  /* line 383, ../sass/screen.sass */
+  /* line 382, ../sass/screen.sass */
   h3 {
     font-size: 16px;
   }
 
-  /* line 386, ../sass/screen.sass */
+  /* line 385, ../sass/screen.sass */
   code, kbd {
     font-size: 13px;
   }
 
-  /* line 389, ../sass/screen.sass */
+  /* line 388, ../sass/screen.sass */
   pre code {
     font-size: 12px;
   }
 
-  /* line 392, ../sass/screen.sass */
+  /* line 391, ../sass/screen.sass */
   pre {
     padding: 0.75em;
   }
 
-  /* line 395, ../sass/screen.sass */
+  /* line 394, ../sass/screen.sass */
   #sidebar {
     width: 160px;
     left: 20px;
   }
 
-  /* line 399, ../sass/screen.sass */
+  /* line 398, ../sass/screen.sass */
   #content {
     margin-left: 200px;
   }
 }
 @media only screen and (max-width: 700px) {
-  /* line 404, ../sass/screen.sass */
+  /* line 403, ../sass/screen.sass */
   body, input, textarea {
     font-size: 12px;
+    padding-top: 0;
   }
 
   /* line 407, ../sass/screen.sass */
@@ -778,52 +779,79 @@ hr {
 
   /* line 420, ../sass/screen.sass */
   #sidebar {
-    width: 120px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+    position: static;
+    text-align: center;
+    width: auto;
+    margin: 20px 20px 0 20px;
+    border-bottom: 6px solid #3d3d33;
   }
-  /* line 422, ../sass/screen.sass */
+  /* line 427, ../sass/screen.sass */
   #sidebar h1 {
     font-size: 24px;
   }
-  /* line 424, ../sass/screen.sass */
+  /* line 429, ../sass/screen.sass */
   #sidebar .twitter {
     font-size: 14px;
   }
-  /* line 426, ../sass/screen.sass */
+  /* line 431, ../sass/screen.sass */
   #sidebar #nav {
-    font-size: 10px;
+    font-size: 12px;
+  }
+  /* line 433, ../sass/screen.sass */
+  #sidebar #nav li {
+    display: inline-block;
+  }
+  /* line 435, ../sass/screen.sass */
+  #sidebar #nav li a {
+    padding: 10px;
+    height: auto;
+    margin: 0 5px 10px 5px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
   }
 
-  /* line 429, ../sass/screen.sass */
+  /* line 441, ../sass/screen.sass */
   h2 {
     font-size: 18px;
   }
 
-  /* line 432, ../sass/screen.sass */
+  /* line 444, ../sass/screen.sass */
   h3 {
     font-size: 14px;
   }
 
-  /* line 435, ../sass/screen.sass */
+  /* line 447, ../sass/screen.sass */
   #content {
-    margin-left: 160px;
+    margin: 10px 20px 20px 20px;
   }
 
-  /* line 438, ../sass/screen.sass */
+  /* line 450, ../sass/screen.sass */
   .download {
     text-align: center;
     width: 95%;
+    margin-right: 0;
+    padding-right: 0;
+    padding-left: 0;
   }
-  /* line 441, ../sass/screen.sass */
+  /* line 456, ../sass/screen.sass */
   .download .box, .download .file {
     float: none;
   }
 
-  /* line 444, ../sass/screen.sass */
+  /* line 459, ../sass/screen.sass */
   .forums {
     text-align: center;
     width: 95%;
+    margin-right: 0;
+    padding-right: 0;
+    padding-left: 0;
   }
-  /* line 447, ../sass/screen.sass */
+  /* line 465, ../sass/screen.sass */
   .forums .speech, .forums .link {
     float: none;
   }
