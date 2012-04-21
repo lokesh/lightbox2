@@ -200,7 +200,7 @@ lightbox = new Lightbox options
       $lightbox.find('.lb-outerContainer').addClass('animating');
       preloader = new Image;
       preloader.onload = function() {
-        $image.attr('src', _this.album[_this.currentImageIndex].link);
+        $image.attr('src', _this.album[imageNumber].link);
         $image.width = preloader.width;
         $image.height = preloader.height;
         return _this.sizeContainer(preloader.width, preloader.height);

@@ -181,7 +181,7 @@ class Lightbox
 
   # Hide most UI elements in preparation for the animated resizing of the lightbox.
   changeImage: (imageNumber) ->
-
+    
     @disableKeyboardNav()    
     $lightbox = $('#lightbox')
     $image = $lightbox.find('.lb-image')
@@ -197,7 +197,7 @@ class Lightbox
     # When image to show is preloaded, we send the width and height to sizeContainer()
     preloader = new Image
     preloader.onload = () =>
-      $image.attr 'src', @album[@currentImageIndex].link
+      $image.attr 'src', @album[imageNumber].link
       # Bug fix by Andy Scott 
       $image.width = preloader.width
       $image.height = preloader.height

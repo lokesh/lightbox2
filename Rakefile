@@ -45,6 +45,7 @@ task :zip, :version do |t, args|
     system "cp -r js lightbox"
     system "cp -r images lightbox"
     system "zip -r lightbox#{args.version}.zip lightbox"
+    system "mv lightbox#{args.version}.zip releases"
     system "rm -rf lightbox"
 
     puts "My, oh my what a wonderful day!"
