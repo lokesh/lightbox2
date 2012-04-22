@@ -1,8 +1,7 @@
 ##Lightbox2
 by Lokesh Dhakar | [lokeshdhakar.com](http://www.lokeshdhakar.com)  | [twitter.com/lokeshdhakar](http://twitter.com/lokeshdhakar)  
 
-
-###Info
+###Information and support
 For examples, downloads, and information on using Lightbox, visit the Lightbox2 homepage:  
 [http://lokeshdhakar.com/projects/lightbox2/](http://lokeshdhakar.com/projects/lightbox2/)
 
