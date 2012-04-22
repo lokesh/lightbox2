@@ -1,9 +1,0 @@
-.gitignore
-.DS_Store
-.project
-Rakefile
-rsync-exclude
-sass/
-coffee/
-.git/
-.sass-cache/

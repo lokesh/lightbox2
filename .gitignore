@@ -20,3 +20,4 @@ Thumbs.db
 .espresso*
 .sass-cache/*
 Rakefile
+rsync-exclude
