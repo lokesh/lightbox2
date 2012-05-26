@@ -87,7 +87,8 @@ lightbox = new Lightbox options
         _this = this;
       $("<div>", {
         id: 'lightboxOverlay'
-      }).after($('<div/>', {
+      }).appendTo($('body'));
+      $('<div/>', {
         id: 'lightbox'
       }).append($('<div/>', {
         "class": 'lb-outerContainer'
@@ -123,7 +124,7 @@ lightbox = new Lightbox options
         "class": 'lb-close'
       }).append($('<img/>', {
         src: this.options.fileCloseImage
-      }))))))).appendTo($('body'));
+      })))))).appendTo($('body'));
       $('#lightboxOverlay').hide().on('click', function(e) {
         _this.end();
         return false;
