@@ -1,7 +1,9 @@
 /* line 6, ../sass/lightbox.sass */
 #lightboxOverlay {
-  position: absolute;
+  position: fixed;
   top: 0;
+  right:0;
+  bottom:0;
   left: 0;
   z-index: 9999;
   background-color: black;
@@ -174,8 +176,17 @@
   float: right;
   padding-bottom: 0.7em;
   outline: none;
+  
+  height:35px;
+  background:url("../images/close.png") no-repeat scroll 0 0 transparent;
 }
 /* line 117, ../sass/lightbox.sass */
 .lb-data .lb-close:hover {
   cursor: pointer;
+}
+.lb-cancel {
+    background: url("../images/loading.gif") repeat scroll 0 0 transparent;
+    display: inline-block;
+    height: 32px;
+    width: 32px;
 }

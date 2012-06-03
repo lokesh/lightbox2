@@ -45,8 +45,6 @@ $ = jQuery
 
 class LightboxOptions
   constructor: ->
-    @fileLoadingImage = 'images/loading.gif'     
-    @fileCloseImage = 'images/close.png'
     @resizeDuration = 700
     @fadeDuration = 500
     @labelImage = "Image" # Change to localize to non-english language
@@ -86,9 +84,7 @@ class Lightbox
               $('<a/>', class: 'lb-next')
             ),
             $('<div/>', class: 'lb-loader').append(
-              $('<a/>', class: 'lb-cancel').append(
-                $('<img/>', src: @options.fileLoadingImage)
-              )
+              $('<a/>', class: 'lb-cancel')
             )
           )
         ),
@@ -99,9 +95,7 @@ class Lightbox
               $('<span/>', class: 'lb-number')
             ),
             $('<div/>', class: 'lb-closeContainer').append(
-              $('<a/>', class: 'lb-close').append(
-                $('<img/>', src: @options.fileCloseImage)
-              )
+              $('<a/>', class: 'lb-close')
             )
           )
         )
@@ -143,12 +137,8 @@ class Lightbox
 
   # Show overlay and lightbox. If the image is part of a set, add siblings to album array.
   start: ($link) ->
-    $(window).on "resize", @sizeOverlay
-
     $('select, object, embed').css visibility: "hidden"
     $('#lightboxOverlay')
-      .width( $(document).width())
-      .height( $(document).height() )
       .fadeIn( @options.fadeDuration )
 
     @album = []
@@ -186,7 +176,6 @@ class Lightbox
     $lightbox = $('#lightbox')
     $image = $lightbox.find('.lb-image')
 
-    @sizeOverlay()
     $('#lightboxOverlay').fadeIn( @options.fadeDuration )
     
     $('.loader').fadeIn 'slow'
@@ -209,13 +198,6 @@ class Lightbox
     return  
 
 
-  # Stretch overlay to fit the document
-  sizeOverlay: () ->
-    $('#lightboxOverlay')
-      .width( $(document).width())
-      .height( $(document).height() )
-  
-  
   # Animate the size of the lightbox to fit the image we are showing
   sizeContainer: (imageWidth, imageHeight) ->
     $lightbox = $('#lightbox')
@@ -301,8 +283,7 @@ class Lightbox
     $lightbox.find('.lb-outerContainer').removeClass 'animating'
     
     $lightbox.find('.lb-dataContainer')
-      .fadeIn @resizeDuration, () =>
-        @sizeOverlay()
+      .fadeIn @resizeDuration
     return
     
     
@@ -350,7 +331,6 @@ class Lightbox
   # Closing time. :-(
   end: ->
     @disableKeyboardNav()
-    $(window).off "resize", @sizeOverlay
     $('#lightbox').fadeOut @options.fadeDuration
     $('#lightboxOverlay').fadeOut @options.fadeDuration
     $('select, object, embed').css visibility: "visible"
