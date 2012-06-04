@@ -1,4 +1,3 @@
-
 /*
 Lightbox v2.51
 by Lokesh Dhakar - http://www.lokeshdhakar.com
@@ -54,6 +53,7 @@ lightbox = new Lightbox options
       this.fadeDuration = 500;
       this.labelImage = "Image";
       this.labelOf = "of";
+      this.useLabel = true;
     }
 
     return LightboxOptions;
@@ -277,7 +277,7 @@ lightbox = new Lightbox options
       if (typeof this.album[this.currentImageIndex].title !== 'undefined' && this.album[this.currentImageIndex].title !== "") {
         $lightbox.find('.lb-caption').html(this.album[this.currentImageIndex].title).fadeIn('fast');
       }
-      if (this.album.length > 1) {
+      if (this.album.length > 1 && this.options.useLabel) {
         $lightbox.find('.lb-number').html(this.options.labelImage + ' ' + (this.currentImageIndex + 1) + ' ' + this.options.labelOf + '  ' + this.album.length).fadeIn('fast');
       } else {
         $lightbox.find('.lb-number').hide();
