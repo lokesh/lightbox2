@@ -1,4 +1,3 @@
-
 /*
 Lightbox v2.51
 by Lokesh Dhakar - http://www.lokeshdhakar.com
@@ -54,6 +53,8 @@ lightbox = new Lightbox options
       this.fadeDuration = 500;
       this.labelImage = "Image";
       this.labelOf = "of";
+      this.useLabel = true;
+      this.loop = false;
     }
 
     return LightboxOptions;
@@ -138,11 +139,19 @@ lightbox = new Lightbox options
         return false;
       });
       $lightbox.find('.lb-prev').on('click', function(e) {
-        _this.changeImage(_this.currentImageIndex - 1);
+        if (_this.options.loop && _this.currentImageIndex === 0) {
+          _this.changeImage(_this.album.length - 1);
+        } else {
+          _this.changeImage(_this.currentImageIndex - 1);
+        }
         return false;
       });
       $lightbox.find('.lb-next').on('click', function(e) {
-        _this.changeImage(_this.currentImageIndex + 1);
+        if (_this.options.loop && _this.currentImageIndex === _this.album.length - 1) {
+          _this.changeImage(0);
+        } else {
+          _this.changeImage(_this.currentImageIndex + 1);
+        }
         return false;
       });
       $lightbox.find('.lb-loader, .lb-close').on('click', function(e) {
@@ -264,8 +273,10 @@ lightbox = new Lightbox options
       var $lightbox;
       $lightbox = $('#lightbox');
       $lightbox.find('.lb-nav').show();
-      if (this.currentImageIndex > 0) $lightbox.find('.lb-prev').show();
-      if (this.currentImageIndex < this.album.length - 1) {
+      if (this.currentImageIndex > 0 || this.options.loop) {
+      	$lightbox.find('.lb-prev').show();
+      }
+      if (this.currentImageIndex < this.album.length - 1 || this.options.loop) {
         $lightbox.find('.lb-next').show();
       }
     };
@@ -277,7 +288,7 @@ lightbox = new Lightbox options
       if (typeof this.album[this.currentImageIndex].title !== 'undefined' && this.album[this.currentImageIndex].title !== "") {
         $lightbox.find('.lb-caption').html(this.album[this.currentImageIndex].title).fadeIn('fast');
       }
-      if (this.album.length > 1) {
+      if (this.album.length > 1 && this.options.useLabel) {
         $lightbox.find('.lb-number').html(this.options.labelImage + ' ' + (this.currentImageIndex + 1) + ' ' + this.options.labelOf + '  ' + this.album.length).fadeIn('fast');
       } else {
         $lightbox.find('.lb-number').hide();
@@ -290,14 +301,20 @@ lightbox = new Lightbox options
 
     Lightbox.prototype.preloadNeighboringImages = function() {
       var preloadNext, preloadPrev;
-      if (this.album.length > this.currentImageIndex + 1) {
+       if (this.album.length > this.currentImageIndex + 1) {
+         preloadNext = new Image;
+         preloadNext.src = this.album[this.currentImageIndex + 1].link;
+       } else if (this.options.loop && this.album.length > 1) {
         preloadNext = new Image;
-        preloadNext.src = this.album[this.currentImageIndex + 1].link;
-      }
-      if (this.currentImageIndex > 0) {
-        preloadPrev = new Image;
-        preloadPrev.src = this.album[this.currentImageIndex - 1].link;
-      }
+        preloadNext.src = this.album[0].link;
+       }
+       if (this.currentImageIndex > 0) {
+         preloadPrev = new Image;
+         preloadPrev.src = this.album[this.currentImageIndex - 1].link;
+       } else if (this.options.loop && this.album.length > 1) {
+        preloadNext = new Image;
+        preloadNext.src = this.album[this.album.length - 1].link;
+       }
     };
 
     Lightbox.prototype.enableKeyboardNav = function() {
@@ -320,10 +337,14 @@ lightbox = new Lightbox options
       } else if (key === 'p' || keycode === KEYCODE_LEFTARROW) {
         if (this.currentImageIndex !== 0) {
           this.changeImage(this.currentImageIndex - 1);
+        } else if (this.options.loop) {
+          this.changeImage(this.album.length - 1);
         }
       } else if (key === 'n' || keycode === KEYCODE_RIGHTARROW) {
         if (this.currentImageIndex !== this.album.length - 1) {
           this.changeImage(this.currentImageIndex + 1);
+        } else if (this.options.loop) {
+          this.changeImage(0);
         }
       }
     };
