@@ -5,9 +5,11 @@
 
 
 .lightboxOverlay
-  position: absolute
+  position: fixed
   top: 0
   left: 0
+  right: 0
+  bottom: 0
   z-index: 9999
   background-color: #000
   +opacity(0.85)
@@ -48,6 +50,11 @@
   width: 100%
   text-align: center
   line-height: 0
+  .lb-cancel
+    background: url("../images/loading.gif")
+    display: inline-block
+    height: 32px
+    width: 32px
 
 .lb-nav
   position: absolute
@@ -86,6 +93,12 @@
   &:hover
     background: url(../images/next.png) right 48% no-repeat
 
+.lb-cancel
+  background: url("../images/loading.gif") repeat scroll 0 0 transparent
+  display: inline-block
+  height: 32px
+  width: 32px
+
 .lb-dataContainer
   margin: 0 auto
   padding-top: 5px
@@ -112,8 +125,10 @@
     font-size: 11px
   .lb-close
     width: 35px
+    height: 35px
     float: right
     padding-bottom: 0.7em
     outline: none
+    background: url("../images/close.png") no-repeat scroll 0 0 transparent
     &:hover
       cursor: pointer

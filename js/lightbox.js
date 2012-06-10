@@ -50,9 +50,6 @@ lightbox = new Lightbox options
   LightboxOptions = (function() {
 
     function LightboxOptions() {
-      this.fullScreen = screen.width <= 640;
-      this.fileLoadingImage = 'images/loading.gif';
-      this.fileCloseImage = 'images/close.png';
       this.resizeDuration = 400;
       this.fadeDuration = 400;
       this.labelImage = "Image";
@@ -108,9 +105,7 @@ lightbox = new Lightbox options
         "class": 'lb-loader'
       }).append($('<a/>', {
         "class": 'lb-cancel'
-      }).append($('<img/>', {
-        src: this.options.fileLoadingImage
-      }))))), $('<div/>', {
+      })))), $('<div/>', {
         "class": 'lb-dataContainer'
       }).append($('<div/>', {
         "class": 'lb-data'
@@ -124,9 +119,7 @@ lightbox = new Lightbox options
         "class": 'lb-closeContainer'
       }).append($('<a/>', {
         "class": 'lb-close'
-      }).append($('<img/>', {
-        src: this.options.fileCloseImage
-      }))))))).appendTo($('body'));
+      })))))).appendTo($('body'));
       $('.lightboxOverlay').hide().on('click', function(e) {
         _this.end();
         return false;
@@ -166,11 +159,10 @@ lightbox = new Lightbox options
 
     Lightbox.prototype.start = function($link) {
       var $lightbox, $window, a, i, imageNumber, left, top, _i, _len, _ref;
-      $(window).on("resize", this.sizeOverlay);
       $('select, object, embed').css({
         visibility: "hidden"
       });
-      $('.lightboxOverlay').width($(document).width()).height($(document).height()).fadeIn(this.options.fadeDuration);
+      $('.lightboxOverlay').fadeIn(this.options.fadeDuration);
       this.album = [];
       imageNumber = 0;
       if ($link.attr('rel') === 'lightbox') {
@@ -208,7 +200,6 @@ lightbox = new Lightbox options
       this.disableKeyboardNav();
       $lightbox = $('.lightbox');
       $image = $lightbox.find('.lb-image');
-      this.sizeOverlay();
       $('.lightboxOverlay').fadeIn(this.options.fadeDuration);
       $('.lb-loader').fadeIn('slow');
       $lightbox.find('.lb-image, .lb-nav, .lb-prev, .lb-next, .lb-dataContainer, .lb-numbers, .lb-caption').hide();
@@ -231,10 +222,6 @@ lightbox = new Lightbox options
       };
       preloader.src = this.album[imageNumber].link;
       this.currentImageIndex = imageNumber;
-    };
-
-    Lightbox.prototype.sizeOverlay = function() {
-      return $('.lightboxOverlay').width($(document).width()).height($(document).height());
     };
 
     Lightbox.prototype.sizeContainer = function(imageWidth, imageHeight) {
@@ -297,8 +284,7 @@ lightbox = new Lightbox options
     };
 
     Lightbox.prototype.updateDetails = function() {
-      var $lightbox,
-        _this = this;
+      var $lightbox;
       $lightbox = $('.lightbox');
       if (typeof this.album[this.currentImageIndex].title !== 'undefined' && this.album[this.currentImageIndex].title !== "") {
         $lightbox.find('.lb-caption').html(this.album[this.currentImageIndex].title).fadeIn('fast');
@@ -309,9 +295,7 @@ lightbox = new Lightbox options
         $lightbox.find('.lb-number').hide();
       }
       $lightbox.find('.lb-outerContainer').removeClass('animating');
-      $lightbox.find('.lb-dataContainer').fadeIn(this.resizeDuration, function() {
-        return _this.sizeOverlay();
-      });
+      $lightbox.find('.lb-dataContainer').fadeIn(this.resizeDuration);
     };
 
     Lightbox.prototype.preloadNeighboringImages = function() {
@@ -356,7 +340,6 @@ lightbox = new Lightbox options
 
     Lightbox.prototype.end = function() {
       this.disableKeyboardNav();
-      $(window).off("resize", this.sizeOverlay);
       $('.lightbox').fadeOut(this.options.fadeDuration);
       $('.lightboxOverlay').fadeOut(this.options.fadeDuration);
       return $('select, object, embed').css({
