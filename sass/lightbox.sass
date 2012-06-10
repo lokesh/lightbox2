@@ -3,7 +3,8 @@
 
 @import "variables"
 
-#lightboxOverlay
+
+.lightboxOverlay
   position: absolute
   top: 0
   left: 0
@@ -12,7 +13,7 @@
   +opacity(0.85)
   display: none
 
-#lightbox
+.lightbox
   position: absolute
   left: 0
   width: 100%
@@ -29,7 +30,7 @@
 
 .lb-outerContainer
   position: relative
-  background-color: #fff
+  background-color: #000
   +pie-clearfix
   width: 250px
   height: 250px
@@ -37,7 +38,7 @@
   +border-radius($radius)
 
 .lb-container
-  padding: 10px
+  padding: 0px
 
 .lb-loader
   position: absolute
