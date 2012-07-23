@@ -1,8 +1,10 @@
-/* line 6, ../sass/lightbox.sass */
-#lightboxOverlay {
-  position: absolute;
+/* line 7, ../sass/lightbox.sass */
+.lightboxOverlay {
+  position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 9999;
   background-color: black;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=85);
@@ -10,8 +12,8 @@
   display: none;
 }
 
-/* line 15, ../sass/lightbox.sass */
-#lightbox {
+/* line 18, ../sass/lightbox.sass */
+.lightbox {
   position: absolute;
   left: 0;
   width: 100%;
@@ -21,20 +23,20 @@
   font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
   font-weight: normal;
 }
-/* line 24, ../sass/lightbox.sass */
-#lightbox img {
+/* line 27, ../sass/lightbox.sass */
+.lightbox img {
   width: auto;
   height: auto;
 }
-/* line 27, ../sass/lightbox.sass */
-#lightbox a img {
+/* line 30, ../sass/lightbox.sass */
+.lightbox a img {
   border: none;
 }
 
-/* line 30, ../sass/lightbox.sass */
+/* line 33, ../sass/lightbox.sass */
 .lb-outerContainer {
   position: relative;
-  background-color: white;
+  background-color: black;
   *zoom: 1;
   width: 250px;
   height: 250px;
@@ -45,19 +47,19 @@
   -o-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 38, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .lb-outerContainer:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 39, ../sass/lightbox.sass */
+/* line 42, ../sass/lightbox.sass */
 .lb-container {
-  padding: 10px;
+  padding: 0px;
 }
 
-/* line 42, ../sass/lightbox.sass */
+/* line 45, ../sass/lightbox.sass */
 .lb-loader {
   position: absolute;
   top: 40%;
@@ -67,8 +69,15 @@
   text-align: center;
   line-height: 0;
 }
+/* line 53, ../sass/lightbox.sass */
+.lb-loader .lb-cancel {
+  background: url("../images/loading.gif");
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+}
 
-/* line 51, ../sass/lightbox.sass */
+/* line 59, ../sass/lightbox.sass */
 .lb-nav {
   position: absolute;
   top: 0;
@@ -78,17 +87,17 @@
   z-index: 10;
 }
 
-/* line 59, ../sass/lightbox.sass */
+/* line 67, ../sass/lightbox.sass */
 .lb-container > .nav {
   left: 0;
 }
 
-/* line 62, ../sass/lightbox.sass */
+/* line 70, ../sass/lightbox.sass */
 .lb-nav a {
   outline: none;
 }
 
-/* line 65, ../sass/lightbox.sass */
+/* line 73, ../sass/lightbox.sass */
 .lb-prev, .lb-next {
   width: 49%;
   height: 100%;
@@ -97,29 +106,37 @@
   display: block;
 }
 
-/* line 72, ../sass/lightbox.sass */
+/* line 80, ../sass/lightbox.sass */
 .lb-prev {
   left: 0;
   float: left;
 }
 
-/* line 76, ../sass/lightbox.sass */
+/* line 84, ../sass/lightbox.sass */
 .lb-next {
   right: 0;
   float: right;
 }
 
-/* line 81, ../sass/lightbox.sass */
+/* line 89, ../sass/lightbox.sass */
 .lb-prev:hover {
   background: url(../images/prev.png) left 48% no-repeat;
 }
 
-/* line 85, ../sass/lightbox.sass */
+/* line 93, ../sass/lightbox.sass */
 .lb-next:hover {
   background: url(../images/next.png) right 48% no-repeat;
 }
 
-/* line 88, ../sass/lightbox.sass */
+/* line 96, ../sass/lightbox.sass */
+.lb-cancel {
+  background: url("../images/loading.gif") repeat scroll 0 0 transparent;
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+}
+
+/* line 102, ../sass/lightbox.sass */
 .lb-dataContainer {
   margin: 0 auto;
   padding-top: 5px;
@@ -136,46 +153,48 @@
   -o-border-bottom-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-/* line 38, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .lb-dataContainer:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 95, ../sass/lightbox.sass */
+/* line 109, ../sass/lightbox.sass */
 .lb-data {
   padding: 0 10px;
   color: #bbbbbb;
 }
-/* line 98, ../sass/lightbox.sass */
+/* line 112, ../sass/lightbox.sass */
 .lb-data .lb-details {
   width: 85%;
   float: left;
   text-align: left;
   line-height: 1.1em;
 }
-/* line 103, ../sass/lightbox.sass */
+/* line 117, ../sass/lightbox.sass */
 .lb-data .lb-caption {
   font-size: 13px;
   font-weight: bold;
   line-height: 1em;
 }
-/* line 107, ../sass/lightbox.sass */
+/* line 121, ../sass/lightbox.sass */
 .lb-data .lb-number {
   display: block;
   clear: left;
   padding-bottom: 1em;
   font-size: 11px;
 }
-/* line 112, ../sass/lightbox.sass */
+/* line 126, ../sass/lightbox.sass */
 .lb-data .lb-close {
   width: 35px;
+  height: 35px;
   float: right;
   padding-bottom: 0.7em;
   outline: none;
+  background: url("../images/close.png") no-repeat scroll 0 0 transparent;
 }
-/* line 117, ../sass/lightbox.sass */
+/* line 133, ../sass/lightbox.sass */
 .lb-data .lb-close:hover {
   cursor: pointer;
 }
