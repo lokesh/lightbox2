@@ -76,7 +76,7 @@ lightbox = new Lightbox options
 
     Lightbox.prototype.enable = function() {
       var _this = this;
-      return $('body').on('click', 'a[rel^=lightbox], area[rel^=lightbox]', function(e) {
+      return $('body').on('click', 'a[data-lightbox], area[data-lightbox]', function(e) {
         _this.start($(e.currentTarget));
         return false;
       });
@@ -160,13 +160,13 @@ lightbox = new Lightbox options
       $('#lightboxOverlay').width($(document).width()).height($(document).height()).fadeIn(this.options.fadeDuration);
       this.album = [];
       imageNumber = 0;
-      if ($link.attr('rel') === 'lightbox') {
+      if ($link.attr('data-lightbox-group') == undefined) {
         this.album.push({
           link: $link.attr('href'),
           title: $link.attr('title')
         });
       } else {
-        _ref = $($link.prop("tagName") + '[rel="' + $link.attr('rel') + '"]');
+        _ref = $($link.prop("tagName") + '[data-lightbox-group="' + $link.attr('data-lightbox-group') + '"]');
         for (i = 0, _len = _ref.length; i < _len; i++) {
           a = _ref[i];
           this.album.push({
