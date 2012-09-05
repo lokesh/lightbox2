@@ -68,6 +68,13 @@
   line-height: 0;
 }
 
+.lb-loader .lb-cancel span{
+    background-image: url(../images/loading.gif);
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+}
+
 /* line 51, ../sass/lightbox.sass */
 .lb-nav {
   position: absolute;
@@ -178,4 +185,11 @@
 /* line 117, ../sass/lightbox.sass */
 .lb-data .lb-close:hover {
   cursor: pointer;
+}
+
+.lb-data .lb-close span{
+    background-image: url(../images/close.png);
+    display: inline-block;
+    width: 27px;
+    height: 27px;
 }
