@@ -68,7 +68,7 @@ class Lightbox
   # Loop through anchors and areamaps looking for data-lightbox attributes
   # On clicking these, start lightbox.
   enable: ->
-    $('body').on 'click', 'a[data-lightbox], area[data-lightbox]', (e) =>
+    $('body').on 'click', 'a[data-lightbox], a[rel^=lightbox], area[data-lightbox], area[rel^=lightbox]', (e) =>
       @start $(e.currentTarget)
       false
 
