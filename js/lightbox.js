@@ -160,13 +160,13 @@ lightbox = new Lightbox options
       $('#lightboxOverlay').width($(document).width()).height($(document).height()).fadeIn(this.options.fadeDuration);
       this.album = [];
       imageNumber = 0;
-      if ($link.attr('data-lightbox-group') == undefined) {
+      if ($link.attr('data-lightbox') == "" || $link.attr('data-lightbox') === 'lightbox') {
         this.album.push({
           link: $link.attr('href'),
           title: $link.attr('title')
         });
       } else {
-        _ref = $($link.prop("tagName") + '[data-lightbox-group="' + $link.attr('data-lightbox-group') + '"]');
+        _ref = $($link.prop("tagName") + '[data-lightbox="' + $link.attr('data-lightbox') + '"]');
         for (i = 0, _len = _ref.length; i < _len; i++) {
           a = _ref[i];
           this.album.push({

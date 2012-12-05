@@ -52,7 +52,7 @@
   		<a href="images/examples/image-1.jpg" data-lightbox><img src="images/examples/thumb-1.jpg" alt="" /></a>
   	</div>
   	<div class="single">
-  		<a href="images/examples/image-2.jpg" data-lightbox title="Optional caption."><img src="images/examples/thumb-2.jpg" alt="" /></a>
+  		<a href="images/examples/image-2.jpg" data-lightbox="lightbox" title="Optional caption."><img src="images/examples/thumb-2.jpg" alt="" /></a>
   	</div>
   </div>
 
@@ -61,16 +61,16 @@
   <div class="imageRow">
   	<div class="set">
   	  <div class="single first">
-  		  <a href="images/examples/image-3.jpg" data-lightbox data-lightbox-group="plants" title="Click on the right side of the image to move forward."><img src="images/examples/thumb-3.jpg" alt="Plants: image 1 0f 4 thumb" /></a>
+  		  <a href="images/examples/image-3.jpg" data-lightbox="plants" title="Click on the right side of the image to move forward."><img src="images/examples/thumb-3.jpg" alt="Plants: image 1 0f 4 thumb" /></a>
   		</div>
       <div class="single">
-  		  <a href="images/examples/image-4.jpg" data-lightbox data-lightbox-group="plants" title="Alternately you can press the right arrow key." ><img src="images/examples/thumb-4.jpg" alt="Plants: image 2 0f 4 thumb" /></a>
+  		  <a href="images/examples/image-4.jpg" data-lightbox="plants" title="Alternately you can press the right arrow key." ><img src="images/examples/thumb-4.jpg" alt="Plants: image 2 0f 4 thumb" /></a>
       </div>
       <div class="single">
-  		  <a href="images/examples/image-5.jpg" data-lightbox data-lightbox-group="plants" title="The script preloads the next image in the set as you're viewing."><img src="images/examples/thumb-5.jpg" alt="Plants: image 3 0f 4 thumb" /></a>
+  		  <a href="images/examples/image-5.jpg" data-lightbox="plants" title="The script preloads the next image in the set as you're viewing."><img src="images/examples/thumb-5.jpg" alt="Plants: image 3 0f 4 thumb" /></a>
       </div>
       <div class="single last">
-  		  <a href="images/examples/image-6.jpg" data-lightbox data-lightbox-group="plants" title="Click the X or anywhere outside the image to close"><img src="images/examples/thumb-6.jpg" alt="Plants: image 4 0f 4 thumb" /></a>
+  		  <a href="images/examples/image-6.jpg" data-lightbox="plants" title="Click the X or anywhere outside the image to close"><img src="images/examples/thumb-6.jpg" alt="Plants: image 4 0f 4 thumb" /></a>
       </div>
   	</div>
   </div>
@@ -153,14 +153,14 @@
 	</ol>
 	<h3>Part 2 - Activate</h3>
 	<ol>
-		<li>Add a <code>data-lightbox</code> attribute to any link tag to activate Lightbox.
-<pre><code>&lt;a href=&quot;images/image-1.jpg&quot; data-lightbox title=&quot;my caption&quot;&gt;image #1&lt;/a&gt;
+		<li>Add a <code>data-lightbox=&quot;lightbox&quot;</code> attribute to any link tag to activate Lightbox.
+<pre><code>&lt;a href=&quot;images/image-1.jpg&quot; data-lightbox=&quot;lightbox&quot; title=&quot;my caption&quot;&gt;image #1&lt;/a&gt;
 </code></pre>
 		<em>Optional: </em>Use the <code>title</code> attribute if you want to show a caption.		</li>
-		<li>If you have a set of related images that you would like to group, follow step one but additionally include a group name as <code>data-lightbox-group</code> attribute. 
-<pre><code>&lt;a href=&quot;images/image-1.jpg&quot; data-lightbox data-lightbox-group=&quot;roadtrip&quot;&gt;image #1&lt;/a&gt;
-&lt;a href=&quot;images/image-2.jpg&quot; data-lightbox data-lightbox-group=&quot;roadtrip&quot;&gt;image #2&lt;/a&gt;
-&lt;a href=&quot;images/image-3.jpg&quot; data-lightbox data-lightbox-group=&quot;roadtrip&quot;&gt;image #3&lt;/a&gt;
+		<li>If you have a set of related images that you would like to group, follow step one but include a group name other than &quot;lightbox&quot; as value to the <code>data-lightbox</code> attribute.
+<pre><code>&lt;a href=&quot;images/image-1.jpg&quot; data-lightbox=&quot;roadtrip&quot;&gt;image #1&lt;/a&gt;
+&lt;a href=&quot;images/image-2.jpg&quot; data-lightbox=&quot;roadtrip&quot;&gt;image #2&lt;/a&gt;
+&lt;a href=&quot;images/image-3.jpg&quot; data-lightbox=&quot;roadtrip&quot;&gt;image #3&lt;/a&gt;
 </code></pre>
 	No limits to the number of image sets per page or how many images are allowed in each set. Go nuts!</li>
 	</ol>	
