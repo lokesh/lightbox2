@@ -153,13 +153,17 @@ class Lightbox
 
     @album = []
     imageNumber = 0
+    group = $link.attr('data-lightbox')
+    if !group?
+      group = $link.attr('rel')
+      group = group.replace(/^lightbox\[(.*)\]$/ig, "$1")
 
-    if $link.attr('data-lightbox') == '' || $link.attr('data-lightbox') == 'lightbox'
+    if group == '' || group == 'lightbox'
       # If image is not part of a set
       @album.push link: $link.attr('href'), title: $link.attr('title')
     else
       # Image is part of a set
-      for a, i in $( $link.prop("tagName") + '[data-lightbox="' + $link.attr('data-lightbox') + '"]')
+      for a, i in $( $link.prop("tagName") + '[data-lightbox="' + group + '"]' + $link.prop("tagName") + '[rel="' + group + '"]')
         @album.push link: $(a).attr('href'), title: $(a).attr('title')
         if $(a).attr('href') == $link.attr('href')
           imageNumber = i

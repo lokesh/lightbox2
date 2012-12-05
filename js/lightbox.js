@@ -76,7 +76,7 @@ lightbox = new Lightbox options
 
     Lightbox.prototype.enable = function() {
       var _this = this;
-      return $('body').on('click', 'a[data-lightbox], area[data-lightbox]', function(e) {
+      return $('body').on('click', 'a[data-lightbox], a[rel^=lightbox], area[data-lightbox], area[rel^=lightbox]', function(e) {
         _this.start($(e.currentTarget));
         return false;
       });
@@ -152,7 +152,7 @@ lightbox = new Lightbox options
     };
 
     Lightbox.prototype.start = function($link) {
-      var $lightbox, $window, a, i, imageNumber, left, top, _len, _ref;
+      var $lightbox, $window, a, i, imageNumber, left, top, _len, _ref, group;
       $(window).on("resize", this.sizeOverlay);
       $('select, object, embed').css({
         visibility: "hidden"
@@ -160,13 +160,18 @@ lightbox = new Lightbox options
       $('#lightboxOverlay').width($(document).width()).height($(document).height()).fadeIn(this.options.fadeDuration);
       this.album = [];
       imageNumber = 0;
-      if ($link.attr('data-lightbox') == "" || $link.attr('data-lightbox') === 'lightbox') {
+      group = $link.attr('data-lightbox');
+      if(typeof group === "undefined" || group === null) {
+          group = $link.attr('rel');
+          group = group.replace(/^lightbox\[(.*)\]$/ig, "$1");
+      }
+      if (group === "" || group === 'lightbox') {
         this.album.push({
           link: $link.attr('href'),
           title: $link.attr('title')
         });
       } else {
-        _ref = $($link.prop("tagName") + '[data-lightbox="' + $link.attr('data-lightbox') + '"]');
+        _ref = $($link.prop("tagName") + '[data-lightbox="' + group + '"],' + $link.prop("tagName") + '[rel="lightbox[' + group + ']"]');
         for (i = 0, _len = _ref.length; i < _len; i++) {
           a = _ref[i];
           this.album.push({
