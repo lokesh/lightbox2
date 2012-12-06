@@ -1,28 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-us">
 <head>
-
 	<meta charset="utf-8">
 	<title>Lightbox 2</title>
-
-	<meta name="description" lang="en" content="Lightbox 2 is a simple, unobtrusive script used to overlay images on the current page. It's a snap to setup and works on all modern browsers." />
 	<meta name="author" content="Lokesh Dhakar">
-
+	<meta name="description" lang="en" content="Lightbox 2 is a simple, unobtrusive script used to overlay images on the current page. It's a snap to setup and works on all modern browsers."/>
 	<meta name="viewport" content="width=device-width">
-
-	<link rel="shortcut icon" href="images/favicon.ico" />
-	<link rel="stylesheet" href="css/screen.css" media="screen" />
-	<link rel="stylesheet" href="css/lightbox.css" media="screen" />
-
+	<link rel="shortcut icon" href="images/favicon.ico"/>
+	<link rel="stylesheet" href="css/screen.css" media="screen"/>
+	<link rel="stylesheet" href="css/lightbox.css" media="screen"/>
 	<link href="http://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans:400,700" rel="stylesheet">
-
 </head>
 <body>
 
 <div id="sidebar">
 	<h1 class="logo"><a href="http://www.lokeshdhakar.com/projects/lightbox2/">Lightbox<em>2</em></a></h1>
-	<p class="author"><a href="http://www.lokeshdhakar.com">by Lokesh Dhakar</a> <br />
-	<span class="twitter"><a href="https://twitter.com/intent/user?screen_name=lokeshdhakar">Follow me on <em>Twitter</em></a></span></p>
+	<p class="author">
+		<a href="http://www.lokeshdhakar.com">by Lokesh Dhakar</a><br/>
+		<span class="twitter"><a href="https://twitter.com/intent/user?screen_name=lokeshdhakar">Follow me on <em>Twitter</em></a></span>
+	</p>
 
 	<ul id="nav">
 		<li><a href="#example" class="first">Examples</a></li>
@@ -35,195 +31,194 @@
 
 <div id="content">
 
-<div class="section" id="overview">
-	<p class="lead">Lightbox is a simple script used to overlay images on top of the current page. It's a <em>snap to setup</em> and works on <em>all modern browsers</em>.</p>
-</div>
+	<div class="section" id="overview">
+		<p class="lead">
+			Lightbox is a simple script used to overlay images on top of the current page. It's a <em>snap to setup</em> and works on <em>all modern browsers</em>.</p>
+	</div>
 
-<hr />
+	<hr/>
 
-<div class="section" id="example">
+	<div class="section" id="example">
 
+		<h2>Examples</h2>
 
-	<h2>Examples</h2>
-
-	<h3>Single image</h3>
-	<div class="imageRow">
-		<div class="single">
-			<a href="images/examples/image-1.jpg" rel="lightbox"><img src="images/examples/thumb-1.jpg" alt="thumb-1" width="150" height="150" /></a>
+		<h3>Single image</h3>
+		<div class="imageRow">
+			<div class="single">
+				<a href="images/examples/image-1.jpg" rel="lightbox"><img src="images/examples/thumb-1.jpg" alt="thumb-1" width="150" height="150"/></a>
+			</div>
+			<div class="single">
+				<a href="images/examples/image-2.jpg" rel="lightbox" title="Optional caption."><img src="images/examples/thumb-2.jpg" alt="thumb-1" width="150" height="150"/></a>
+			</div>
 		</div>
-		<div class="single">
-			<a href="images/examples/image-2.jpg" rel="lightbox" title="Optional caption."><img src="images/examples/thumb-2.jpg" alt="thumb-1" width="150" height="150" /></a>
+
+		<h3 style="clear: both;">Image set</h3>
+
+		<div class="imageRow">
+			<div class="set">
+				<div class="single first">
+					<a href="images/examples/image-3.jpg" rel="lightbox[plants]" title="Click on the right side of the image to move forward."><img src="images/examples/thumb-3.jpg" alt="Plants: image 1 0f 4 thumb" width="150" height="150"/></a>
+				</div>
+				<div class="single">
+					<a href="images/examples/image-4.jpg" rel="lightbox[plants]" title="Alternately you can press the right arrow key."><img src="images/examples/thumb-4.jpg" alt="Plants: image 2 0f 4 thumb" width="150" height="150"/></a>
+				</div>
+				<div class="single">
+					<a href="images/examples/image-5.jpg" rel="lightbox[plants]" title="The script preloads the next image in the set as you're viewing."><img src="images/examples/thumb-5.jpg" alt="Plants: image 3 0f 4 thumb" width="150" height="150"/></a>
+				</div>
+				<div class="single last">
+					<a href="images/examples/image-6.jpg" rel="lightbox[plants]" title="Click the X or anywhere outside the image to close"><img src="images/examples/thumb-6.jpg" alt="Plants: image 4 0f 4 thumb" width="150" height="150"/></a>
+				</div>
+			</div>
 		</div>
 	</div>
 
-	<h3 style="clear: both;">Image set</h3>
+	<hr/>
 
-	<div class="imageRow">
-		<div class="set">
-			<div class="single first">
-				<a href="images/examples/image-3.jpg" rel="lightbox[plants]" title="Click on the right side of the image to move forward."><img src="images/examples/thumb-3.jpg" alt="Plants: image 1 0f 4 thumb" width="150" height="150" /></a>
-			</div>
-			<div class="single">
-				<a href="images/examples/image-4.jpg" rel="lightbox[plants]" title="Alternately you can press the right arrow key." ><img src="images/examples/thumb-4.jpg" alt="Plants: image 2 0f 4 thumb" width="150" height="150" /></a>
-			</div>
-			<div class="single">
-				<a href="images/examples/image-5.jpg" rel="lightbox[plants]" title="The script preloads the next image in the set as you're viewing."><img src="images/examples/thumb-5.jpg" alt="Plants: image 3 0f 4 thumb" width="150" height="150" /></a>
-			</div>
-			<div class="single last">
-				<a href="images/examples/image-6.jpg" rel="lightbox[plants]" title="Click the X or anywhere outside the image to close"><img src="images/examples/thumb-6.jpg" alt="Plants: image 4 0f 4 thumb" width="150" height="150" /></a>
-			</div>
-		</div>
-	</div>
+	<div class="section" id="download">
 
-</div>
+		<h2>Download</h2>
 
-<hr />
-
-<div class="section" id="download">
-	<h2>Download</h2>
-
-	<div class="row">
-
-		<a href="releases/lightbox2.51.zip" class="download">
-			<img src="images/box.png" alt="Box" class="box" width="170" height="168" />
+		<div class="row">
+			<a href="releases/lightbox2.51.zip" class="download">
+			<img src="images/box.png" alt="Box" class="box" width="170" height="168"/>
 			<div class="file">
-				Lightbox <div class="version">v2.51</div>
+				Lightbox
+				<div class="version">
+					v2.51
+				</div>
 			</div>
-		</a>
+			</a>
 
-		<ul class="filelist">
-			<li class="header">Includes:</li>
-			<li>index.html</li>
-			<li><span class="folder">js/</span>jquery-1.7.2.min.js</li>
-			<li><span class="folder">js/</span>lightbox.js</li>
-			<li><span class="folder">css/</span>lightbox.css</li>
-			<li><span class="folder">images/</span>close.png</li>
-			<li><span class="folder">images/</span>loading.gif</li>
-			<li><span class="folder">images/</span>next.png</li>
-			<li><span class="folder">images/</span>prev.png</li>
-			<li><span class="note">Plus a few files for the demo page</span></li>
+			<ul class="filelist">
+				<li class="header">Includes:</li>
+				<li>index.html</li>
+				<li><span class="folder">js/</span>jquery-1.7.2.min.js</li>
+				<li><span class="folder">js/</span>lightbox.js</li>
+				<li><span class="folder">css/</span>lightbox.css</li>
+				<li><span class="folder">images/</span>close.png</li>
+				<li><span class="folder">images/</span>loading.gif</li>
+				<li><span class="folder">images/</span>next.png</li>
+				<li><span class="folder">images/</span>prev.png</li>
+				<li><span class="note">Plus a few files for the demo page</span></li>
+			</ul>
+		</div>
+
+		<p>
+			Lightbox2 is open-source.<br/> Fork the code on <a href="https://github.com/lokesh/lightbox2">Github</a>.
+		</p>
+
+
+		<h3>Changelog</h3>
+		<ul class="changelog">
+			<li><span class="version">v2.51</span> - <span class="date">4/20/12</span> - IE Fix: removed stray console.log statements. :-/</li>
+			<li><span class="version">v2.5</span> - <span class="date">4/10/12</span> - Switch to jQuery. Code put in Github. Compiling with Coffeescript and SASS.</li>
+			<li class="old"><span class="version">v2.05</span> - <span class="date">3/18/11</span> - Upgraded Prototype (now works in IE9) and Scriptaculous. Minor bug fixes.</li>
+			<li class="old"><span class="version">v2.04</span> - <span class="date">3/9/08</span>
+				<ul>
+					<li>NEW - Upgraded Prototype from v1.4 to v1.6.0.2
+					<li>NEW - Moved label text into configuration for easier localization</li>
+					<li>UPDATED - Code cleaned up. Respect for the global namespace and native javascript objects.</li>
+					<li>FIXED - Caption displays as "null" when viewing an uncaptioned image after viewing a captioned image.</li>
+					<li>FIXED - Clicking 'close' button shifts layout as link focus' dotted line appears.</li>
+				</ul>
+			</li>
+			<li class="old"><span class="version">v2.03.3</span> - <span class="date">5/21/07</span> - Support for horizontally scrolling pages. Added updateImageList method for ajax'y pages.</li>
+			<li class="old"><span class="version">v2.03.2</span> - <span class="date">4/30/07</span> - Fixed animated gif support in IE/Opera.</li>
+			<li class="old"><span class="version">v2.03.1</span> - <span class="date">4/18/07</span> - Fixed embed hiding. Overlay opacity var added to config. Image sets w/Imagemaps fix. Clearfix removed.</li>
+			<li class="old"><span class="version">v2.03</span> - <span class="date">4/10/07</span> - Improved keyboard navigation. Animation off toggle. Hides Flash movies under overlay. Imagemap support. Valid CSS.</li>
+			<li class="old"><span class="version">v2.02</span> - Fixed layout issues caused by multiline captions. Added keyboard navigation.</li>
+			<li class="old"><span class="version">v2.01</span> - Centering in IE6 (any DOCTYPE) fixed. Smoothed out resize transition.</li>
 		</ul>
+		<a href="#" class="showOlderChanges">Show older changes</a>
 	</div>
 
-	<p>Lightbox2 is open-source.<br /> Fork the code on <a href="https://github.com/lokesh/lightbox2">Github</a>.</p>
+	<hr/>
 
 
-
-	<h3>Changelog</h3>
-	<ul class="changelog">
-		<li><span class="version">v2.51 </span> - <span class="date">4/20/12</span> - IE Fix: removed stray console.log statements. :-/</li>
-		<li><span class="version">v2.5 </span> - <span class="date">4/10/12</span> - Switch to jQuery. Code put in Github. Compiling with Coffeescript and SASS.</li>
-		<li class="old"><span class="version">v2.05 </span> - <span class="date">3/18/11</span> - Upgraded Prototype (now works in IE9) and Scriptaculous. Minor bug fixes.</li>
-		<li class="old"><span class="version">v2.04 </span> - <span class="date">3/9/08</span>
-			<ul>
-				<li>NEW - Upgraded Prototype from v1.4 to v1.6.0.2
-				<li>NEW - Moved label text into configuration for easier localization</li>
-				<li>UPDATED - Code cleaned up. Respect for the global namespace and native javascript objects.</li>
-				<li>FIXED - Caption displays as "null" when viewing an uncaptioned image after viewing a captioned image.</li>
-				<li>FIXED - Clicking 'close' button shifts layout as link focus' dotted line appears.</li>
-			</ul>
-		</li>
-		<li class="old"><span class="version">v2.03.3 </span> - <span class="date">5/21/07 </span>- Support for horizontally scrolling pages. Added updateImageList method for ajax'y pages.</li>
-		<li class="old"><span class="version">v2.03.2 </span> - <span class="date">4/30/07</span> - Fixed animated gif support in IE/Opera.</li>
-		<li class="old"><span class="version">v2.03.1 </span> - <span class="date">4/18/07</span> - Fixed embed hiding. Overlay opacity var added to config. Image sets w/Imagemaps fix. Clearfix removed.</li>
-		<li class="old"><span class="version">v2.03</span> - <span class="date">4/10/07 </span>- Improved keyboard navigation. Animation off toggle. Hides Flash movies under overlay. Imagemap support. Valid CSS.</li>
-		<li class="old"><span class="version">v2.02</span> - Fixed layout issues caused by multiline captions. Added keyboard navigation.</li>
-		<li class="old"><span class="version">v2.01</span> - Centering in IE6 (any DOCTYPE) fixed. Smoothed out resize transition.</li>
-	</ul>
-	<a href="#" class="showOlderChanges">Show older changes</a>
-</div>
-
-<hr />
-
-
-<div class="section" id="how">
-	<h2>How to use</h2>
-	<h3>Part 1 - Setup</h3>
-	<ol>
-		<li>Lightbox 2 uses the <a href="http://jquery.com/">jQuery</a> framework. Load jQuery and the Lightbox javascript files in the proper order.
+	<div class="section" id="how">
+		<h2>How to use</h2>
+		<h3>Part 1 - Setup</h3>
+		<ol>
+			<li>Lightbox 2 uses the <a href="http://jquery.com/">jQuery</a> framework. Load jQuery and the Lightbox javascript files in the proper order.
 <pre><code>&lt;script src=&quot;js/jquery-1.7.2.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;js/lightbox.js&quot;&gt;&lt;/script&gt;
 </code></pre>
-		</li>
-		<li>Include the Lightbox CSS file.
+			</li>
+			<li>Include the Lightbox CSS file.
 <pre><code>&lt;link href=&quot;css/lightbox.css&quot; rel=&quot;stylesheet&quot; /&gt;
 </code></pre>
-		</li>
-		<li>Check the CSS and make sure the referenced <code>prev.png</code> and <code>next.png</code> files are in the right location. Also, make sure the <code>loading.gif</code> and <code>close.png</code> files as referenced near the top of the <code>lightbox.js</code> file are in the right location.</li>
-	</ol>
-	<h3>Part 2 - Activate</h3>
-	<ol>
-		<li>Add a <code>rel="lightbox"</code> attribute to any link tag to activate Lightbox.
+			</li>
+			<li>Check the CSS and make sure the referenced <code>prev.png</code> and <code>next.png</code> files are in the right location. Also, make sure the <code>loading.gif</code> and <code>close.png</code> files as referenced near the top of the <code>lightbox.js</code> file are in the right location.</li>
+		</ol>
+		<h3>Part 2 - Activate</h3>
+		<ol>
+			<li>Add a <code>rel="lightbox"</code> attribute to any link tag to activate Lightbox.
 <pre><code>&lt;a href=&quot;images/image-1.jpg&quot; rel=&quot;lightbox&quot; title=&quot;my caption&quot;&gt;image #1&lt;/a&gt;
 </code></pre>
-		<em>Optional: </em>Use the <code>title</code> attribute if you want to show a caption.		</li>
-		<li>If you have a set of related images that you would like to group, follow step one but additionally include a group name between square brackets in the rel attribute.
+			<em>Optional: </em>Use the <code>title</code> attribute if you want to show a caption. </li>
+			<li>If you have a set of related images that you would like to group, follow step one but additionally include a group name between square brackets in the rel attribute.
 <pre><code>&lt;a href=&quot;images/image-1.jpg&quot; rel=&quot;lightbox[roadtrip]&quot;&gt;image #1&lt;/a&gt;
 &lt;a href=&quot;images/image-2.jpg&quot; rel=&quot;lightbox[roadtrip]&quot;&gt;image #2&lt;/a&gt;
 &lt;a href=&quot;images/image-3.jpg&quot; rel=&quot;lightbox[roadtrip]&quot;&gt;image #3&lt;/a&gt;
 </code></pre>
-	No limits to the number of image sets per page or how many images are allowed in each set. Go nuts!</li>
-	</ol>
-</div>
-
-
-
-<hr />
-
-<div class="section" id="support">
-	<h2>Support</h2>
-	<p>For personal support issues and feature requests please post a message in the forums. I do not have time to personally respond to support emails, please use the forum. Thanks!
-	</p>
-	<p>For bug reports, send a note with the browser you are using and the version of Lightbox to lokesh.dhakar@[ google's email service ].com.</p>
-
-		<a href="http://lokeshdhakar.com/forums/" class="forums">
-			<img src="images/speech-bubbles.png" alt="Speech bubbles" class="speech" width="110" height="80" />
-			<div class="link">
-				Lightbox<br />
-				<span class="sub">Forums</span>
-			</div>
-		</a>
-
-</div>
-
-<hr />
-
-
-<div class="section" id="donate">
-	<h2>Donate</h2>
-	<p>Lightbox is completely free to use. If you're using Lightbox on a commercial project and feeling generous, consider a donation. All donations are sincerely appreciated. Thanks!</p>
-
-		<form name="_xclick" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-		<fieldset>
-			<input type="hidden" name="cmd" value="_xclick" />
-			<input type="hidden" name="business" value="lokesh.dhakar@gmail.com" />
-			<input type="hidden" name="item_name" value="Donation for Lightbox">
-			<input type="hidden" name="no_note" value="1" />
-			<input type="hidden" name="currency_code" value="USD" />
-			<input type="hidden" name="tax" value="0" />
-			<input type="hidden" name="bn" value="PP-DonationsBF" />
-			<input type="image" src="images/donate.png" name="submit" class="donate-button" alt="Make payments with PayPal - it's fast, free and secure!" />
-		</fieldset>
-	</form>
-</div>
-
-<hr />
-
-<div class="section" id="elsewhere">
-<h3>Find me elsewhere</h3>
-
-	<div class="row">
-		<a href="https://twitter.com/intent/user?screen_name=lokesh" class="button">Twitter</a>
-		<a href="http://lokeshdhakar.com/" class="button">Blog</a>
+			No limits to the number of image sets per page or how many images are allowed in each set. Go nuts!</li>
+		</ol>
 	</div>
-</div>
 
+	<hr/>
+
+	<div class="section" id="support">
+		<h2>Support</h2>
+		<p>
+			For personal support issues and feature requests please post a message in the forums. I do not have time to personally respond to support emails, please use the forum. Thanks!
+		</p>
+		<p>
+			For bug reports, send a note with the browser you are using and the version of Lightbox to lokesh.dhakar@[ google's email service ].com.
+		</p>
+		<a href="http://lokeshdhakar.com/forums/" class="forums">
+		<img src="images/speech-bubbles.png" alt="Speech bubbles" class="speech" width="110" height="80"/>
+		<div class="link">
+			Lightbox<br/>
+			<span class="sub">Forums</span>
+		</div>
+		</a>
+	</div>
+
+	<hr/>
+
+	<div class="section" id="donate">
+		<h2>Donate</h2>
+		<p>
+			Lightbox is completely free to use. If you're using Lightbox on a commercial project and feeling generous, consider a donation. All donations are sincerely appreciated. Thanks!
+		</p>
+		<form name="_xclick" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<fieldset>
+				<input type="hidden" name="cmd" value="_xclick">
+				<input type="hidden" name="business" value="lokesh.dhakar@gmail.com">
+				<input type="hidden" name="item_name" value="Donation for Lightbox">
+				<input type="hidden" name="no_note" value="1">
+				<input type="hidden" name="currency_code" value="USD">
+				<input type="hidden" name="tax" value="0">
+				<input type="hidden" name="bn" value="PP-DonationsBF">
+				<input type="image" src="images/donate.png" name="submit" class="donate-button" alt="Make payments with PayPal - it's fast, free and secure!">
+			</fieldset>
+		</form>
+	</div>
+
+	<hr/>
+
+	<div class="section" id="elsewhere">
+		<h3>Find me elsewhere</h3>
+
+		<div class="row">
+			<a href="https://twitter.com/intent/user?screen_name=lokesh" class="button">Twitter</a>
+			<a href="http://lokeshdhakar.com/" class="button">Blog</a>
+		</div>
 </div><!-- end #content -->
 
 <script src="js/jquery-1.10.1.min.js"></script>
 <script src="js/jquery.smooth-scroll.min.js"></script>
 <script src="js/lightbox.js"></script>
-
 <script>
 	Query(document).ready(function($) {
 		$('#nav a').smoothScroll({
@@ -240,13 +235,11 @@
 	var _gaq = _gaq || [];
 	_gaq.push(['_setAccount', 'UA-2196019-1']);
 	_gaq.push(['_trackPageview']);
-
 	(function() {
 		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	})();
-
 </script>
 </body>
 </html>
