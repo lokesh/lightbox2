@@ -65,10 +65,10 @@ class Lightbox
     @build()
 
 
-  # Loop through anchors and areamaps looking for rel attributes that contain 'lightbox'
+  # Loop through anchors and areamaps looking for data-lightbox attributes and rel attributes that contain 'lightbox'
   # On clicking these, start lightbox.
   enable: ->
-    $('body').on 'click', 'a[rel^=lightbox], area[rel^=lightbox]', (e) =>
+    $('body').on 'click', 'a[data-lightbox], a[rel^=lightbox], area[data-lightbox], area[rel^=lightbox]', (e) =>
       @start $(e.currentTarget)
       false
 
@@ -153,13 +153,17 @@ class Lightbox
 
     @album = []
     imageNumber = 0
+    group = $link.attr('data-lightbox')
+    if !group?
+      group = $link.attr('rel')
+      group = group.replace(/^lightbox\[(.*)\]$/ig, "$1")
 
-    if $link.attr('rel') == 'lightbox'
+    if group == '' || group == 'lightbox'
       # If image is not part of a set
       @album.push link: $link.attr('href'), title: $link.attr('title')
     else
       # Image is part of a set
-      for a, i in $( $link.prop("tagName") + '[rel="' + $link.attr('rel') + '"]')
+      for a, i in $( $link.prop("tagName") + '[data-lightbox="' + group + '"]' + $link.prop("tagName") + '[rel="' + group + '"]')
         @album.push link: $(a).attr('href'), title: $(a).attr('title')
         if $(a).attr('href') == $link.attr('href')
           imageNumber = i
