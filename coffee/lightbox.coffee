@@ -8,7 +8,7 @@ http://lokeshdhakar.com/projects/lightbox2/
 Licensed under the Creative Commons Attribution 2.5 License - http://creativecommons.org/licenses/by/2.5/
 - free for use in both personal and commercial projects
 - attribution requires leaving author name, author link, and the license info intact
-	
+
 Thanks
 - Scott Upton(uptonic.com), Peter-Paul Koch(quirksmode.com), and Thomas Fuchs(mir.aculo.us) for ideas, libs, and snippets.
 - Artemy Tregubenko (arty.name) for cleanup and help in updating to latest proto-aculous in v2.05.
@@ -45,7 +45,7 @@ $ = jQuery
 
 class LightboxOptions
   constructor: ->
-    @fileLoadingImage = 'images/loading.gif'     
+    @fileLoadingImage = 'images/loading.gif'
     @fileCloseImage = 'images/close.png'
     @resizeDuration = 700
     @fadeDuration = 500
@@ -58,8 +58,8 @@ class Lightbox
     @album = []
     @currentImageIndex = undefined
     @init()
-    
-  
+
+
   init: ->
     @enable()
     @build()
@@ -86,21 +86,21 @@ class Lightbox
         return false
 
     $lightbox = $('#lightbox')
-    
+
     $lightbox
       .hide()
       .on 'click', (e) =>
         if $(e.target).attr('id') == 'lightbox' then @end()
         return false
-      
+
     $lightbox.find('.lb-outerContainer').on 'click', (e) =>
       if $(e.target).attr('id') == 'lightbox' then @end()
       return false
-      
+
     $lightbox.find('.lb-prev').on 'click', (e) =>
       @changeImage @currentImageIndex - 1
       return false
-      
+
     $lightbox.find('.lb-next').on 'click', (e) =>
       @changeImage @currentImageIndex + 1
       return false
@@ -134,7 +134,7 @@ class Lightbox
         if $(a).attr('href') == $link.attr('href')
           imageNumber = i
 
-    # Position lightbox 
+    # Position lightbox
     $window = $(window)
     top = $window.scrollTop() + $window.height()/10
     left = $window.scrollLeft()
@@ -144,31 +144,31 @@ class Lightbox
         top: top + 'px'
         left: left + 'px'
       .fadeIn( @options.fadeDuration)
-      
+
     @changeImage(imageNumber)
     return
-  
+
 
   # Hide most UI elements in preparation for the animated resizing of the lightbox.
   changeImage: (imageNumber) ->
-    
-    @disableKeyboardNav()    
+
+    @disableKeyboardNav()
     $lightbox = $('#lightbox')
     $image = $lightbox.find('.lb-image')
 
     @sizeOverlay()
     $('#lightboxOverlay').fadeIn( @options.fadeDuration )
-    
+
     $('.loader').fadeIn 'slow'
     $lightbox.find('.lb-image, .lb-nav, .lb-prev, .lb-next, .lb-dataContainer, .lb-numbers, .lb-caption').hide()
 
     $lightbox.find('.lb-outerContainer').addClass 'animating'
-    
+
     # When image to show is preloaded, we send the width and height to sizeContainer()
     preloader = new Image
     preloader.onload = () =>
       $image.attr 'src', @album[imageNumber].link
-      # Bug fix by Andy Scott 
+      # Bug fix by Andy Scott
       $image.width = preloader.width
       $image.height = preloader.height
       # End of bug fix
@@ -176,7 +176,7 @@ class Lightbox
 
     preloader.src = @album[imageNumber].link
     @currentImageIndex = imageNumber
-    return  
+    return
 
 
   # Stretch overlay to fit the document
@@ -184,8 +184,8 @@ class Lightbox
     $('#lightboxOverlay')
       .width( $(document).width())
       .height( $(document).height() )
-  
-  
+
+
   # Animate the size of the lightbox to fit the image we are showing
   sizeContainer: (imageWidth, imageHeight) ->
     $lightbox = $('#lightbox')
@@ -198,11 +198,11 @@ class Lightbox
     containerTopPadding = parseInt $container.css('padding-top'), 10
     containerRightPadding = parseInt $container.css('padding-right'), 10
     containerBottomPadding = parseInt $container.css('padding-bottom'), 10
-    containerLeftPadding = parseInt $container.css('padding-left'), 10        
+    containerLeftPadding = parseInt $container.css('padding-left'), 10
 
     newWidth = imageWidth + containerLeftPadding + containerRightPadding
     newHeight = imageHeight + containerTopPadding + containerBottomPadding
-  
+
     # Animate just the width, just the height, or both, depending on what is different
     if newWidth != oldWidth && newHeight != oldHeight
       $outerContainer.animate
@@ -225,11 +225,11 @@ class Lightbox
       $lightbox.find('.lb-nextLink').height(newHeight)
       @showImage()
       return
-    , @options.resizeDuration 
-    
+    , @options.resizeDuration
+
     return
-  
-  
+
+
   # Display the image and it's details and begin preload neighboring images.
   showImage: ->
     $lightbox = $('#lightbox')
@@ -251,11 +251,11 @@ class Lightbox
     if @currentImageIndex > 0 then $lightbox.find('.lb-prev').show();
     if @currentImageIndex < @album.length - 1 then $lightbox.find('.lb-next').show();
     return
-  
-  # Display caption, image number, and closing button. 
+
+  # Display caption, image number, and closing button.
   updateDetails: ->
     $lightbox = $('#lightbox')
-    
+
     if typeof @album[@currentImageIndex].title != 'undefined' && @album[@currentImageIndex].title != ""
       $lightbox.find('.lb-caption')
         .html( @album[@currentImageIndex].title)
@@ -265,18 +265,18 @@ class Lightbox
       $lightbox.find('.lb-number')
         .html( @options.labelImage + ' ' + (@currentImageIndex + 1) + ' ' + @options.labelOf + '  ' + @album.length)
         .fadeIn('fast')
-    else 
+    else
       $lightbox.find('.lb-number').hide()
 
     $lightbox.find('.lb-outerContainer').removeClass 'animating'
-    
+
     $lightbox.find('.lb-dataContainer')
       .fadeIn @resizeDuration, () =>
         @sizeOverlay()
     return
-    
-    
-  # Preload previos and next images in set.  
+
+
+  # Preload previos and next images in set.
   preloadNeighboringImages: ->
    if @album.length > @currentImageIndex + 1
       preloadNext = new Image
@@ -284,7 +284,7 @@ class Lightbox
 
     if @currentImageIndex > 0
       preloadPrev = new Image
-      preloadPrev.src = @album[@currentImageIndex - 1].link    
+      preloadPrev.src = @album[@currentImageIndex - 1].link
     return
 
 
@@ -292,12 +292,12 @@ class Lightbox
     $(document).on 'keyup.keyboard', $.proxy( @keyboardAction, this)
     return
 
-  
+
   disableKeyboardNav: ->
     $(document).off '.keyboard'
     return
-  
-    
+
+
   keyboardAction: (event) ->
     KEYCODE_ESC = 27
     KEYCODE_LEFTARROW = 37
@@ -316,7 +316,7 @@ class Lightbox
           @changeImage @currentImageIndex + 1
     return
 
-  
+
   # Closing time. :-(
   end: ->
     @disableKeyboardNav()
@@ -324,8 +324,8 @@ class Lightbox
     $('#lightbox').fadeOut @options.fadeDuration
     $('#lightboxOverlay').fadeOut @options.fadeDuration
     $('select, object, embed').css visibility: "visible"
-        
-    
+
+
 $ ->
   options = new LightboxOptions
   lightbox = new Lightbox options
