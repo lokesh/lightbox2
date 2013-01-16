@@ -1,3 +1,5 @@
+// Place any jQuery/helper plugins in here.
+// Lightbox
 
 /*
 Lightbox v2.51
@@ -9,7 +11,7 @@ http://lokeshdhakar.com/projects/lightbox2/
 Licensed under the Creative Commons Attribution 2.5 License - http://creativecommons.org/licenses/by/2.5/
 - free for use in both personal and commercial projects
 - attribution requires leaving author name, author link, and the license info intact
-	
+    
 Thanks
 - Scott Upton(uptonic.com), Peter-Paul Koch(quirksmode.com), and Thomas Fuchs(mir.aculo.us) for ideas, libs, and snippets.
 - Artemy Tregubenko (arty.name) for cleanup and help in updating to latest proto-aculous in v2.05.
@@ -48,8 +50,8 @@ lightbox = new Lightbox options
   LightboxOptions = (function() {
 
     function LightboxOptions() {
-      this.fileLoadingImage = 'images/loading.gif';
-      this.fileCloseImage = 'images/close.png';
+      this.fileLoadingImage = url + '/img/loading.gif';
+      this.fileCloseImage = url + '/img/close.png';
       this.resizeDuration = 700;
       this.fadeDuration = 500;
       this.labelImage = "Image";
@@ -201,9 +203,35 @@ lightbox = new Lightbox options
       preloader = new Image;
       preloader.onload = function() {
         $image.attr('src', _this.album[imageNumber].link);
-        $image.width = preloader.width;
-        $image.height = preloader.height;
-        return _this.sizeContainer(preloader.width, preloader.height);
+        
+        var containerWidth, containerHeight;
+        var doc = {
+            w: $(window).width() - 100,
+            h: $(window).height() - 160
+        };
+        var cont = {
+            w: preloader.width,
+            h: preloader.height
+        };
+
+        var aspect = preloader.width / preloader.height;
+        if(preloader.width > doc.w) {
+            if(doc.w / aspect > doc.h) {
+                cont.w = doc.h * aspect;
+                cont.h = doc.h;
+            } else {
+                cont.w = doc.w;
+                cont.h = doc.w / aspect;
+            }
+        } else if(preloader.height > doc.h) {
+            cont.w = doc.h * aspect;
+            cont.h = doc.h;
+        }
+        $image.css({
+            height: cont.h,
+            width: cont.w
+        });
+        return _this.sizeContainer(cont.w, cont.h);
       };
       preloader.src = this.album[imageNumber].link;
       this.currentImageIndex = imageNumber;
