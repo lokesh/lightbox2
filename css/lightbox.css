@@ -95,31 +95,34 @@
   background-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
   /* Trick IE into showing hover */
   display: block;
+  cursor: pointer;
 }
 
-/* line 72, ../sass/lightbox.sass */
+/* line 73, ../sass/lightbox.sass */
 .lb-prev {
   left: 0;
   float: left;
+  background: url(../images/prev.png) left -48% no-repeat;
 }
 
-/* line 76, ../sass/lightbox.sass */
+/* line 78, ../sass/lightbox.sass */
 .lb-next {
   right: 0;
   float: right;
+  background: url(../images/next.png) right -48% no-repeat;
 }
 
-/* line 81, ../sass/lightbox.sass */
+/* line 84, ../sass/lightbox.sass */
 .lb-prev:hover {
-  background: url(../images/prev.png) left 48% no-repeat;
-}
-
-/* line 85, ../sass/lightbox.sass */
-.lb-next:hover {
-  background: url(../images/next.png) right 48% no-repeat;
+  background-position: left 48%;
 }
 
 /* line 88, ../sass/lightbox.sass */
+.lb-next:hover {
+  background-position: right 48%;
+}
+
+/* line 91, ../sass/lightbox.sass */
 .lb-dataContainer {
   margin: 0 auto;
   padding-top: 5px;
@@ -143,39 +146,39 @@
   clear: both;
 }
 
-/* line 95, ../sass/lightbox.sass */
+/* line 98, ../sass/lightbox.sass */
 .lb-data {
   padding: 0 10px;
   color: #bbbbbb;
 }
-/* line 98, ../sass/lightbox.sass */
+/* line 101, ../sass/lightbox.sass */
 .lb-data .lb-details {
   width: 85%;
   float: left;
   text-align: left;
   line-height: 1.1em;
 }
-/* line 103, ../sass/lightbox.sass */
+/* line 106, ../sass/lightbox.sass */
 .lb-data .lb-caption {
   font-size: 13px;
   font-weight: bold;
   line-height: 1em;
 }
-/* line 107, ../sass/lightbox.sass */
+/* line 110, ../sass/lightbox.sass */
 .lb-data .lb-number {
   display: block;
   clear: left;
   padding-bottom: 1em;
   font-size: 11px;
 }
-/* line 112, ../sass/lightbox.sass */
+/* line 115, ../sass/lightbox.sass */
 .lb-data .lb-close {
   width: 35px;
   float: right;
   padding-bottom: 0.7em;
   outline: none;
 }
-/* line 117, ../sass/lightbox.sass */
+/* line 120, ../sass/lightbox.sass */
 .lb-data .lb-close:hover {
   cursor: pointer;
 }
