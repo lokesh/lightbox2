@@ -198,10 +198,27 @@ class Lightbox
     preloader = new Image
     preloader.onload = () =>
       $image.attr 'src', @album[imageNumber].link
-      # Bug fix by Andy Scott 
+      
+      # set image size limit
+      innerWidth  = window.innerWidth  || document.documentElement.clientWidth
+      innerHeight = window.innerHeight || document.documentElement.clientHeight
+
+      if preloader.width > innerWidth
+        preloader.height = (innerWidth * 0.9 * preloader.height) / preloader.width
+        preloader.width = innerWidth * 0.9
+
+      if preloader.height > innerHeight * 0.8
+        preloader.width = (innerHeight * 0.8 * preloader.width) / preloader.height
+        preloader.height = innerHeight * 0.8
+
+      # Bug fix by Andy Scott
       $image.width = preloader.width
       $image.height = preloader.height
       # End of bug fix
+
+      # set image size limit
+      $image.attr("width", "#{preloader.width}px")
+
       @sizeContainer preloader.width, preloader.height
 
     preloader.src = @album[imageNumber].link
