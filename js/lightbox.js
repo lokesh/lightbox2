@@ -1,4 +1,3 @@
-
 /*
 Lightbox v2.51
 by Lokesh Dhakar - http://www.lokeshdhakar.com
@@ -332,6 +331,7 @@ lightbox = new Lightbox options
       this.disableKeyboardNav();
       $(window).off("resize", this.sizeOverlay);
       $('#lightbox').fadeOut(this.options.fadeDuration);
+      $('#lightbox .lb-loader').show();
       $('#lightboxOverlay').fadeOut(this.options.fadeDuration);
       return $('select, object, embed').css({
         visibility: "visible"
