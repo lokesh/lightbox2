@@ -1,0 +1,178 @@
+// !Imports
+@import "compass/css3";
+@import "variables";
+
+// !Logic
+// Choose if oyu want to use data:image or standart
+// By default it is set to data:images
+$use-data-img: true;
+
+@if ($use-data-img) {
+    $img-prev: $img-prev-data-uri;
+    $img-next: $img-next-data-uri;
+    $img-close: $img-close-data-uri;
+}
+
+// !Mixins
+@mixin clearing() {
+    position: relative;
+    margin: 0 auto;
+    *zoom: 1;
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+// !Silent Classes
+%position-absolute { position: absolute; }
+%display-block { display: block; }
+%width-full { width: 100%; }
+%clearing {
+    @include clearing();
+}
+
+
+// !SCSS
+#lightboxOverlay {
+    @include opacity(0.85);
+    @extend %position-absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: $overlay-bg-color;
+}
+
+#lightbox {
+    @extend %position-absolute;
+    left: 0;
+    @extend %width-full;
+    z-index: 10000;
+    text-align: center;
+    line-height: 0;
+    font-family: $font-family;
+
+    img {
+        width: auto;
+        height: auto;
+    }
+
+    a {
+        @include transition(all 0s);
+        
+        img {
+            border: none;
+        }
+    }
+}
+
+.lb-outerContainer {
+    @include border-radius($border-radius);
+    @extend %clearing;
+    width: 250px;
+    height: 250px;
+    background-color: $container-bg-color;
+    
+    & > .lb-container {
+        padding: 10px;
+    }
+}
+
+.lb-loader {
+    @extend %position-absolute;
+    top: 40%;
+    left: 0;
+    @extend %width-full;
+    height: 25%;
+    text-align: center;
+    line-height: 0;
+}
+
+.lb-nav {
+    @extend %position-absolute;
+    top: 0;
+    left: 0;
+    @extend %width-full;
+    height: 100%;
+    z-index: 10;
+
+    a {
+        outline: none;
+    }
+}
+
+.lb-prev, .lb-next {
+  @extend %display-block;
+  width: 49%;
+  height: 100%;
+  background-image: url(#{$transparent-img-data-uri});
+}
+
+.lb-prev {
+    left: 0;
+    float: left;
+
+    &:hover {
+        background: url(#{$img-prev}) left 48% no-repeat;
+    }
+}
+
+.lb-next {
+    right: 0;
+    float: right;
+
+    &:hover {
+        background: url(#{$img-next}) right 48% no-repeat;
+    }
+}
+
+.lb-dataContainer {
+    @include border-radius(0 0 $border-radius $border-radius);
+    @extend %clearing;
+    @extend %width-full;
+    padding-top: 5px;
+}
+
+.lb-data {
+    padding: 0 10px;
+    color: $font-color;
+
+    & > .lb-details {
+        width: 85%;
+        float: left;
+        text-align: left;
+    }
+
+    .lb-caption {
+        line-height: $caption-line-height;
+        font-size: $caption-font-size;
+        font-weight: $caption-font-weignt;
+    }
+
+    .lb-number {
+        @extend %display-block;
+        line-height: $number-line-height;
+        font-size: $number-font-size;
+        font-weight: $number-font-weight;
+        clear: left;
+    }
+
+    .lb-close {
+        @extend %display-block;
+        width: 27px;
+        height: 27px;
+        float: right;
+        outline: none;
+        overflow: hidden;
+        text-indent: -9999px;
+        text-decoration: none;
+        background: url(#{$img-close});
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
