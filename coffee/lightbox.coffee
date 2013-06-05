@@ -159,7 +159,7 @@ class Lightbox
     @sizeOverlay()
     $('#lightboxOverlay').fadeIn( @options.fadeDuration )
     
-    $('.loader').fadeIn 'slow'
+    $('.lb-loader').fadeIn 'slow'
     $lightbox.find('.lb-image, .lb-nav, .lb-prev, .lb-next, .lb-dataContainer, .lb-numbers, .lb-caption').hide()
 
     $lightbox.find('.lb-outerContainer').addClass 'animating'
