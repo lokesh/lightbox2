@@ -161,6 +161,9 @@
   font-weight: bold;
   line-height: 1em;
 }
+.lb-data .lb-webpageLink{
+  font-size: 10px
+}
 /* line 107, ../sass/lightbox.sass */
 .lb-data .lb-number {
   display: block;

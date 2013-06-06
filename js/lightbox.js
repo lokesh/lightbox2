@@ -117,6 +117,9 @@ lightbox = new Lightbox options
         _this.end();
         return false;
       });
+      $lightbox.find('.lb-caption').on('click', 'a', function(e){
+        window.open($(e.target).attr('href'), '_blank');
+      })
     };
 
     Lightbox.prototype.start = function($link) {
@@ -131,7 +134,9 @@ lightbox = new Lightbox options
       if ($link.attr('rel') === 'lightbox') {
         this.album.push({
           link: $link.attr('href'),
-          title: $link.attr('title')
+          title: $link.attr('title'),
+          webpage: $link.data('webpage'),
+          webpageTitle: $link.data('webpage-title')
         });
       } else {
         _ref = $($link.prop("tagName") + '[rel="' + $link.attr('rel') + '"]');
@@ -139,7 +144,9 @@ lightbox = new Lightbox options
           a = _ref[i];
           this.album.push({
             link: $(a).attr('href'),
-            title: $(a).attr('title')
+            title: $(a).attr('title'),
+            webpage: $(a).data('webpage'),
+            webpageTitle: $(a).data('webpage-title')
           });
           if ($(a).attr('href') === $link.attr('href')) {
             imageNumber = i;
@@ -248,6 +255,15 @@ lightbox = new Lightbox options
       $lightbox = $('#lightbox');
       if (typeof this.album[this.currentImageIndex].title !== 'undefined' && this.album[this.currentImageIndex].title !== "") {
         $lightbox.find('.lb-caption').html(this.album[this.currentImageIndex].title).fadeIn('fast');
+        if(typeof this.album[this.currentImageIndex].webpage === 'string'){
+          if(typeof this.album[this.currentImageIndex].webpageTitle === 'string'){
+            $lightbox.find('.lb-caption') 
+              .append("<br/><a class='lb-webpageLink' href='"+this.album[this.currentImageIndex].webpage+"'>"+this.album[this.currentImageIndex].webpageTitle+"</a>");
+          } else {
+            $lightbox.find('.lb-caption')
+              .append("<br/><a class='lb-webpageLink' href='"+ this.album[this.currentImageIndex].webpage +"'>"+this.album[this.currentImageIndex].webpage+"</a>")
+          }
+        }
       }
       if (this.album.length > 1) {
         $lightbox.find('.lb-number').html(this.options.labelImage + ' ' + (this.currentImageIndex + 1) + ' ' + this.options.labelOf + '  ' + this.album.length).fadeIn('fast');

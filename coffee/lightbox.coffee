@@ -1,4 +1,4 @@
-###
+€###
 Lightbox v2.51
 by Lokesh Dhakar - http://www.lokeshdhakar.com
 
@@ -126,11 +126,11 @@ class Lightbox
 
     if $link.attr('rel') == 'lightbox'
       # If image is not part of a set
-      @album.push link: $link.attr('href'), title: $link.attr('title')
+      @album.push link: $link.attr('href'), title: $link.attr('title'), webpage: $link.data('webpage'), webpageTitle: $link.data('webpage-title')
     else
       # Image is part of a set
       for a, i in $( $link.prop("tagName") + '[rel="' + $link.attr('rel') + '"]')
-        @album.push link: $(a).attr('href'), title: $(a).attr('title')
+        @album.push link: $(a).attr('href'), title: $(a).attr('title'), webpage: $(a).data('webpage'), webpageTitle: $(a).data('webpage-title')
         if $(a).attr('href') == $link.attr('href')
           imageNumber = i
 
@@ -260,6 +260,13 @@ class Lightbox
       $lightbox.find('.lb-caption')
         .html( @album[@currentImageIndex].title)
         .fadeIn('fast')
+      if typeof @album[@currentImageIndex].webpage == 'string'
+        if typeof @album[@currentImageIndex].webpageTitle == 'string'
+          $lightbox.find('.lb-caption')
+            .append("<br/><a class='lb-webpageLink' href='"+this.album[this.currentImageIndex].webpage+"'>"+this.album[this.currentImageIndex].webpageTitle+"</a>");
+        else
+          $lightbox.find('.lb-caption')
+            .append("<br/><a class='lb-webpageLink' href='"+ this.album[this.currentImageIndex].webpage +"'>"+this.album[this.currentImageIndex].webpage+"</a>")
 
     if @album.length > 1
       $lightbox.find('.lb-number')
