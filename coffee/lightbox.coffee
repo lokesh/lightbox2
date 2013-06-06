@@ -1,4 +1,4 @@
-€###
+###
 Lightbox v2.51
 by Lokesh Dhakar - http://www.lokeshdhakar.com
 
