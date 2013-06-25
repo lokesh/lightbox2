@@ -248,8 +248,8 @@ class Lightbox
   updateNav: ->
     $lightbox = $('#lightbox')
     $lightbox.find('.lb-nav').show()
-    if @currentImageIndex > 0 then $lightbox.find('.lb-prev').show();
-    if @currentImageIndex < @album.length - 1 then $lightbox.find('.lb-next').show();
+    if @currentImageIndex > 0 then $lightbox.find('.lb-prev').show()
+    if @currentImageIndex < @album.length - 1 then $lightbox.find('.lb-next').show()
     return
 
   # Display caption, image number, and closing button.
