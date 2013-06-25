@@ -10,7 +10,7 @@ http://lokeshdhakar.com/projects/lightbox2/
 Licensed under the Creative Commons Attribution 2.5 License - http://creativecommons.org/licenses/by/2.5/
 - free for use in both personal and commercial projects
 - attribution requires leaving author name, author link, and the license info intact
-	
+
 Thanks
 - Scott Upton(uptonic.com), Peter-Paul Koch(quirksmode.com), and Thomas Fuchs(mir.aculo.us) for ideas, libs, and snippets.
 - Artemy Tregubenko (arty.name) for cleanup and help in updating to latest proto-aculous in v2.05.
@@ -37,7 +37,7 @@ Lightbox
 - keyboardAction
 - end
 
-options = new LightboxOptions
+options = new LightboxOptions()
 lightbox = new Lightbox options
 */
 
@@ -50,8 +50,8 @@ lightbox = new Lightbox options
   LightboxOptions = (function() {
 
     function LightboxOptions() {
-      this.fileLoadingImage = 'images/loading.gif';
-      this.fileCloseImage = 'images/close.png';
+      this.fileLoadingImage = 'img/loading.gif';
+      this.fileCloseImage = 'img/close.png';
       this.resizeDuration = 700;
       this.fadeDuration = 500;
       this.labelImage = "Image";
@@ -88,7 +88,7 @@ lightbox = new Lightbox options
       var $lightbox,
         _this = this;
       $("<div id='lightboxOverlay'></div><div id='lightbox'><div class='lb-outerContainer'><div class='lb-container'><img class='lb-image' src='' ><div class='lb-nav'><a class='lb-prev' href='' ></a><a class='lb-next' href='' ></a></div><div class='lb-loader'><a class='lb-cancel'><img src='" + this.options.fileLoadingImage + "'></a></div></div></div><div class='lb-dataContainer'><div class='lb-data'><div class='lb-details'><span class='lb-caption'></span><span class='lb-number'></span></div><div class='lb-closeContainer'><a class='lb-close'><img src='" + this.options.fileCloseImage + "'></a></div></div></div></div>").appendTo($('body'));
-      $('#lightboxOverlay').hide().on('click', function(e) {
+      $('#lightboxOverlay').hide().on('click', function() {
         _this.end();
         return false;
       });
@@ -105,15 +105,15 @@ lightbox = new Lightbox options
         }
         return false;
       });
-      $lightbox.find('.lb-prev').on('click', function(e) {
+      $lightbox.find('.lb-prev').on('click', function() {
         _this.changeImage(_this.currentImageIndex - 1);
         return false;
       });
-      $lightbox.find('.lb-next').on('click', function(e) {
+      $lightbox.find('.lb-next').on('click', function() {
         _this.changeImage(_this.currentImageIndex + 1);
         return false;
       });
-      $lightbox.find('.lb-loader, .lb-close').on('click', function(e) {
+      $lightbox.find('.lb-loader, .lb-close').on('click', function() {
         _this.end();
         return false;
       });
@@ -168,7 +168,7 @@ lightbox = new Lightbox options
       $('.loader').fadeIn('slow');
       $lightbox.find('.lb-image, .lb-nav, .lb-prev, .lb-next, .lb-dataContainer, .lb-numbers, .lb-caption').hide();
       $lightbox.find('.lb-outerContainer').addClass('animating');
-      preloader = new Image;
+      preloader = new Image();
       preloader.onload = function() {
         $image.attr('src', _this.album[imageNumber].link);
         $image.width = preloader.width;
@@ -263,11 +263,11 @@ lightbox = new Lightbox options
     Lightbox.prototype.preloadNeighboringImages = function() {
       var preloadNext, preloadPrev;
       if (this.album.length > this.currentImageIndex + 1) {
-        preloadNext = new Image;
+        preloadNext = new Image();
         preloadNext.src = this.album[this.currentImageIndex + 1].link;
       }
       if (this.currentImageIndex > 0) {
-        preloadPrev = new Image;
+        preloadPrev = new Image();
         preloadPrev.src = this.album[this.currentImageIndex - 1].link;
       }
     };
@@ -316,7 +316,7 @@ lightbox = new Lightbox options
 
   $(function() {
     var lightbox, options;
-    options = new LightboxOptions;
+    options = new LightboxOptions();
     return lightbox = new Lightbox(options);
   });
 
