@@ -1,9 +1,9 @@
-/*	Lightbox v2 Project page styles	
- *	Author: Lokesh Dhakar http://www.lokeshdhakar.com
- *	Created: a long time ago (2006 I think)
- *	Table of Contents:
- *		layout
- *		typography
+/*  Lightbox v2 Project page styles
+ *  Author: Lokesh Dhakar http://www.lokeshdhakar.com
+ *  Created: a long time ago (2006 I think)
+ *  Table of Contents:
+ *      layout
+ *      typography
  *    content */
 /* line 17, ../../../../.rvm/gems/ruby-1.9.2-p320/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
@@ -100,7 +100,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
  *----------------------------------------------- */
 /* line 33, ../sass/screen.sass */
 body {
-  background: #222222 url(../images/bg-checker.png);
+  background: #222222 url(../img/bg-checker.png);
 }
 
 /* line 36, ../sass/screen.sass */
@@ -433,7 +433,7 @@ a:hover {
 .changelog li {
   list-style: none;
   padding: 0 0 0 14px;
-  background: url(../images/bullet.gif) no-repeat 0 11px;
+  background: url(../img/bullet.gif) no-repeat 0 11px;
   color: #999999;
 }
 /* line 242, ../sass/screen.sass */
