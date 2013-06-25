@@ -45,12 +45,12 @@ $ = jQuery
 
 class LightboxOptions
   constructor: ->
-    @fileLoadingImage = 'img/loading.gif'
-    @fileCloseImage = 'img/close.png'
     @resizeDuration = 700
     @fadeDuration = 500
     @labelImage = "Image" # Change to localize to non-english language
     @labelOf = "of"
+    @fileLoadingImage = 'img/loading.gif'
+    @fileCloseImage = 'img/close.png'
 
 
 class Lightbox
