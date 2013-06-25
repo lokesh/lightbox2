@@ -25,7 +25,7 @@
   <span class="twitter"><a href="https://twitter.com/intent/user?screen_name=lokeshdhakar">Follow me on <em>Twitter</em></a></span></p>
 
 	<ul id="nav">
-		<li><a href="#example" class="first">Example</a></li>
+		<li><a href="#example" class="first">Examples</a></li>
 		<li><a href="#download">Download</a></li>
 		<li><a href="#how">How to Use</a></li>
 		<li><a href="#support">Support</a></li>
@@ -36,7 +36,7 @@
 <div id="content">
 
 <div class="section" id="overview">
-	<p class="lead">Lightbox is a <em>simple, unobtrusive</em> script used to overlay images on top of the current page. It's a <em>snap to setup</em> and works on <em>all modern browsers</em>.</p>
+	<p class="lead">Lightbox is a simple script used to overlay images on top of the current page. It's a <em>snap to setup</em> and works on <em>all modern browsers</em>.</p>
 </div>
 
 <hr />
@@ -202,7 +202,7 @@
 			<input type="hidden" name="currency_code" value="USD" />
 			<input type="hidden" name="tax" value="0" />
 			<input type="hidden" name="bn" value="PP-DonationsBF" />
-			<input type="image" src="images/donate.png" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" />
+			<input type="image" src="images/donate.png" name="submit" class="donate-button" alt="Make payments with PayPal - it's fast, free and secure!" />
 		</fieldset>
 	</form>
 </div>
@@ -220,16 +220,14 @@
 
 </div><!-- end #content -->
 
-<script src="js/jquery-1.7.2.min.js"></script>
-<script src="js/jquery-ui-1.8.18.custom.min.js"></script>
+<script src="js/jquery-1.10.1.min.js"></script>
 <script src="js/jquery.smooth-scroll.min.js"></script>
 <script src="js/lightbox.js"></script>
 
 <script>
   jQuery(document).ready(function($) {
-      $('a').smoothScroll({
-        speed: 1000,
-        easing: 'easeInOutCubic'
+      $('#nav a').smoothScroll({
+        speed: 1000
       });
 
       $('.showOlderChanges').on('click', function(e){
