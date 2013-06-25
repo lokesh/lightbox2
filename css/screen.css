@@ -508,6 +508,26 @@ a:hover {
   color: #8ad459;
 }
 
+#donate input{
+  background: #333333;
+  border: 5px solid rgba(0,0,0,0);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+#donate input:hover{
+  border: solid 5px #8ad459;
+  border-radius: 4px;
+}
+
 /* line 278, ../sass/screen.sass */
 #elsewhere .button {
   font-family: "Fredoka One", "lucida grande", tahoma, sans-serif;
