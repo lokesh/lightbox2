@@ -1,66 +1,37 @@
-/*
- *  Lightbox v2 Project page styles
- *  Author: Lokesh Dhakar http://www.lokeshdhakar.com
- *  Created: a long time ago (2006 I think)
- *  Table of Contents:
- *      layout
- *      typography
- *    content
-
 @import "compass/reset"
 @import "compass/css3"
 @import "compass/utilities/general/clearfix"
 
 @import "variables"
 
-/* layout
- *----------------------------------------------- */
-#sidebar
-  position: fixed
-  top: $gutter
-  left: $gutter
-  width: $sidebarWidth
-
-#content
-  margin: 0 $gutter $gutter $sidebarWidth+$gutter*2
-
-.row
-  +pie-clearfix
-
 /* Typography
  *----------------------------------------------- */
 
-body
-  background: $bodyBg url(../img/bg-checker.png)
-
-body, input, textarea
+body,
+input,
+textarea
   color: $color
-  text-shadow: 0 -1px 0 rgba(0,0,0,1)
   font-size: $fontSize
-  line-height: $lineHeight
   font-family: $fontFamily
-  font-weight: 600
-  -webkit-font-smoothing: antialiased
 
-#lightbox
-  text-shadow: none
-
-h1,h2,h3,h4,h5,h6
-  font-family: $headingFontFamily
-  font-weight: 400
-  letter-spacing: 0.03em
-  line-height: $lineHeight
-  margin: 0
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  font-weight: 700
+  line-height: 1.2em
   color: $headingColor
 
 h1
-  font-size: $fontSize + 24
-  line-height: 1.2em
+  font-size: 72px
+  line-height: 1em
 
 h2
-  font-size: $fontSize + 18
-  line-height: 1.45em
-  margin-bottom: 0.2em
+  font-size: 48px
+  line-height: 1.2em
+  margin-bottom: 0.3em
 
 h3
   font-size: $fontSize
@@ -71,15 +42,15 @@ h3
 h4
   font-size: $fontSize
 
-
-
-/* Text elements */
 p
-  margin: 0 0 1.25em 0
-  line-height: $lineHeight
+  line-height: 1.4em
+  margin-bottom: 1em
 
 ul, ol
   margin: 0 0 1.25em 0
+
+li
+  line-height: 1.4em
 
 dt
   font-weight: bold
@@ -94,23 +65,18 @@ i
   font-style: italic
 
 pre
-  background: rgba(0,0,0,0.4)
-  color: $orange
-  font: 14px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace
-  line-height: 1.5
-  margin: $gutter/2 0 $gutter/2 0
-  overflow: auto
-  padding: 1em
+  padding: $gutter/4
+  margin-bottom: $gutter/2
+  background-color: darken($bgColor, 10%)
+  font: $fontSize - 6 "Andale Mono", "DejaVu Sans Mono", monospace
+  line-height: 1.5em
   +border-radius($radius)
-  +box-shadow( 0 1px 0 0 rgba(255,255,255,0.1), inset 0 2px 6px 2px rgba(0,0,0,1))
 
 code, kbd
-  font: 14px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace
-  background: rgba(0,0,0,0.4)
-  +box-shadow( 0 1px 0 0 rgba(255,255,255,0.1), inset 0 2px 6px 2px rgba(0,0,0,1))
-  padding: 5px
+  padding: $gutter/10
+  background-color: darken($bgColor, 10%)
+  font: $fontSize - 6 "Andale Mono", "DejaVu Sans Mono", monospace
   +border-radius($radius)
-  color: $orange
 
 pre code
   font-size: 13px
@@ -118,77 +84,62 @@ pre code
   +box-shadow(none)
   padding: 0
 
-/* Links */
 a
   color: $linkColor
   text-decoration: none
   &:hover
-    color: darken($linkColor, 20%)
+    color: lighten($linkColor, 30%)
 
 ::-moz-selection,
 ::selection
   background: $orange
   color: white
 
+/* -- Layout ------------------------------------------------------------------ */
 
-/* sidebar
- *----------------------------------------------- */
+body
+  margin: 40px 40px 80px 40px
+  background: $bgColor
 
-#sidebar
-  +opacity(0.6)
-  +transition( opacity .2s)
-  &:hover
-    +opacity(1)
-  a
-    color: #fff
-  .logo
-    +transition( all .2s ease-out)
-    em
-      color: $linkColor
-    &:hover
-      text-shadow: 0 0 20px rgba(208, 235, 106,1), 0 0 50px rgba(208, 235, 106,1)
-  .author
-    font-weight: 800
-    line-height: 1.4em
-    a
-      &:hover
-        text-shadow: 0 0 10px rgba(255,255,255, 1)
-    .twitter
-      font-size: $fontSize - 2
-      a
-        color: #4d9ed8
-      em
-        color: #4d9ed8
+.wrapper
+  max-width: $maxColumnWidth
+  margin: 0 auto
 
-#nav
-  list-style: none
-  margin: 1.5em 0 1em 0
-  font-size: 14px
-  text-transform: uppercase
-  letter-spacing: 0.1em
-  font-family: $headingFontFamily
-  li
-    padding: 0
-    margin: 0
-  a
-    display: block
-    height: 2.0em
-    padding: 0.6em 0.2em 0.3em $gutter/2
-    background: rgba(80,80,80,1)
-    border-top: 1px solid rgba(255,255,255,0.15)
-    border-bottom: 1px solid rgba(0,0,0,0.4)
-    +transition( all .2s ease-out)
-    &:hover
-      text-shadow: 0 1px 0 rgba(0,0,0,0.6)
-      background-color: darken($headingColor, 30%)
-  a.first
-    border-bottom-color: rgba(0,0,0,0.5)
-    +border-top-radius($radius)
-    border-top-color: transparent
-  a.last
-    border-top-color: rgba(255,255,255,0.25)
-    +border-bottom-radius($radius)
+.section
+  padding: $gutter 0 $gutter*1.5 0
+  +pie-clearfix
+  border-top: 4px solid darken($bgColor, 5%)
+  &:first-child
+    border-top: none
 
+.section-header
+  text-align: center
+
+.row
+  +pie-clearfix
+
+/* -- Intro -- */
+
+.intro-section
+  text-align: center
+
+.logo
+  color: white
+  .version
+    color: $yellow
+
+.author-links
+  font-size: $fontSize - 2
+
+.lead
+  font-size: $fontSize + 7
+
+/* -- Sharing -- */
+
+.sharing
+  position: fixed
+  top: 20px
+  right: 0
 
 /* content
  *----------------------------------------------- */
@@ -200,7 +151,7 @@ a
   background-color: #333
   border: 5px solid #333
   +border-radius($radius)
-  +transition( all .2s ease-out)
+  +transition(all .1s ease-out)
   &:hover
     border-color: $linkColor
     background-color: #444
@@ -209,7 +160,6 @@ a
   .file
     float: left
     font-size: 36px
-    font-family: $headingFontFamily
     font-weight: 400
     color: white
     line-height: 1.1em
@@ -257,7 +207,7 @@ a
   background-color: #333
   border: 5px solid #333
   +border-radius($radius)
-  +transition( all .2s ease-out)
+  +transition( all .1s ease-out)
   &:hover
     border-color: $linkColor
     background-color: #444
@@ -267,7 +217,6 @@ a
   .link
     float: left
     font-size: 36px
-    font-family: $headingFontFamily
     font-weight: 400
     color: white
     line-height: 1.1em
@@ -277,51 +226,14 @@ a
 .donate-button
   border: 5px solid rgba(0, 0, 0, 0)
   +border-radius($radius)
-  +transition( all .2s ease-out)
+  +transition(all .1s ease-out)
   &:hover
     background-color: #444
     border-color: $linkColor
 
-#elsewhere
-  .button
-    font-family: $headingFontFamily
-    font-weight: normal
-    font-size: 24px
-    display: block
-    float: left
-    margin: $gutter/2 $gutter/2 $gutter 0
-    padding: 10px 10px 10px 10px
-    background-color: #333
-    border: 5px solid #333
-    +border-radius($radius)
-    +transition( all .2s ease-out)
-    color: #fff
-    &:hover
-      background-color: #444
-      border-color: $linkColor
 
 /* misc
  *----------------------------------------------- */
-
-p.lead
-  font-size: $fontSize + 10
-  font-weight: 700
-  color: darken( $color, 10%)
-  line-height: 1.4em
-  margin-bottom: 0
-
-
-hr
-  height: 6px
-  background: #3d3d33
-  border: none
-  +border-radius($radius)
-  clear: both
-
-.section
-  padding: $gutter 0
-  &:first-child
-    border-top: none
 
 .imageRow
   +pie-clearfix
@@ -337,7 +249,7 @@ hr
       +border-radius($radius)
       +box-shadow( 0 1px 4px 0 rgba(0,0,0,0.5))
       margin-right: $gutter
-      +transition( all .2s ease-out)
+      +transition(all .1s ease-out)
       img
         +border-radius($radius)
         border: 1px solid rgba(0,0,0,0.3)
@@ -347,8 +259,8 @@ hr
     float: left
     background: rgba(255,255,255,.1)
     +border-radius($radius)
-    +box-shadow( 0 1px 4px 0 rgba(0,0,0,0.5))
-    +transition( all .2s ease-out)
+    +box-shadow(0 1px 4px 0 rgba(0,0,0,0.5))
+    +transition(all .1s ease-out)
     &:hover
       background: rgba(255,255,255,.2)
     .single
@@ -368,109 +280,78 @@ hr
         +border-right-radius($radius)
 
 // Drop comments below content
-@media only screen and (max-width: 1000px)
+// @media only screen and (max-width: 1000px)
 
-  body, input, textarea
-    font-size: $fontSize - 2
+//   body, input, textarea
+//     font-size: $fontSize - 2
 
-  body
-    padding-top: 20px
+//   body
+//     padding-top: 20px
 
-  .section
-    padding: 20px 0
+//   .section
+//     padding: 20px 0
 
-  p.lead
-    font-size: $fontSize + 4
+//   p.lead
+//     font-size: $fontSize + 4
 
-  h1
-    font-size: 30px
+//   h1
+//     font-size: 30px
 
-  h2
-    font-size: 24px
+//   h2
+//     font-size: 24px
 
-  h3
-    font-size: 16px
+//   h3
+//     font-size: 16px
 
-  code, kbd
-    font-size: 13px
+//   code, kbd
+//     font-size: 13px
 
-  pre code
-    font-size: 12px
+//   pre code
+//     font-size: 12px
 
-  pre
-    padding: .75em
-
-  #sidebar
-    width: $sidebarWidth - 40
-    left: 20px
-
-  #content
-    margin-left: $sidebarWidth+$gutter - 40
+//   pre
+//     padding: .75em
 
 
-@media only screen and (max-width: 700px)
-  body, input, textarea
-    font-size: $fontSize - 4
-    padding-top: 0
+// @media only screen and (max-width: 700px)
+//   body, input, textarea
+//     font-size: $fontSize - 4
+//     padding-top: 0
 
-  p.lead
-    font-size: $fontSize
+//   p.lead
+//     font-size: $fontSize
 
-  code, kbd
-    font-size: 12px
+//   code, kbd
+//     font-size: 12px
 
-  pre code
-    font-size: 11px
+//   pre code
+//     font-size: 11px
 
-  pre
-    padding: .5em
+//   pre
+//     padding: .5em
 
 
-  #sidebar
-    +opacity(1)
-    position: static
-    text-align: center
-    width: auto
-    margin: 20px 20px 0 20px
-    border-bottom: 6px solid #3d3d33
-    h1
-      font-size: 24px
-    .twitter
-      font-size: 14px
-    #nav
-      font-size: 12px
-      li
-        display: inline-block
-        a
-          padding: 10px
-          height: auto
-          margin: 0 5px 10px 5px
-          +border-radius(6px)
+//   h2
+//     font-size: 18px
 
-  h2
-    font-size: 18px
+//   h3
+//     font-size: 14px
 
-  h3
-    font-size: 14px
+//   .download
+//     text-align: center
+//     width: 95%
+//     margin-right: 0
+//     padding-right: 0
+//     padding-left: 0
+//     .box, .file
+//       float: none
 
-  #content
-    margin: 10px 20px 20px 20px
-
-  .download
-    text-align: center
-    width: 95%
-    margin-right: 0
-    padding-right: 0
-    padding-left: 0
-    .box, .file
-      float: none
-
-  .forums
-    text-align: center
-    width: 95%
-    margin-right: 0
-    padding-right: 0
-    padding-left: 0
-    .speech, .link
-      float: none
+//   .forums
+//     text-align: center
+//     width: 95%
+//     margin-right: 0
+//     padding-right: 0
+//     padding-left: 0
+//     .speech, .link
+//       float: none
 

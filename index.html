@@ -2,45 +2,44 @@
 <html lang="en-us">
 <head>
 	<meta charset="utf-8">
+
 	<title>Lightbox 2</title>
+
+	<meta name="description" lang="en" content="Lightbox 2 is a simple script used to overlay images on the current page. It's a snap to setup and works on all modern browsers."/>
 	<meta name="author" content="Lokesh Dhakar">
-	<meta name="description" lang="en" content="Lightbox 2 is a simple, unobtrusive script used to overlay images on the current page. It's a snap to setup and works on all modern browsers."/>
-	<meta name="viewport" content="width=device-width">
-	<link rel="shortcut icon" href="img/favicon.ico"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Karla:400,700">
 	<link rel="stylesheet" href="css/screen.css" media="screen"/>
 	<link rel="stylesheet" href="css/lightbox.css" media="screen"/>
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans:400,700">
+
 </head>
 <body>
 
-<div id="sidebar">
-	<h1 class="logo"><a href="http://www.lokeshdhakar.com/projects/lightbox2/">Lightbox<em>2</em></a></h1>
-	<p class="author">
-		<a href="http://www.lokeshdhakar.com">by Lokesh Dhakar</a><br/>
-		<span class="twitter"><a href="https://twitter.com/intent/user?screen_name=lokeshdhakar">Follow me on <em>Twitter</em></a></span>
-	</p>
+<div class="wrapper">
 
-	<ul id="nav">
-		<li><a href="#example" class="first">Examples</a></li>
-		<li><a href="#download">Download</a></li>
-		<li><a href="#how">How to Use</a></li>
-		<li><a href="#support">Support</a></li>
-		<li><a href="#donate" class="last">Donate</a></li>
-	</ul>
-</div>
+	<section id="intro" class="section intro-section">
+	  <header>
+     <h1 class="logo">Lightbox<em class="version">2</em></h1>
+    </header>
+		<p class="author">
+ 		  by Lokesh Dhakar<br />
+			<span class="author-links">
+				<a href="https://twitter.com/intent/user?screen_name=lokesh">Follow me on Twitter</a>
+				or 
+				<a href="http://lokeshdhakar.com">read my blog</a>
+			</span>
+		</p>
 
-<div id="content">
-
-	<div class="section" id="overview">
 		<p class="lead">
-			Lightbox is a simple script used to overlay images on top of the current page. It's a <em>snap to setup</em> and works on <em>all modern browsers</em>.</p>
-	</div>
+			Lightbox is a simple script used to overlay images on top of the current page. It's a <em>snap to setup</em> and works on <em>all modern browsers</em>.
+		</p>
+	</section>
 
-	<hr/>
-
-	<div class="section" id="example">
-
-		<h2>Examples</h2>
+	<section id="examples" class="section examples-section">
+		<header>
+			<h2 class="section-header">Examples</h2>
+		</header>
 
 		<h3>Single image</h3>
 		<div class="imageRow">
@@ -70,13 +69,12 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 
-	<hr/>
-
-	<div class="section" id="download">
-
-		<h2>Download</h2>
+	<section id="download" class="section download-section">
+		<header>
+			<h2 class="section-header">Download</h2>
+		</header>
 
 		<div class="row">
 			<a href="releases/lightbox2.51.zip" class="download">
@@ -89,7 +87,7 @@
 			</div>
 			</a>
 
-			<ul class="filelist">
+<!-- 			<ul class="filelist">
 				<li class="header">Includes:</li>
 				<li>index.html</li>
 				<li><span class="folder">js/</span>jquery-1.10.1.min.js</li>
@@ -102,7 +100,7 @@
 				<li><span class="note">Plus a few files for the demo page</span></li>
 			</ul>
 		</div>
-
+ -->
 		<p>
 			Lightbox2 is open-source.<br/> Fork the code on <a href="https://github.com/lokesh/lightbox2">Github</a>.
 		</p>
@@ -130,13 +128,13 @@
 			<li class="old"><span class="version">v2.01</span> - Centering in IE6 (any DOCTYPE) fixed. Smoothed out resize transition.</li>
 		</ul>
 		<a href="#" class="showOlderChanges">Show older changes</a>
-	</div>
+	</section>
 
-	<hr/>
-
-
-	<div class="section" id="how">
-		<h2>How to use</h2>
+	
+	<section id="how-to-use" class="section how-to-use-section">
+		<header>
+			<h2 class="section-header">How to use</h2>
+		</header>
 		<h3>Part 1 - Setup</h3>
 		<ol>
 			<li>Lightbox 2 uses the <a href="http://jquery.com/">jQuery</a> framework. Load jQuery and the Lightbox javascript files in the proper order.
@@ -163,12 +161,13 @@
 </code></pre>
 			No limits to the number of image sets per page or how many images are allowed in each set. Go nuts!</li>
 		</ol>
-	</div>
+	</section>
 
-	<hr/>
 
-	<div class="section" id="support">
-		<h2>Support</h2>
+	<section id="questions" class="section questions-section">
+		<header>
+			<h2 class="section-header">Have questions?</h2>
+		</header>
 		<p>
 			For personal support issues and feature requests please post a message in the forums. I do not have time to personally respond to support emails, please use the forum. Thanks!
 		</p>
@@ -182,12 +181,12 @@
 			<span class="sub">Forums</span>
 		</div>
 		</a>
-	</div>
+	</section>
 
-	<hr/>
-
-	<div class="section" id="donate">
-		<h2>Donate</h2>
+	<section id="doante" class="section donate-section">
+		<header>
+			<h2 class="section-header">Donate</h2>
+		</header>
 		<p>
 			Lightbox is completely free to use. If you're using Lightbox on a commercial project and feeling generous, consider a donation. All donations are sincerely appreciated. Thanks!
 		</p>
@@ -203,43 +202,45 @@
 				<input type="image" src="img/donate.png" name="submit" class="donate-button" alt="Make payments with PayPal - it's fast, free and secure!">
 			</fieldset>
 		</form>
-	</div>
+	</section>
 
-	<hr/>
+	<section id="sharing" class="sharing">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="lokesh" data-size="large">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </section>
 
-	<div class="section" id="elsewhere">
-		<h3>Find me elsewhere</h3>
 
-		<div class="row">
-			<a href="https://twitter.com/intent/user?screen_name=lokesh" class="button">Twitter</a>
-			<a href="http://lokeshdhakar.com/" class="button">Blog</a>
-		</div>
-</div><!-- end #content -->
-
-<script src="js/jquery-1.10.1.min.js"></script>
-<script src="js/jquery.smooth-scroll-1.4.10.min.js"></script>
-<script src="js/lightbox.js"></script>
-<script>
-	jQuery(document).ready(function($) {
-		$('#nav a').smoothScroll({
-			speed: 1000
-		});
+	<script src="js/jquery-1.10.1.min.js"></script>
+	<!-- <script src="js/jquery-2.0.2.min.js"></script> -->
+	<script src="js/jquery.smooth-scroll-1.4.10.min.js"></script>
+	<script src="js/lightbox.js"></script>
+	
+	<script>
+		jQuery(document).ready(function($) {
+			$('#nav a').smoothScroll({
+				speed: 1000
+			});
 
 			$('.showOlderChanges').on('click', function(e){
 				$('.changelog .old').slideDown('slow');
 				$(this).fadeOut();
 				e.preventDefault();
 			})
-	});
+		});
+	 
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-2196019-1']);
+	  _gaq.push(['_trackPageview']);
 
-	var _gaq = _gaq || [];
-	_gaq.push(['_setAccount', 'UA-2196019-1']);
-	_gaq.push(['_trackPageview']);
-	(function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	})();
-</script>
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+
+</div>
+
 </body>
 </html>
