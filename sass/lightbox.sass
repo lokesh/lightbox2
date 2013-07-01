@@ -66,7 +66,8 @@
   width: 49%
   height: 100%
   background-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7")
-  /* Trick IE into showing hover
+  cursor: pointer
+  /* Trick IE into showing hover */
   display: block
 
 .lb-prev
@@ -78,12 +79,14 @@
   float: right
 
 .lb-prev
+  background: url(../img/prev.png) left -48% no-repeat
   &:hover
-    background: url(../img/prev.png) left 48% no-repeat
+    background-position: left 48%
 
 .lb-next
+  background: url(../img/next.png) right -48% no-repeat
   &:hover
-    background: url(../img/next.png) right 48% no-repeat
+    background-position: right 48%
 
 .lb-dataContainer
   margin: 0 auto

@@ -69,7 +69,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 body,
 input,
 textarea {
-  color: #eeeeee;
+  color: #dddddd;
   font-size: 18px;
   font-family: "Karla", "lucida grande", sans-serif;
 }
@@ -81,30 +81,30 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 700;
   line-height: 1.2em;
   color: #fdf485;
 }
 
-/* line 27, ../sass/screen.sass */
+/* line 26, ../sass/screen.sass */
 h1 {
   font-size: 72px;
   line-height: 1em;
 }
 
-/* line 31, ../sass/screen.sass */
+/* line 30, ../sass/screen.sass */
 h2 {
   font-size: 48px;
   line-height: 1.2em;
   margin-bottom: 0.3em;
 }
 
-/* line 36, ../sass/screen.sass */
+/* line 35, ../sass/screen.sass */
 h3 {
   font-size: 18px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #e5d404;
+  margin-bottom: 0.3em;
 }
 
 /* line 42, ../sass/screen.sass */
@@ -210,15 +210,16 @@ body {
 
 /* line 104, ../sass/screen.sass */
 .wrapper {
-  max-width: 800px;
+  max-width: 710px;
   margin: 0 auto;
 }
 
 /* line 108, ../sass/screen.sass */
 .section {
-  padding: 40px 0 60px 0;
+  padding: 0 0 40px 0;
+  margin-bottom: 40px;
   *zoom: 1;
-  border-top: 4px solid #373737;
+  border-bottom: 4px solid #373737;
 }
 /* line 38, ../../../../.rvm/gems/ruby-1.9.3-p392/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .section:after {
@@ -226,17 +227,17 @@ body {
   display: table;
   clear: both;
 }
-/* line 112, ../sass/screen.sass */
-.section:first-child {
+/* line 113, ../sass/screen.sass */
+.section:last-child {
   border-top: none;
 }
 
-/* line 115, ../sass/screen.sass */
+/* line 116, ../sass/screen.sass */
 .section-header {
   text-align: center;
 }
 
-/* line 118, ../sass/screen.sass */
+/* line 119, ../sass/screen.sass */
 .row {
   *zoom: 1;
 }
@@ -247,33 +248,84 @@ body {
   clear: both;
 }
 
+/* -- Sections ------------------------------------------------------------------ */
 /* -- Intro -- */
-/* line 123, ../sass/screen.sass */
+/* line 126, ../sass/screen.sass */
 .intro-section {
   text-align: center;
 }
 
-/* line 126, ../sass/screen.sass */
+/* line 129, ../sass/screen.sass */
 .logo {
   color: white;
+  margin-bottom: 0.05em;
 }
-/* line 128, ../sass/screen.sass */
+/* line 132, ../sass/screen.sass */
 .logo .version {
   color: #fdf485;
 }
 
-/* line 131, ../sass/screen.sass */
-.author-links {
-  font-size: 16px;
+/* line 135, ../sass/screen.sass */
+.author {
+  line-height: 1.2em;
 }
 
-/* line 134, ../sass/screen.sass */
-.lead {
-  font-size: 25px;
+/* line 138, ../sass/screen.sass */
+.author-links {
+  font-size: 14px;
+}
+
+/* -- Examples -- */
+/* line 143, ../sass/screen.sass */
+.image-row {
+  *zoom: 1;
+  margin-bottom: 20px;
+}
+/* line 38, ../../../../.rvm/gems/ruby-1.9.3-p392/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.image-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 147, ../sass/screen.sass */
+.example-image-link {
+  display: block;
+  float: left;
+  margin-right: 20px;
+  line-height: 0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  border: 6px solid #5e5e5e;
+  -webkit-transition: all 0.1s ease-out;
+  -moz-transition: all 0.1s ease-out;
+  -o-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+}
+/* line 155, ../sass/screen.sass */
+.example-image-link:hover {
+  border: 6px solid #00bfa8;
+}
+
+/* line 158, ../sass/screen.sass */
+.last-example-image-link-in-set {
+  margin-right: 0;
+}
+
+/* line 161, ../sass/screen.sass */
+.example-image {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
 }
 
 /* -- Sharing -- */
-/* line 139, ../sass/screen.sass */
+/* line 166, ../sass/screen.sass */
 .sharing {
   position: fixed;
   top: 20px;
@@ -282,13 +334,19 @@ body {
 
 /* content
  *----------------------------------------------- */
-/* line 147, ../sass/screen.sass */
-.download {
-  float: left;
-  margin: 0 40px 40px 0;
-  padding: 10px 20px 10px 10px;
-  background-color: #333333;
-  border: 5px solid #333333;
+/* line 174, ../sass/screen.sass */
+.download-section {
+  text-align: center;
+}
+
+/* line 177, ../sass/screen.sass */
+.download-button {
+  display: block;
+  width: 300px;
+  margin: 0 auto 20px auto;
+  padding: 10px;
+  background-color: #2b2b2b;
+  border: 6px solid #444444;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -298,81 +356,61 @@ body {
   -moz-transition: all 0.1s ease-out;
   -o-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
+  *zoom: 1;
 }
-/* line 155, ../sass/screen.sass */
-.download:hover {
+/* line 38, ../../../../.rvm/gems/ruby-1.9.3-p392/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.download-button:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 187, ../sass/screen.sass */
+.download-button:hover {
   border-color: #00bfa8;
   background-color: #444444;
 }
-/* line 158, ../sass/screen.sass */
-.download .box {
-  float: left;
-}
-/* line 160, ../sass/screen.sass */
-.download .file {
-  float: left;
+/* line 190, ../sass/screen.sass */
+.download-button .file {
   font-size: 36px;
-  font-weight: 400;
   color: white;
-  line-height: 1.1em;
+  line-height: 1em;
 }
-/* line 166, ../sass/screen.sass */
-.download .file .version {
+/* line 194, ../sass/screen.sass */
+.download-button .file .version {
   font-size: 24px;
   color: #00bfa8;
 }
 
-/* line 171, ../sass/screen.sass */
-.filelist {
-  float: left;
-  font-size: 12px;
-  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-  line-height: 1.5em;
-}
-/* line 176, ../sass/screen.sass */
-.filelist .header {
-  text-transform: uppercase;
-  font-weight: bold;
-}
-/* line 179, ../sass/screen.sass */
-.filelist .folder {
-  color: #999999;
-}
-/* line 181, ../sass/screen.sass */
-.filelist .note {
-  color: #999999;
-}
-
-/* line 185, ../sass/screen.sass */
+/* line 199, ../sass/screen.sass */
 .changelog {
   margin-bottom: 0.5em;
 }
-/* line 187, ../sass/screen.sass */
+/* line 201, ../sass/screen.sass */
 .changelog li {
   list-style: none;
   padding: 0 0 0 14px;
   background: url(../img/bullet.gif) no-repeat 0 11px;
   color: #999999;
 }
-/* line 192, ../sass/screen.sass */
+/* line 206, ../sass/screen.sass */
 .changelog li .version {
   color: #88a616;
 }
-/* line 194, ../sass/screen.sass */
+/* line 208, ../sass/screen.sass */
 .changelog li .date {
   color: white;
 }
-/* line 196, ../sass/screen.sass */
+/* line 210, ../sass/screen.sass */
 .changelog .old {
   display: none;
 }
 
-/* line 199, ../sass/screen.sass */
+/* line 213, ../sass/screen.sass */
 .showOlderChanges {
   color: #999999;
 }
 
-/* line 203, ../sass/screen.sass */
+/* line 217, ../sass/screen.sass */
 .forums {
   float: left;
   margin: 0 40px 40px 0;
@@ -389,17 +427,17 @@ body {
   -o-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
 }
-/* line 211, ../sass/screen.sass */
+/* line 225, ../sass/screen.sass */
 .forums:hover {
   border-color: #00bfa8;
   background-color: #444444;
 }
-/* line 214, ../sass/screen.sass */
+/* line 228, ../sass/screen.sass */
 .forums .speech {
   float: left;
   margin-right: 20px;
 }
-/* line 217, ../sass/screen.sass */
+/* line 231, ../sass/screen.sass */
 .forums .link {
   float: left;
   font-size: 36px;
@@ -407,12 +445,12 @@ body {
   color: white;
   line-height: 1.1em;
 }
-/* line 223, ../sass/screen.sass */
+/* line 237, ../sass/screen.sass */
 .forums .link .sub {
   color: #00bfa8;
 }
 
-/* line 226, ../sass/screen.sass */
+/* line 240, ../sass/screen.sass */
 .donate-button {
   border: 5px solid rgba(0, 0, 0, 0);
   -webkit-border-radius: 4px;
@@ -425,119 +463,8 @@ body {
   -o-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
 }
-/* line 230, ../sass/screen.sass */
+/* line 244, ../sass/screen.sass */
 .donate-button:hover {
   background-color: #444444;
   border-color: #00bfa8;
-}
-
-/* misc
- *----------------------------------------------- */
-/* line 238, ../sass/screen.sass */
-.imageRow {
-  *zoom: 1;
-  margin: 20px 0;
-}
-/* line 38, ../../../../.rvm/gems/ruby-1.9.3-p392/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-.imageRow:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-/* line 241, ../sass/screen.sass */
-.imageRow .single {
-  float: left;
-}
-/* line 243, ../sass/screen.sass */
-.imageRow .single a {
-  float: left;
-  display: block;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 7px;
-  line-height: 1em;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
-  margin-right: 40px;
-  -webkit-transition: all 0.1s ease-out;
-  -moz-transition: all 0.1s ease-out;
-  -o-transition: all 0.1s ease-out;
-  transition: all 0.1s ease-out;
-}
-/* line 253, ../sass/screen.sass */
-.imageRow .single a img {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-}
-/* line 256, ../sass/screen.sass */
-.imageRow .single a:hover {
-  background-color: #00bfa8;
-}
-/* line 258, ../sass/screen.sass */
-.imageRow .set {
-  float: left;
-  background: rgba(255, 255, 255, 0.1);
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
-  -webkit-transition: all 0.1s ease-out;
-  -moz-transition: all 0.1s ease-out;
-  -o-transition: all 0.1s ease-out;
-  transition: all 0.1s ease-out;
-}
-/* line 264, ../sass/screen.sass */
-.imageRow .set:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-/* line 267, ../sass/screen.sass */
-.imageRow .set .single a {
-  background: none;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  -o-border-radius: 0;
-  border-radius: 0;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  margin-right: 0;
-}
-/* line 272, ../sass/screen.sass */
-.imageRow .set .single a:hover {
-  background-color: #00bfa8;
-  -webkit-box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
-  box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
-}
-/* line 276, ../sass/screen.sass */
-.imageRow .set .single.first a {
-  -moz-border-radius-topleft: 4px;
-  -webkit-border-top-left-radius: 4px;
-  border-top-left-radius: 4px;
-  -moz-border-radius-bottomleft: 4px;
-  -webkit-border-bottom-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-/* line 279, ../sass/screen.sass */
-.imageRow .set .single.last a {
-  -moz-border-radius-topright: 4px;
-  -webkit-border-top-right-radius: 4px;
-  border-top-right-radius: 4px;
-  -moz-border-radius-bottomright: 4px;
-  -webkit-border-bottom-right-radius: 4px;
-  border-bottom-right-radius: 4px;
 }

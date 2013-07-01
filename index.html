@@ -5,7 +5,7 @@
 
 	<title>Lightbox 2</title>
 
-	<meta name="description" lang="en" content="Lightbox 2 is a simple script used to overlay images on the current page. It's a snap to setup and works on all modern browsers."/>
+	<meta name="description" lang="en" content="Lightbox 2 is a script used to overlay images on the current page. It's a snap to setup and works on all modern browsers."/>
 	<meta name="author" content="Lokesh Dhakar">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -26,13 +26,11 @@
  		  by Lokesh Dhakar<br />
 			<span class="author-links">
 				<a href="https://twitter.com/intent/user?screen_name=lokesh">Follow me on Twitter</a>
-				or 
-				<a href="http://lokeshdhakar.com">read my blog</a>
 			</span>
 		</p>
 
-		<p class="lead">
-			Lightbox is a simple script used to overlay images on top of the current page. It's a <em>snap to setup</em> and works on <em>all modern browsers</em>.
+		<p>
+			Lightbox is a script used to overlay images on top of the current page. It's a <em>snap to setup</em> and works on <em>all modern browsers</em>.
 		</p>
 	</section>
 
@@ -42,31 +40,19 @@
 		</header>
 
 		<h3>Single image</h3>
-		<div class="imageRow">
-			<div class="single">
-				<a href="img/examples/image-1.jpg" rel="lightbox"><img src="img/examples/thumb-1.jpg" alt="thumb-1" width="150" height="150"/></a>
-			</div>
-			<div class="single">
-				<a href="img/examples/image-2.jpg" rel="lightbox" title="Optional caption."><img src="img/examples/thumb-2.jpg" alt="thumb-1" width="150" height="150"/></a>
-			</div>
+		<div class="image-row">
+			<a class="example-image-link" href="img/examples/image-1.jpg" rel="lightbox"><img class="example-image" src="img/examples/thumb-1.jpg" alt="thumb-1" width="150" height="150"/></a>
+			<a class="example-image-link" href="img/examples/image-2.jpg" rel="lightbox" title="Optional caption."><img class="example-image" src="img/examples/thumb-2.jpg" alt="thumb-1" width="150" height="150"/></a>
 		</div>
 
 		<h3 style="clear: both;">Image set</h3>
 
-		<div class="imageRow">
-			<div class="set">
-				<div class="single first">
-					<a href="img/examples/image-3.jpg" rel="lightbox[plants]" title="Click on the right side of the image to move forward."><img src="img/examples/thumb-3.jpg" alt="Plants: image 1 0f 4 thumb" width="150" height="150"/></a>
-				</div>
-				<div class="single">
-					<a href="img/examples/image-4.jpg" rel="lightbox[plants]" title="Alternately you can press the right arrow key."><img src="img/examples/thumb-4.jpg" alt="Plants: image 2 0f 4 thumb" width="150" height="150"/></a>
-				</div>
-				<div class="single">
-					<a href="img/examples/image-5.jpg" rel="lightbox[plants]" title="The script preloads the next image in the set as you're viewing."><img src="img/examples/thumb-5.jpg" alt="Plants: image 3 0f 4 thumb" width="150" height="150"/></a>
-				</div>
-				<div class="single last">
-					<a href="img/examples/image-6.jpg" rel="lightbox[plants]" title="Click the X or anywhere outside the image to close"><img src="img/examples/thumb-6.jpg" alt="Plants: image 4 0f 4 thumb" width="150" height="150"/></a>
-				</div>
+		<div class="image-row">
+			<div class="image-set">
+				<a class="example-image-link" href="img/examples/image-3.jpg" rel="lightbox[plants]" title="Click on the right side of the image to move forward."><img class="example-image" src="img/examples/thumb-3.jpg" alt="Plants: image 1 0f 4 thumb" width="150" height="150"/></a>
+				<a class="example-image-link" href="img/examples/image-4.jpg" rel="lightbox[plants]" title="Alternately you can press the right arrow key."><img class="example-image" src="img/examples/thumb-4.jpg" alt="Plants: image 2 0f 4 thumb" width="150" height="150"/></a>
+				<a class="example-image-link" href="img/examples/image-5.jpg" rel="lightbox[plants]" title="The script preloads the next image in the set as you're viewing."><img class="example-image" src="img/examples/thumb-5.jpg" alt="Plants: image 3 0f 4 thumb" width="150" height="150"/></a>
+				<a class="example-image-link last-example-image-link-in-set" href="img/examples/image-6.jpg" rel="lightbox[plants]" title="Click the X or anywhere outside the image to close"><img class="example-image" src="img/examples/thumb-6.jpg" alt="Plants: image 4 0f 4 thumb" width="150" height="150"/></a>
 			</div>
 		</div>
 	</section>
@@ -76,36 +62,21 @@
 			<h2 class="section-header">Download</h2>
 		</header>
 
-		<div class="row">
-			<a href="releases/lightbox2.51.zip" class="download">
-			<img src="img/box.png" alt="Box" class="box" width="170" height="168"/>
+		<a href="releases/lightbox2.6.zip" class="download-button">
 			<div class="file">
 				Lightbox
 				<div class="version">
-					v2.51
+					v2.6
 				</div>
 			</div>
-			</a>
+			<img src="img/box.png" alt="Box" class="box" width="170" height="168" />
+		</a>
 
-<!-- 			<ul class="filelist">
-				<li class="header">Includes:</li>
-				<li>index.html</li>
-				<li><span class="folder">js/</span>jquery-1.10.1.min.js</li>
-				<li><span class="folder">js/</span>lightbox.js</li>
-				<li><span class="folder">css/</span>lightbox.css</li>
-				<li><span class="folder">img/</span>close.png</li>
-				<li><span class="folder">img/</span>loading.gif</li>
-				<li><span class="folder">img/</span>next.png</li>
-				<li><span class="folder">img/</span>prev.png</li>
-				<li><span class="note">Plus a few files for the demo page</span></li>
-			</ul>
-		</div>
- -->
 		<p>
-			Lightbox2 is open-source.<br/> Fork the code on <a href="https://github.com/lokesh/lightbox2">Github</a>.
+			Lightbox2 is open-source.<br/>View and fork the code on <a href="https://github.com/lokesh/lightbox2">Github</a>.
 		</p>
 
-
+<!-- 
 		<h3>Changelog</h3>
 		<ul class="changelog">
 			<li><span class="version">v2.51</span> - <span class="date">4/20/12</span> - IE Fix: removed stray console.log statements. :-/</li>
@@ -127,7 +98,7 @@
 			<li class="old"><span class="version">v2.02</span> - Fixed layout issues caused by multiline captions. Added keyboard navigation.</li>
 			<li class="old"><span class="version">v2.01</span> - Centering in IE6 (any DOCTYPE) fixed. Smoothed out resize transition.</li>
 		</ul>
-		<a href="#" class="showOlderChanges">Show older changes</a>
+		<a href="#" class="showOlderChanges">Show older changes</a> -->
 	</section>
 
 	
@@ -188,7 +159,7 @@
 			<h2 class="section-header">Donate</h2>
 		</header>
 		<p>
-			Lightbox is completely free to use. If you're using Lightbox on a commercial project and feeling generous, consider a donation. All donations are sincerely appreciated. Thanks!
+			Lightbox is completely free to use. If you're using Lightbox on a commercial project and feeling generous, consider a small donation. Thanks!
 		</p>
 		<form name="_xclick" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 			<fieldset>

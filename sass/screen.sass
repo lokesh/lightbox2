@@ -20,7 +20,6 @@ h3,
 h4,
 h5,
 h6
-  font-weight: 700
   line-height: 1.2em
   color: $headingColor
 
@@ -38,6 +37,7 @@ h3
   text-transform: uppercase
   letter-spacing: 0.1em
   color: darken($headingColor, 30%)
+  margin-bottom: 0.3em
 
 h4
   font-size: $fontSize
@@ -98,7 +98,7 @@ a
 /* -- Layout ------------------------------------------------------------------ */
 
 body
-  margin: 40px 40px 80px 40px
+  margin: $gutter $gutter $gutter*2 $gutter
   background: $bgColor
 
 .wrapper
@@ -106,10 +106,11 @@ body
   margin: 0 auto
 
 .section
-  padding: $gutter 0 $gutter*1.5 0
+  padding: 0 0 $gutter 0
+  margin-bottom: $gutter
   +pie-clearfix
-  border-top: 4px solid darken($bgColor, 5%)
-  &:first-child
+  border-bottom: 4px solid darken($bgColor, 5%)
+  &:last-child
     border-top: none
 
 .section-header
@@ -118,6 +119,8 @@ body
 .row
   +pie-clearfix
 
+/* -- Sections ------------------------------------------------------------------ */
+
 /* -- Intro -- */
 
 .intro-section
@@ -125,14 +128,38 @@ body
 
 .logo
   color: white
+  margin-bottom: 0.05em
   .version
     color: $yellow
 
-.author-links
-  font-size: $fontSize - 2
+.author
+  line-height: 1.2em
 
-.lead
-  font-size: $fontSize + 7
+.author-links
+  font-size: $fontSize - 4
+
+/* -- Examples -- */
+
+.image-row
+  +pie-clearfix
+  margin-bottom: $gutter/2
+
+.example-image-link
+  display: block
+  float: left
+  margin-right: $gutter/2
+  line-height: 0
+  +border-radius($radius)
+  border: 6px solid lighten($bgColor, 10%)
+  +transition(all .1s ease-out)
+  &:hover
+    border: 6px solid $linkColor
+
+.last-example-image-link-in-set
+  margin-right: 0
+
+.example-image
+  +border-radius(2px)
 
 /* -- Sharing -- */
 
@@ -144,42 +171,29 @@ body
 /* content
  *----------------------------------------------- */
 
-.download
-  float: left
-  margin: 0 $gutter $gutter 0
-  padding: 10px 20px 10px 10px
-  background-color: #333
-  border: 5px solid #333
+.download-section
+  text-align: center
+
+.download-button
+  display: block
+  width: 300px
+  margin: 0 auto $gutter/2 auto
+  padding: $gutter/4
+  background-color: darken($bgColor, 10%)
+  border: 6px solid $bgColor
   +border-radius($radius)
   +transition(all .1s ease-out)
+  +pie-clearfix
   &:hover
     border-color: $linkColor
     background-color: #444
-  .box
-    float: left
   .file
-    float: left
     font-size: 36px
-    font-weight: 400
     color: white
-    line-height: 1.1em
+    line-height: 1em
     .version
       font-size: 24px
       color: $linkColor
-
-
-.filelist
-  float: left
-  font-size: 12px
-  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace
-  line-height: 1.5em
-  .header
-    text-transform: uppercase
-    font-weight: bold
-  .folder
-    color: #999
-  .note
-    color: #999
 
 
 .changelog
@@ -230,128 +244,4 @@ body
   &:hover
     background-color: #444
     border-color: $linkColor
-
-
-/* misc
- *----------------------------------------------- */
-
-.imageRow
-  +pie-clearfix
-  margin: $gutter/2 0
-  .single
-    float: left
-    a
-      float: left
-      display: block
-      background: rgba(255,255,255,.1)
-      padding: 7px
-      line-height: 1em
-      +border-radius($radius)
-      +box-shadow( 0 1px 4px 0 rgba(0,0,0,0.5))
-      margin-right: $gutter
-      +transition(all .1s ease-out)
-      img
-        +border-radius($radius)
-        border: 1px solid rgba(0,0,0,0.3)
-      &:hover
-        background-color: $linkColor
-  .set
-    float: left
-    background: rgba(255,255,255,.1)
-    +border-radius($radius)
-    +box-shadow(0 1px 4px 0 rgba(0,0,0,0.5))
-    +transition(all .1s ease-out)
-    &:hover
-      background: rgba(255,255,255,.2)
-    .single
-      a
-        background: none
-        +border-radius(0)
-        +box-shadow(none)
-        margin-right: 0
-        &:hover
-          background-color: $linkColor
-          +box-shadow( 0 -1px 0 0 rgba(255,255,255,0.2), 0 1px 4px 0 rgba(0,0,0,0.5))
-    .single.first
-      a
-        +border-left-radius($radius)
-    .single.last
-      a
-        +border-right-radius($radius)
-
-// Drop comments below content
-// @media only screen and (max-width: 1000px)
-
-//   body, input, textarea
-//     font-size: $fontSize - 2
-
-//   body
-//     padding-top: 20px
-
-//   .section
-//     padding: 20px 0
-
-//   p.lead
-//     font-size: $fontSize + 4
-
-//   h1
-//     font-size: 30px
-
-//   h2
-//     font-size: 24px
-
-//   h3
-//     font-size: 16px
-
-//   code, kbd
-//     font-size: 13px
-
-//   pre code
-//     font-size: 12px
-
-//   pre
-//     padding: .75em
-
-
-// @media only screen and (max-width: 700px)
-//   body, input, textarea
-//     font-size: $fontSize - 4
-//     padding-top: 0
-
-//   p.lead
-//     font-size: $fontSize
-
-//   code, kbd
-//     font-size: 12px
-
-//   pre code
-//     font-size: 11px
-
-//   pre
-//     padding: .5em
-
-
-//   h2
-//     font-size: 18px
-
-//   h3
-//     font-size: 14px
-
-//   .download
-//     text-align: center
-//     width: 95%
-//     margin-right: 0
-//     padding-right: 0
-//     padding-left: 0
-//     .box, .file
-//       float: none
-
-//   .forums
-//     text-align: center
-//     width: 95%
-//     margin-right: 0
-//     padding-right: 0
-//     padding-left: 0
-//     .speech, .link
-//       float: none
 
