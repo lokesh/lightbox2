@@ -45,12 +45,13 @@ $ = jQuery
 
 class LightboxOptions
   constructor: ->
+    @fadeDuration     = 500
     @fileLoadingImage = 'img/loading.gif'
-    @fileCloseImage = 'img/close.png'
-    @resizeDuration = 700
-    @fadeDuration = 500
-    @labelImage = "Image" # Change to localize to non-english language
-    @labelOf = "of"
+    @fileCloseImage   = 'img/close.png'
+    @labelImage       = "Image" # Change to localize to non-english language
+    @labelOf          = "of"
+    @resizeDuration   = 700
+    @wrapAround       = false
 
 
 class Lightbox
@@ -98,11 +99,17 @@ class Lightbox
       return false
 
     $lightbox.find('.lb-prev').on 'click', () =>
-      @changeImage @currentImageIndex - 1
+      if @currentImageIndex == 0
+        @changeImage @album.length - 1
+      else
+        @changeImage @currentImageIndex - 1
       return false
 
     $lightbox.find('.lb-next').on 'click', () =>
-      @changeImage @currentImageIndex + 1
+      if @currentImageIndex == @album.length - 1
+        @changeImage 0
+      else
+        @changeImage @currentImageIndex + 1
       return false
 
     $lightbox.find('.lb-loader, .lb-close').on 'click', () =>
@@ -248,8 +255,14 @@ class Lightbox
   updateNav: ->
     $lightbox = $('#lightbox')
     $lightbox.find('.lb-nav').show()
-    if @currentImageIndex > 0 then $lightbox.find('.lb-prev').show()
-    if @currentImageIndex < @album.length - 1 then $lightbox.find('.lb-next').show()
+    
+    if @album.length > 1 
+      if @options.wrapAround  
+        $lightbox.find('.lb-prev, .lb-next').show()
+      else 
+        if @currentImageIndex > 0 then $lightbox.find('.lb-prev').show()
+        if @currentImageIndex < @album.length - 1 then $lightbox.find('.lb-next').show()
+
     return
 
   # Display caption, image number, and closing button.

@@ -48,12 +48,13 @@ lightbox = new Lightbox options
 
   LightboxOptions = (function() {
     function LightboxOptions() {
+      this.fadeDuration = 500;
       this.fileLoadingImage = 'img/loading.gif';
       this.fileCloseImage = 'img/close.png';
-      this.resizeDuration = 700;
-      this.fadeDuration = 500;
       this.labelImage = "Image";
       this.labelOf = "of";
+      this.resizeDuration = 700;
+      this.wrapAround = false;
     }
 
     return LightboxOptions;
@@ -103,11 +104,19 @@ lightbox = new Lightbox options
         return false;
       });
       $lightbox.find('.lb-prev').on('click', function() {
-        _this.changeImage(_this.currentImageIndex - 1);
+        if (_this.currentImageIndex === 0) {
+          _this.changeImage(_this.album.length - 1);
+        } else {
+          _this.changeImage(_this.currentImageIndex - 1);
+        }
         return false;
       });
       $lightbox.find('.lb-next').on('click', function() {
-        _this.changeImage(_this.currentImageIndex + 1);
+        if (_this.currentImageIndex === _this.album.length - 1) {
+          _this.changeImage(0);
+        } else {
+          _this.changeImage(_this.currentImageIndex + 1);
+        }
         return false;
       });
       $lightbox.find('.lb-loader, .lb-close').on('click', function() {
@@ -231,11 +240,17 @@ lightbox = new Lightbox options
       var $lightbox;
       $lightbox = $('#lightbox');
       $lightbox.find('.lb-nav').show();
-      if (this.currentImageIndex > 0) {
-        $lightbox.find('.lb-prev').show();
-      }
-      if (this.currentImageIndex < this.album.length - 1) {
-        $lightbox.find('.lb-next').show();
+      if (this.album.length > 1) {
+        if (this.options.wrapAround) {
+          $lightbox.find('.lb-prev, .lb-next').show();
+        } else {
+          if (this.currentImageIndex > 0) {
+            $lightbox.find('.lb-prev').show();
+          }
+          if (this.currentImageIndex < this.album.length - 1) {
+            $lightbox.find('.lb-next').show();
+          }
+        }
       }
     };
 
