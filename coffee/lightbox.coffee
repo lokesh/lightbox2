@@ -80,40 +80,43 @@ class Lightbox
   build: ->
     $("<div id='lightboxOverlay'></div><div id='lightbox'><div class='lb-outerContainer'><div class='lb-container'><img class='lb-image' src='' ><div class='lb-nav'><a class='lb-prev' href='' ></a><a class='lb-next' href='' ></a></div><div class='lb-loader'><a class='lb-cancel'><img src='" + @options.fileLoadingImage + "'></a></div></div></div><div class='lb-dataContainer'><div class='lb-data'><div class='lb-details'><span class='lb-caption'></span><span class='lb-number'></span></div><div class='lb-closeContainer'><a class='lb-close'><img src='" + @options.fileCloseImage + "'></a></div></div></div></div>").appendTo($('body'));
 
+    # Cache jQuery objects
+    @$lightbox       = $('#lightbox')
+    @$overlay        = $('#lightboxOverlay')
+    @$outerContainer = @$lightbox.find('.lb-outerContainer')
+
     # Attach event handlers to the newly minted DOM elements
-    $('#lightboxOverlay')
+    @$overlay
       .hide()
       .on 'click', () =>
         @end()
         return false
 
-    $lightbox = $('#lightbox')
-
-    $lightbox
+    @$lightbox
       .hide()
       .on 'click', (e) =>
         if $(e.target).attr('id') == 'lightbox' then @end()
         return false
 
-    $lightbox.find('.lb-outerContainer').on 'click', (e) =>
+    @$outerContainer.on 'click', (e) =>
       if $(e.target).attr('id') == 'lightbox' then @end()
       return false
 
-    $lightbox.find('.lb-prev').on 'click', () =>
+    @$lightbox.find('.lb-prev').on 'click', () =>
       if @currentImageIndex == 0
         @changeImage @album.length - 1
       else
         @changeImage @currentImageIndex - 1
       return false
 
-    $lightbox.find('.lb-next').on 'click', () =>
+    @$lightbox.find('.lb-next').on 'click', () =>
       if @currentImageIndex == @album.length - 1
         @changeImage 0
       else
         @changeImage @currentImageIndex + 1
       return false
 
-    $lightbox.find('.lb-loader, .lb-close').on 'click', () =>
+    @$lightbox.find('.lb-loader, .lb-close').on 'click', () =>
       @end()
       return false
 
@@ -124,7 +127,7 @@ class Lightbox
     $(window).on "resize", @sizeOverlay
 
     $('select, object, embed').css visibility: "hidden"
-    $('#lightboxOverlay')
+    @$overlay
       .width( $(document).width())
       .height( $(document).height() )
       .fadeIn( @options.fadeDuration )
@@ -152,10 +155,9 @@ class Lightbox
 
     # Position lightbox
     $window = $(window)
-    top = $window.scrollTop() + $window.height()/10
-    left = $window.scrollLeft()
-    $lightbox = $('#lightbox')
-    $lightbox
+    top     = $window.scrollTop() + $window.height()/10
+    left    = $window.scrollLeft()
+    @$lightbox
       .css
         top: top + 'px'
         left: left + 'px'
@@ -169,16 +171,15 @@ class Lightbox
   changeImage: (imageNumber) ->
 
     @disableKeyboardNav()
-    $lightbox = $('#lightbox')
-    $image = $lightbox.find('.lb-image')
+    $image = @$lightbox.find('.lb-image')
 
     @sizeOverlay()
-    $('#lightboxOverlay').fadeIn( @options.fadeDuration )
+    @$overlay.fadeIn( @options.fadeDuration )
 
     $('.lb-loader').fadeIn 'slow'
-    $lightbox.find('.lb-image, .lb-nav, .lb-prev, .lb-next, .lb-dataContainer, .lb-numbers, .lb-caption').hide()
+    @$lightbox.find('.lb-image, .lb-nav, .lb-prev, .lb-next, .lb-dataContainer, .lb-numbers, .lb-caption').hide()
 
-    $lightbox.find('.lb-outerContainer').addClass 'animating'
+    @$outerContainer.addClass 'animating'
 
     # When image to show is preloaded, we send the width and height to sizeContainer()
     preloader = new Image()
@@ -197,48 +198,44 @@ class Lightbox
 
   # Stretch overlay to fit the document
   sizeOverlay: () ->
-    $('#lightboxOverlay')
+    @$overlay
       .width( $(document).width())
       .height( $(document).height() )
 
 
   # Animate the size of the lightbox to fit the image we are showing
   sizeContainer: (imageWidth, imageHeight) ->
-    $lightbox = $('#lightbox')
-
-    $outerContainer = $lightbox.find('.lb-outerContainer')
-    oldWidth = $outerContainer.outerWidth()
-    oldHeight = $outerContainer.outerHeight()
-
-    $container = $lightbox.find('.lb-container')
-    containerTopPadding = parseInt $container.css('padding-top'), 10
-    containerRightPadding = parseInt $container.css('padding-right'), 10
+    oldWidth               = @$outerContainer.outerWidth()
+    oldHeight              = @$outerContainer.outerHeight()
+    $container             = @$lightbox.find('.lb-container')
+    containerTopPadding    = parseInt $container.css('padding-top'), 10
+    containerRightPadding  = parseInt $container.css('padding-right'), 10
     containerBottomPadding = parseInt $container.css('padding-bottom'), 10
-    containerLeftPadding = parseInt $container.css('padding-left'), 10
+    containerLeftPadding   = parseInt $container.css('padding-left'), 10
 
     newWidth = imageWidth + containerLeftPadding + containerRightPadding
     newHeight = imageHeight + containerTopPadding + containerBottomPadding
 
     # Animate just the width, just the height, or both, depending on what is different
     if newWidth != oldWidth && newHeight != oldHeight
-      $outerContainer.animate
+      @$outerContainer.animate
         width: newWidth,
         height: newHeight
       , @options.resizeDuration, 'swing'
     else if newWidth != oldWidth
-      $outerContainer.animate
+      @$outerContainer.animate
         width: newWidth
       , @options.resizeDuration, 'swing'
     else if newHeight != oldHeight
-      $outerContainer.animate
+      @$outerContainer.animate
         height: newHeight
       , @options.resizeDuration, 'swing'
 
     # Wait for resize animation to finsh before showing the image
     setTimeout =>
-      $lightbox.find('.lb-dataContainer').width(newWidth)
-      $lightbox.find('.lb-prevLink').height(newHeight)
-      $lightbox.find('.lb-nextLink').height(newHeight)
+      @$lightbox.find('.lb-dataContainer').width(newWidth)
+      @$lightbox.find('.lb-prevLink').height(newHeight)
+      @$lightbox.find('.lb-nextLink').height(newHeight)
       @showImage()
       return
     , @options.resizeDuration
@@ -248,9 +245,8 @@ class Lightbox
 
   # Display the image and it's details and begin preload neighboring images.
   showImage: ->
-    $lightbox = $('#lightbox')
-    $lightbox.find('.lb-loader').hide()
-    $lightbox.find('.lb-image').fadeIn 'slow'
+    @$lightbox.find('.lb-loader').hide()
+    @$lightbox.find('.lb-image').fadeIn 'slow'
 
     @updateNav()
     @updateDetails()
@@ -262,37 +258,34 @@ class Lightbox
 
   # Display previous and next navigation if appropriate.
   updateNav: ->
-    $lightbox = $('#lightbox')
-    $lightbox.find('.lb-nav').show()
+    @$lightbox.find('.lb-nav').show()
     
     if @album.length > 1 
       if @options.wrapAround  
-        $lightbox.find('.lb-prev, .lb-next').show()
+        @$lightbox.find('.lb-prev, .lb-next').show()
       else 
-        if @currentImageIndex > 0 then $lightbox.find('.lb-prev').show()
-        if @currentImageIndex < @album.length - 1 then $lightbox.find('.lb-next').show()
+        if @currentImageIndex > 0 then @$lightbox.find('.lb-prev').show()
+        if @currentImageIndex < @album.length - 1 then @$lightbox.find('.lb-next').show()
 
     return
 
   # Display caption, image number, and closing button.
   updateDetails: ->
-    $lightbox = $('#lightbox')
-
     if typeof @album[@currentImageIndex].title != 'undefined' && @album[@currentImageIndex].title != ""
-      $lightbox.find('.lb-caption')
+      @$lightbox.find('.lb-caption')
         .html( @album[@currentImageIndex].title)
         .fadeIn('fast')
 
     if @album.length > 1 && @options.showImageNumberLabel
-      $lightbox.find('.lb-number')
+      @$lightbox.find('.lb-number')
         .text( @options.labelImage + ' ' + (@currentImageIndex + 1) + ' ' + @options.labelOf + '  ' + @album.length)
         .fadeIn('fast')
     else
-      $lightbox.find('.lb-number').hide()
+      @$lightbox.find('.lb-number').hide()
 
-    $lightbox.find('.lb-outerContainer').removeClass 'animating'
+    @$outerContainer.removeClass 'animating'
 
-    $lightbox.find('.lb-dataContainer')
+    @$lightbox.find('.lb-dataContainer')
       .fadeIn @resizeDuration, () =>
         @sizeOverlay()
     return
@@ -343,8 +336,8 @@ class Lightbox
   end: ->
     @disableKeyboardNav()
     $(window).off "resize", @sizeOverlay
-    $('#lightbox').fadeOut @options.fadeDuration
-    $('#lightboxOverlay').fadeOut @options.fadeDuration
+    @$lightbox.fadeOut @options.fadeDuration
+    @$overlay.fadeOut @options.fadeDuration
     $('select, object, embed').css visibility: "visible"
 
 
