@@ -1,5 +1,5 @@
 ## Lightbox2
-by Lokesh Dhakar | [lokeshdhakar.com](http://www.lokeshdhakar.com) | [twitter.com/lokeshdhakar](http://twitter.com/lokeshdhakar)
+by Lokesh Dhakar | [lokeshdhakar.com](http://www.lokeshdhakar.com) | [twitter.com/lokesh](http://twitter.com/lokesh)
 
 ### Information and support
 For examples, downloads, and information on using Lightbox, visit the Lightbox2 homepage:
