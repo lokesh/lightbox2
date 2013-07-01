@@ -77,7 +77,7 @@ lightbox = new Lightbox options
 
     Lightbox.prototype.enable = function() {
       var _this = this;
-      return $('body').on('click', 'a[rel^=lightbox], area[rel^=lightbox]', function(e) {
+      return $('body').on('click', 'a[rel^=lightbox], area[rel^=lightbox], a[data-lightbox], area[data-lightbox]', function(e) {
         _this.start($(e.currentTarget));
         return false;
       });
@@ -127,7 +127,7 @@ lightbox = new Lightbox options
     };
 
     Lightbox.prototype.start = function($link) {
-      var $lightbox, $window, a, i, imageNumber, left, top, _i, _len, _ref;
+      var $lightbox, $window, a, dataLightboxValue, i, imageNumber, left, top, _i, _j, _len, _len1, _ref, _ref1;
       $(window).on("resize", this.sizeOverlay);
       $('select, object, embed').css({
         visibility: "hidden"
@@ -135,13 +135,9 @@ lightbox = new Lightbox options
       $('#lightboxOverlay').width($(document).width()).height($(document).height()).fadeIn(this.options.fadeDuration);
       this.album = [];
       imageNumber = 0;
-      if ($link.attr('rel') === 'lightbox') {
-        this.album.push({
-          link: $link.attr('href'),
-          title: $link.attr('title')
-        });
-      } else {
-        _ref = $($link.prop("tagName") + '[rel="' + $link.attr('rel') + '"]');
+      dataLightboxValue = $link.attr('data-lightbox');
+      if (dataLightboxValue) {
+        _ref = $($link.prop("tagName") + '[data-lightbox="' + dataLightboxValue + '"]');
         for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
           a = _ref[i];
           this.album.push({
@@ -150,6 +146,25 @@ lightbox = new Lightbox options
           });
           if ($(a).attr('href') === $link.attr('href')) {
             imageNumber = i;
+          }
+        }
+      } else {
+        if ($link.attr('rel') === 'lightbox') {
+          this.album.push({
+            link: $link.attr('href'),
+            title: $link.attr('title')
+          });
+        } else {
+          _ref1 = $($link.prop("tagName") + '[rel="' + $link.attr('rel') + '"]');
+          for (i = _j = 0, _len1 = _ref1.length; _j < _len1; i = ++_j) {
+            a = _ref1[i];
+            this.album.push({
+              link: $(a).attr('href'),
+              title: $(a).attr('title')
+            });
+            if ($(a).attr('href') === $link.attr('href')) {
+              imageNumber = i;
+            }
           }
         }
       }
