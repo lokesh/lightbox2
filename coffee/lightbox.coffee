@@ -45,13 +45,14 @@ $ = jQuery
 
 class LightboxOptions
   constructor: ->
-    @fadeDuration     = 500
-    @fileLoadingImage = 'img/loading.gif'
-    @fileCloseImage   = 'img/close.png'
-    @labelImage       = "Image" # Change to localize to non-english language
-    @labelOf          = "of"
-    @resizeDuration   = 700
-    @wrapAround       = false
+    @fadeDuration         = 500
+    @fileLoadingImage     = 'img/loading.gif'
+    @fileCloseImage       = 'img/close.png'
+    @labelImage           = "Image" # Change to localize to non-english language
+    @labelOf              = "of"
+    @resizeDuration       = 700
+    @showImageNumberLabel = true
+    @wrapAround           = false
 
 
 class Lightbox
@@ -274,9 +275,9 @@ class Lightbox
         .html( @album[@currentImageIndex].title)
         .fadeIn('fast')
 
-    if @album.length > 1
+    if @album.length > 1 && @options.showImageNumberLabel
       $lightbox.find('.lb-number')
-        .html( @options.labelImage + ' ' + (@currentImageIndex + 1) + ' ' + @options.labelOf + '  ' + @album.length)
+        .text( @options.labelImage + ' ' + (@currentImageIndex + 1) + ' ' + @options.labelOf + '  ' + @album.length)
         .fadeIn('fast')
     else
       $lightbox.find('.lb-number').hide()
@@ -289,7 +290,7 @@ class Lightbox
     return
 
 
-  # Preload previos and next images in set.
+  # Preload previous and next images in set.
   preloadNeighboringImages: ->
    if @album.length > @currentImageIndex + 1
       preloadNext = new Image()

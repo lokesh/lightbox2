@@ -54,6 +54,7 @@ lightbox = new Lightbox options
       this.labelImage = "Image";
       this.labelOf = "of";
       this.resizeDuration = 700;
+      this.showImageNumberLabel = true;
       this.wrapAround = false;
     }
 
@@ -261,8 +262,8 @@ lightbox = new Lightbox options
       if (typeof this.album[this.currentImageIndex].title !== 'undefined' && this.album[this.currentImageIndex].title !== "") {
         $lightbox.find('.lb-caption').html(this.album[this.currentImageIndex].title).fadeIn('fast');
       }
-      if (this.album.length > 1) {
-        $lightbox.find('.lb-number').html(this.options.labelImage + ' ' + (this.currentImageIndex + 1) + ' ' + this.options.labelOf + '  ' + this.album.length).fadeIn('fast');
+      if (this.album.length > 1 && this.options.showImageNumberLabel) {
+        $lightbox.find('.lb-number').text(this.options.labelImage + ' ' + (this.currentImageIndex + 1) + ' ' + this.options.labelOf + '  ' + this.album.length).fadeIn('fast');
       } else {
         $lightbox.find('.lb-number').hide();
       }
