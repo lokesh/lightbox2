@@ -48,6 +48,7 @@ class LightboxOptions
     @fadeDuration         = 500
     @fileLoadingImage     = 'img/loading.gif'
     @fileCloseImage       = 'img/close.png'
+    @fitImagesInViewport  = true 
     @labelImage           = "Image" # Change to localize to non-english language
     @labelOf              = "of"
     @resizeDuration       = 700
@@ -57,7 +58,7 @@ class LightboxOptions
 
 class Lightbox
   constructor: (@options) ->
-    @album = []
+    @album             = []
     @currentImageIndex = undefined
     @init()
 
@@ -78,12 +79,19 @@ class Lightbox
   # Build html for the lightbox and the overlay.
   # Attach event handlers to the new DOM elements. click click click
   build: ->
-    $("<div id='lightboxOverlay'></div><div id='lightbox'><div class='lb-outerContainer'><div class='lb-container'><img class='lb-image' src='' ><div class='lb-nav'><a class='lb-prev' href='' ></a><a class='lb-next' href='' ></a></div><div class='lb-loader'><a class='lb-cancel'><img src='" + @options.fileLoadingImage + "'></a></div></div></div><div class='lb-dataContainer'><div class='lb-data'><div class='lb-details'><span class='lb-caption'></span><span class='lb-number'></span></div><div class='lb-closeContainer'><a class='lb-close'><img src='" + @options.fileCloseImage + "'></a></div></div></div></div>").appendTo($('body'));
+    $("<div id='lightboxOverlay' class='lightboxOverlay'></div><div id='lightbox' class='lightbox'><div class='lb-outerContainer'><div class='lb-container'><img class='lb-image' src='' /><div class='lb-nav'><a class='lb-prev' href='' ></a><a class='lb-next' href='' ></a></div><div class='lb-loader'><a class='lb-cancel'><img src='" + @options.fileLoadingImage + "' /></a></div></div></div><div class='lb-dataContainer'><div class='lb-data'><div class='lb-details'><span class='lb-caption'></span><span class='lb-number'></span></div><div class='lb-closeContainer'><a class='lb-close'><img src='" + @options.fileCloseImage + "' /></a></div></div></div></div>").appendTo($('body'));
 
     # Cache jQuery objects
     @$lightbox       = $('#lightbox')
     @$overlay        = $('#lightboxOverlay')
     @$outerContainer = @$lightbox.find('.lb-outerContainer')
+
+    # Store css values for future lookup
+    @$container             = @$lightbox.find('.lb-container')
+    @containerTopPadding    = parseInt @$container.css('padding-top'), 10
+    @containerRightPadding  = parseInt @$container.css('padding-right'), 10
+    @containerBottomPadding = parseInt @$container.css('padding-bottom'), 10
+    @containerLeftPadding   = parseInt @$container.css('padding-left'), 10
 
     # Attach event handlers to the newly minted DOM elements
     @$overlay
@@ -120,7 +128,6 @@ class Lightbox
       @end()
       return false
 
-    return
 
   # Show overlay and lightbox. If the image is part of a set, add siblings to album array.
   start: ($link) ->
@@ -185,11 +192,29 @@ class Lightbox
     preloader = new Image()
     preloader.onload = () =>
       $image.attr 'src', @album[imageNumber].link
-      # Bug fix by Andy Scott
-      $image.width = preloader.width
-      $image.height = preloader.height
-      # End of bug fix
-      @sizeContainer preloader.width, preloader.height
+      
+      $preloader = $(preloader)
+
+      if @options.fitImagesInViewport
+        # Fit image inside the viewport.
+        # Take into account the border around the image and an additional 10px gutter on each side.
+        windowWidth   = $(window).width()
+        maxImageWidth = windowWidth - @containerLeftPadding - @containerRightPadding - 20
+
+        if preloader.width > maxImageWidth
+          imageWidth = maxImageWidth
+          imageHeight = parseInt (preloader.height / (preloader.width/imageWidth)), 10
+          $image.width imageWidth
+          $image.height imageHeight
+        else 
+          $image.width preloader.width
+          $image.height preloader.height
+
+      else 
+        $image.width preloader.width
+        $image.height preloader.height
+
+      @sizeContainer $image.width(), $image.height()
 
     preloader.src = @album[imageNumber].link
     @currentImageIndex = imageNumber
@@ -198,23 +223,17 @@ class Lightbox
 
   # Stretch overlay to fit the document
   sizeOverlay: () ->
-    @$overlay
-      .width( $(document).width())
-      .height( $(document).height() )
+    $('#lightboxOverlay')
+      .width($(document).width())
+      .height($(document).height())
 
 
   # Animate the size of the lightbox to fit the image we are showing
   sizeContainer: (imageWidth, imageHeight) ->
-    oldWidth               = @$outerContainer.outerWidth()
-    oldHeight              = @$outerContainer.outerHeight()
-    $container             = @$lightbox.find('.lb-container')
-    containerTopPadding    = parseInt $container.css('padding-top'), 10
-    containerRightPadding  = parseInt $container.css('padding-right'), 10
-    containerBottomPadding = parseInt $container.css('padding-bottom'), 10
-    containerLeftPadding   = parseInt $container.css('padding-left'), 10
-
-    newWidth = imageWidth + containerLeftPadding + containerRightPadding
-    newHeight = imageHeight + containerTopPadding + containerBottomPadding
+    oldWidth  = @$outerContainer.outerWidth()
+    oldHeight = @$outerContainer.outerHeight()
+    newWidth  = imageWidth + @containerLeftPadding + @containerRightPadding
+    newHeight = imageHeight + @containerTopPadding + @containerBottomPadding
 
     # Animate just the width, just the height, or both, depending on what is different
     if newWidth != oldWidth && newHeight != oldHeight
@@ -314,12 +333,11 @@ class Lightbox
 
 
   keyboardAction: (event) ->
-    KEYCODE_ESC = 27
-    KEYCODE_LEFTARROW = 37
+    KEYCODE_ESC        = 27
+    KEYCODE_LEFTARROW  = 37
     KEYCODE_RIGHTARROW = 39
-
-    keycode = event.keyCode
-    key = String.fromCharCode(keycode).toLowerCase()
+    keycode            = event.keyCode
+    key                = String.fromCharCode(keycode).toLowerCase()
 
     if keycode == KEYCODE_ESC || key.match(/x|o|c/)
       @end()
@@ -342,5 +360,5 @@ class Lightbox
 
 
 $ ->
-  options = new LightboxOptions()
+  options  = new LightboxOptions()
   lightbox = new Lightbox options

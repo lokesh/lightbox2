@@ -109,9 +109,9 @@ body
   padding: 0 0 $gutter 0
   margin-bottom: $gutter
   +pie-clearfix
-  border-bottom: 4px solid darken($bgColor, 5%)
-  &:last-child
-    border-top: none
+  border-bottom: 2px solid darken($bgColor, 5%)
+  &.last
+    border-bottom: none
 
 .section-header
   text-align: center
@@ -133,10 +133,12 @@ body
     color: $yellow
 
 .author
+  margin-top: -9px
+  padding-left: 23px
   line-height: 1.2em
 
 .author-links
-  font-size: $fontSize - 4
+  font-size: $fontSize - 2
 
 .lead
   font-size: $fontSize + 4
@@ -151,12 +153,13 @@ body
   display: block
   float: left
   margin-right: $gutter/2
+  margin-bottom: $gutter/2
   line-height: 0
   +border-radius($radius)
-  border: 6px solid lighten($bgColor, 10%)
+  border: 4px solid lighten($bgColor, 10%)
   +transition(all .1s ease-out)
   &:hover
-    border: 6px solid $linkColor
+    border: 4px solid $linkColor
 
 .last-example-image-link-in-set
   margin-right: 0
@@ -247,4 +250,34 @@ body
   &:hover
     background-color: #444
     border-color: $linkColor
+
+
+/* -- Responsive design -------------------------------------------------------------- */
+
+@media only screen and (max-width : 640px)
+  body
+    margin: $gutter*2 $gutter/4 $gutter $gutter/4
+    font-size: $fontSize - 4
+  h1
+    font-size: 48px // from 72px
+  h2
+    font-size: 26px // from 48px
+  h3
+    font-size: 16px // from 18px
+  code,
+  kbd,
+  pre,
+  pre code
+    font-size: $fontSize - 7
+  .lead
+    font-size: $fontSize - 2
+  .section
+    padding-bottom: $gutter/2
+    margin-bottom: $gutter/2
+  .author
+    margin-top: -5px
+    padding-left: 30px
+  .author-links
+    font-size: $fontSize - 6
+
 

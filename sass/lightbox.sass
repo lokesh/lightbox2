@@ -3,7 +3,7 @@
 
 @import "variables"
 
-#lightboxOverlay
+.lightboxOverlay
   position: absolute
   top: 0
   left: 0
@@ -12,7 +12,7 @@
   +opacity(0.85)
   display: none
 
-#lightbox
+.lightbox
   position: absolute
   left: 0
   width: 100%
@@ -21,9 +21,10 @@
   line-height: 0
   font-family: 'lucida grande', tahoma, verdana, arial, sans-serif
   font-weight: normal
-  img
-    width: auto
+  .lb-image
+    display: block
     height: auto
+    +border-radius($radius - 1)
   a img
     border: none
 
@@ -37,7 +38,7 @@
   +border-radius($radius)
 
 .lb-container
-  padding: 10px
+  padding: 4px
 
 .lb-loader
   position: absolute
@@ -111,10 +112,12 @@
     clear: left
     padding-bottom: 1.0em
     font-size: 11px
+    color: #999
   .lb-close
     width: 35px
     float: right
     padding-bottom: 0.7em
+    text-align: right
     outline: none
     &:hover
       cursor: pointer

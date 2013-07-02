@@ -51,6 +51,7 @@ lightbox = new Lightbox options
       this.fadeDuration = 500;
       this.fileLoadingImage = 'img/loading.gif';
       this.fileCloseImage = 'img/close.png';
+      this.fitImagesInViewport = true;
       this.labelImage = "Image";
       this.labelOf = "of";
       this.resizeDuration = 700;
@@ -85,10 +86,15 @@ lightbox = new Lightbox options
 
     Lightbox.prototype.build = function() {
       var _this = this;
-      $("<div id='lightboxOverlay'></div><div id='lightbox'><div class='lb-outerContainer'><div class='lb-container'><img class='lb-image' src='' ><div class='lb-nav'><a class='lb-prev' href='' ></a><a class='lb-next' href='' ></a></div><div class='lb-loader'><a class='lb-cancel'><img src='" + this.options.fileLoadingImage + "'></a></div></div></div><div class='lb-dataContainer'><div class='lb-data'><div class='lb-details'><span class='lb-caption'></span><span class='lb-number'></span></div><div class='lb-closeContainer'><a class='lb-close'><img src='" + this.options.fileCloseImage + "'></a></div></div></div></div>").appendTo($('body'));
+      $("<div id='lightboxOverlay' class='lightboxOverlay'></div><div id='lightbox' class='lightbox'><div class='lb-outerContainer'><div class='lb-container'><img class='lb-image' src='' /><div class='lb-nav'><a class='lb-prev' href='' ></a><a class='lb-next' href='' ></a></div><div class='lb-loader'><a class='lb-cancel'><img src='" + this.options.fileLoadingImage + "' /></a></div></div></div><div class='lb-dataContainer'><div class='lb-data'><div class='lb-details'><span class='lb-caption'></span><span class='lb-number'></span></div><div class='lb-closeContainer'><a class='lb-close'><img src='" + this.options.fileCloseImage + "' /></a></div></div></div></div>").appendTo($('body'));
       this.$lightbox = $('#lightbox');
       this.$overlay = $('#lightboxOverlay');
       this.$outerContainer = this.$lightbox.find('.lb-outerContainer');
+      this.$container = this.$lightbox.find('.lb-container');
+      this.containerTopPadding = parseInt(this.$container.css('padding-top'), 10);
+      this.containerRightPadding = parseInt(this.$container.css('padding-right'), 10);
+      this.containerBottomPadding = parseInt(this.$container.css('padding-bottom'), 10);
+      this.containerLeftPadding = parseInt(this.$container.css('padding-left'), 10);
       this.$overlay.hide().on('click', function() {
         _this.end();
         return false;
@@ -121,7 +127,7 @@ lightbox = new Lightbox options
         }
         return false;
       });
-      this.$lightbox.find('.lb-loader, .lb-close').on('click', function() {
+      return this.$lightbox.find('.lb-loader, .lb-close').on('click', function() {
         _this.end();
         return false;
       });
@@ -191,31 +197,42 @@ lightbox = new Lightbox options
       this.$outerContainer.addClass('animating');
       preloader = new Image();
       preloader.onload = function() {
+        var $preloader, imageHeight, imageWidth, maxImageWidth, windowWidth;
         $image.attr('src', _this.album[imageNumber].link);
-        $image.width = preloader.width;
-        $image.height = preloader.height;
-        return _this.sizeContainer(preloader.width, preloader.height);
+        $preloader = $(preloader);
+        if (_this.options.fitImagesInViewport) {
+          windowWidth = $(window).width();
+          maxImageWidth = windowWidth - _this.containerLeftPadding - _this.containerRightPadding - 20;
+          if (preloader.width > maxImageWidth) {
+            imageWidth = maxImageWidth;
+            imageHeight = parseInt(preloader.height / (preloader.width / imageWidth), 10);
+            $image.width(imageWidth);
+            $image.height(imageHeight);
+          } else {
+            $image.width(preloader.width);
+            $image.height(preloader.height);
+          }
+        } else {
+          $image.width(preloader.width);
+          $image.height(preloader.height);
+        }
+        return _this.sizeContainer($image.width(), $image.height());
       };
       preloader.src = this.album[imageNumber].link;
       this.currentImageIndex = imageNumber;
     };
 
     Lightbox.prototype.sizeOverlay = function() {
-      return this.$overlay.width($(document).width()).height($(document).height());
+      return $('#lightboxOverlay').width($(document).width()).height($(document).height());
     };
 
     Lightbox.prototype.sizeContainer = function(imageWidth, imageHeight) {
-      var $container, containerBottomPadding, containerLeftPadding, containerRightPadding, containerTopPadding, newHeight, newWidth, oldHeight, oldWidth,
+      var newHeight, newWidth, oldHeight, oldWidth,
         _this = this;
       oldWidth = this.$outerContainer.outerWidth();
       oldHeight = this.$outerContainer.outerHeight();
-      $container = this.$lightbox.find('.lb-container');
-      containerTopPadding = parseInt($container.css('padding-top'), 10);
-      containerRightPadding = parseInt($container.css('padding-right'), 10);
-      containerBottomPadding = parseInt($container.css('padding-bottom'), 10);
-      containerLeftPadding = parseInt($container.css('padding-left'), 10);
-      newWidth = imageWidth + containerLeftPadding + containerRightPadding;
-      newHeight = imageHeight + containerTopPadding + containerBottomPadding;
+      newWidth = imageWidth + this.containerLeftPadding + this.containerRightPadding;
+      newHeight = imageHeight + this.containerTopPadding + this.containerBottomPadding;
       if (newWidth !== oldWidth && newHeight !== oldHeight) {
         this.$outerContainer.animate({
           width: newWidth,
