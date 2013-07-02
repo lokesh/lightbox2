@@ -46,8 +46,6 @@ $ = jQuery
 class LightboxOptions
   constructor: ->
     @fadeDuration         = 500
-    @fileLoadingImage     = 'img/loading.gif'
-    @fileCloseImage       = 'img/close.png'
     @fitImagesInViewport  = true 
     @labelImage           = "Image" # Change to localize to non-english language
     @labelOf              = "of"
@@ -79,7 +77,7 @@ class Lightbox
   # Build html for the lightbox and the overlay.
   # Attach event handlers to the new DOM elements. click click click
   build: ->
-    $("<div id='lightboxOverlay' class='lightboxOverlay'></div><div id='lightbox' class='lightbox'><div class='lb-outerContainer'><div class='lb-container'><img class='lb-image' src='' /><div class='lb-nav'><a class='lb-prev' href='' ></a><a class='lb-next' href='' ></a></div><div class='lb-loader'><a class='lb-cancel'><img src='" + @options.fileLoadingImage + "' /></a></div></div></div><div class='lb-dataContainer'><div class='lb-data'><div class='lb-details'><span class='lb-caption'></span><span class='lb-number'></span></div><div class='lb-closeContainer'><a class='lb-close'><img src='" + @options.fileCloseImage + "' /></a></div></div></div></div>").appendTo($('body'));
+    $("<div id='lightboxOverlay' class='lightboxOverlay'></div><div id='lightbox' class='lightbox'><div class='lb-outerContainer'><div class='lb-container'><img class='lb-image' src='' /><div class='lb-nav'><a class='lb-prev' href='' ></a><a class='lb-next' href='' ></a></div><div class='lb-loader'><a class='lb-cancel'></a></div></div></div><div class='lb-dataContainer'><div class='lb-data'><div class='lb-details'><span class='lb-caption'></span><span class='lb-number'></span></div><div class='lb-closeContainer'><a class='lb-close'></a></div></div></div></div>").appendTo($('body'));
 
     # Cache jQuery objects
     @$lightbox       = $('#lightbox')

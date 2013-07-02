@@ -144,16 +144,16 @@ body
   font-size: $fontSize + 4
 
 /* -- Examples -- */
+.examples-section
+  text-align: center
 
 .image-row
   +pie-clearfix
   margin-bottom: $gutter/2
 
 .example-image-link
-  display: block
-  float: left
-  margin-right: $gutter/2
-  margin-bottom: $gutter/2
+  display: inline-block
+  margin: 0 $gutter/4 $gutter/2 $gutter/4
   line-height: 0
   +border-radius($radius)
   border: 4px solid lighten($bgColor, 10%)
@@ -161,32 +161,22 @@ body
   &:hover
     border: 4px solid $linkColor
 
-.last-example-image-link-in-set
-  margin-right: 0
-
 .example-image
   +border-radius(2px)
 
-/* -- Sharing -- */
-
-.sharing
-  position: fixed
-  top: 20px
-  right: 0
-
-/* content
- *----------------------------------------------- */
+/* -- Download -- */
 
 .download-section
   text-align: center
 
 .download-button
   display: block
-  width: 300px
+  max-width: 300px
   margin: 0 auto $gutter/2 auto
-  padding: $gutter/4
+  padding-top: $gutter/4 + 10
+  padding-bottom: $gutter/4
   background-color: darken($bgColor, 10%)
-  border: 6px solid $bgColor
+  border: 4px solid $bgColor
   +border-radius($radius)
   +transition(all .1s ease-out)
   +pie-clearfix
@@ -197,54 +187,21 @@ body
     font-size: 36px
     color: white
     line-height: 1em
-    .version
-      font-size: 24px
-      color: $linkColor
+  .version
+    font-size: 24px
+    color: $linkColor
 
+/* -- Sharing -- */
 
-.changelog
-  margin-bottom: 0.5em
-  li
-    list-style: none
-    padding: 0 0 0 14px
-    background: url(../img/bullet.gif) no-repeat 0 11px
-    color: #999
-    .version
-      color: #88A616
-    .date
-      color: #fff
-  .old
-    display: none
+.sharing
+  position: fixed
+  top: 20px
+  right: 0
 
-.showOlderChanges
-  color: #999
-
-
-.forums
-  float: left
-  margin: 0 $gutter $gutter 0
-  padding: 10px
-  background-color: #333
-  border: 5px solid #333
-  +border-radius($radius)
-  +transition( all .1s ease-out)
-  &:hover
-    border-color: $linkColor
-    background-color: #444
-  .speech
-    float: left
-    margin-right: 20px
-  .link
-    float: left
-    font-size: 36px
-    font-weight: 400
-    color: white
-    line-height: 1.1em
-    .sub
-      color: $linkColor
+/* -- Donate -- */
 
 .donate-button
-  border: 5px solid rgba(0, 0, 0, 0)
+  border: 4px solid rgba(0, 0, 0, 0)
   +border-radius($radius)
   +transition(all .1s ease-out)
   &:hover

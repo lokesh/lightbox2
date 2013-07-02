@@ -3,6 +3,11 @@
 
 @import "variables"
 
+// Preload images
+body:after
+  content: url(../img/close.png) url(../img/loading.gif) url(../img/prev.png) url(../img/next.png)
+  display: none
+
 .lightboxOverlay
   position: absolute
   top: 0
@@ -19,7 +24,6 @@
   z-index: 10000
   text-align: center
   line-height: 0
-  font-family: 'lucida grande', tahoma, verdana, arial, sans-serif
   font-weight: normal
   .lb-image
     display: block
@@ -42,12 +46,19 @@
 
 .lb-loader
   position: absolute
-  top: 40%
+  top: 43%
   left: 0%
   height: 25%
   width: 100%
   text-align: center
   line-height: 0
+
+.lb-cancel
+  display: block
+  width: 32px
+  height: 32px
+  margin: 0 auto
+  background: url(../img/loading.gif) no-repeat
 
 .lb-nav
   position: absolute
@@ -73,20 +84,14 @@
 .lb-prev
   left: 0
   float: left
+  &:hover
+    background: url(../img/prev.png) left 48% no-repeat
 
 .lb-next
   right: 0
   float: right
-
-.lb-prev
-  background: url(../img/prev.png) left -48% no-repeat
   &:hover
-    background-position: left 48%
-
-.lb-next
-  background: url(../img/next.png) right -48% no-repeat
-  &:hover
-    background-position: right 48%
+    background: url(../img/next.png) right 48% no-repeat
 
 .lb-dataContainer
   margin: 0 auto
@@ -96,7 +101,7 @@
   +border-bottom-radius($radius)
 
 .lb-data
-  padding: 0 10px
+  padding: 0 4px
   color: #bbb
   .lb-details
     width: 85%
@@ -111,13 +116,17 @@
     display: block
     clear: left
     padding-bottom: 1.0em
-    font-size: 11px
+    font-size: 12px
     color: #999
   .lb-close
-    width: 35px
+    display: block
     float: right
-    padding-bottom: 0.7em
+    width: 30px
+    height: 30px
+    background: url(../img/close.png) top right no-repeat
     text-align: right
     outline: none
+    +opacity(0.7)
     &:hover
       cursor: pointer
+      +opacity(1)
