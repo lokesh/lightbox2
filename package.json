@@ -16,7 +16,9 @@
     "url": "https://github.com/lokesh/lightbox2/issues"
   },
   "scripts": {
-    "build": "coffee --compile --output ../js/ ../coffee/"
+    "build": "coffee --compile --output ../js/ ../coffee/",
+    "check": "jshint ./js/lightbox.js",
+    "lint": "jshint ./js/lightbox.js"
   },
   "licenses": [
     {
@@ -25,6 +27,7 @@
     }
   ],
   "devDependencies": {
-    "coffee-script": "~1.6.3"
+    "coffee-script": "~1.6.3",
+    "jshint": "~2.1.4"
   }
 }
