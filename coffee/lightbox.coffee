@@ -47,11 +47,13 @@ class LightboxOptions
   constructor: ->
     @fadeDuration         = 500
     @fitImagesInViewport  = true 
-    @labelImage           = "Image" # Change to localize to non-english language
-    @labelOf              = "of"
     @resizeDuration       = 700
     @showImageNumberLabel = true
     @wrapAround           = false
+
+  # Change to localize to non-english language
+  albumLabel: (curImageNum, albumSize) ->
+      "Image #{curImageNum} of #{albumSize}"
 
 
 class Lightbox
@@ -295,7 +297,7 @@ class Lightbox
 
     if @album.length > 1 && @options.showImageNumberLabel
       @$lightbox.find('.lb-number')
-        .text( @options.labelImage + ' ' + (@currentImageIndex + 1) + ' ' + @options.labelOf + '  ' + @album.length)
+        .text( @options.albumLabel(@currentImageIndex+1, @album.length) )
         .fadeIn('fast')
     else
       @$lightbox.find('.lb-number').hide()
