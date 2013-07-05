@@ -233,20 +233,10 @@ lightbox = new Lightbox options
       oldHeight = this.$outerContainer.outerHeight();
       newWidth = imageWidth + this.containerLeftPadding + this.containerRightPadding;
       newHeight = imageHeight + this.containerTopPadding + this.containerBottomPadding;
-      if (newWidth !== oldWidth && newHeight !== oldHeight) {
-        this.$outerContainer.animate({
-          width: newWidth,
-          height: newHeight
-        }, this.options.resizeDuration, 'swing');
-      } else if (newWidth !== oldWidth) {
-        this.$outerContainer.animate({
-          width: newWidth
-        }, this.options.resizeDuration, 'swing');
-      } else if (newHeight !== oldHeight) {
-        this.$outerContainer.animate({
-          height: newHeight
-        }, this.options.resizeDuration, 'swing');
-      }
+      this.$outerContainer.animate({
+        width: newWidth,
+        height: newHeight
+      }, this.options.resizeDuration, 'swing');
       setTimeout(function() {
         _this.$lightbox.find('.lb-dataContainer').width(newWidth);
         _this.$lightbox.find('.lb-prevLink').height(newHeight);

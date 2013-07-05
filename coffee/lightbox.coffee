@@ -235,20 +235,10 @@ class Lightbox
     newWidth  = imageWidth + @containerLeftPadding + @containerRightPadding
     newHeight = imageHeight + @containerTopPadding + @containerBottomPadding
 
-    # Animate just the width, just the height, or both, depending on what is different
-    if newWidth != oldWidth && newHeight != oldHeight
-      @$outerContainer.animate
-        width: newWidth,
-        height: newHeight
-      , @options.resizeDuration, 'swing'
-    else if newWidth != oldWidth
-      @$outerContainer.animate
-        width: newWidth
-      , @options.resizeDuration, 'swing'
-    else if newHeight != oldHeight
-      @$outerContainer.animate
-        height: newHeight
-      , @options.resizeDuration, 'swing'
+    @$outerContainer.animate
+      width: newWidth,
+      height: newHeight
+    , @options.resizeDuration, 'swing'
 
     # Wait for resize animation to finsh before showing the image
     setTimeout =>
