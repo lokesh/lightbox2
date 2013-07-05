@@ -195,24 +195,29 @@ lightbox = new Lightbox options
       this.$outerContainer.addClass('animating');
       preloader = new Image();
       preloader.onload = function() {
-        var $preloader, imageHeight, imageWidth, maxImageWidth, windowWidth;
+        var $preloader, imageHeight, imageWidth, maxImageHeight, maxImageWidth, windowHeight, windowWidth;
         $image.attr('src', _this.album[imageNumber].link);
         $preloader = $(preloader);
+        $image.width(preloader.width);
+        $image.height(preloader.height);
         if (_this.options.fitImagesInViewport) {
           windowWidth = $(window).width();
+          windowHeight = $(window).height();
           maxImageWidth = windowWidth - _this.containerLeftPadding - _this.containerRightPadding - 20;
-          if (preloader.width > maxImageWidth) {
-            imageWidth = maxImageWidth;
-            imageHeight = parseInt(preloader.height / (preloader.width / imageWidth), 10);
-            $image.width(imageWidth);
-            $image.height(imageHeight);
-          } else {
-            $image.width(preloader.width);
-            $image.height(preloader.height);
+          maxImageHeight = windowHeight - _this.containerTopPadding - _this.containerBottomPadding - 200;
+          if ((preloader.width > maxImageWidth) || (preloader.height > maxImageHeight)) {
+            if ((preloader.width / maxImageWidth) > (preloader.height / maxImageHeight)) {
+              imageWidth = maxImageWidth;
+              imageHeight = parseInt(preloader.height / (preloader.width / imageWidth), 10);
+              $image.width(imageWidth);
+              $image.height(imageHeight);
+            } else {
+              imageHeight = maxImageHeight;
+              imageWidth = parseInt(preloader.width / (preloader.height / imageHeight), 10);
+              $image.width(imageWidth);
+              $image.height(imageHeight);
+            }
           }
-        } else {
-          $image.width(preloader.width);
-          $image.height(preloader.height);
         }
         return _this.sizeContainer($image.width(), $image.height());
       };
