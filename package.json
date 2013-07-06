@@ -1,0 +1,33 @@
+{
+  "name": "lightbox2",
+  "version": "2.51.0",
+  "author": "Lokesh Dhakar",
+  "description": "Lightbox is small javascript library used to overlay images on top of the current page.",
+  "keywords": [
+    "overlay",
+    "image"
+  ],
+  "homepage": "http://lokeshdhakar.com/projects/lightbox2/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lokesh/lightbox2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lokesh/lightbox2/issues"
+  },
+  "scripts": {
+    "build": "coffee --compile --output ../js/ ../coffee/",
+    "check": "jshint ./js/lightbox.js",
+    "lint": "jshint ./js/lightbox.js"
+  },
+  "licenses": [
+    {
+      "type": "Creative Commons Attribution 2.5 License",
+      "url": "http://creativecommons.org/licenses/by/2.5/"
+    }
+  ],
+  "devDependencies": {
+    "coffee-script": "~1.6.3",
+    "jshint": "~2.1.4"
+  }
+}
