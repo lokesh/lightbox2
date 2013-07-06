@@ -16,7 +16,7 @@
     "url": "https://github.com/lokesh/lightbox2/issues"
   },
   "scripts": {
-    "build": "coffee --compile --output ../js/ ../coffee/",
+    "build": "coffee --compile --output ./js/ ./coffee/",
     "check": "jshint ./js/lightbox.js",
     "lint": "jshint ./js/lightbox.js"
   },
