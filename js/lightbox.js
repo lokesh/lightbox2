@@ -50,12 +50,14 @@ lightbox = new Lightbox options
     function LightboxOptions() {
       this.fadeDuration = 500;
       this.fitImagesInViewport = true;
-      this.labelImage = "Image";
-      this.labelOf = "of";
       this.resizeDuration = 700;
       this.showImageNumberLabel = true;
       this.wrapAround = false;
     }
+
+    LightboxOptions.prototype.albumLabel = function(curImageNum, albumSize) {
+      return "Image " + curImageNum + " of " + albumSize;
+    };
 
     return LightboxOptions;
 
@@ -231,20 +233,10 @@ lightbox = new Lightbox options
       oldHeight = this.$outerContainer.outerHeight();
       newWidth = imageWidth + this.containerLeftPadding + this.containerRightPadding;
       newHeight = imageHeight + this.containerTopPadding + this.containerBottomPadding;
-      if (newWidth !== oldWidth && newHeight !== oldHeight) {
-        this.$outerContainer.animate({
-          width: newWidth,
-          height: newHeight
-        }, this.options.resizeDuration, 'swing');
-      } else if (newWidth !== oldWidth) {
-        this.$outerContainer.animate({
-          width: newWidth
-        }, this.options.resizeDuration, 'swing');
-      } else if (newHeight !== oldHeight) {
-        this.$outerContainer.animate({
-          height: newHeight
-        }, this.options.resizeDuration, 'swing');
-      }
+      this.$outerContainer.animate({
+        width: newWidth,
+        height: newHeight
+      }, this.options.resizeDuration, 'swing');
       setTimeout(function() {
         _this.$lightbox.find('.lb-dataContainer').width(newWidth);
         _this.$lightbox.find('.lb-prevLink').height(newHeight);
@@ -284,7 +276,7 @@ lightbox = new Lightbox options
         this.$lightbox.find('.lb-caption').html(this.album[this.currentImageIndex].title).fadeIn('fast');
       }
       if (this.album.length > 1 && this.options.showImageNumberLabel) {
-        this.$lightbox.find('.lb-number').text(this.options.labelImage + ' ' + (this.currentImageIndex + 1) + ' ' + this.options.labelOf + '  ' + this.album.length).fadeIn('fast');
+        this.$lightbox.find('.lb-number').text(this.options.albumLabel(this.currentImageIndex + 1, this.album.length)).fadeIn('fast');
       } else {
         this.$lightbox.find('.lb-number').hide();
       }
