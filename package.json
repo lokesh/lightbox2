@@ -18,7 +18,10 @@
   "scripts": {
     "build": "coffee --compile --output ./js/ ./coffee/",
     "check": "jshint ./js/lightbox.js",
-    "lint": "jshint ./js/lightbox.js"
+    "lint": "jshint ./js/lightbox.js",
+    "install-compass": "bundle install",
+    "update-compass": "bundle update",
+    "build-compass": "bundle exec compass compile"
   },
   "licenses": [
     {
