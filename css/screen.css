@@ -160,9 +160,10 @@ pre {
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
   border-radius: 4px;
+  overflow-x: scroll;
 }
 
-/* line 75, ../sass/screen.sass */
+/* line 76, ../sass/screen.sass */
 code, kbd {
   padding: 4px;
   background-color: #2b2b2b;
@@ -174,7 +175,7 @@ code, kbd {
   border-radius: 4px;
 }
 
-/* line 81, ../sass/screen.sass */
+/* line 82, ../sass/screen.sass */
 pre code {
   font-size: 13px;
   background: transparent;
@@ -184,17 +185,17 @@ pre code {
   padding: 0;
 }
 
-/* line 87, ../sass/screen.sass */
+/* line 88, ../sass/screen.sass */
 a {
   color: #00bfa8;
   text-decoration: none;
 }
-/* line 90, ../sass/screen.sass */
+/* line 91, ../sass/screen.sass */
 a:hover {
   color: #59ffeb;
 }
 
-/* line 93, ../sass/screen.sass */
+/* line 94, ../sass/screen.sass */
 ::-moz-selection,
 ::selection {
   background: #ff8000;
@@ -202,19 +203,19 @@ a:hover {
 }
 
 /* -- Layout ------------------------------------------------------------------ */
-/* line 100, ../sass/screen.sass */
+/* line 101, ../sass/screen.sass */
 body {
   margin: 40px 40px 80px 40px;
   background: #444444;
 }
 
-/* line 104, ../sass/screen.sass */
+/* line 105, ../sass/screen.sass */
 .wrapper {
   max-width: 740px;
   margin: 0 auto;
 }
 
-/* line 108, ../sass/screen.sass */
+/* line 109, ../sass/screen.sass */
 .section {
   padding: 0 0 40px 0;
   margin-bottom: 40px;
@@ -227,17 +228,17 @@ body {
   display: table;
   clear: both;
 }
-/* line 113, ../sass/screen.sass */
+/* line 114, ../sass/screen.sass */
 .section.last {
   border-bottom: none;
 }
 
-/* line 116, ../sass/screen.sass */
+/* line 117, ../sass/screen.sass */
 .section-header {
   text-align: center;
 }
 
-/* line 119, ../sass/screen.sass */
+/* line 120, ../sass/screen.sass */
 .row {
   *zoom: 1;
 }
@@ -250,45 +251,45 @@ body {
 
 /* -- Sections ------------------------------------------------------------------ */
 /* -- Intro -- */
-/* line 126, ../sass/screen.sass */
+/* line 127, ../sass/screen.sass */
 .intro-section {
   text-align: center;
 }
 
-/* line 129, ../sass/screen.sass */
+/* line 130, ../sass/screen.sass */
 .logo {
   color: white;
   margin-bottom: 0.05em;
 }
-/* line 132, ../sass/screen.sass */
+/* line 133, ../sass/screen.sass */
 .logo .version {
   color: #fdf485;
 }
 
-/* line 135, ../sass/screen.sass */
+/* line 136, ../sass/screen.sass */
 .author {
   margin-top: -9px;
   padding-left: 23px;
   line-height: 1.2em;
 }
 
-/* line 140, ../sass/screen.sass */
+/* line 141, ../sass/screen.sass */
 .author-links {
   font-size: 16px;
 }
 
-/* line 143, ../sass/screen.sass */
+/* line 144, ../sass/screen.sass */
 .lead {
   font-size: 22px;
 }
 
 /* -- Examples -- */
-/* line 147, ../sass/screen.sass */
+/* line 148, ../sass/screen.sass */
 .examples-section {
   text-align: center;
 }
 
-/* line 150, ../sass/screen.sass */
+/* line 151, ../sass/screen.sass */
 .image-row {
   *zoom: 1;
   margin-bottom: 20px;
@@ -300,7 +301,7 @@ body {
   clear: both;
 }
 
-/* line 154, ../sass/screen.sass */
+/* line 155, ../sass/screen.sass */
 .example-image-link {
   display: inline-block;
   margin: 0 10px 20px 10px;
@@ -316,12 +317,12 @@ body {
   -o-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
 }
-/* line 161, ../sass/screen.sass */
+/* line 162, ../sass/screen.sass */
 .example-image-link:hover {
   border: 4px solid #00bfa8;
 }
 
-/* line 164, ../sass/screen.sass */
+/* line 165, ../sass/screen.sass */
 .example-image {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -331,12 +332,12 @@ body {
 }
 
 /* -- Download -- */
-/* line 169, ../sass/screen.sass */
+/* line 170, ../sass/screen.sass */
 .download-section {
   text-align: center;
 }
 
-/* line 172, ../sass/screen.sass */
+/* line 173, ../sass/screen.sass */
 .download-button {
   display: block;
   max-width: 300px;
@@ -362,25 +363,25 @@ body {
   display: table;
   clear: both;
 }
-/* line 183, ../sass/screen.sass */
+/* line 184, ../sass/screen.sass */
 .download-button:hover {
   border-color: #00bfa8;
   background-color: #444444;
 }
-/* line 186, ../sass/screen.sass */
+/* line 187, ../sass/screen.sass */
 .download-button .file {
   font-size: 36px;
   color: white;
   line-height: 1em;
 }
-/* line 190, ../sass/screen.sass */
+/* line 191, ../sass/screen.sass */
 .download-button .version {
   font-size: 24px;
   color: #00bfa8;
 }
 
 /* -- Sharing -- */
-/* line 196, ../sass/screen.sass */
+/* line 197, ../sass/screen.sass */
 .sharing {
   position: fixed;
   top: 20px;
@@ -388,7 +389,7 @@ body {
 }
 
 /* -- Donate -- */
-/* line 203, ../sass/screen.sass */
+/* line 204, ../sass/screen.sass */
 .donate-button {
   border: 4px solid rgba(0, 0, 0, 0);
   -webkit-border-radius: 4px;
@@ -401,7 +402,7 @@ body {
   -o-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
 }
-/* line 207, ../sass/screen.sass */
+/* line 208, ../sass/screen.sass */
 .donate-button:hover {
   background-color: #444444;
   border-color: #00bfa8;
@@ -409,28 +410,28 @@ body {
 
 /* -- Responsive design -------------------------------------------------------------- */
 @media only screen and (max-width: 640px) {
-  /* line 215, ../sass/screen.sass */
+  /* line 216, ../sass/screen.sass */
   body {
     margin: 80px 10px 40px 10px;
     font-size: 14px;
   }
 
-  /* line 218, ../sass/screen.sass */
+  /* line 219, ../sass/screen.sass */
   h1 {
     font-size: 48px;
   }
 
-  /* line 220, ../sass/screen.sass */
+  /* line 221, ../sass/screen.sass */
   h2 {
     font-size: 26px;
   }
 
-  /* line 222, ../sass/screen.sass */
+  /* line 223, ../sass/screen.sass */
   h3 {
     font-size: 16px;
   }
 
-  /* line 224, ../sass/screen.sass */
+  /* line 225, ../sass/screen.sass */
   code,
   kbd,
   pre,
@@ -438,24 +439,24 @@ body {
     font-size: 11px;
   }
 
-  /* line 229, ../sass/screen.sass */
+  /* line 230, ../sass/screen.sass */
   .lead {
     font-size: 16px;
   }
 
-  /* line 231, ../sass/screen.sass */
+  /* line 232, ../sass/screen.sass */
   .section {
     padding-bottom: 20px;
     margin-bottom: 20px;
   }
 
-  /* line 234, ../sass/screen.sass */
+  /* line 235, ../sass/screen.sass */
   .author {
     margin-top: -5px;
     padding-left: 30px;
   }
 
-  /* line 237, ../sass/screen.sass */
+  /* line 238, ../sass/screen.sass */
   .author-links {
     font-size: 12px;
   }
