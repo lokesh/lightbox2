@@ -47,11 +47,13 @@ class LightboxOptions
   constructor: ->
     @fadeDuration         = 500
     @fitImagesInViewport  = true 
-    @labelImage           = "Image" # Change to localize to non-english language
-    @labelOf              = "of"
     @resizeDuration       = 700
     @showImageNumberLabel = true
     @wrapAround           = false
+
+  # Change to localize to non-english language
+  albumLabel: (curImageNum, albumSize) ->
+      "Image #{curImageNum} of #{albumSize}"
 
 
 class Lightbox
@@ -233,20 +235,10 @@ class Lightbox
     newWidth  = imageWidth + @containerLeftPadding + @containerRightPadding
     newHeight = imageHeight + @containerTopPadding + @containerBottomPadding
 
-    # Animate just the width, just the height, or both, depending on what is different
-    if newWidth != oldWidth && newHeight != oldHeight
-      @$outerContainer.animate
-        width: newWidth,
-        height: newHeight
-      , @options.resizeDuration, 'swing'
-    else if newWidth != oldWidth
-      @$outerContainer.animate
-        width: newWidth
-      , @options.resizeDuration, 'swing'
-    else if newHeight != oldHeight
-      @$outerContainer.animate
-        height: newHeight
-      , @options.resizeDuration, 'swing'
+    @$outerContainer.animate
+      width: newWidth,
+      height: newHeight
+    , @options.resizeDuration, 'swing'
 
     # Wait for resize animation to finsh before showing the image
     setTimeout =>
@@ -295,7 +287,7 @@ class Lightbox
 
     if @album.length > 1 && @options.showImageNumberLabel
       @$lightbox.find('.lb-number')
-        .text( @options.labelImage + ' ' + (@currentImageIndex + 1) + ' ' + @options.labelOf + '  ' + @album.length)
+        .text( @options.albumLabel(@currentImageIndex+1, @album.length) )
         .fadeIn('fast')
     else
       @$lightbox.find('.lb-number').hide()
