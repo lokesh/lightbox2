@@ -195,24 +195,29 @@ class Lightbox
       
       $preloader = $(preloader)
 
+      $image.width preloader.width
+      $image.height preloader.height
+
       if @options.fitImagesInViewport
         # Fit image inside the viewport.
         # Take into account the border around the image and an additional 10px gutter on each side.
         windowWidth   = $(window).width()
+        windowHeight  = $(window).height()
         maxImageWidth = windowWidth - @containerLeftPadding - @containerRightPadding - 20
-
-        if preloader.width > maxImageWidth
-          imageWidth = maxImageWidth
-          imageHeight = parseInt (preloader.height / (preloader.width/imageWidth)), 10
-          $image.width imageWidth
-          $image.height imageHeight
-        else 
-          $image.width preloader.width
-          $image.height preloader.height
-
-      else 
-        $image.width preloader.width
-        $image.height preloader.height
+        maxImageHeight = windowHeight - @containerTopPadding - @containerBottomPadding - 200
+        # Is there a fitting issue at all?
+        if (preloader.width > maxImageWidth) || (preloader.height > maxImageHeight)
+          # Use the highest scaling factor to determine which side of the image the scaling is based on
+          if (preloader.width / maxImageWidth) > (preloader.height / maxImageHeight)
+            imageWidth = maxImageWidth
+            imageHeight = parseInt (preloader.height / (preloader.width/imageWidth)), 10
+            $image.width imageWidth
+            $image.height imageHeight
+          else
+            imageHeight = maxImageHeight
+            imageWidth = parseInt (preloader.width / (preloader.height/imageHeight)), 10
+            $image.width imageWidth
+            $image.height imageHeight
 
       @sizeContainer $image.width(), $image.height()
 
