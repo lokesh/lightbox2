@@ -119,55 +119,69 @@ p {
 }
 
 /* line 49, ../sass/screen.sass */
+ol {
+  list-style-type: decimal;
+}
+
+/* line 52, ../sass/screen.sass */
 ul, ol {
   margin: 0 0 1.25em 0;
 }
 
-/* line 52, ../sass/screen.sass */
+/* line 55, ../sass/screen.sass */
 li {
-  line-height: 1.4em;
+  padding-bottom: 0.8em;
+  margin-bottom: 0.8em;
+  border-bottom: 2px solid #515151;
+  line-height: 1.3em;
+}
+/* line 60, ../sass/screen.sass */
+li.last-list-item {
+  border-bottom: none;
 }
 
-/* line 55, ../sass/screen.sass */
+/* line 63, ../sass/screen.sass */
 dt {
   font-weight: bold;
 }
 
-/* line 58, ../sass/screen.sass */
+/* line 66, ../sass/screen.sass */
 dd {
   margin-bottom: 1.625em;
 }
 
-/* line 61, ../sass/screen.sass */
+/* line 69, ../sass/screen.sass */
 strong {
   font-weight: bold;
 }
 
-/* line 64, ../sass/screen.sass */
+/* line 72, ../sass/screen.sass */
 i {
   font-style: italic;
 }
 
-/* line 67, ../sass/screen.sass */
+/* line 75, ../sass/screen.sass */
 pre {
   padding: 10px;
-  margin-bottom: 20px;
+  margin-top: 5px;
+  margin-bottom: 10px;
   background-color: #2b2b2b;
-  font: 12px "Andale Mono", "DejaVu Sans Mono", monospace;
+  font: 13px "Andale Mono", "DejaVu Sans Mono", monospace;
   line-height: 1.5em;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
   border-radius: 4px;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
-/* line 76, ../sass/screen.sass */
+/* line 85, ../sass/screen.sass */
 code, kbd {
   padding: 4px;
+  color: #ac8053;
   background-color: #2b2b2b;
-  font: 12px "Andale Mono", "DejaVu Sans Mono", monospace;
+  font: 13px "Andale Mono", "DejaVu Sans Mono", monospace;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -175,52 +189,70 @@ code, kbd {
   border-radius: 4px;
 }
 
-/* line 82, ../sass/screen.sass */
+/* line 92, ../sass/screen.sass */
+code {
+  position: relative;
+  top: -1px;
+}
+
+/* line 96, ../sass/screen.sass */
 pre code {
-  font-size: 13px;
+  top: 0;
+  padding: 0;
   background: transparent;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  padding: 0;
+  font-size: 13px;
 }
 
-/* line 88, ../sass/screen.sass */
+/* line 103, ../sass/screen.sass */
 a {
   color: #00bfa8;
   text-decoration: none;
 }
-/* line 91, ../sass/screen.sass */
+/* line 106, ../sass/screen.sass */
 a:hover {
   color: #59ffeb;
 }
 
-/* line 94, ../sass/screen.sass */
+/* line 109, ../sass/screen.sass */
 ::-moz-selection,
 ::selection {
   background: #ff8000;
   color: white;
 }
 
+/* line 114, ../sass/screen.sass */
+.sub-point {
+  display: block;
+  font-size: 14px;
+}
+/* line 117, ../sass/screen.sass */
+.sub-point code {
+  font-size: 12px;
+  padding: 2px;
+}
+
 /* -- Layout ------------------------------------------------------------------ */
-/* line 101, ../sass/screen.sass */
+/* line 124, ../sass/screen.sass */
 body {
   margin: 40px 40px 80px 40px;
   background: #444444;
 }
 
-/* line 105, ../sass/screen.sass */
+/* line 128, ../sass/screen.sass */
 .wrapper {
   max-width: 740px;
   margin: 0 auto;
 }
 
-/* line 109, ../sass/screen.sass */
+/* line 132, ../sass/screen.sass */
 .section {
   padding: 0 0 40px 0;
   margin-bottom: 40px;
   *zoom: 1;
-  border-bottom: 2px solid #373737;
+  border-bottom: 4px solid #373737;
 }
 /* line 38, ../../../../.rvm/gems/ruby-1.9.3-p392/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .section:after {
@@ -228,17 +260,25 @@ body {
   display: table;
   clear: both;
 }
-/* line 114, ../sass/screen.sass */
+/* line 137, ../sass/screen.sass */
 .section.last {
   border-bottom: none;
 }
 
-/* line 117, ../sass/screen.sass */
+/* line 140, ../sass/screen.sass */
 .section-header {
   text-align: center;
 }
 
-/* line 120, ../sass/screen.sass */
+/* line 143, ../sass/screen.sass */
+.section-subheader {
+  margin-top: -0.6em;
+  margin-bottom: 1em;
+  text-align: center;
+  font-size: 24px;
+}
+
+/* line 149, ../sass/screen.sass */
 .row {
   *zoom: 1;
 }
@@ -251,45 +291,45 @@ body {
 
 /* -- Sections ------------------------------------------------------------------ */
 /* -- Intro -- */
-/* line 127, ../sass/screen.sass */
+/* line 156, ../sass/screen.sass */
 .intro-section {
   text-align: center;
 }
 
-/* line 130, ../sass/screen.sass */
+/* line 159, ../sass/screen.sass */
 .logo {
   color: white;
   margin-bottom: 0.05em;
 }
-/* line 133, ../sass/screen.sass */
+/* line 162, ../sass/screen.sass */
 .logo .version {
   color: #fdf485;
 }
 
-/* line 136, ../sass/screen.sass */
+/* line 165, ../sass/screen.sass */
 .author {
   margin-top: -9px;
   padding-left: 23px;
   line-height: 1.2em;
 }
 
-/* line 141, ../sass/screen.sass */
+/* line 170, ../sass/screen.sass */
 .author-links {
   font-size: 16px;
 }
 
-/* line 144, ../sass/screen.sass */
+/* line 173, ../sass/screen.sass */
 .lead {
   font-size: 22px;
 }
 
 /* -- Examples -- */
-/* line 148, ../sass/screen.sass */
+/* line 177, ../sass/screen.sass */
 .examples-section {
   text-align: center;
 }
 
-/* line 151, ../sass/screen.sass */
+/* line 180, ../sass/screen.sass */
 .image-row {
   *zoom: 1;
   margin-bottom: 20px;
@@ -301,7 +341,7 @@ body {
   clear: both;
 }
 
-/* line 155, ../sass/screen.sass */
+/* line 184, ../sass/screen.sass */
 .example-image-link {
   display: inline-block;
   margin: 0 10px 20px 10px;
@@ -317,12 +357,12 @@ body {
   -o-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
 }
-/* line 162, ../sass/screen.sass */
+/* line 191, ../sass/screen.sass */
 .example-image-link:hover {
   border: 4px solid #00bfa8;
 }
 
-/* line 165, ../sass/screen.sass */
+/* line 194, ../sass/screen.sass */
 .example-image {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -332,12 +372,12 @@ body {
 }
 
 /* -- Download -- */
-/* line 170, ../sass/screen.sass */
+/* line 199, ../sass/screen.sass */
 .download-section {
   text-align: center;
 }
 
-/* line 173, ../sass/screen.sass */
+/* line 202, ../sass/screen.sass */
 .download-button {
   display: block;
   max-width: 300px;
@@ -363,25 +403,25 @@ body {
   display: table;
   clear: both;
 }
-/* line 184, ../sass/screen.sass */
+/* line 213, ../sass/screen.sass */
 .download-button:hover {
   border-color: #00bfa8;
   background-color: #444444;
 }
-/* line 187, ../sass/screen.sass */
+/* line 216, ../sass/screen.sass */
 .download-button .file {
   font-size: 36px;
   color: white;
   line-height: 1em;
 }
-/* line 191, ../sass/screen.sass */
+/* line 220, ../sass/screen.sass */
 .download-button .version {
   font-size: 24px;
   color: #00bfa8;
 }
 
 /* -- Sharing -- */
-/* line 197, ../sass/screen.sass */
+/* line 226, ../sass/screen.sass */
 .sharing {
   position: fixed;
   top: 20px;
@@ -389,7 +429,12 @@ body {
 }
 
 /* -- Donate -- */
-/* line 204, ../sass/screen.sass */
+/* line 233, ../sass/screen.sass */
+.donate-button-form {
+  text-align: center;
+}
+
+/* line 235, ../sass/screen.sass */
 .donate-button {
   border: 4px solid rgba(0, 0, 0, 0);
   -webkit-border-radius: 4px;
@@ -402,7 +447,7 @@ body {
   -o-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
 }
-/* line 208, ../sass/screen.sass */
+/* line 239, ../sass/screen.sass */
 .donate-button:hover {
   background-color: #444444;
   border-color: #00bfa8;
@@ -410,28 +455,33 @@ body {
 
 /* -- Responsive design -------------------------------------------------------------- */
 @media only screen and (max-width: 640px) {
-  /* line 216, ../sass/screen.sass */
+  /* line 247, ../sass/screen.sass */
   body {
     margin: 80px 10px 40px 10px;
     font-size: 14px;
   }
 
-  /* line 219, ../sass/screen.sass */
+  /* line 250, ../sass/screen.sass */
   h1 {
     font-size: 48px;
   }
 
-  /* line 221, ../sass/screen.sass */
+  /* line 252, ../sass/screen.sass */
   h2 {
     font-size: 26px;
   }
 
-  /* line 223, ../sass/screen.sass */
+  /* line 254, ../sass/screen.sass */
   h3 {
     font-size: 16px;
   }
 
-  /* line 225, ../sass/screen.sass */
+  /* line 256, ../sass/screen.sass */
+  ol {
+    list-style-position: inside;
+  }
+
+  /* line 258, ../sass/screen.sass */
   code,
   kbd,
   pre,
@@ -439,24 +489,33 @@ body {
     font-size: 11px;
   }
 
-  /* line 230, ../sass/screen.sass */
+  /* line 263, ../sass/screen.sass */
+  .sub-point {
+    font-size: 12px;
+  }
+  /* line 265, ../sass/screen.sass */
+  .sub-point code {
+    font-size: 9px;
+  }
+
+  /* line 267, ../sass/screen.sass */
   .lead {
     font-size: 16px;
   }
 
-  /* line 232, ../sass/screen.sass */
+  /* line 269, ../sass/screen.sass */
   .section {
     padding-bottom: 20px;
     margin-bottom: 20px;
   }
 
-  /* line 235, ../sass/screen.sass */
+  /* line 272, ../sass/screen.sass */
   .author {
     margin-top: -5px;
     padding-left: 30px;
   }
 
-  /* line 238, ../sass/screen.sass */
+  /* line 275, ../sass/screen.sass */
   .author-links {
     font-size: 12px;
   }

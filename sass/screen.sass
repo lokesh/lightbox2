@@ -46,11 +46,19 @@ p
   line-height: 1.4em
   margin-bottom: 1em
 
+ol
+  list-style-type: decimal
+
 ul, ol
   margin: 0 0 1.25em 0
 
 li
-  line-height: 1.4em
+  padding-bottom: .8em
+  margin-bottom: .8em
+  border-bottom: 2px solid lighten($bgColor, 5%)
+  line-height: 1.3em
+  &.last-list-item
+    border-bottom: none
 
 dt
   font-weight: bold
@@ -66,24 +74,31 @@ i
 
 pre
   padding: $gutter/4
-  margin-bottom: $gutter/2
+  margin-top: $gutter/8
+  margin-bottom: $gutter/4
   background-color: darken($bgColor, 10%)
-  font: $fontSize - 6 "Andale Mono", "DejaVu Sans Mono", monospace
+  font: $fontSize - 5 "Andale Mono", "DejaVu Sans Mono", monospace
   line-height: 1.5em
   +border-radius($radius)
-  overflow-x: scroll
+  overflow-x: auto
 
 code, kbd
   padding: $gutter/10
+  color: desaturate($orange, 65%)
   background-color: darken($bgColor, 10%)
-  font: $fontSize - 6 "Andale Mono", "DejaVu Sans Mono", monospace
+  font: $fontSize - 5 "Andale Mono", "DejaVu Sans Mono", monospace
   +border-radius($radius)
 
+code
+  position: relative
+  top: -1px
+
 pre code
-  font-size: 13px
+  top: 0
+  padding: 0
   background: transparent
   +box-shadow(none)
-  padding: 0
+  font-size: 13px
 
 a
   color: $linkColor
@@ -95,6 +110,14 @@ a
 ::selection
   background: $orange
   color: white
+
+.sub-point
+  display: block
+  font-size: $fontSize - 4
+  code
+    font-size: $fontSize - 6
+    padding: $gutter/20
+
 
 /* -- Layout ------------------------------------------------------------------ */
 
@@ -110,12 +133,18 @@ body
   padding: 0 0 $gutter 0
   margin-bottom: $gutter
   +pie-clearfix
-  border-bottom: 2px solid darken($bgColor, 5%)
+  border-bottom: 4px solid darken($bgColor, 5%)
   &.last
     border-bottom: none
 
 .section-header
   text-align: center
+
+.section-subheader
+  margin-top: -.6em
+  margin-bottom: 1em
+  text-align: center
+  font-size: 24px
 
 .row
   +pie-clearfix
@@ -201,6 +230,8 @@ body
 
 /* -- Donate -- */
 
+.donate-button-form
+  text-align: center
 .donate-button
   border: 4px solid rgba(0, 0, 0, 0)
   +border-radius($radius)
@@ -222,11 +253,17 @@ body
     font-size: 26px // from 48px
   h3
     font-size: 16px // from 18px
+  ol
+    list-style-position: inside
   code,
   kbd,
   pre,
   pre code
     font-size: $fontSize - 7
+  .sub-point
+    font-size: $fontSize - 6
+    code
+      font-size: $fontSize - 9
   .lead
     font-size: $fontSize - 2
   .section

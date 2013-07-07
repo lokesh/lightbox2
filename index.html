@@ -51,9 +51,9 @@
 		<div class="image-row">
 			<div class="image-set">
 				<a class="example-image-link" href="img/demopage/image-3.jpg" data-lightbox="example-set" title="Click on the right side of the image to move forward."><img class="example-image" src="img/demopage/thumb-3.jpg" alt="Plants: image 1 0f 4 thumb" width="150" height="150"/></a>
-				<a class="example-image-link" href="img/demopage/image-4.jpg" data-lightbox="example-set" title="Alternately you can press the right arrow key."><img class="example-image" src="img/demopage/thumb-4.jpg" alt="Plants: image 2 0f 4 thumb" width="150" height="150"/></a>
+				<a class="example-image-link" href="img/demopage/image-4.jpg" data-lightbox="example-set" title="Or press the right arrow on your keyboard."><img class="example-image" src="img/demopage/thumb-4.jpg" alt="Plants: image 2 0f 4 thumb" width="150" height="150"/></a>
 				<a class="example-image-link" href="img/demopage/image-5.jpg" data-lightbox="example-set" title="The script preloads the next image in the set as you're viewing."><img class="example-image" src="img/demopage/thumb-5.jpg" alt="Plants: image 3 0f 4 thumb" width="150" height="150"/></a>
-				<a class="example-image-link" href="img/demopage/image-6.jpg" data-lightbox="example-set" title="Click the X or anywhere outside the image to close"><img class="example-image" src="img/demopage/thumb-6.jpg" alt="Plants: image 4 0f 4 thumb" width="150" height="150"/></a>
+				<a class="example-image-link" href="img/demopage/image-6.jpg" data-lightbox="example-set" title="Click anywhere outside the image or the X to the right to close."><img class="example-image" src="img/demopage/thumb-6.jpg" alt="Plants: image 4 0f 4 thumb" width="150" height="150"/></a>
 			</div>
 		</div>
 	</section>
@@ -63,11 +63,11 @@
 			<h2 class="section-header">Download</h2>
 		</header>
 
-		<a href="releases/lightbox2.51.zip" class="download-button">
+		<a href="releases/lightbox2.6.zip" class="download-button">
 			<div class="file">
 				Lightbox
 				<div class="version">
-					v2.51
+					v2.6
 				</div>
 			</div>
 		</a>
@@ -75,76 +75,60 @@
 		<p>
 			Lightbox2 is open-source.<br/>View and fork the code on <a href="https://github.com/lokesh/lightbox2">Github</a>.
 		</p>
-
-<!--
-		<h3>Changelog</h3>
-		<ul class="changelog">
-			<li><span class="version">v2.51</span> - <span class="date">4/20/12</span> - IE Fix: removed stray console.log statements. :-/</li>
-			<li><span class="version">v2.5</span> - <span class="date">4/10/12</span> - Switch to jQuery. Code put in Github. Compiling with Coffeescript and SASS.</li>
-			<li class="old"><span class="version">v2.05</span> - <span class="date">3/18/11</span> - Upgraded Prototype (now works in IE9) and Scriptaculous. Minor bug fixes.</li>
-			<li class="old"><span class="version">v2.04</span> - <span class="date">3/9/08</span>
-				<ul>
-					<li>NEW - Upgraded Prototype from v1.4 to v1.6.0.2
-					<li>NEW - Moved label text into configuration for easier localization</li>
-					<li>UPDATED - Code cleaned up. Respect for the global namespace and native javascript objects.</li>
-					<li>FIXED - Caption displays as "null" when viewing an uncaptioned image after viewing a captioned image.</li>
-					<li>FIXED - Clicking 'close' button shifts layout as link focus' dotted line appears.</li>
-				</ul>
-			</li>
-			<li class="old"><span class="version">v2.03.3</span> - <span class="date">5/21/07</span> - Support for horizontally scrolling pages. Added updateImageList method for ajax'y pages.</li>
-			<li class="old"><span class="version">v2.03.2</span> - <span class="date">4/30/07</span> - Fixed animated gif support in IE/Opera.</li>
-			<li class="old"><span class="version">v2.03.1</span> - <span class="date">4/18/07</span> - Fixed embed hiding. Overlay opacity var added to config. Image sets w/Imagemaps fix. Clearfix removed.</li>
-			<li class="old"><span class="version">v2.03</span> - <span class="date">4/10/07</span> - Improved keyboard navigation. Animation off toggle. Hides Flash movies under overlay. Imagemap support. Valid CSS.</li>
-			<li class="old"><span class="version">v2.02</span> - Fixed layout issues caused by multiline captions. Added keyboard navigation.</li>
-			<li class="old"><span class="version">v2.01</span> - Centering in IE6 (any DOCTYPE) fixed. Smoothed out resize transition.</li>
-		</ul>
-		<a href="#" class="showOlderChanges">Show older changes</a> -->
 	</section>
-
 
 	<section id="how-to-use" class="section how-to-use-section">
 		<header>
 			<h2 class="section-header">How to use</h2>
+			<h2 class="section-subheader">Step-by-step instructions</h2>
 		</header>
-		<h3>Part 1 - Setup</h3>
+		<h3>Part 1 - Get setup</h3>
 		<ol>
-			<li>Lightbox 2 uses the <a href="http://jquery.com/">jQuery</a> framework. Load jQuery and the Lightbox javascript files in the proper order.
+			<li>Download and unzip the latest version of Lightbox from above.</li>
+			<li>Look inside the <code>js</code> folder to find <code>jquery-1.10.2.min.js</code> and <code>lightbox-2.6.min.js</code> and load both of these files from your html page. Load jQuery first:
 <pre><code>&lt;script src=&quot;js/jquery-1.10.2.min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;js/lightbox.js&quot;&gt;&lt;/script&gt;
-</code></pre>
-			</li>
-			<li>Include the Lightbox CSS file.
+&lt;script src=&quot;js/lightbox-2.6.min.js&quot;&gt;&lt;/script&gt;
+</code></pre></li>
+			<li>Look inside the <code>css</code> folder to find <code>lightbox.css</code> and load it from your html page:
 <pre><code>&lt;link href=&quot;css/lightbox.css&quot; rel=&quot;stylesheet&quot; /&gt;
 </code></pre>
 			</li>
-			<li>Check the CSS and make sure the referenced <code>prev.png</code> and <code>next.png</code> files are in the right location. Also, make sure the <code>loading.gif</code> and <code>close.png</code> files as referenced near the top of the <code>lightbox.js</code> file are in the right location.</li>
+			<li>Look inside the <code>img</code> folder to find <code>close.png</code>, <code>loading.gif</code>, <code>prev.png</code>, and <code>next.png</code>. These files are used in <code>lightbox.css</code>. By default, <code>lightbox.css</code> will look for these images in a folder called <code>img</code>.</li>
 		</ol>
-		<h3>Part 2 - Activate</h3>
-		<ol>
-			<li>Add a <code>rel="lightbox"</code> attribute to any link tag to activate Lightbox.
-<pre><code>&lt;a href=&quot;img/image-1.jpg&quot; rel=&quot;lightbox&quot; title=&quot;my caption&quot;&gt;image #1&lt;/a&gt;
+		<h3>Part 2 - Turn it on</h3>
+	<ul>
+			<li>Add a <code>data-lightbox</code> attribute to any image link to activate Lightbox. For the value of the attribute, use a unique name for each image. For example:
+<pre><code>&lt;a href=&quot;img/image-1.jpg&quot; data-lightbox=&quot;image-1&quot; title=&quot;My caption&quot;&gt;image #1&lt;/a&gt;
 </code></pre>
-			<em>Optional: </em>Use the <code>title</code> attribute if you want to show a caption. </li>
-			<li>If you have a set of related images that you would like to group, follow step one but additionally include a group name between square brackets in the rel attribute.
-<pre><code>&lt;a href=&quot;img/image-1.jpg&quot; rel=&quot;lightbox[roadtrip]&quot;&gt;image #1&lt;/a&gt;
-&lt;a href=&quot;img/image-2.jpg&quot; rel=&quot;lightbox[roadtrip]&quot;&gt;image #2&lt;/a&gt;
-&lt;a href=&quot;img/image-3.jpg&quot; rel=&quot;lightbox[roadtrip]&quot;&gt;image #3&lt;/a&gt;
-</code></pre>
-			No limits to the number of image sets per page or how many images are allowed in each set. Go nuts!</li>
-		</ol>
+			 <div class="sub-point"><em>Optional:</em> Set the <code>title</code> attribute if you want to show a caption.</div> </li>
+			<li>If you have a group of related images that you would like to combine into a set, use the same <code>data-lightbox</code> attribute value for all of the images. For example:
+<pre><code>&lt;a href=&quot;img/image-2.jpg&quot; data-lightbox=&quot;roadtrip&quot;&gt;image #2&lt;/a&gt;
+&lt;a href=&quot;img/image-3.jpg&quot; data-lightbox=&quot;roadtrip&quot;&gt;image #3&lt;/a&gt;
+&lt;a href=&quot;img/image-4.jpg&quot; data-lightbox=&quot;roadtrip&quot;&gt;image #4&lt;/a&gt;
+</code></pre></li>
+<li class="last-list-item"><div class="sub-point">For you long time Lightbox users, don't fret, you can still enable Lightbox by using <code>rel="lightbox"</code>. The new <code>data-lightbox</code> approach is preferred though as it is valid html.</div></li>
+	</li>
+		</ul>
 	</section>
 
 
-	<section id="questions" class="section questions-section">
+	<section id="help" class="section questions-section">
 		<header>
-			<h2 class="section-header">Have questions?</h2>
+			<h2 class="section-header">Help</h2>
 		</header>
-		<p>
-			For personal support issues and feature requests please post a message in the <a href="lokeshdhakar.com/forums">forums</a>. I do not have time to personally respond to support emails, please use the forum. Thanks!
-		</p>
-		<p>
-			For bug reports, send a note with the browser you are using and the version of Lightbox to lokesh.dhakar@[ google's email service ].com.
-		</p>
+		<h3>Bugs</h3>
+		<p>If you find a bug, create an <a href="https://github.com/lokesh/lightbox2/issues">issue on Github</a>. Include your operating system and browser version along with detailed steps to reproduce the bug.</p>
+
+		<h3>Feature requests</h3>
+		<p>If you want a feature added, please create an <a href="https://github.com/lokesh/lightbox2/issues">issue on Github</a>. Someone else or I might be able to help out. No guarantees.</p>
+
+		<h3>Support questions</h3>
+		<p>If you have a question that is not a bug or a feature request, your best chance of getting an answer is by following these steps:</p>
+		<ol class="simple-list">
+			<li><a href="http://lokeshdhakar.com/forums">Search the Lightbox forums</a>. <br /><span class="sub-point">You will not be able to post new questions in the forum as posting has been disabled. The forum is having spam problems and the forum will eventually be phased out.</span></li>
+			<li><a href="http://stackoverflow.com/">Search Stackoverflow</a>.</li>
+			<li class="last-list-item"><a href="http://stackoverflow.com/questions/ask">Create a new question on Stackoverflow</a>.</li>
+		</ol>
 	</section>
 
 	<section id="doante" class="section donate-section last">
@@ -152,9 +136,9 @@
 			<h2 class="section-header">Donate</h2>
 		</header>
 		<p>
-			Lightbox is completely free to use. If you're using Lightbox on a commercial project and feeling generous, consider a small donation. Thanks!
+			Lightbox is completely free to use. If you're using Lightbox on a commercial project and are feeling generous, consider a donation. Thanks!
 		</p>
-		<form name="_xclick" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+		<form class="donate-button-form" name="_xclick" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 			<fieldset>
 				<input type="hidden" name="cmd" value="_xclick">
 				<input type="hidden" name="business" value="lokesh.dhakar@gmail.com">
@@ -175,8 +159,7 @@
 
 
 	<script src="js/jquery-1.10.2.min.js"></script>
-	<!-- <script src="js/jquery-2.0.3.min.js"></script> -->
-	<script src="js/lightbox.js"></script>
+	<script src="js/lightbox-2.6.min.js"></script>
 
 	<script>
 	var _gaq = _gaq || [];
