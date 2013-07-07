@@ -84,13 +84,19 @@ body:after
 .lb-prev
   left: 0
   float: left
+  +opacity(0)
+  +transition(opacity 0.6s)
   &:hover
+    +opacity(1)
     background: url(../img/prev.png) left 48% no-repeat
 
 .lb-next
   right: 0
   float: right
+  +opacity(0)
+  +transition(opacity 0.6s)
   &:hover
+    +opacity(1)
     background: url(../img/next.png) right 48% no-repeat
 
 .lb-dataContainer
@@ -127,6 +133,7 @@ body:after
     text-align: right
     outline: none
     +opacity(0.7)
+    +transition(opacity 0.2s)
     &:hover
       cursor: pointer
       +opacity(1)
