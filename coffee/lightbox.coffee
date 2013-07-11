@@ -108,7 +108,7 @@ class Lightbox
 
     $('select, object, embed').css visibility: "hidden"
     @$overlay
-      .width( $(document).width())
+      .width('100%')
       .height( $(document).height() )
       .fadeIn( @options.fadeDuration )
 
@@ -203,7 +203,7 @@ class Lightbox
   # Stretch overlay to fit the document
   sizeOverlay: () ->
     $('#lightboxOverlay')
-      .width($(document).width())
+      .width('100%')
       .height($(document).height())
 
 
