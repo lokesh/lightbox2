@@ -174,25 +174,26 @@ Licensed under the Creative Commons Attribution 2.5 License - http://creativecom
         $image.width(preloader.width);
         $image.height(preloader.height);
         if (_this.options.fitImagesInViewport) {
-          windowWidth = $(window).width();
-          windowHeight = $(window).height();
+          windowWidth = $(window).width();            
+          windowHeight = $(window).height();                    
           maxImageWidth = windowWidth - _this.containerLeftPadding - _this.containerRightPadding - 20;
-          maxImageHeight = windowHeight - _this.containerTopPadding - _this.containerBottomPadding - 110;
-          if ((preloader.width > maxImageWidth) || (preloader.height > maxImageHeight)) {
-            if ((preloader.width / maxImageWidth) > (preloader.height / maxImageHeight)) {
-              imageWidth = maxImageWidth;
-              imageHeight = parseInt(preloader.height / (preloader.width / imageWidth), 10);
-              $image.width(imageWidth);
-              $image.height(imageHeight);
+          maxImageHeight = windowHeight - _this.containerTopPadding - _this.containerBottomPadding - 110;          
+          if ((preloader.width > maxImageWidth) || (preloader.height > maxImageHeight)) {              
+            if ((preloader.width / maxImageWidth) >= (preloader.height / maxImageHeight)) {                        
+              imageWidth = maxImageWidth;              
+              imageHeight = parseInt(preloader.height / (preloader.width / imageWidth), 10);              
             } else {
-              imageHeight = maxImageHeight;
-              imageWidth = parseInt(preloader.width / (preloader.height / imageHeight), 10);
-              $image.width(imageWidth);
-              $image.height(imageHeight);
+              imageHeight = maxImageHeight;              
+              imageWidth = parseInt(preloader.width * maxImageHeight / preloader.height, 10);              
+              $image.height(imageHeight);               
+              $image.width(imageWidth);                 
             }
+          } else {
+            imageWidth = preloader.width; 
+            imageHeight = preloader.height;
           }
         }
-        return _this.sizeContainer($image.width(), $image.height());
+        return _this.sizeContainer(imageWidth, imageHeight);
       };
       preloader.src = this.album[imageNumber].link;
       this.currentImageIndex = imageNumber;
