@@ -204,21 +204,26 @@ Licensed under the Creative Commons Attribution 2.5 License - http://creativecom
 
     Lightbox.prototype.sizeContainer = function(imageWidth, imageHeight) {
       var newHeight, newWidth, oldHeight, oldWidth,
-        _this = this;
+        _this = this, postResize;
       oldWidth = this.$outerContainer.outerWidth();
       oldHeight = this.$outerContainer.outerHeight();
       newWidth = imageWidth + this.containerLeftPadding + this.containerRightPadding;
       newHeight = imageHeight + this.containerTopPadding + this.containerBottomPadding;
-      this.$outerContainer.animate({
-        width: newWidth,
-        height: newHeight
-      }, this.options.resizeDuration, 'swing');
-      setTimeout(function() {
+      postResize=function() {
         _this.$lightbox.find('.lb-dataContainer').width(newWidth);
         _this.$lightbox.find('.lb-prevLink').height(newHeight);
         _this.$lightbox.find('.lb-nextLink').height(newHeight);
         _this.showImage();
-      }, this.options.resizeDuration);
+      };
+      if (oldWidth != newWidth || oldHeight != newHeight){
+       this.$outerContainer.animate({
+          width: newWidth,
+          height: newHeight
+        }, this.options.resizeDuration, 'swing');
+        setTimeout(postResize, this.options.resizeDuration);
+      } else {
+        postResize();
+      };
     };
 
     Lightbox.prototype.showImage = function() {
