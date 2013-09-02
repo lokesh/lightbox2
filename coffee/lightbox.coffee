@@ -1,4 +1,4 @@
-###
+### @license
 Lightbox v2.6
 by Lokesh Dhakar - http://www.lokeshdhakar.com
 

@@ -2,22 +2,17 @@
 <html lang="en-us">
 <head>
 	<meta charset="utf-8">
-
 	<title>Lightbox 2</title>
-
 	<meta name="description" lang="en" content="Lightbox 2 is a script used to overlay images on the current page. It's a snap to setup and works on all modern browsers."/>
 	<meta name="author" content="Lokesh Dhakar">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-
 	<script src="js/modernizr.custom.js"></script>
-
 	<link rel="shortcut icon" href="img/demopage/favicon.ico">
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Karla:400,700">
 	<link rel="stylesheet" href="css/screen.css" media="screen"/>
 	<link rel="stylesheet" href="css/lightbox.css" media="screen"/>
 </head>
 <body>
-
 <div class="wrapper">
 
 	<section id="intro" class="section intro-section">
@@ -25,9 +20,9 @@
 			<h1 class="logo">Lightbox<em class="version">2</em></h1>
 		</header>
 		<p class="author">
-			by Lokesh Dhakar<br />
+			by Lokesh Dhakar<br/>
 			<span class="author-links">
-				<a href="http://lokeshdhakar.com">Blog</a> - <a href="http://twitter.com/lokesh">Twitter</a> - <a href="http://github.com/lokesh">Github</a>
+				<a href="http://lokeshdhakar.com">Blog</a> - <a href="https://twitter.com/lokesh">Twitter</a> - <a href="https://github.com/lokesh">Github</a>
 			</span>
 		</p>
 		<p class="lead">
@@ -64,12 +59,12 @@
 		</header>
 
 		<a href="releases/lightbox2.6.zip" class="download-button">
-			<div class="file">
-				Lightbox
-				<div class="version">
-					v2.6
-				</div>
+		<div class="file">
+			Lightbox
+			<div class="version">
+				v2.6
 			</div>
+		</div>
 		</a>
 
 		<p>
@@ -85,9 +80,9 @@
 		<h3>Part 1 - Get setup</h3>
 		<ol>
 			<li>Download and unzip the latest version of Lightbox from above.</li>
-			<li>Look inside the <code>js</code> folder to find <code>jquery-1.10.2.min.js</code> and <code>lightbox-2.6.min.js</code> and load both of these files from your html page. Load jQuery first:
+			<li>Look inside the <code>js</code> folder to find <code>jquery-1.10.2.min.js</code> and <code>lightbox.min.js</code> and load both of these files from your html page. Load jQuery first:
 <pre><code>&lt;script src=&quot;js/jquery-1.10.2.min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;js/lightbox-2.6.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/lightbox.min.js&quot;&gt;&lt;/script&gt;
 </code></pre></li>
 			<li>Look inside the <code>css</code> folder to find <code>lightbox.css</code> and load it from your html page:
 <pre><code>&lt;link href=&quot;css/lightbox.css&quot; rel=&quot;stylesheet&quot; /&gt;
@@ -96,18 +91,18 @@
 			<li>Look inside the <code>img</code> folder to find <code>close.png</code>, <code>loading.gif</code>, <code>prev.png</code>, and <code>next.png</code>. These files are used in <code>lightbox.css</code>. By default, <code>lightbox.css</code> will look for these images in a folder called <code>img</code>.</li>
 		</ol>
 		<h3>Part 2 - Turn it on</h3>
-	<ul>
+		<ul>
 			<li>Add a <code>data-lightbox</code> attribute to any image link to activate Lightbox. For the value of the attribute, use a unique name for each image. For example:
 <pre><code>&lt;a href=&quot;img/image-1.jpg&quot; data-lightbox=&quot;image-1&quot; title=&quot;My caption&quot;&gt;image #1&lt;/a&gt;
 </code></pre>
-			 <div class="sub-point"><em>Optional:</em> Set the <code>title</code> attribute if you want to show a caption.</div> </li>
+				<div class="sub-point"><em>Optional:</em> Set the <code>title</code> attribute if you want to show a caption.</div>
+			</li>
 			<li>If you have a group of related images that you would like to combine into a set, use the same <code>data-lightbox</code> attribute value for all of the images. For example:
 <pre><code>&lt;a href=&quot;img/image-2.jpg&quot; data-lightbox=&quot;roadtrip&quot;&gt;image #2&lt;/a&gt;
 &lt;a href=&quot;img/image-3.jpg&quot; data-lightbox=&quot;roadtrip&quot;&gt;image #3&lt;/a&gt;
 &lt;a href=&quot;img/image-4.jpg&quot; data-lightbox=&quot;roadtrip&quot;&gt;image #4&lt;/a&gt;
 </code></pre></li>
-<li class="last-list-item"><div class="sub-point">For you long time Lightbox users, don't fret, you can still enable Lightbox by using <code>rel="lightbox"</code>. The new <code>data-lightbox</code> approach is preferred though as it is valid html.</div></li>
-	</li>
+			<li class="last-list-item"><div class="sub-point">For you long time Lightbox users, don't fret, you can still enable Lightbox by using <code>rel="lightbox"</code>. The new <code>data-lightbox</code> approach is preferred though as it is valid html.</div></li>
 		</ul>
 	</section>
 
@@ -117,15 +112,26 @@
 			<h2 class="section-header">Help</h2>
 		</header>
 		<h3>Bugs</h3>
-		<p>If you find a bug, create an <a href="https://github.com/lokesh/lightbox2/issues">issue on Github</a>. Include your operating system and browser version along with detailed steps to reproduce the bug.</p>
-
+		<p>
+			If you find a bug, create an <a href="https://github.com/lokesh/lightbox2/issues">issue on Github</a>.
+			Include your operating system and browser version along with detailed steps to reproduce the bug.
+		</p>
 		<h3>Feature requests</h3>
-		<p>If you want a feature added, please create an <a href="https://github.com/lokesh/lightbox2/issues">issue on Github</a>. Someone else or I might be able to help out. No guarantees.</p>
-
+		<p>
+			If you want a feature added, please create an <a href="https://github.com/lokesh/lightbox2/issues">issue on Github</a>.
+			Someone else or I might be able to help out. No guarantees.
+		</p>
 		<h3>Support questions</h3>
-		<p>If you have a question that is not a bug or a feature request, your best chance of getting an answer is by following these steps:</p>
+		<p>
+			If you have a question that is not a bug or a feature request,
+			your best chance of getting an answer is by following these steps:
+		</p>
 		<ol class="simple-list">
-			<li><a href="http://lokeshdhakar.com/forums">Search the Lightbox forums</a>. <br /><span class="sub-point">You will not be able to post new questions in the forum as posting has been disabled. The forum is having spam problems and the forum will eventually be phased out.</span></li>
+			<li>
+				<a href="http://lokeshdhakar.com/forums">Search the Lightbox forums</a>.
+				<br/><span class="sub-point">You will not be able to post new questions in the forum as posting has been disabled.
+				The forum is having spam problems and the forum will eventually be phased out.</span>
+			</li>
 			<li><a href="http://stackoverflow.com/">Search Stackoverflow</a>.</li>
 			<li class="last-list-item"><a href="http://stackoverflow.com/questions/ask">Create a new question on Stackoverflow</a>.</li>
 		</ol>
@@ -150,35 +156,37 @@
 				<input type="hidden" name="currency_code" value="USD">
 				<input type="hidden" name="tax" value="0">
 				<input type="hidden" name="bn" value="PP-DonationsBF">
-				<input type="image" src="img/demopage/donate.png" name="submit" class="donate-button" alt="Make payments with PayPal - it's fast, free and secure!">
+				<input type="image" src="img/demopage/donate.png" name="submit" class="donate-button" alt="Make payments with PayPal - it's fast, free and secure!" width="259" height="97">
 			</fieldset>
 		</form>
 	</section>
 
 	<section id="credits" class="credits-section last">
-		<p>Lightbox2 created by Lokesh Dhakar<br />
-		<a href="http://lokeshdhakar.com">Blog</a> - <a href="http://twitter.com/lokesh">Twitter</a> - <a href="http://github.com/lokesh">Github</a></p>
+		<p>
+			Lightbox2 created by Lokesh Dhakar<br/>
+			<a href="http://lokeshdhakar.com">Blog</a> - <a href="https://twitter.com/lokesh">Twitter</a> - <a href="https://github.com/lokesh">Github</a>
+		</p>
 	</section>
 
 	<section id="sharing" class="sharing-section">
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.async=true;js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 		<a href="https://twitter.com/share" class="twitter-share-button" data-via="lokesh" data-size="large">Tweet</a>
-		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 	</section>
 
-
-	<script src="js/jquery-1.10.2.min.js"></script>
-	<script src="js/lightbox-2.6.min.js"></script>
+	<script src="http//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+	<script src="js/lightbox.min.js"></script>
 
 	<script>
-	var _gaq = _gaq || [];
-	_gaq.push(['_setAccount', 'UA-2196019-1']);
-	_gaq.push(['_trackPageview']);
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-2196019-1']);
+		_gaq.push(['_trackPageview']);
 
-	(function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	})();
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
 	</script>
 
 </div>
