@@ -106,6 +106,7 @@ body:after {
 /* line 75, ../sass/lightbox.sass */
 .lb-nav a {
   outline: none;
+  background-image: url('data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICR‌​AEAOw==');
 }
 
 /* line 78, ../sass/lightbox.sass */
