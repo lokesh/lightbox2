@@ -96,6 +96,23 @@ class Lightbox
       else
         @changeImage @currentImageIndex + 1
       return false
+    
+
+    # Attach hammer.js touch events for swiping
+    Hammer(@$lightbox.get(0)).on 'swipeleft', ()=>
+        if @currentImageIndex == @album.length - 1
+            @changeImage 0
+        else
+            @changeImage @currentImageIndex + 1
+        return false
+    
+    Hammer(@$lightbox.get(0)).on 'swiperight', ()=>
+        if @currentImageIndex == 0
+            @changeImage @album.length - 1
+        else
+            @changeImage @currentImageIndex - 1
+        return false
+      
 
     @$lightbox.find('.lb-loader, .lb-close').on 'click', () =>
       @end()
