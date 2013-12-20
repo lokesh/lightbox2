@@ -119,17 +119,17 @@ class Lightbox
     dataLightboxValue = $link.attr 'data-lightbox'
     if dataLightboxValue
       for a, i in $( $link.prop("tagName") + '[data-lightbox="' + dataLightboxValue + '"]')
-        @album.push link: $(a).attr('href'), title: $(a).attr('title')
+        @album.push link: $(a).attr('href'), title: $(a).attr('data-title') || $(a).attr('title')
         if $(a).attr('href') == $link.attr('href')
           imageNumber = i
     else 
       if $link.attr('rel') == 'lightbox'
         # If image is not part of a set
-        @album.push link: $link.attr('href'), title: $link.attr('title')
+        @album.push link: $link.attr('href'), title: $link.attr('data-title') || $link.attr('title')
       else
         # Image is part of a set
         for a, i in $( $link.prop("tagName") + '[rel="' + $link.attr('rel') + '"]')
-          @album.push link: $(a).attr('href'), title: $(a).attr('title')
+          @album.push link: $(a).attr('href'), title: $(a).attr('data-title') || $(a).attr('title')
           if $(a).attr('href') == $link.attr('href')
             imageNumber = i
 
