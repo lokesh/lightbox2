@@ -168,8 +168,8 @@ class Lightbox
       
       $preloader = $(preloader)
 
-      $image.width preloader.width
-      $image.height preloader.height
+      imageWidth  = preloader.width
+      imageHeight = preloader.height
 
       if @options.fitImagesInViewport
         # Fit image inside the viewport.
@@ -180,20 +180,19 @@ class Lightbox
         maxImageHeight = windowHeight - @containerTopPadding - @containerBottomPadding - 110
         
         # Is there a fitting issue at all?
-        if (preloader.width > maxImageWidth) || (preloader.height > maxImageHeight)
+        if (imageWidth > maxImageWidth) || (imageHeight > maxImageHeight)
           # Use the highest scaling factor to determine which side of the image the scaling is based on
-          if (preloader.width / maxImageWidth) > (preloader.height / maxImageHeight)
+          if (imageWidth / maxImageWidth) > (imageHeight / maxImageHeight)
             imageWidth  = maxImageWidth
-            imageHeight = parseInt (preloader.height / (preloader.width / imageWidth)), 10
-            $image.width imageWidth
-            $image.height imageHeight
+            imageHeight = parseInt (preloader.height / (preloader.width / maxImageWidth)), 10
           else
             imageHeight = maxImageHeight
-            imageWidth  = parseInt (preloader.width / (preloader.height / imageHeight)), 10
-            $image.width imageWidth
-            $image.height imageHeight
+            imageWidth  = parseInt (preloader.width / (preloader.height / maxImageHeight)), 10
 
-      @sizeContainer $image.width(), $image.height()
+      $image.width imageWidth
+      $image.height imageHeight
+
+      @sizeContainer imageWidth, imageHeight
 
     preloader.src = @album[imageNumber].link
     @currentImageIndex = imageNumber

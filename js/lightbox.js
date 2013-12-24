@@ -171,28 +171,26 @@ Licensed under the Creative Commons Attribution 2.5 License - http://creativecom
         var $preloader, imageHeight, imageWidth, maxImageHeight, maxImageWidth, windowHeight, windowWidth;
         $image.attr('src', _this.album[imageNumber].link);
         $preloader = $(preloader);
-        $image.width(preloader.width);
-        $image.height(preloader.height);
+        imageWidth = preloader.width;
+        imageHeight = preloader.height;
         if (_this.options.fitImagesInViewport) {
           windowWidth = $(window).width();
           windowHeight = $(window).height();
           maxImageWidth = windowWidth - _this.containerLeftPadding - _this.containerRightPadding - 20;
           maxImageHeight = windowHeight - _this.containerTopPadding - _this.containerBottomPadding - 110;
-          if ((preloader.width > maxImageWidth) || (preloader.height > maxImageHeight)) {
-            if ((preloader.width / maxImageWidth) > (preloader.height / maxImageHeight)) {
+          if ((imageWidth > maxImageWidth) || (imageHeight > maxImageHeight)) {
+            if ((imageWidth / maxImageWidth) > (imageHeight / maxImageHeight)) {
               imageWidth = maxImageWidth;
-              imageHeight = parseInt(preloader.height / (preloader.width / imageWidth), 10);
-              $image.width(imageWidth);
-              $image.height(imageHeight);
+              imageHeight = parseInt(preloader.height / (preloader.width / maxImageWidth), 10);
             } else {
               imageHeight = maxImageHeight;
-              imageWidth = parseInt(preloader.width / (preloader.height / imageHeight), 10);
-              $image.width(imageWidth);
-              $image.height(imageHeight);
+              imageWidth = parseInt(preloader.width / (preloader.height / maxImageHeight), 10);
             }
           }
         }
-        return _this.sizeContainer($image.width(), $image.height());
+        $image.width(imageWidth);
+        $image.height(imageHeight);
+        return _this.sizeContainer(imageWidth, imageHeight);
       };
       preloader.src = this.album[imageNumber].link;
       this.currentImageIndex = imageNumber;
