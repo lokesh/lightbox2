@@ -135,7 +135,7 @@ class Lightbox
 
     # Position lightbox
     $window = $(window)
-    top     = $window.scrollTop() + $window.height()/10
+    top     = $window.scrollTop() + $window.height() / 10
     left    = $window.scrollLeft()
     @$lightbox
       .css
@@ -184,12 +184,12 @@ class Lightbox
           # Use the highest scaling factor to determine which side of the image the scaling is based on
           if (preloader.width / maxImageWidth) > (preloader.height / maxImageHeight)
             imageWidth  = maxImageWidth
-            imageHeight = parseInt (preloader.height / (preloader.width/imageWidth)), 10
+            imageHeight = parseInt (preloader.height / (preloader.width / imageWidth)), 10
             $image.width imageWidth
             $image.height imageHeight
           else
             imageHeight = maxImageHeight
-            imageWidth  = parseInt (preloader.width / (preloader.height/imageHeight)), 10
+            imageWidth  = parseInt (preloader.width / (preloader.height / imageHeight)), 10
             $image.width imageWidth
             $image.height imageHeight
 
