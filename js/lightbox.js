@@ -66,6 +66,9 @@ Licensed under the Creative Commons Attribution 2.5 License - http://creativecom
       this.containerRightPadding = parseInt(this.$container.css('padding-right'), 10);
       this.containerBottomPadding = parseInt(this.$container.css('padding-bottom'), 10);
       this.containerLeftPadding = parseInt(this.$container.css('padding-left'), 10);
+      this.$lbloader = $('.lb-loader');
+      this.$spinner = new Spinner().spin();
+      this.$lbloader.append(this.$spinner.el);
       this.$overlay.hide().on('click', function() {
         _this.end();
         return false;

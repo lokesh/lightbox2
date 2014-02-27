@@ -1,6 +1,6 @@
 /* line 7, ../sass/lightbox.sass */
 body:after {
-  content: url(../img/close.png) url(../img/loading.gif) url(../img/prev.png) url(../img/next.png);
+  content: url(../img/close.png) url(../img/prev.png) url(../img/next.png);
   display: none;
 }
 
@@ -56,7 +56,7 @@ body:after {
   -o-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 38, ../../../../.rvm/gems/ruby-1.9.3-p392/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .lb-outerContainer:after {
   content: "";
   display: table;
@@ -85,10 +85,9 @@ body:after {
   width: 32px;
   height: 32px;
   margin: 0 auto;
-  background: url(../img/loading.gif) no-repeat;
 }
 
-/* line 64, ../sass/lightbox.sass */
+/* line 63, ../sass/lightbox.sass */
 .lb-nav {
   position: absolute;
   top: 0;
@@ -98,17 +97,17 @@ body:after {
   z-index: 10;
 }
 
-/* line 72, ../sass/lightbox.sass */
+/* line 71, ../sass/lightbox.sass */
 .lb-container > .nav {
   left: 0;
 }
 
-/* line 75, ../sass/lightbox.sass */
+/* line 74, ../sass/lightbox.sass */
 .lb-nav a {
   outline: none;
 }
 
-/* line 78, ../sass/lightbox.sass */
+/* line 77, ../sass/lightbox.sass */
 .lb-prev, .lb-next {
   width: 49%;
   height: 100%;
@@ -117,7 +116,7 @@ body:after {
   display: block;
 }
 
-/* line 85, ../sass/lightbox.sass */
+/* line 84, ../sass/lightbox.sass */
 .lb-prev {
   left: 0;
   float: left;
@@ -128,14 +127,14 @@ body:after {
   -o-transition: opacity 0.6s;
   transition: opacity 0.6s;
 }
-/* line 90, ../sass/lightbox.sass */
+/* line 89, ../sass/lightbox.sass */
 .lb-prev:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
   background: url(../img/prev.png) left 48% no-repeat;
 }
 
-/* line 94, ../sass/lightbox.sass */
+/* line 93, ../sass/lightbox.sass */
 .lb-next {
   right: 0;
   float: right;
@@ -146,14 +145,14 @@ body:after {
   -o-transition: opacity 0.6s;
   transition: opacity 0.6s;
 }
-/* line 99, ../sass/lightbox.sass */
+/* line 98, ../sass/lightbox.sass */
 .lb-next:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
   background: url(../img/next.png) right 48% no-repeat;
 }
 
-/* line 103, ../sass/lightbox.sass */
+/* line 102, ../sass/lightbox.sass */
 .lb-dataContainer {
   margin: 0 auto;
   padding-top: 5px;
@@ -166,32 +165,32 @@ body:after {
   -webkit-border-bottom-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-/* line 38, ../../../../.rvm/gems/ruby-1.9.3-p392/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .lb-dataContainer:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 110, ../sass/lightbox.sass */
+/* line 109, ../sass/lightbox.sass */
 .lb-data {
   padding: 0 4px;
   color: #bbbbbb;
 }
-/* line 113, ../sass/lightbox.sass */
+/* line 112, ../sass/lightbox.sass */
 .lb-data .lb-details {
   width: 85%;
   float: left;
   text-align: left;
   line-height: 1.1em;
 }
-/* line 118, ../sass/lightbox.sass */
+/* line 117, ../sass/lightbox.sass */
 .lb-data .lb-caption {
   font-size: 13px;
   font-weight: bold;
   line-height: 1em;
 }
-/* line 122, ../sass/lightbox.sass */
+/* line 121, ../sass/lightbox.sass */
 .lb-data .lb-number {
   display: block;
   clear: left;
@@ -199,7 +198,7 @@ body:after {
   font-size: 12px;
   color: #999999;
 }
-/* line 128, ../sass/lightbox.sass */
+/* line 127, ../sass/lightbox.sass */
 .lb-data .lb-close {
   display: block;
   float: right;
@@ -215,9 +214,14 @@ body:after {
   -o-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
-/* line 138, ../sass/lightbox.sass */
+/* line 137, ../sass/lightbox.sass */
 .lb-data .lb-close:hover {
   cursor: pointer;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
+}
+
+/* line 141, ../sass/lightbox.sass */
+.spinner {
+  margin: auto;
 }
