@@ -66,6 +66,11 @@ class Lightbox
     @containerBottomPadding = parseInt @$container.css('padding-bottom'), 10
     @containerLeftPadding   = parseInt @$container.css('padding-left'), 10
 
+    # Add spin.js spinner to lb-loader css-class
+    @$lbloader = $('.lb-loader')
+    @$spinner = new Spinner().spin();
+    @$lbloader.append(@$spinner.el);
+
     # Attach event handlers to the newly minted DOM elements
     @$overlay
       .hide()

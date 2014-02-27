@@ -5,7 +5,7 @@
 
 // Preload images
 body:after
-  content: url(../img/close.png) url(../img/loading.gif) url(../img/prev.png) url(../img/next.png)
+  content: url(../img/close.png) url(../img/prev.png) url(../img/next.png)
   display: none
 
 .lightboxOverlay
@@ -59,7 +59,6 @@ body:after
   width: 32px
   height: 32px
   margin: 0 auto
-  background: url(../img/loading.gif) no-repeat
 
 .lb-nav
   position: absolute
@@ -138,3 +137,6 @@ body:after
     &:hover
       cursor: pointer
       +opacity(1)
+
+.spinner
+  margin: auto
