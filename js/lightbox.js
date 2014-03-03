@@ -316,10 +316,16 @@ Licensed under the Creative Commons Attribution 2.5 License - http://creativecom
 
   })();
 
-  $(function() {
-    var lightbox, options;
-    options = new LightboxOptions();
-    return lightbox = new Lightbox(options);
-  });
+  if (typeof define === 'function' && define.amd) {
+    define([], function() {
+      return Lightbox;
+    });
+  } else {
+    $(function() {
+      var lightbox, options;
+      options = new LightboxOptions();
+      return lightbox = new Lightbox(options);
+    });
+  }
 
 }).call(this);
