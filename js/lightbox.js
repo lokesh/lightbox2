@@ -333,21 +333,26 @@
     };
 
     Lightbox.prototype.keyboardAction = function(event) {
-      var KEYCODE_ESC, KEYCODE_LEFTARROW, KEYCODE_RIGHTARROW, key, keycode;
-      KEYCODE_ESC = 27;
-      KEYCODE_LEFTARROW = 37;
-      KEYCODE_RIGHTARROW = 39;
-      keycode = event.keyCode;
-      key = String.fromCharCode(keycode).toLowerCase();
+      var KEYCODE_ESC        = 27;
+      var KEYCODE_LEFTARROW  = 37;
+      var KEYCODE_RIGHTARROW = 39;
+
+      var keycode = event.keyCode;
+      var key     = String.fromCharCode(keycode).toLowerCase();
+
       if (keycode === KEYCODE_ESC || key.match(/x|o|c/)) {
         this.end();
       } else if (key === 'p' || keycode === KEYCODE_LEFTARROW) {
         if (this.currentImageIndex !== 0) {
           this.changeImage(this.currentImageIndex - 1);
+        } else if (this.options.wrapAround && this.album.length > 1) {
+          this.changeImage(this.album.length - 1);
         }
       } else if (key === 'n' || keycode === KEYCODE_RIGHTARROW) {
         if (this.currentImageIndex !== this.album.length - 1) {
           this.changeImage(this.currentImageIndex + 1);
+        } else if (this.options.wrapAround && this.album.length > 1) {
+          this.changeImage(0);
         }
       }
     };
