@@ -97,18 +97,17 @@ body:after {
 
 .lb-nav a {
   outline: none;
-  background-image: url('data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICR‌​AEAOw==');
+  background-image: url('data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
 }
 
 .lb-prev, .lb-next {
-  width: 49%;
   height: 100%;
   cursor: pointer;
-  /* Trick IE into showing hover */
   display: block;
 }
 
 .lb-prev {
+  width: 34%;
   left: 0;
   float: left;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
@@ -126,6 +125,7 @@ body:after {
 }
 
 .lb-next {
+  width: 64%;
   right: 0;
   float: right;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
