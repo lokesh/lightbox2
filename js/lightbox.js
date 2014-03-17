@@ -144,7 +144,7 @@
           a = _ref[i];
           this.album.push({
             link: $(a).attr('href'),
-            title: $(a).attr('title')
+            title: $(a).attr('data-title') || $(a).attr('title')
           });
           if ($(a).attr('href') === $link.attr('href')) {
             imageNumber = i;
@@ -155,7 +155,7 @@
           // If image is not part of a set
           this.album.push({
             link: $link.attr('href'),
-            title: $link.attr('title')
+            title: $(a).attr('data-title') || $(a).attr('title')
           });
         } else {
           // If image is part of a set
@@ -164,7 +164,7 @@
             a = _ref1[i];
             this.album.push({
               link: $(a).attr('href'),
-              title: $(a).attr('title')
+              title: $(a).attr('data-title') || $(a).attr('title')
             });
             if ($(a).attr('href') === $link.attr('href')) {
               imageNumber = i;
