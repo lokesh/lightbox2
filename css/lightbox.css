@@ -97,6 +97,7 @@ body:after {
 
 .lb-nav a {
   outline: none;
+  background-image: url('data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICR‌​AEAOw==');
 }
 
 .lb-prev, .lb-next {
