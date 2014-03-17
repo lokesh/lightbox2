@@ -1,10 +1,9 @@
-/* line 7, ../sass/lightbox.sass */
+/* Preload images */
 body:after {
   content: url(../img/close.png) url(../img/loading.gif) url(../img/prev.png) url(../img/next.png);
   display: none;
 }
 
-/* line 11, ../sass/lightbox.sass */
 .lightboxOverlay {
   position: absolute;
   top: 0;
@@ -16,7 +15,6 @@ body:after {
   display: none;
 }
 
-/* line 20, ../sass/lightbox.sass */
 .lightbox {
   position: absolute;
   left: 0;
@@ -26,7 +24,7 @@ body:after {
   line-height: 0;
   font-weight: normal;
 }
-/* line 28, ../sass/lightbox.sass */
+
 .lightbox .lb-image {
   display: block;
   height: auto;
@@ -37,12 +35,11 @@ body:after {
   -o-border-radius: 3px;
   border-radius: 3px;
 }
-/* line 33, ../sass/lightbox.sass */
+
 .lightbox a img {
   border: none;
 }
 
-/* line 36, ../sass/lightbox.sass */
 .lb-outerContainer {
   position: relative;
   background-color: white;
@@ -56,19 +53,17 @@ body:after {
   -o-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 38, ../../../../.rvm/gems/ruby-1.9.3-p392/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+
 .lb-outerContainer:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 45, ../sass/lightbox.sass */
 .lb-container {
   padding: 4px;
 }
 
-/* line 48, ../sass/lightbox.sass */
 .lb-loader {
   position: absolute;
   top: 43%;
@@ -79,7 +74,6 @@ body:after {
   line-height: 0;
 }
 
-/* line 57, ../sass/lightbox.sass */
 .lb-cancel {
   display: block;
   width: 32px;
@@ -88,7 +82,6 @@ body:after {
   background: url(../img/loading.gif) no-repeat;
 }
 
-/* line 64, ../sass/lightbox.sass */
 .lb-nav {
   position: absolute;
   top: 0;
@@ -98,17 +91,14 @@ body:after {
   z-index: 10;
 }
 
-/* line 72, ../sass/lightbox.sass */
 .lb-container > .nav {
   left: 0;
 }
 
-/* line 75, ../sass/lightbox.sass */
 .lb-nav a {
   outline: none;
 }
 
-/* line 78, ../sass/lightbox.sass */
 .lb-prev, .lb-next {
   width: 49%;
   height: 100%;
@@ -117,7 +107,6 @@ body:after {
   display: block;
 }
 
-/* line 85, ../sass/lightbox.sass */
 .lb-prev {
   left: 0;
   float: left;
@@ -128,14 +117,13 @@ body:after {
   -o-transition: opacity 0.6s;
   transition: opacity 0.6s;
 }
-/* line 90, ../sass/lightbox.sass */
+
 .lb-prev:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
   background: url(../img/prev.png) left 48% no-repeat;
 }
 
-/* line 94, ../sass/lightbox.sass */
 .lb-next {
   right: 0;
   float: right;
@@ -146,14 +134,13 @@ body:after {
   -o-transition: opacity 0.6s;
   transition: opacity 0.6s;
 }
-/* line 99, ../sass/lightbox.sass */
+
 .lb-next:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
   background: url(../img/next.png) right 48% no-repeat;
 }
 
-/* line 103, ../sass/lightbox.sass */
 .lb-dataContainer {
   margin: 0 auto;
   padding-top: 5px;
@@ -166,32 +153,31 @@ body:after {
   -webkit-border-bottom-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-/* line 38, ../../../../.rvm/gems/ruby-1.9.3-p392/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+
 .lb-dataContainer:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 110, ../sass/lightbox.sass */
 .lb-data {
   padding: 0 4px;
   color: #bbbbbb;
 }
-/* line 113, ../sass/lightbox.sass */
+
 .lb-data .lb-details {
   width: 85%;
   float: left;
   text-align: left;
   line-height: 1.1em;
 }
-/* line 118, ../sass/lightbox.sass */
+
 .lb-data .lb-caption {
   font-size: 13px;
   font-weight: bold;
   line-height: 1em;
 }
-/* line 122, ../sass/lightbox.sass */
+
 .lb-data .lb-number {
   display: block;
   clear: left;
@@ -199,7 +185,7 @@ body:after {
   font-size: 12px;
   color: #999999;
 }
-/* line 128, ../sass/lightbox.sass */
+
 .lb-data .lb-close {
   display: block;
   float: right;
@@ -215,7 +201,7 @@ body:after {
   -o-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
-/* line 138, ../sass/lightbox.sass */
+
 .lb-data .lb-close:hover {
   cursor: pointer;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
