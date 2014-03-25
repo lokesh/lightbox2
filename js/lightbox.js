@@ -302,7 +302,7 @@
       var self = this;
     
       if (typeof this.album[this.currentImageIndex].title !== 'undefined' && this.album[this.currentImageIndex].title !== "") {
-		this.$lightbox.find('.lb-caption').html(this.album[this.currentImageIndex].title).fadeIn('fast').find('a').on('click', function() { location.href = $(this).attr('href') });
+        this.$lightbox.find('.lb-caption').html(this.album[this.currentImageIndex].title).fadeIn('fast').find('a').on('click', function() { location.href = $(this).attr('href') });
       }
     
       if (this.album.length > 1 && this.options.showImageNumberLabel) {
