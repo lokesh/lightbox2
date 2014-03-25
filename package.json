@@ -1,11 +1,14 @@
 {
   "name": "lightbox2",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "author": "Lokesh Dhakar",
-  "description": "Lightbox is small javascript library used to overlay images on top of the current page.",
+  "description": "Lightbox is small javascript library used to overlay images on top of the current page. It's a snap to setup and works on all modern browsers.",
   "keywords": [
+    "lightbox",
+    "lightbox2",
     "overlay",
-    "image"
+    "image",
+    "gallery"
   ],
   "homepage": "http://lokeshdhakar.com/projects/lightbox2/",
   "repository": {
@@ -15,14 +18,6 @@
   "bugs": {
     "url": "https://github.com/lokesh/lightbox2/issues"
   },
-  "scripts": {
-    "build": "coffee --compile --output ./js/ ./coffee/",
-    "check": "jshint ./js/lightbox.js",
-    "lint": "jshint ./js/lightbox.js",
-    "install-compass": "bundle install",
-    "update-compass": "bundle update",
-    "build-compass": "bundle exec compass compile"
-  },
   "licenses": [
     {
       "type": "Creative Commons Attribution 2.5 License",
@@ -30,7 +25,13 @@
     }
   ],
   "devDependencies": {
-    "coffee-script": "~1.6.3",
-    "jshint": "~2.1.4"
+    "grunt": "~0.4.2",
+    "grunt-contrib-compass": "^0.7.2",
+    "grunt-contrib-watch": "^0.5.3",
+    "grunt-contrib-connect": "^0.7.1",
+    "grunt-ftp-deploy": "^0.1.1",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-jshint": "~0.9.2",
+    "grunt-exec": "~0.4.5"
   }
 }

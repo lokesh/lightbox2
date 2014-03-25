@@ -1,24 +1,16 @@
-# SVN #
-######################
-*.svn
-
-# Logs and databases #
-######################
 *.log
 *.sql
 *.sqlite
+.htaccess
+.ftppass
+.host_config
 
-# OS generated files #
-######################
 *.DS_Store
 ehthumbs.db
 Icon?
 Thumbs.db
 
-# Software files #
-######################
-.espresso*
-.sass-cache/*
+.sass-cache
 Rakefile
 rsync-exclude
-/node_modules
+node_modules
