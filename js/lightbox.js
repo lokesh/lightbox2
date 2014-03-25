@@ -249,18 +249,23 @@
       var newWidth  = imageWidth + this.containerLeftPadding + this.containerRightPadding;
       var newHeight = imageHeight + this.containerTopPadding + this.containerBottomPadding;
       
-      this.$outerContainer.animate({
-        width: newWidth,
-        height: newHeight
-      }, this.options.resizeDuration, 'swing');
-      
-      // Wait for resize animation to finsh before showing the image
-      setTimeout(function() {
+      function postResize() {
         self.$lightbox.find('.lb-dataContainer').width(newWidth);
         self.$lightbox.find('.lb-prevLink').height(newHeight);
         self.$lightbox.find('.lb-nextLink').height(newHeight);
         self.showImage();
-      }, this.options.resizeDuration);
+      }
+
+      if (oldWidth !== newWidth || oldHeight !== newHeight) {
+        this.$outerContainer.animate({
+          width: newWidth,
+          height: newHeight
+        }, this.options.resizeDuration, 'swing', function() {
+          postResize();
+        });
+      } else {
+        postResize();
+      }
     };
 
     // Display the image and it's details and begin preload neighboring images.
