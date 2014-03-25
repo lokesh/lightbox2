@@ -308,7 +308,7 @@
     
       this.$outerContainer.removeClass('animating');
     
-      this.$lightbox.find('.lb-dataContainer').fadeIn(this.resizeDuration, function() {
+      this.$lightbox.find('.lb-dataContainer').fadeIn(this.options.resizeDuration, function() {
         return self.sizeOverlay();
       });
     };
