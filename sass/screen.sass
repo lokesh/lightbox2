@@ -32,6 +32,9 @@ $gutter: 40px
 $base-line-height: 1.7em
 $max-column-width: 800px
 
+$section-header-z-index: 5
+$sharing-section-z-index: 10
+
 
 // UI COMPONENTS --------------------------------------------------------
 
@@ -71,10 +74,10 @@ h2
   text-transform: uppercase
 
 h3
-  margin-bottom: 0.5em
   color: $heading-color
-  font-size: $font-size
-  letter-spacing: 0.1em
+  margin-bottom: 0.5em
+  font-size: 24px
+  letter-spacing: 1px
   text-align: center
   text-transform: uppercase
 
@@ -172,7 +175,7 @@ body
 
 .section-header
   position: relative
-  z-index: 1
+  z-index: $section-header-z-index
   margin-top: 0
   margin-bottom: $gutter * 2
   color: lighten($bg-color, 12%)
@@ -298,6 +301,7 @@ fieldset
 
 .sharing-section
   position: fixed
+  z-index: $sharing-section-z-index
   top: 20px
   right: 0
 
