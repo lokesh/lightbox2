@@ -120,7 +120,7 @@
       var self    = this;
       var $window = $(window);
 
-      $window.on("resize", this.sizeOverlay.call(this));
+      $window.on('resize', $.proxy(this.sizeOverlay, this));
 
       $('select, object, embed').css({
         visibility: "hidden"
@@ -233,10 +233,10 @@
       this.currentImageIndex = imageNumber;
     };
 
-    // Stretch overlay to fit the document
+    // Stretch overlay to fit the viewport
     Lightbox.prototype.sizeOverlay = function() {
       this.$overlay
-        .width($(document).width())
+        .width($(window).width())
         .height($(document).height());
     };
 
