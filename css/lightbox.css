@@ -44,8 +44,8 @@ body:after {
   position: relative;
   background-color: white;
   *zoom: 1;
-  width: 250px;
-  height: 250px;
+  width: auto;
+  height: auto;
   margin: 0 auto;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
