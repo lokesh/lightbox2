@@ -13,12 +13,13 @@
 
   var LightboxOptions = (function() {
     function LightboxOptions() {
-      this.fadeDuration         = 500;
-      this.fitImagesInViewport  = true;
-      this.resizeDuration       = 700;
-      this.positionFromTop      = 50;
-      this.showImageNumberLabel = true;
-      this.wrapAround           = false;
+      this.fadeDuration                = 500;
+      this.fitImagesInViewport         = true;
+      this.resizeDuration              = 700;
+      this.positionFromTop             = 50;
+      this.showImageNumberLabel        = true;
+      this.alwaysShowNavOnTouchDevices = false;
+      this.wrapAround                  = false;
     }
     
     // Change to localize to non-english language
@@ -281,17 +282,35 @@
 
     // Display previous and next navigation if appropriate.
     Lightbox.prototype.updateNav = function() {
+      // Check to see if the browser supports touch events. If so, we take the conservative approach
+      // and assume that mouse hover events are not supported and always show prev/next navigation
+      // arrows in image sets.
+      var alwaysShowNav = false;
+      try {
+        document.createEvent("TouchEvent");
+        alwaysShowNav = (this.options.alwaysShowNavOnTouchDevices)? true: false;
+      } catch (e) {}
+
       this.$lightbox.find('.lb-nav').show();
 
       if (this.album.length > 1) {
         if (this.options.wrapAround) {
+          if (alwaysShowNav) {
+            this.$lightbox.find('.lb-prev, .lb-next').css('opacity', '1');
+          }
           this.$lightbox.find('.lb-prev, .lb-next').show();
         } else {
           if (this.currentImageIndex > 0) {
             this.$lightbox.find('.lb-prev').show();
+            if (alwaysShowNav) {
+              this.$lightbox.find('.lb-prev').css('opacity', '1');
+            }
           }
           if (this.currentImageIndex < this.album.length - 1) {
             this.$lightbox.find('.lb-next').show();
+            if (alwaysShowNav) {
+              this.$lightbox.find('.lb-next').css('opacity', '1');
+            }
           }
         }
       }
