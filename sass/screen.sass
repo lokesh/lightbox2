@@ -9,14 +9,14 @@ $orange:     #ff8000
 $red:        #ff4040
 $blue:       #4ae
 $green:      #61c227
-$gray:       #ccc
-$light-gray: #eeeeee
-$dark-gray:  #222
+$gray:       #aaa
+$light-gray: #ddd
+$dark-gray:  #444
 
-$color:         $gray
+$color:         white
 $bg-color:      $dark-gray
-$heading-color: $orange
-$link-color:    $blue
+$heading-color: $yellow
+$link-color:    $green
 
 // TYPE --------------------------------------------------------
 
@@ -119,7 +119,7 @@ pre
   padding: $gutter/4
   margin-top: $gutter/8
   margin-bottom: $gutter/4
-  background-color: darken($bg-color, 5%)
+  background-color: darken($bg-color, 3%)
   font-family: $code-font-family
   line-height: 1.5em
   +border-radius($radius)
@@ -127,8 +127,8 @@ pre
 
 code, kbd
   padding: 2px 4px
-  color: desaturate($orange, 65%)
-  background-color: darken($bg-color, 5%)
+  color: desaturate($orange, 25%)
+  background-color: darken($bg-color, 3%)
   font-family: $code-font-family
   +border-radius($radius)
 
@@ -200,7 +200,7 @@ body
 
 .section-content
   margin: 0 auto
-  padding-bottom: $gutter
+  padding: 0 $gutter $gutter $gutter
   max-width: $max-column-width
 
 .row
@@ -312,11 +312,11 @@ fieldset
   body
     font-size: $font-size - 4
   h1
-    font-size: 48px // from 72px
+    font-size: 48px
   h2
-    font-size: 26px // from 48px
+    font-size: 26px
   h3
-    font-size: 16px // from 18px
+    font-size: 16px
   ol
     list-style-position: inside
   code,
@@ -333,6 +333,11 @@ fieldset
   .section
     padding-bottom: $gutter/2
     margin-bottom: $gutter/2
+  .section-content
+    padding: 0 ($gutter / 2) ($gutter / 2) ($gutter / 2)
+  .section-header
+    margin-bottom: $gutter / 2
+    font-size: 48px
   .author
     margin-top: -5px
     padding-left: 30px
