@@ -9,7 +9,6 @@
 
 (function() {
   // Use local alias
-  
   var $ = jQuery;
 
   var LightboxOptions = (function() {
@@ -17,6 +16,7 @@
       this.fadeDuration         = 500;
       this.fitImagesInViewport  = true;
       this.resizeDuration       = 700;
+      this.positionFromTop      = 50;
       this.showImageNumberLabel = true;
       this.wrapAround           = false;
     }
@@ -167,7 +167,7 @@
       }
       
       // Position Lightbox
-      var top  = $window.scrollTop() + $window.height() / 10;
+      var top  = $window.scrollTop() + this.options.positionFromTop;
       var left = $window.scrollLeft();
       this.$lightbox.css({
         top: top + 'px',
@@ -214,7 +214,7 @@
           // Is there a fitting issue?
           if ((preloader.width > maxImageWidth) || (preloader.height > maxImageHeight)) {
             if ((preloader.width / maxImageWidth) > (preloader.height / maxImageHeight)) {
-              imageWidth = maxImageWidth;
+              imageWidth  = maxImageWidth;
               imageHeight = parseInt(preloader.height / (preloader.width / imageWidth), 10);
               $image.width(imageWidth);
               $image.height(imageHeight);
@@ -229,7 +229,7 @@
         self.sizeContainer($image.width(), $image.height());
       };
 
-      preloader.src = this.album[imageNumber].link;
+      preloader.src          = this.album[imageNumber].link;
       this.currentImageIndex = imageNumber;
     };
 
@@ -369,7 +369,7 @@
       $(window).off("resize", this.sizeOverlay);
       this.$lightbox.fadeOut(this.options.fadeDuration);
       this.$overlay.fadeOut(this.options.fadeDuration);
-      return $('select, object, embed').css({
+      $('select, object, embed').css({
         visibility: "visible"
       });
     };
