@@ -85,28 +85,26 @@
 			<h3>Part 1 - Get setup</h3>
 			<ol>
 				<li>Download and unzip the latest version of Lightbox from above.</li>
-				<li>Look inside the <code>js</code> folder to find <code>jquery-1.10.2.min.js</code> and <code>lightbox.min.js</code> and load both of these files from your html page. Load jQuery first:
+				<li>Look inside the <code>js</code> folder to find <code>jquery-1.10.2.min.js</code> and <code>lightbox.min.js</code> and load both of these files. Load jQuery first.
 	<pre><code>&lt;script src=&quot;js/jquery-1.10.2.min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;js/lightbox.min.js&quot;&gt;&lt;/script&gt;
-	</code></pre></li>
-				<li>Look inside the <code>css</code> folder to find <code>lightbox.css</code> and load it from your html page:
-	<pre><code>&lt;link href=&quot;css/lightbox.css&quot; rel=&quot;stylesheet&quot; /&gt;
-	</code></pre>
+&lt;script src=&quot;js/lightbox.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+				</li>
+				<li>Look inside the <code>css</code> folder to find <code>lightbox.css</code> and load it.
+	<pre><code>&lt;link href=&quot;css/lightbox.css&quot; rel=&quot;stylesheet&quot; /&gt;</code></pre>
 				</li>
 				<li>Look inside the <code>img</code> folder to find <code>close.png</code>, <code>loading.gif</code>, <code>prev.png</code>, and <code>next.png</code>. These files are used in <code>lightbox.css</code>. By default, <code>lightbox.css</code> will look for these images in a folder called <code>img</code>.</li>
 			</ol>
 			<h3>Part 2 - Turn it on</h3>
 		<ul>
 				<li>Add a <code>data-lightbox</code> attribute to any image link to activate Lightbox. For the value of the attribute, use a unique name for each image. For example:
-	<pre><code>&lt;a href=&quot;img/image-1.jpg&quot; data-lightbox=&quot;image-1&quot; title=&quot;My caption&quot;&gt;image #1&lt;/a&gt;
-	</code></pre>
+	<pre><code>&lt;a href=&quot;img/image-1.jpg&quot; data-lightbox=&quot;image-1&quot; title=&quot;My caption&quot;&gt;image #1&lt;/a&gt;</code></pre>
 				 <div class="sub-point"><em>Optional:</em> Set the <code>title</code> attribute if you want to show a caption.</div> </li>
 				<li>If you have a group of related images that you would like to combine into a set, use the same <code>data-lightbox</code> attribute value for all of the images. For example:
 	<pre><code>&lt;a href=&quot;img/image-2.jpg&quot; data-lightbox=&quot;roadtrip&quot;&gt;image #2&lt;/a&gt;
-	&lt;a href=&quot;img/image-3.jpg&quot; data-lightbox=&quot;roadtrip&quot;&gt;image #3&lt;/a&gt;
-	&lt;a href=&quot;img/image-4.jpg&quot; data-lightbox=&quot;roadtrip&quot;&gt;image #4&lt;/a&gt;
-	</code></pre></li>
-	<li class="last-list-item"><div class="sub-point">For you long time Lightbox users, don't fret, you can still enable Lightbox by using <code>rel="lightbox"</code>. The new <code>data-lightbox</code> approach is preferred though as it is valid html.</div></li>
+&lt;a href=&quot;img/image-3.jpg&quot; data-lightbox=&quot;roadtrip&quot;&gt;image #3&lt;/a&gt;
+&lt;a href=&quot;img/image-4.jpg&quot; data-lightbox=&quot;roadtrip&quot;&gt;image #4&lt;/a&gt;</code></pre>
+				</li>
+				<li class="last-list-item"><div class="sub-point">For you long time Lightbox users, don't fret, you can still enable Lightbox by using <code>rel="lightbox"</code>. The new <code>data-lightbox</code> approach is preferred though as it is valid html.</div></li>
 			</ul>
 		</div>
 	</section>
