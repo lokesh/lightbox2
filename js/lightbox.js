@@ -210,7 +210,7 @@
           windowWidth    = $(window).width();
           windowHeight   = $(window).height();
           maxImageWidth  = windowWidth - self.containerLeftPadding - self.containerRightPadding - 20;
-          maxImageHeight = windowHeight - self.containerTopPadding - self.containerBottomPadding - 110;
+          maxImageHeight = windowHeight - self.containerTopPadding - self.containerBottomPadding - 120;
 
           // Is there a fitting issue?
           if ((preloader.width > maxImageWidth) || (preloader.height > maxImageHeight)) {
@@ -364,7 +364,6 @@
 
       var keycode = event.keyCode;
       var key     = String.fromCharCode(keycode).toLowerCase();
-
       if (keycode === KEYCODE_ESC || key.match(/x|o|c/)) {
         this.end();
       } else if (key === 'p' || keycode === KEYCODE_LEFTARROW) {

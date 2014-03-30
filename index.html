@@ -7,86 +7,65 @@
 
 	<meta name="description" lang="en" content="Lightbox 2 is a script used to overlay images on the current page. It's a snap to setup and works on all modern browsers."/>
 	<meta name="author" content="Lokesh Dhakar">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="shortcut icon" href="img/demopage/favicon.ico">
+	<link rel="shortcut icon" href="img/demopage/favicon.png">
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Karla%7CMontserrat">
 	<link rel="stylesheet" href="css/screen.css">
 	<link rel="stylesheet" href="css/lightbox.css">
 </head>
 <body>
 
-	<section id="intro" class="section intro-section">
-		<header>
-			<h1 class="logo">Lightbox<em class="version">2</em></h1>
-		</header>
-		<div class="section-content">
-			<p class="author">
-				by Lokesh Dhakar<br />
-				<span class="author-links">
-					<a href="http://lokeshdhakar.com">Blog</a> - <a href="https://twitter.com/lokesh">Twitter</a> - <a href="https://github.com/lokesh">Github</a>
-				</span>
-			</p>
+	<header>
+		<div class="container">
+			<h1 class="logo">Lightbox</h1>
 			<p class="lead">
-				Lightbox is small javascript library used to overlay images on top of the current page. It's a snap to setup and works on all modern browsers.
+				The original lightbox script.<br />Eight years later &mdash; still going strong!
 			</p>
-		</div>
-	</section>
 
-	<section id="examples" class="section examples-section">
-		<header>
-			<h2 class="section-header"><span class="line-cover">Examples</span></h2>
-		</header>
-		<div class="section-content">
-			<h3>Single images</h3>
+			<a href="releases/lightbox-2.7.0.zip" class="button">
+				Download
+			</a>
+
+			<a href="https://github.com/lokesh/lightbox2/" class="button">
+				View on Github
+			</a>
+
+		</div>
+	</header>
+
+	<section id="examples" class="examples-section">
+		<div class="container">
+			<h2>Examples</h2>
+			<h3>Two individual images</h3>
 			<div class="image-row">
-				<a class="example-image-link" href="img/demopage/image-1.jpg" data-lightbox="example-1"><img class="example-image" src="img/demopage/thumb-1.jpg" alt="thumb-1" width="150" height="150"/></a>
-				<a class="example-image-link" href="img/demopage/image-2.jpg" data-lightbox="example-2" data-title="Optional caption."><img class="example-image" src="img/demopage/thumb-2.jpg" alt="thumb-1" width="150" height="150"/></a>
+				<a class="example-image-link" href="img/demopage/image-1.jpg" data-lightbox="example-1"><img class="example-image" src="img/demopage/image-1.jpg" alt="image-1" /></a>
+				<a class="example-image-link" href="img/demopage/image-2.jpg" data-lightbox="example-2" data-title="Optional caption."><img class="example-image" src="img/demopage/image-2.jpg" alt="image-1"/></a>
 			</div>
 
-			<h3 style="clear: both;">An image set</h3>
+			<hr />
+
+			<h3 style="clear: both;">Four image set</h3>
 
 			<div class="image-row">
 				<div class="image-set">
-					<a class="example-image-link" href="img/demopage/image-3.jpg" data-lightbox="example-set" title="Click on the right side of the image to move forward."><img class="example-image" src="img/demopage/thumb-3.jpg" alt="Plants: image 1 0f 4 thumb" width="150" height="150"/></a>
-					<a class="example-image-link" href="img/demopage/image-4.jpg" data-lightbox="example-set" title="Or press the right arrow on your keyboard."><img class="example-image" src="img/demopage/thumb-4.jpg" alt="Plants: image 2 0f 4 thumb" width="150" height="150"/></a>
-					<a class="example-image-link" href="img/demopage/image-5.jpg" data-lightbox="example-set" title="The script preloads the next image in the set as you're viewing."><img class="example-image" src="img/demopage/thumb-5.jpg" alt="Plants: image 3 0f 4 thumb" width="150" height="150"/></a>
-					<a class="example-image-link" href="img/demopage/image-6.jpg" data-lightbox="example-set" title="Click anywhere outside the image or the X to the right to close."><img class="example-image" src="img/demopage/thumb-6.jpg" alt="Plants: image 4 0f 4 thumb" width="150" height="150"/></a>
+					<a class="example-image-link" href="img/demopage/image-3.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="img/demopage/thumb-3.jpg" alt=""/></a>
+					<a class="example-image-link" href="img/demopage/image-4.jpg" data-lightbox="example-set" data-title="Or press the right arrow on your keyboard."><img class="example-image" src="img/demopage/thumb-4.jpg" alt="" /></a>
+					<a class="example-image-link" href="img/demopage/image-5.jpg" data-lightbox="example-set" data-title="The next image in the set is preloaded as you're viewing."><img class="example-image" src="img/demopage/thumb-5.jpg" alt="" /></a>
+					<a class="example-image-link" href="img/demopage/image-6.jpg" data-lightbox="example-set" data-title="Click anywhere outside the image or the X to the right to close."><img class="example-image" src="img/demopage/thumb-6.jpg" alt="" /></a>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section id="download" class="section download-section">
-		<header>
-			<h2 class="section-header"><span class="line-cover">Download</span></h2>
-		</header>
-		<div class="section-content">
-			<a href="releases/lightbox2.7.zip" class="download-button">
-				<div class="file">
-					Lightbox
-					<div class="version">
-						v2.7
-					</div>
-				</div>
-			</a>
-
-			<p>
-				Lightbox2 is open-source.<br/>View and fork the code on <a href="https://github.com/lokesh/lightbox2">Github</a>.
-			</p>
-		</div>
-	</section>
-
-	<section id="how-to-use" class="section how-to-use-section">
-		<header>
-			<h2 class="section-header"><span class="line-cover">How to use</span></h2>
-		</header>
-		<div class="section-content">
-			<h3>Part 1 - Get setup</h3>
+	<section id="how-to-use" class="how-to-use-section">
+		<div class="container">
+			<h2>How to use</h2>
+			<h3>Step 1 - Load the Javascript and CSS</h3>
 			<ol>
-				<li>Download and unzip the latest version of Lightbox from above.</li>
-				<li>Look inside the <code>js</code> folder to find <code>jquery-1.10.2.min.js</code> and <code>lightbox.min.js</code> and load both of these files. Load jQuery first.
-	<pre><code>&lt;script src=&quot;js/jquery-1.10.2.min.js&quot;&gt;&lt;/script&gt;
+				<li>Download and unzip the latest version of Lightbox.</li>
+				<li>Look inside the <code>js</code> folder to find <code>jquery-1.11.0.min.js</code> and <code>lightbox.min.js</code> and load both of these files. Load jQuery first.
+<pre><code>&lt;script src=&quot;js/jquery-1.11.0.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;js/lightbox.min.js&quot;&gt;&lt;/script&gt;</code></pre>
 				</li>
 				<li>Look inside the <code>css</code> folder to find <code>lightbox.css</code> and load it.
@@ -94,48 +73,45 @@
 				</li>
 				<li>Look inside the <code>img</code> folder to find <code>close.png</code>, <code>loading.gif</code>, <code>prev.png</code>, and <code>next.png</code>. These files are used in <code>lightbox.css</code>. By default, <code>lightbox.css</code> will look for these images in a folder called <code>img</code>.</li>
 			</ol>
-			<h3>Part 2 - Turn it on</h3>
+			<h3>Step 2 - Turn it on</h3>
 		<ul>
 				<li>Add a <code>data-lightbox</code> attribute to any image link to activate Lightbox. For the value of the attribute, use a unique name for each image. For example:
-	<pre><code>&lt;a href=&quot;img/image-1.jpg&quot; data-lightbox=&quot;image-1&quot; title=&quot;My caption&quot;&gt;image #1&lt;/a&gt;</code></pre>
-				 <div class="sub-point"><em>Optional:</em> Set the <code>title</code> attribute if you want to show a caption.</div> </li>
-				<li>If you have a group of related images that you would like to combine into a set, use the same <code>data-lightbox</code> attribute value for all of the images. For example:
-	<pre><code>&lt;a href=&quot;img/image-2.jpg&quot; data-lightbox=&quot;roadtrip&quot;&gt;image #2&lt;/a&gt;
-&lt;a href=&quot;img/image-3.jpg&quot; data-lightbox=&quot;roadtrip&quot;&gt;image #3&lt;/a&gt;
-&lt;a href=&quot;img/image-4.jpg&quot; data-lightbox=&quot;roadtrip&quot;&gt;image #4&lt;/a&gt;</code></pre>
+	<pre><code>&lt;a href=&quot;img/image-1.jpg&quot; data-lightbox=&quot;image-1&quot; data-title=&quot;My caption&quot;&gt;Image #1&lt;/a&gt;</code></pre>
+				 <em>Optional:</em> Add a <code>data-title</code> attribute if you want to show a caption.
 				</li>
-				<li class="last-list-item"><div class="sub-point">For you long time Lightbox users, don't fret, you can still enable Lightbox by using <code>rel="lightbox"</code>. The new <code>data-lightbox</code> approach is preferred though as it is valid html.</div></li>
+				<li>If you have a group of related images that you would like to combine into a set, use the same <code>data-lightbox</code> attribute value for all of the images. For example:
+	<pre><code>&lt;a href=&quot;img/image-2.jpg&quot; data-lightbox=&quot;roadtrip&quot;&gt;Image #2&lt;/a&gt;
+&lt;a href=&quot;img/image-3.jpg&quot; data-lightbox=&quot;roadtrip&quot;&gt;Image #3&lt;/a&gt;
+&lt;a href=&quot;img/image-4.jpg&quot; data-lightbox=&quot;roadtrip&quot;&gt;Image #4&lt;/a&gt;</code></pre>
+				</li>
 			</ul>
 		</div>
 	</section>
 
 
-	<section id="help" class="section questions-section">
-		<header>
-			<h2 class="section-header"><span class="line-cover">Help</span></h2>
-		</header>
-		<div class="section-content">
-			<h3>Bugs</h3>
-			<p>If you find a bug, create an <a href="https://github.com/lokesh/lightbox2/issues">issue on Github</a>. Include your operating system and browser version along with detailed steps to reproduce the bug.</p>
+	<section id="help" class="questions-section">
+		<div class="container">
+			<h2>Help</h2>
 
-			<h3>Feature requests</h3>
-			<p>If you want a feature added, please create an <a href="https://github.com/lokesh/lightbox2/issues">issue on Github</a>. Someone else or I might be able to help out. No guarantees.</p>
+			<h3>Have a feature request?</h3>
+			<p>If you want a feature added, <a href="https://github.com/lokesh/lightbox2/issues">create an issue on Github</a>. Someone else or I might be able to help out. No guarantees.</p>
 
-			<h3>Support questions</h3>
-			<p>If you have a question that is not a bug or a feature request, your best chance of getting an answer is by posting it on <a href="http://stackoverflow.com/">Stackoverflow</a>.</p>
+			<h3>Found a bug?</h3>
+			<p>If you find a bug, <a href="https://github.com/lokesh/lightbox2/issues">create an issue on Github</a>. Include your operating system and browser version along with detailed steps on how to reproduce the bug.</p>
 
-			<h3>Older versions</h3>
-			<p>See a change log and access older versions on the <a href="https://github.com/lokesh/lightbox2/releases">Github releases page</a>.</p>
+			<h3>Can't get Lightbox working?</h3>
+			<p>If you followed the instructions, but still can't get Lightbox working, <a href="http://stackoverflow.com/">search Stackoverflow</a> to see if other people have run into the same issue as you. If not, post a new question.</p>
+
+			<h3>Looking for older versions?</h3>
+			<p>You can access older versions and see a changelog on the <a href="https://github.com/lokesh/lightbox2/releases">Github releases page</a>.</p>
 		</div>
 	</section>
 
-	<section id="donate" class="section donate-section">
-		<header>
-			<h2 class="section-header"><span class="line-cover">Donate</span></h2>
-		</header>
-		<div class="section-content">
+	<section id="donate" class="donate-section">
+		<div class="container">
+			<h2>Donate</h2>
 			<p>
-				Lightbox is completely free to use. If you're using Lightbox on a commercial project and are feeling generous, consider a donation. Thanks!
+				Lightbox is 100% free to use. If you're using Lightbox on a commercial project and feeling generous, consider a donation. Thanks!
 			</p>
 			<form class="donate-button-form" name="_xclick" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 				<fieldset>
@@ -146,23 +122,25 @@
 					<input type="hidden" name="currency_code" value="USD">
 					<input type="hidden" name="tax" value="0">
 					<input type="hidden" name="bn" value="PP-DonationsBF">
-					<input type="image" src="img/demopage/donate.png" name="submit" class="donate-button" alt="Make payments with PayPal - it's fast, free and secure!">
+					<input type="submit" name="submit" class="button donate-button" value="Donate using Paypal" alt="Make payments with PayPal - it's fast, free and secure!">
 				</fieldset>
 			</form>
 		</div>
 	</section>
 
-	<section id="credits" class="credits-section last">
-		<div class="section-content">
-			<p>Lightbox2 created by Lokesh Dhakar<br />
-			<a href="http://lokeshdhakar.com">Blog</a> - <a href="https://twitter.com/lokesh">Twitter</a> - <a href="http://github.com/lokesh">Github</a></p>
+	<footer>
+		<div class="container">
+			<p>
+				Lightbox is created by Lokesh Dhakar<br />
+				<a href="https://twitter.com/lokesh" class="button button-minor">Follow me on Twitter</a>
+			</p>
 		</div>
-	</section>
+	</footer>
 
-	<section id="sharing" class="sharing-section">
+	<div id="sharing" class="sharing-section">
 		<a href="https://twitter.com/share" class="twitter-share-button" data-via="lokesh" data-size="large">Tweet</a>
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-	</section>
+	</div>
 
 	<script src="js/jquery-1.11.0.min.js"></script>
 	<script src="js/lightbox.js"></script>

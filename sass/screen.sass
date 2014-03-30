@@ -1,22 +1,28 @@
 @import "compass/css3"
 @import "compass/utilities/general/clearfix"
 
+@import "normalize"
 
 // COLORS & BACKGROUNDS --------------------------------------------------------
 
 $yellow:     #fdf485
-$orange:     #ff8000
+$orange:     #e67e39
 $red:        #ff4040
 $blue:       #4ae
 $green:      #61c227
-$gray:       #aaa
-$light-gray: #ddd
-$dark-gray:  #444
+$gray:       #777
+$light-gray: #f3f3f3
+$dark-gray:  #222
 
-$color:         white
-$bg-color:      $dark-gray
-$heading-color: $yellow
-$link-color:    $green
+$color:                 $gray
+$bg-color:              #fff
+$border-color:          darken($bg-color, 5%)
+$header-bg-color:       #f7f7f7
+$section-heading-color: $orange
+$heading-color:         $dark-gray
+$link-color:            $blue
+$code-color:            $color
+$code-bg-color:         darken($bg-color, 5%)
 
 // TYPE --------------------------------------------------------
 
@@ -24,15 +30,13 @@ $body-font-family:    "Karla", "lucida grande", sans-serif
 $heading-font-family: "Montserrat", "Helvetica", sans-serif
 $code-font-family:    "Karla", "lucida grande", sans-serif
 
-$font-size: 18px
+$font-size: 16px
 
 // LAYOUT --------------------------------------------------------
 
-$gutter: 40px
-$base-line-height: 1.7em
-$max-column-width: 800px
+$gutter: 30px
+$max-column-width: 600px
 
-$section-header-z-index: 5
 $sharing-section-z-index: 10
 
 
@@ -45,48 +49,73 @@ $radius: 6px
 /* Typography
  *----------------------------------------------- */
 
-body,
-input,
-textarea
-  color: $color
-  font-size: $font-size
-  font-family: $body-font-family
+html
+  font: 100% / 1.5 $body-font-family, sans-serif
+  font-weight: 400
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6
-  line-height: 1.2em
+@media (min-width: 40rem)
+  html
+    font-size: 112%
+
+@media (min-width: 64rem)
+  html
+    font-size: 120%
+
+body
+  color: $color
+  background-color: $bg-color
+
+
+h1, h2, h3, h4, h5
   color: $heading-color
+  line-height: 1.2em
   font-family: $heading-font-family
-  font-weight: normal
+  font-weight: 600
 
 h1
-  font-size: 72px
-  line-height: 1em
+  font-size: 3.5rem
+  margin: 0 0 0.2em 0
+
+@media (min-width: 40rem)
+  h1
+    font-size: 4.5rem
+
+@media (min-width: 64rem)
+  h1
+    font-size: 5rem
 
 h2
-  font-size: 36px
-  line-height: 1.2em
-  margin-bottom: 0.3em
+  color: $section-heading-color
+  margin-bottom: 1.5rem
+  font-size: 1.5rem
   text-transform: uppercase
+
+@media (min-width: 40rem)
+  h2
+    font-size: 2rem
 
 h3
-  color: $heading-color
-  margin-bottom: 0.5em
-  font-size: 24px
-  letter-spacing: 1px
-  text-align: center
-  text-transform: uppercase
+  font-size: 1.2rem
+  margin-bottom: .5rem
 
-h4
-  font-size: $font-size
+blockquote
+  margin: 0
+  p
+    color: #bbb
+    font-style: italic
+    margin-bottom: 1.5rem
+
+cite
+  color: #bbb
 
 p
-  line-height: $base-line-height
-  margin-bottom: $base-line-height
+  margin: 0 auto 2em auto
+  max-width: 35rem
+
+.lead
+  max-width: 45rem
+  font-size: 1.25rem
+  
 
 ol
   list-style-type: decimal
@@ -96,7 +125,6 @@ ul, ol
 
 li
   margin-bottom: 2em
-  line-height: $base-line-height - 0.2
   &.last-list-item
     border-bottom: none
 
@@ -115,37 +143,11 @@ i
 em
   font-style: normal
 
-pre
-  padding: $gutter/4
-  margin-top: $gutter/8
-  margin-bottom: $gutter/4
-  background-color: darken($bg-color, 3%)
-  font-family: $code-font-family
-  line-height: 1.5em
-  +border-radius($radius)
-  overflow-x: auto
-
-code, kbd
-  padding: 2px 4px
-  color: desaturate($orange, 25%)
-  background-color: darken($bg-color, 3%)
-  font-family: $code-font-family
-  +border-radius($radius)
-
-code
-  position: relative
-  top: -1px
-
-pre code
-  top: 0
-  padding: 0
-  background: transparent
-
 a
   color: $link-color
   text-decoration: none
   &:hover
-    color: lighten($link-color, 30%)
+    text-decoration: underline
 
 ::-moz-selection,
 ::selection
@@ -154,148 +156,94 @@ a
 
 .sub-point
   display: block
-  font-size: $font-size - 4
-  code
-    font-size: $font-size - 6
-    padding: $gutter/20
+  font-size: 0.75rem
 
 
 /* -- Layout ------------------------------------------------------------------ */
+
+*, *:before, *:after
+  +box-sizing("border-box")
 
 body
   margin: 0
   padding: 0
   background: $bg-color
 
-.section
-  padding: 0 0 40px 0
-  +pie-clearfix
-  &.last
-    border-bottom: none
-
-.section-header
-  position: relative
-  z-index: $section-header-z-index
-  margin-top: 0
-  margin-bottom: $gutter * 2
-  color: lighten($bg-color, 12%)
+section
+  border-top: 2px solid $border-color
   text-align: center
-  font-size: 72px
+  padding: 2rem 0
+  &:first-of-type
+    border-top: none
 
-  &:before
-    border-top: 2px solid lighten($bg-color, 12%)
-    content: ""
-    margin: 0 auto // this centers the line to the full width specified 
-    position: absolute // positioning must be absolute here, and relative positioning must be applied to the parent
-    top: 50%
-    left: 0
-    right: 0
-    bottom: 0
-    z-index: -1
-  
-  .line-cover
-    /* to hide the lines from behind the text, you have to set the background color the same as the container */ 
-    background: $bg-color
-    padding: 0 15px 
+@media (min-width: 40rem)
+  section
+    padding: 4rem 0
 
-.section-content
+.container
   margin: 0 auto
-  padding: 0 $gutter $gutter $gutter
-  max-width: $max-column-width
+  max-width: 53rem
+  width: 90%
 
 .row
   +pie-clearfix
 
-/* -- Sections ------------------------------------------------------------------ */
 
-/* -- Intro -- */
+/* -- Header -- */
 
-.intro-section
+header
+  padding: 2rem 0
+  background-color: $header-bg-color
   text-align: center
-
-.logo
-  color: white
-  margin-bottom: 0.07em
-  .version
-    color: $heading-color
-
-.author
-  margin-top: -9px
-  padding-left: 23px
-  line-height: 1.2em
-
-.author-links
-  font-size: $font-size - 2
-
-.lead
-  font-size: $font-size + 4
 
 /* -- Examples -- */
-.examples-section
-  text-align: center
-
-.image-row
-  +pie-clearfix
-  margin-bottom: $gutter/2
 
 .example-image-link
   display: inline-block
-  margin: 0 $gutter/4 $gutter/2 $gutter/4
+  padding: 4px
+  margin: 0 0.5rem 1rem 0.5rem
+  background-color: $bg-color
   line-height: 0
+  +transition(background-color .1s ease-out)
   +border-radius($radius)
-  border: 4px solid transparent
-  +transition(all .1s ease-out)
   &:hover
-    border: 4px solid $link-color
+    background-color: $link-color
 
 .example-image
-  +border-radius(2px)
+  width: 7rem
+  +border-radius($radius - 1)
 
-/* -- Download -- */
 
-.download-section
-  text-align: center
+/* -- How to use -- */    
 
-.download-button
-  display: block
-  max-width: 300px
-  margin: 0 auto $gutter/2 auto
-  padding-top: $gutter/4 + 10
-  padding-bottom: $gutter/4
-  background-color: darken($bg-color, 10%)
-  border: 4px solid $bg-color
-  +border-radius($radius)
-  +transition(all .1s ease-out)
-  +pie-clearfix
-  &:hover
-    border-color: $link-color
-    background-color: #444
-  .file
-    font-size: 36px
-    color: white
-    line-height: 1em
-  .version
-    font-size: 24px
-    color: $link-color
+.how-to-use-section
+  p,
+  ol,
+  ul,
+  pre
+    text-align: left
 
 /* -- Donate -- */
 
 fieldset
   border: none
-.donate-button-form
-  text-align: center
+
 .donate-button
-  border: 4px solid rgba(0, 0, 0, 0)
-  +border-radius($radius)
-  +transition(all .1s ease-out)
-  &:hover
-    background-color: #444
-    border-color: $link-color
+  width: 100%
+
+@media (min-width: 40rem)
+  .donate-button
+    width: auto
 
 /* -- Credits -- */
 
-.credits-section
+footer
+  padding: 2rem 0
+  background-color: $header-bg-color
   text-align: center
+
+  .button
+    margin-top: 0.5rem
 
 /* -- Sharing -- */
 
@@ -306,42 +254,132 @@ fieldset
   right: 0
 
 
-/* -- Responsive design -------------------------------------------------------------- */
 
-@media only screen and (max-width : 640px)
-  body
-    font-size: $font-size - 4
-  h1
-    font-size: 48px
-  h2
-    font-size: 26px
-  h3
-    font-size: 16px
-  ol
-    list-style-position: inside
-  code,
-  kbd,
-  pre,
-  pre code
-    font-size: $font-size - 7
-  .sub-point
-    font-size: $font-size - 6
-    code
-      font-size: $font-size - 9
-  .lead
-    font-size: $font-size - 2
-  .section
-    padding-bottom: $gutter/2
-    margin-bottom: $gutter/2
-  .section-content
-    padding: 0 ($gutter / 2) ($gutter / 2) ($gutter / 2)
-  .section-header
-    margin-bottom: $gutter / 2
-    font-size: 48px
-  .author
-    margin-top: -5px
-    padding-left: 30px
-  .author-links
-    font-size: $font-size - 6
+/* Code
+ * ========================================================================== */
+
+code
+  color: $code-color
+  background-color: $code-bg-color
+  +border-radius($radius)
+  font-family: Consolas, Courier, monospace
+  font-size: 0.9rem
+  padding: 0.1rem 0.3rem
+  position: relative
+  top: -1px
+
+pre
+  background-color: $code-bg-color
+  +border-radius($radius)
+
+  code
+    font-size: 0.7rem
+    border: none
 
 
+/* Mobile First Grid
+ * ========================================================================== */
+
+.column
+  margin-bottom: 1.5rem
+
+@media (min-width: 40rem)
+  .column
+    float: left
+    margin: 0
+    padding-left: 1rem
+    padding-right: 1rem
+    &.full
+      width: 100%
+    &.two-thirds
+      width: 66.7%
+    &.half
+      width: 50%
+    &.third
+      width: 33.3%
+    &.fourth
+      width: 24.95%
+    &.flow-opposite
+      float: right
+
+
+
+/* Lists
+ * ========================================================================== */
+
+ul
+  margin: 0
+  text-align: left
+
+@media (min-width: 40rem)
+  ul
+    display: inline-block
+
+
+/* Buttons
+ * ========================================================================== */
+
+.button
+  display: block
+  padding: 0.7rem 2rem
+  margin-bottom: 0.5rem
+  border: none
+  color: #fff
+  background-color: $link-color
+  font-size: 1.2rem
+  font-weight: bold
+  text-transform: uppercase
+  +border-radius($radius)
+  vertical-align: middle
+  white-space: nowrap
+  &:hover
+    background: darken($link-color, 10%)
+    text-decoration: none
+
+@media (min-width: 40rem)
+  .button
+    display: inline-block
+    margin: 0 0.25rem
+
+.button-minor
+  padding: 0.35rem 1rem
+  border: 2px solid $link-color
+  color: $link-color
+  background-color: transparent
+  font-size: 0.8rem
+  &:hover
+    color: white
+
+
+/* Elements
+ * ========================================================================== */
+
+hr
+  border: 0
+  border-top: 2px solid $border-color
+  margin: 2rem auto
+  width: 3rem
+
+@media (min-width: 40rem)
+  hr
+    margin: 2.5rem auto
+
+
+/* Gist Overrides
+ * ========================================================================== */
+
+.gist .gist-file
+  font-size: .9rem !important
+  margin: 0 auto
+  max-width: 39rem
+  overflow: hidden !important
+  text-align: left
+  .gist-data
+    background: #f8f8f8 !important
+    border-bottom: none !important
+  .gist-meta
+    display: none !important
+
+.gist-syntax .k
+  color: #555 !important
+  font-weight: normal !important

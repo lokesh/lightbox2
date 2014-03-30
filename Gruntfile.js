@@ -19,8 +19,20 @@ module.exports = function(grunt) {
       }
     },
     exec: {
-      list: {
-        cmd: ['ls', 'ls -l'].join('&&')
+      zip: {
+        cmd: function(version) {
+          return ['rm -rf lightbox',
+                  'mkdir lightbox',
+                  'cp index.html lightbox',
+                  'cp README.markdown lightbox',
+                  'cp -r css lightbox',
+                  'cp -r js lightbox',
+                  'cp -r img lightbox',
+                  'zip -r lightbox-' + version + '.zip lightbox',
+                  'mv lightbox-' + version + '.zip releases',
+                  'rm -rf lightbox'
+                 ].join('&&');
+        }
       },
     },
     'ftp-deploy': {
@@ -40,7 +52,8 @@ module.exports = function(grunt) {
           'node_modules',
           'sass',
           'Gruntfile.js',
-          'package.json'
+          'package.json',
+          'README.markdown'
         ]
       }
     },
@@ -84,7 +97,9 @@ module.exports = function(grunt) {
 
 
   grunt.registerTask('default', ['compass', 'connect', 'watch']);
-  grunt.registerTask('test',  ['compass', 'jshint']);
-  grunt.registerTask('zip',  ['uglify','exec:list']);
-  // grunt.registerTask('deploy',  ['compass', 'jshint', 'ftp-deploy']);
+  grunt.registerTask('zip', '', function(version) {
+    grunt.task.run('jshint');
+    grunt.task.run('uglify');
+    grunt.task.run('exec:zip:' + version);
+  });
 };

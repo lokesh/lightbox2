@@ -1,12 +1,12 @@
 # Lightbox2
 
-Lightbox is small javascript library used to overlay images on top of the current page. It's a snap to setup and works on all modern browsers.
+The original lightbox script. Eight years later — still going strong!
 
-## Demo and instructions
+## Demo and basic instructions
 [Goto the Lightbox2 page](http://lokeshdhakar.com/projects/lightbox2/)
 
 
-## Credits and license
+## Credits
 
 ### Author
 by Lokesh Dhakar  
@@ -24,7 +24,7 @@ by Lokesh Dhakar
 * careilly - [(https://github.com/careilly)](https://github.com/careilly)
 * and many others. Thanks!!!
 
-###License
+##License
 Licensed under the [Creative Commons Attribution 2.5 License](http://creativecommons.org/licenses/by/2.5/)
 
 * Free for use in both personal and commercial projects.
