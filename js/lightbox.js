@@ -319,9 +319,16 @@
     // Display caption, image number, and closing button.
     Lightbox.prototype.updateDetails = function() {
       var self = this;
-    
+
+      // Enable anchor clicks in the injected caption html.
+      // Thanks Nate Wright for the fix. @https://github.com/NateWr
       if (typeof this.album[this.currentImageIndex].title !== 'undefined' && this.album[this.currentImageIndex].title !== "") {
-        this.$lightbox.find('.lb-caption').html(this.album[this.currentImageIndex].title).fadeIn('fast');
+        this.$lightbox.find('.lb-caption')
+          .html(this.album[this.currentImageIndex].title)
+          .fadeIn('fast')
+          .find('a').on('click', function(event){
+            location.href = $(this).attr('href');
+          });
       }
     
       if (this.album.length > 1 && this.options.showImageNumberLabel) {
