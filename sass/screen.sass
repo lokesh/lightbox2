@@ -30,8 +30,6 @@ $body-font-family:    "Karla", "lucida grande", sans-serif
 $heading-font-family: "Montserrat", "Helvetica", sans-serif
 $code-font-family:    "Karla", "lucida grande", sans-serif
 
-$font-size: 16px
-
 // LAYOUT --------------------------------------------------------
 
 $gutter: 30px
@@ -39,11 +37,9 @@ $max-column-width: 600px
 
 $sharing-section-z-index: 10
 
-
 // UI COMPONENTS --------------------------------------------------------
 
 $radius: 6px
-
 
 
 /* Typography
@@ -55,11 +51,11 @@ html
 
 @media (min-width: 40rem)
   html
-    font-size: 112%
+    font-size: 106%
 
 @media (min-width: 64rem)
   html
-    font-size: 120%
+    font-size: 112%
 
 body
   color: $color
@@ -110,7 +106,7 @@ cite
 
 p
   margin: 0 auto 2em auto
-  max-width: 35rem
+  text-align: left
 
 .lead
   max-width: 45rem
@@ -182,7 +178,7 @@ section
 
 .container
   margin: 0 auto
-  max-width: 53rem
+  max-width: 40rem
   width: 90%
 
 .row
@@ -195,6 +191,8 @@ header
   padding: 2rem 0
   background-color: $header-bg-color
   text-align: center
+  p
+    text-align: center
 
 /* -- Examples -- */
 
@@ -241,7 +239,8 @@ footer
   padding: 2rem 0
   background-color: $header-bg-color
   text-align: center
-
+  p
+    text-align: center
   .button
     margin-top: 0.5rem
 
@@ -271,8 +270,9 @@ code
 pre
   background-color: $code-bg-color
   +border-radius($radius)
-
+  padding: 0 0.5rem 0.1rem 0.5rem
   code
+    padding: 0
     font-size: 0.7rem
     border: none
 
@@ -364,22 +364,3 @@ hr
   hr
     margin: 2.5rem auto
 
-
-/* Gist Overrides
- * ========================================================================== */
-
-.gist .gist-file
-  font-size: .9rem !important
-  margin: 0 auto
-  max-width: 39rem
-  overflow: hidden !important
-  text-align: left
-  .gist-data
-    background: #f8f8f8 !important
-    border-bottom: none !important
-  .gist-meta
-    display: none !important
-
-.gist-syntax .k
-  color: #555 !important
-  font-weight: normal !important
