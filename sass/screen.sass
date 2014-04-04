@@ -46,21 +46,20 @@ $radius: 6px
  *----------------------------------------------- */
 
 html
-  font: 100% / 1.5 $body-font-family, sans-serif
+  font: 87% / 1.5 $body-font-family, sans-serif
   font-weight: 400
 
 @media (min-width: 40rem)
   html
-    font-size: 106%
+    font-size: 100%
 
 @media (min-width: 64rem)
   html
-    font-size: 112%
+    font-size: 106%
 
 body
   color: $color
   background-color: $bg-color
-
 
 h1, h2, h3, h4, h5
   color: $heading-color
@@ -69,7 +68,7 @@ h1, h2, h3, h4, h5
   font-weight: 700
 
 h1
-  font-size: 3.5rem
+  font-size: 4rem
   margin: 0 0 0.2em 0
 
 @media (min-width: 40rem)
@@ -168,13 +167,13 @@ body
 section
   border-top: 2px solid $border-color
   text-align: center
-  padding: 2rem 0
+  padding: 1.5rem 0
   &:first-of-type
     border-top: none
 
 @media (min-width: 40rem)
   section
-    padding: 4rem 0
+    padding: 2rem 0
 
 .container
   margin: 0 auto
@@ -188,11 +187,16 @@ section
 /* -- Header -- */
 
 header
-  padding: 2rem 0
+  padding: 4rem 0 2rem 0
   background-color: $header-bg-color
   text-align: center
   p
     text-align: center
+
+@media (min-width: 40rem)
+  header
+    padding: 2rem 0
+
 
 /* -- Examples -- */
 
@@ -273,7 +277,7 @@ pre
   padding: 0 0.5rem 0.1rem 0.5rem
   code
     padding: 0
-    font-size: 0.7rem
+    font-size: 0.8rem
     border: none
 
 
@@ -326,7 +330,7 @@ ul
   border: none
   color: #fff
   background-color: $link-color
-  font-size: 1.2rem
+  font-size: 1.1rem
   font-weight: bold
   text-transform: uppercase
   +border-radius($radius)
