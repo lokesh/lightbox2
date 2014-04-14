@@ -3,7 +3,10 @@
 
 @import "normalize"
 
-// COLORS & BACKGROUNDS --------------------------------------------------------
+
+// VARIABLES -------------------------------------------------------------------
+
+// == COLORS & BACKGROUNDS
 
 $yellow:     #fdf485
 $orange:     #e67e39
@@ -14,30 +17,36 @@ $gray:       #777
 $light-gray: #f3f3f3
 $dark-gray:  #222
 
-$color:                 $gray
+$color:                 #666
 $bg-color:              #fff
-$border-color:          darken($bg-color, 5%)
-$header-bg-color:       #f9f9f9
-$section-heading-color: $orange
 $heading-color:         $dark-gray
+$section-heading-color: $orange
 $link-color:            $blue
 $code-color:            $color
-$code-bg-color:         darken($bg-color, 5%)
+$code-bg-color:         darken($bg-color, 4%)
+$border-color:          darken($bg-color, 4%)
 
-// TYPE --------------------------------------------------------
+$backdrop-bg-color:     darken($bg-color, 4%)
+$header-color:          $color
+$footer-color:          $color
+
+
+//== TYPE
 
 $body-font-family:    "Karla", "lucida grande", sans-serif
 $heading-font-family: "Montserrat", "Helvetica", sans-serif
 $code-font-family:    "Karla", "lucida grande", sans-serif
 
-// LAYOUT --------------------------------------------------------
+//== LAYOUT
 
 $gutter: 30px
 $max-column-width: 600px
 
-$sharing-section-z-index: 10
+$backdrop-z-index: 5
+$content-z-index: 10
+$sharing-z-index: 20
 
-// UI COMPONENTS --------------------------------------------------------
+//== UI COMPONENTS
 
 $radius: 6px
 
@@ -68,8 +77,8 @@ h1, h2, h3, h4, h5
   font-weight: 700
 
 h1
-  font-size: 4rem
-  margin: 0 0 0.2em 0
+  font-size: 3.5rem
+  margin: 0 0 0.1em 0
 
 @media (min-width: 40rem)
   h1
@@ -110,7 +119,7 @@ p
 
 .lead
   max-width: 45rem
-  margin-bottom: 1.25rem
+  margin-bottom: 1.1rem
   font-size: 1.25rem
   
 
@@ -156,108 +165,6 @@ a
   font-size: 0.75rem
 
 
-/* -- Layout ------------------------------------------------------------------ */
-
-*, *:before, *:after
-  +box-sizing("border-box")
-
-body
-  margin: 0
-  padding: 0
-  background: $bg-color
-
-section
-  border-top: 2px solid $border-color
-  text-align: center
-  padding: 2rem 0
-  &:first-of-type
-    border-top: none
-
-@media (min-width: 40rem)
-  section
-    padding: 4rem 0
-
-.container
-  margin: 0 auto
-  max-width: 40rem
-  width: 90%
-
-.row
-  +pie-clearfix
-
-
-/* -- Header -- */
-
-header
-  padding: 4rem 0 2rem 0
-  background-color: $header-bg-color
-  text-align: center
-  p
-    text-align: center
-
-@media (min-width: 40rem)
-  header
-    padding: 3rem 0
-
-
-/* -- Examples -- */
-
-.example-image-link
-  display: inline-block
-  padding: 4px
-  margin: 0 0.5rem 1rem 0.5rem
-  background-color: $bg-color
-  line-height: 0
-  +transition(background-color .1s ease-out)
-  +border-radius($radius)
-  &:hover
-    background-color: $link-color
-
-.example-image
-  width: 7rem
-  +border-radius($radius - 1)
-
-
-/* -- How to use -- */    
-
-.how-to-use-section
-  p,
-  ol,
-  ul,
-  pre
-    text-align: left
-
-/* -- Donate -- */
-
-fieldset
-  border: none
-
-.donate-button
-  width: 100%
-
-@media (min-width: 40rem)
-  .donate-button
-    width: auto
-
-/* -- Credits -- */
-
-footer
-  padding: 2rem 0
-  background-color: $header-bg-color
-  text-align: center
-  p
-    text-align: center
-  .button
-    margin-top: 0.5rem
-
-/* -- Sharing -- */
-
-.sharing-section
-  position: fixed
-  z-index: $sharing-section-z-index
-  top: 20px
-  right: 0
-
 
 
 /* Code
@@ -281,33 +188,6 @@ pre
     padding: 0
     font-size: 0.8rem
     border: none
-
-
-/* Mobile First Grid
- * ========================================================================== */
-
-.column
-  margin-bottom: 1.5rem
-
-@media (min-width: 40rem)
-  .column
-    float: left
-    margin: 0
-    padding-left: 1rem
-    padding-right: 1rem
-    &.full
-      width: 100%
-    &.two-thirds
-      width: 66.7%
-    &.half
-      width: 50%
-    &.third
-      width: 33.3%
-    &.fourth
-      width: 24.95%
-    &.flow-opposite
-      float: right
-
 
 
 /* Lists
@@ -348,13 +228,14 @@ ul
     margin: 0 0.25rem
 
 .button-minor
-  padding: 0.35rem 1rem
+  padding: 0.3rem 1rem
   border: 2px solid $link-color
   color: $link-color
   background-color: transparent
   font-size: 0.8rem
   &:hover
     color: white
+    background: $link-color
 
 
 /* Elements
@@ -365,3 +246,143 @@ hr
   border-top: 2px solid $border-color
   margin: 1rem auto 1.5rem auto
   width: 3rem
+/* -- Layout ------------------------------------------------------------------ */
+
+*, *:before, *:after
+  +box-sizing("border-box")
+
+body
+  margin: 0
+  padding: 0
+  background: $bg-color
+
+section
+  border-top: 2px solid $border-color
+  text-align: center
+  padding: 2rem 0
+  &:first-of-type
+    border-top: none
+
+@media (min-width: 40rem)
+  section
+    padding: 4rem 0
+
+.container
+  margin: 0 auto
+  max-width: 40rem
+  width: 90%
+
+.row
+  +pie-clearfix
+
+
+//== Header
+
+.backdrop
+  position: fixed
+  z-index: $backdrop-z-index
+  width: 100%
+  height: 100%
+  background-color: $backdrop-bg-color
+
+.picture-icon
+  width: 2.7rem
+  height: 2.7rem
+  margin-right: 0.5rem
+  +transition(transform .4s cubic-bezier(0.510, 1.285, 0.855, 1.185))
+  &:hover
+    +scale(3)
+
+@media (min-width: 40rem)
+  .picture-icon
+    width: 3.4rem
+    height: 3.4rem
+
+@media (min-width: 64rem)
+  .picture-icon
+    width: 3.75rem
+    height: 3.75rem
+
+header
+  padding-top: 5rem
+  text-align: center
+  color: $header-color
+  p
+    text-align: center
+
+@media (min-width: 40rem)
+  header
+    padding-top: 6.5rem
+
+.primary-actions
+  margin-bottom: 1.5rem
+
+.credits
+  p
+    text-align: center
+  .button
+    margin-top: 0.5rem
+
+//== Content
+
+.content
+  position: absolute
+  z-index: $content-z-index
+  top: 28rem
+  width: 100%
+  border-top: 1px solid darken($border-color, 5%)
+  background-color: $bg-color
+
+@media (min-width: 40rem)
+  .content
+    top: 34rem
+
+/* -- Examples -- */
+
+.example-image-link
+  display: inline-block
+  padding: 4px
+  margin: 0 0.5rem 1rem 0.5rem
+  background-color: $bg-color
+  line-height: 0
+  +border-radius($radius)
+  +transition(background-color .5s ease-out)
+  &:hover
+    background-color: $link-color
+    +transition(background-color 0)
+
+.example-image
+  width: 7rem
+  +border-radius($radius - 1)
+
+
+/* -- How to use -- */    
+
+.how-to-use-section
+  p,
+  ol,
+  ul,
+  pre
+    text-align: left
+
+/* -- Donate -- */
+
+fieldset
+  border: none
+
+.donate-button
+  width: 100%
+
+@media (min-width: 40rem)
+  .donate-button
+    width: auto
+
+/* -- Sharing -- */
+
+.sharing-section
+  position: fixed
+  z-index: $sharing-z-index
+  top: 20px
+  right: 0
+
+
