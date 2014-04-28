@@ -269,9 +269,9 @@
       }
     };
 
-    // Display the image and it's details and begin preload neighboring images.
+    // Display the image and its details and begin preload neighboring images.
     Lightbox.prototype.showImage = function() {
-      this.$lightbox.find('.lb-loader').hide();
+      this.$lightbox.find('.lb-loader').stop().hide();
       this.$lightbox.find('.lb-image').fadeIn('slow');
     
       this.updateNav();
