@@ -237,7 +237,7 @@
             }
           }
         }
-        //alert($image.height());
+
         self.sizeContainer($image.width(), $image.height());
       };
 
