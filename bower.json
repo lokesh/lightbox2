@@ -15,12 +15,21 @@
     "images"
   ],
   "license": "CC BY 2.5",
+  "dependencies": {
+    "jquery": "~2.1.1"
+  },
   "ignore": [
     "**/.*",
     "Gruntfile.js",
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "releases",
+    "sass",
+    "js/jquery*",
+    "img/demopage",
+    "package.json",
+    "index.html"
   ]
 }
