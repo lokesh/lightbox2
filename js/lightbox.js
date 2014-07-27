@@ -52,6 +52,11 @@
         self.start($(event.currentTarget));
         return false;
       });
+      $('body').on('click', '*[data-lightbox-label-for]', function(event) {
+        var lightboxElement = $(event.currentTarget).data('lightboxLabelFor');
+        self.start($("#" + lightboxElement));
+        return false;
+      });
     };
 
     // Build html for the lightbox and the overlay.
