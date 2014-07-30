@@ -9,9 +9,9 @@
 
 (function() {
   // Use local alias
-  var $ = jQuery;
-
-  var LightboxOptions = (function() {
+  var $ = jQuery,
+      animationLib = (jQuery('body').velocity ? 'velocity' : 'animate'), //Adds the Velocity.JS Support (which is almost jank free) fallsback to standard .animate
+  LightboxOptions = (function() {
     function LightboxOptions() {
       this.fadeDuration                = 500;
       this.fitImagesInViewport         = true;
@@ -28,10 +28,10 @@
     };
 
     return LightboxOptions;
-  })();
+  })(),
 
 
-  var Lightbox = (function() {
+  Lightbox = (function() {
     function Lightbox(options) {
       this.options           = options;
       this.album             = [];
@@ -258,7 +258,7 @@
       }
 
       if (oldWidth !== newWidth || oldHeight !== newHeight) {
-        this.$outerContainer.animate({
+        this.$outerContainer[animationLib]({
           width: newWidth,
           height: newHeight
         }, this.options.resizeDuration, 'swing', function() {
