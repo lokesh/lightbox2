@@ -4,6 +4,26 @@ body:after {
   display: none;
 }
 
+
+.lightboxOverlay,.lightbox {
+
+  -webkit-backface-visibility:hidden;
+  -moz-backface-visibility:hidden;
+  -ms-backface-visibility:hidden;
+  -o-backface-visibility:hidden;
+  backface-visibility:hidden;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-perspective:1000;
+  -moz-perspective:1000;
+  -ms-perspective:1000;
+  -o-perspective:1000;
+  perspective:1000;  
+}
+
 .lightboxOverlay {
   position: absolute;
   top: 0;
@@ -13,6 +33,8 @@ body:after {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   opacity: 0.8;
   display: none;
+
+    
 }
 
 .lightbox {
