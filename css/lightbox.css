@@ -208,3 +208,21 @@ body:after {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
+
+.lb-pager {
+    padding: 10px;
+}
+
+.lb-pager-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: white;
+    display: inline-block;
+    margin: 0 3px;
+    outline: none!important;
+}
+
+.lb-pager .current-dot {
+    background-color:#808080;
+}
