@@ -16,12 +16,13 @@
             this.fadeDuration = 500;
             this.fitImagesInViewport = true;
             this.resizeDuration = 700;
-            this.positionFromTop = 50;
-            this.showImageNumberLabel = true;
             this.alwaysShowNavOnTouchDevices = false;
             this.wrapAround = true;
-            //pager: enable pager
+            //pager: Enable pager. smaller positionFromTop value appears to be best when using the pager.
+            //pager: Pager functionality was prompted from a request to not have the number label, so it's set off for now.
             this.pager = true;
+            this.positionFromTop = 20;
+            this.showImageNumberLabel = false;
         }
 
         // Change to localize to non-english language
@@ -171,8 +172,9 @@
                             this.$pager.append("<a class='lb-pager-dot lb-pager-dot-" + i + "' data-title=" + self.album.title + " data-index=" + i + " href=" + $links[i] + " data-lightbox=" + dataLightboxValue + "></a>");
                         }
                     }
+                    else { this.$pager.remove(); $('.lb-outerContainer').insertBefore('.lb-dataContainer'); }
                 }
-                else { this.$pager.remove(); }
+                
             } else {
                 if ($link.attr('rel') === 'lightbox') {
                     // If image is not part of a set
