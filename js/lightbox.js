@@ -16,7 +16,7 @@
       this.fadeDuration                = 500;
       this.fitImagesInViewport         = true;
       this.resizeDuration              = 700;
-      this.positionFromTop             = 50;
+      this.positionFromTop             = "5%";
       this.showImageNumberLabel        = true;
       this.alwaysShowNavOnTouchDevices = false;
       this.wrapAround                  = false;
@@ -169,10 +169,13 @@
       
       // Position Lightbox
       var positionUnit = String(this.options.positionFromTop).split('%');
-      var top  = ((positionUnit.length > 1) ? positionUnit[0] + '%' : positionUnit[0] + 'px');
+      var windowPecentage = $window.height() / 100;
+      var top  = ((positionUnit.length > 1) ? windowPecentage * parseInt(positionUnit[0]) + $window.scrollTop() : $window.scrollTop() + parseInt(positionUnit[0]));
       var left = $window.scrollLeft();
+      console.log(windowPecentage);
+      console.log(windowPecentage * parseInt(positionUnit[0]) + $window.scrollTop());
       this.$lightbox.css({
-        top: top,
+        top: top + 'px',
         left: left + 'px'
       }).fadeIn(this.options.fadeDuration);
 
