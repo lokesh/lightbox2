@@ -25,6 +25,10 @@ body:after {
   font-weight: normal;
 }
 
+.lightbox-active {
+  overflow: hidden;
+}
+
 .lightbox .lb-image {
   display: block;
   height: auto;

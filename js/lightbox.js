@@ -20,6 +20,7 @@
       this.showImageNumberLabel        = true;
       this.alwaysShowNavOnTouchDevices = false;
       this.wrapAround                  = false;
+      this.canScroll                   = false;
     }
     
     // Change to localize to non-english language
@@ -42,6 +43,14 @@
     Lightbox.prototype.init = function() {
       this.enable();
       this.build();
+    };
+
+    // Block user scroll
+    // Just if 'canScroll' = false
+    Lightbox.prototype.hasScroll = function() {
+      if(!this.options.canScroll) {
+        $('body').toggleClass('lightbox-active');
+      }
     };
 
     // Loop through anchors and areamaps looking for either data-lightbox attributes or rel attributes
@@ -120,6 +129,8 @@
     Lightbox.prototype.start = function($link) {
       var self    = this;
       var $window = $(window);
+
+      self.hasScroll();
 
       $window.on('resize', $.proxy(this.sizeOverlay, this));
 
@@ -394,6 +405,7 @@
     // Closing time. :-(
     Lightbox.prototype.end = function() {
       this.disableKeyboardNav();
+      this.hasScroll();
       $(window).off("resize", this.sizeOverlay);
       this.$lightbox.fadeOut(this.options.fadeDuration);
       this.$overlay.fadeOut(this.options.fadeDuration);
