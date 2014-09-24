@@ -116,7 +116,7 @@
       });
 
       this.$lightbox.find('.lb-download').on('click', function (e) {
-        window.open(e.target.href)
+        window.open(e.target.href);
       });
     };
 
