@@ -1,5 +1,5 @@
 /**
- * Lightbox v2.7.1
+ * Lightbox v2.7.2
  * by Lokesh Dhakar - http://lokeshdhakar.com/projects/lightbox2/
  *
  * @license http://creativecommons.org/licenses/by/2.5/
