@@ -179,6 +179,13 @@ body:after {
   line-height: 1em;
 }
 
+.lb-data .lb-exif {
+  display: block;
+  clear: left;
+  font-size: 13px;
+  color: #999999;
+}
+
 .lb-data .lb-number {
   display: block;
   clear: left;
