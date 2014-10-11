@@ -189,7 +189,7 @@
       this.$overlay.fadeIn(this.options.fadeDuration);
 
       $('.lb-loader').fadeIn('slow');
-      this.$lightbox.find('.lb-image, .lb-nav, .lb-prev, .lb-next, .lb-dataContainer, .lb-numbers, .lb-caption').hide();
+      this.$lightbox.find('.lb-image, .lb-nav, .lb-prev, .lb-next, .lb-dataContainer, .lb-numbers, .lb-caption, .lb-exif').hide();
 
       this.$outerContainer.addClass('animating');
 
@@ -330,11 +330,15 @@
           .find('a').on('click', function(event){
             location.href = $(this).attr('href');
           });
-        // Grab the exif data and put it in the <span>
-        this.$lightbox.find('.lb-exif')
-          .html(this.album[this.currentImageIndex].exif);
       }
     
+      if (typeof this.album[this.currentImageIndex].exif !== 'undefined' && this.album[this.currentImageIndex].exif !== "") {
+      	// Grab the exif data and put it in the <span>
+        this.$lightbox.find('.lb-exif')
+          .html(this.album[this.currentImageIndex].exif)
+          .fadeIn('fast');
+      }
+
       if (this.album.length > 1 && this.options.showImageNumberLabel) {
         this.$lightbox.find('.lb-number').text(this.options.albumLabel(this.currentImageIndex + 1, this.album.length)).fadeIn('fast');
       } else {
