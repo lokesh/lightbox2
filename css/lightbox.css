@@ -1,4 +1,4 @@
-/* An absolute positioning needs a parent which is relatively positioned. */
+/* Mobile device fix: an absolute positioning needs a parent which is relatively positioned. */
 body {
    position:relative;
 }
