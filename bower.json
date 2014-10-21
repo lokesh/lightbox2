@@ -15,6 +15,9 @@
     "images"
   ],
   "license": "CC BY 2.5",
+  "dependencies": {
+    "jquery": "~1.11.0"
+  },
   "ignore": [
     "**/.*",
     "Gruntfile.js",
