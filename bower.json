@@ -25,7 +25,6 @@
     "bower_components",
     "releases",
     "test",
-    "tests",
-    "js/jquery*.*"
+    "tests"
   ]
 }
