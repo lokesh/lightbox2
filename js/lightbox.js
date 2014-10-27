@@ -58,7 +58,7 @@
     // Attach event handlers to the new DOM elements. click click click
     Lightbox.prototype.build = function() {
       var self = this;
-      $("<div id='lightboxOverlay' class='lightboxOverlay'></div><div id='lightbox' class='lightbox'><div class='lb-outerContainer'><div class='lb-container'><img class='lb-image' src='' /><div class='lb-nav'><a class='lb-prev' href='' ></a><a class='lb-next' href='' ></a></div><div class='lb-loader'><a class='lb-cancel'></a></div></div></div><div class='lb-dataContainer'><div class='lb-data'><div class='lb-details'><span class='lb-caption'></span><span class='lb-number'></span></div><div class='lb-closeContainer'><a class='lb-close'></a></div></div></div></div>").appendTo($('body'));
+      $("<div id='lightboxOverlay' class='lightboxOverlay'></div><div id='lightbox' class='lightbox'><div class='lb-outerContainer'><div class='lb-container'><img class='lb-image' src='' /><div class='lb-nav'><a class='lb-prev' href='' ></a><a class='lb-next' href='' ></a></div><div class='lb-loader'><a class='lb-cancel'></a></div><!-- --><div class='lb-descriptionContainer'><div class='lb-descriptionDetails'><span class='lb-descriptionCaption'></span></div></div><!-- --></div></div><div class='lb-dataContainer'><div class='lb-data'><div class='lb-details'><span class='lb-caption'></span><span class='lb-number'></span></div><div class='lb-closeContainer'><a class='lb-close'></a></div></div></div></div>").appendTo($('body'));
       
       // Cache jQuery objects
       this.$lightbox       = $('#lightbox');
@@ -135,7 +135,8 @@
       function addToAlbum($link) {
         self.album.push({
           link: $link.attr('href'),
-          title: $link.attr('data-title') || $link.attr('title')
+          title: $link.attr('data-title') || $link.attr('title'),
+          description: $link.attr('data-description') || $link.attr('description')
         });
       }
 
@@ -188,7 +189,7 @@
       this.$overlay.fadeIn(this.options.fadeDuration);
 
       $('.lb-loader').fadeIn('slow');
-      this.$lightbox.find('.lb-image, .lb-nav, .lb-prev, .lb-next, .lb-dataContainer, .lb-numbers, .lb-caption').hide();
+      this.$lightbox.find('.lb-image, .lb-nav, .lb-prev, .lb-next, .lb-dataContainer, .lb-descriptionContainer, .lb-descriptionCaption, .lb-numbers, .lb-caption').hide();
 
       this.$outerContainer.addClass('animating');
 
@@ -209,9 +210,15 @@
 
           windowWidth    = $(window).width();
           windowHeight   = $(window).height();
-          maxImageWidth  = windowWidth - self.containerLeftPadding - self.containerRightPadding - 20;
           maxImageHeight = windowHeight - self.containerTopPadding - self.containerBottomPadding - 120;
-
+          if (typeof self.album[self.currentImageIndex].description !== 'undefined' && self.album[self.currentImageIndex].description !== "") {
+            maxDescriptionWidth = windowWidth / 6;
+          } else {
+            maxDescriptionWidth = 0;
+          }
+          maxImageWidth  = windowWidth - self.containerLeftPadding - self.containerRightPadding - 20 - maxDescriptionWidth;
+          maxDescriptionHeight = maxImageHeight;
+          
           // Is there a fitting issue?
           if ((preloader.width > maxImageWidth) || (preloader.height > maxImageHeight)) {
             if ((preloader.width / maxImageWidth) > (preloader.height / maxImageHeight)) {
@@ -219,15 +226,19 @@
               imageHeight = parseInt(preloader.height / (preloader.width / imageWidth), 10);
               $image.width(imageWidth);
               $image.height(imageHeight);
+              descriptionWidth = maxDescriptionWidth;
+              descriptionHeight = imageHeight;
             } else {
               imageHeight = maxImageHeight;
               imageWidth = parseInt(preloader.width / (preloader.height / imageHeight), 10);
               $image.width(imageWidth);
               $image.height(imageHeight);
+              descriptionWidth = maxDescriptionWidth;
+              descriptionHeight = imageHeight;
             }
           }
         }
-        self.sizeContainer($image.width(), $image.height());
+        self.sizeContainer($image.width(), $image.height(), descriptionWidth);
       };
 
       preloader.src          = this.album[imageNumber].link;
@@ -242,7 +253,7 @@
     };
 
     // Animate the size of the lightbox to fit the image we are showing
-    Lightbox.prototype.sizeContainer = function(imageWidth, imageHeight) {
+    Lightbox.prototype.sizeContainer = function(imageWidth, imageHeight, descriptionWidth) {
       var self = this;
       
       var oldWidth  = this.$outerContainer.outerWidth();
@@ -254,6 +265,9 @@
         self.$lightbox.find('.lb-dataContainer').width(newWidth);
         self.$lightbox.find('.lb-prevLink').height(newHeight);
         self.$lightbox.find('.lb-nextLink').height(newHeight);
+        self.$lightbox.find('.lb-nav').width(imageWidth);
+        self.$lightbox.find('.lb-descriptionContainer').width(descriptionWidth - 2);
+        self.$lightbox.find('.lb-descriptionContainer').height(newHeight - 8);
         self.showImage();
       }
 
@@ -330,7 +344,16 @@
             location.href = $(this).attr('href');
           });
       }
-    
+
+      if (typeof this.album[this.currentImageIndex].description !== 'undefined' && this.album[this.currentImageIndex].description !== "") {
+        this.$lightbox.find('.lb-descriptionCaption')
+          .html(this.album[this.currentImageIndex].description)
+          .fadeIn('fast')
+          .find('a').on('click', function(event){
+            location.href = $(this).attr('href');
+          });
+      }
+
       if (this.album.length > 1 && this.options.showImageNumberLabel) {
         this.$lightbox.find('.lb-number').text(this.options.albumLabel(this.currentImageIndex + 1, this.album.length)).fadeIn('fast');
       } else {
@@ -338,6 +361,16 @@
       }
     
       this.$outerContainer.removeClass('animating');
+
+      if (typeof this.album[this.currentImageIndex].description !== 'undefined' && this.album[this.currentImageIndex].description !== "") {
+        this.$lightbox.find('.lb-descriptionContainer').fadeIn(this.options.resizeDuration, function() {
+          return self.sizeOverlay();
+        });
+      }
+      else
+      {
+        this.$lightbox.find('.lb-descriptionContainer').hide();
+      }
     
       this.$lightbox.find('.lb-dataContainer').fadeIn(this.options.resizeDuration, function() {
         return self.sizeOverlay();
