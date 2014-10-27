@@ -208,3 +208,24 @@ body:after {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
+
+.lb-image {
+  float: left;
+}
+
+.lb-descriptionContainer {
+  display: block;
+  float: right;
+  border-left: 1px solid #dddddd;
+}
+
+.lb-descriptionDetails {
+  padding: 4px;
+  text-align: justify;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 300;
+}
+
+.lb-descriptionCaption {
+}
