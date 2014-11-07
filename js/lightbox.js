@@ -20,11 +20,15 @@
       this.showImageNumberLabel        = true;
       this.alwaysShowNavOnTouchDevices = false;
       this.wrapAround                  = false;
+      this.translations                = {
+                                           image: "Image",
+                                           of: "of"
+                                         };
     }
     
     // Change to localize to non-english language
     LightboxOptions.prototype.albumLabel = function(curImageNum, albumSize) {
-      return "Image " + curImageNum + " of " + albumSize;
+      return this.translations.image + " " + curImageNum + " " + this.translations.of + " " + albumSize;
     };
 
     return LightboxOptions;
@@ -398,6 +402,11 @@
         visibility: "visible"
       });
     };
+    
+    // Set translations method
+    Lightbox.prototype.setTranslations = function(translations) {
+      this.options.translations = translations;
+    };
 
     return Lightbox;
 
@@ -406,6 +415,9 @@
   $(function() {
     var options  = new LightboxOptions();
     var lightbox = new Lightbox(options);
+    window.lightbox = lightbox;
+    // trigger an event to DOM telling other code we're ready
+    $(window).trigger("lightbox-available");
   });
 
 }).call(this);
