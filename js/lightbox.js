@@ -428,7 +428,7 @@ var LightboxOptions = {
   })();
 
   $(function() {
-    var lightbox = new Lightbox(options);
+    var lightbox = new Lightbox(LightboxOptions);
   });
 
 }).call(this);
