@@ -15,7 +15,10 @@ var LightboxOptions = {
   showImageNumberLabel: true,
   alwaysShowNavOnTouchDevices: false,
   wrapAround: false,
-  autoRotate: false
+  autoRotate: false,
+  albumLabel: function(curImageNum, albumSize) {
+    return "Image " + curImageNum + " of " + albumSize;
+  }
 };
 
 (function() {
