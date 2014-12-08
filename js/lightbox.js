@@ -27,7 +27,6 @@ var LightboxOptions = {
 
   var Lightbox = (function() {
     function Lightbox(options) {
-      console.log(options);
       this.options           = options;
       this.album             = [];
       this.currentImageIndex = void 0;
