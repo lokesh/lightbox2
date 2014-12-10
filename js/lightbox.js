@@ -66,7 +66,7 @@
       this.$outerContainer = this.$lightbox.find('.lb-outerContainer');
       this.$container      = this.$lightbox.find('.lb-container');
       
-       // Enabled public access to lightbox instance throw #lightbox to change options
+       // Enabled public access to lightbox instance throw #lightbox to change options 
       this.$lightbox.data('lightbox',this);
       
       // Store css values for future lookup
