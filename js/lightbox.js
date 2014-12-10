@@ -167,7 +167,6 @@ var LightboxOptions = {
         $('.slideshow-stop').text('Stop Slideshow');
         this.autoSlide();
         $('.slideshow-stop').bind('click.lightbox2', function() {
-          self.options.autoRotate = false;
           clearTimeout(self.autoInterval);
         })
       }
@@ -235,7 +234,6 @@ var LightboxOptions = {
     Lightbox.prototype.next = function(userInput)  {
       userInput = userInput ? userInput : false;
       if (userInput) {
-        this.options.autoRotate = false;
         clearTimeout(this.autoInterval);
       }
       if (this.currentImageIndex !== this.album.length - 1) {
@@ -249,7 +247,6 @@ var LightboxOptions = {
     Lightbox.prototype.prev = function(userInput)  {
       userInput = userInput ? userInput : false;
       if (userInput) {
-        this.options.autoRotate = false;
         clearTimeout(this.autoInterval);
       }
       if (this.currentImageIndex !== 0) {
@@ -425,6 +422,7 @@ var LightboxOptions = {
       $('select, object, embed').css({
         visibility: "visible"
       });
+      clearTimeout(this.autoInterval);
     };
 
     return Lightbox;
