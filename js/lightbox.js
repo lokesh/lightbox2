@@ -14,7 +14,7 @@ var LightboxOptions = {
   positionFromTop: 50,
   showImageNumberLabel: true,
   alwaysShowNavOnTouchDevices: false,
-  wrapAround: false,
+  wrapAround: true,
   autoRotate: 5000,
   albumLabel: function(curImageNum, albumSize) {
     return "Image " + curImageNum + " of " + albumSize;
@@ -166,8 +166,13 @@ var LightboxOptions = {
       if (this.options.autoRotate) {
         $('.slideshow-stop').text('Stop Slideshow');
         this.autoSlide();
-        $('.slideshow-stop').bind('click.lightbox2', function() {
+        $('.slideshow-stop').toggle(function() {
+          $('.slideshow-stop').text('Start Slideshow');
           clearTimeout(self.autoInterval);
+        },
+        function()  {
+          $('.slideshow-stop').text('Stop Slideshow');
+          self.autoSlide();
         })
       }
     };
