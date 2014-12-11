@@ -1,0 +1,18 @@
+<?php
+//This script automatically inserts the attributes and the <a> tag for all images in a string for making a lightbox gallery
+//** $string is your string - data from db or anythig else
+$string= '<img src="img1.png"><br> some text<br><br><h2>Another Image</h2><br><img src="img2.png"><img src="img3.png">';
+
+
+$regex = '/<img(.*?)src="(.*?)"(.*?)>/';
+$repl = '<a href="$2" data-lightbox="image" data-title="Image"><img$1src="$2" $3></a>';
+$string = preg_replace($regex, $repl, $string);
+
+echo $string;
+
+//This will return:
+/*
+
+<a href="img1.png" data-lightbox="image" data-title="Image"><img src="img1.png" ></a><br> some text<br><br><h2>Another Image</h2><br><a href="img2.png" data-lightbox="image" data-title="Image"><img src="img2.png" ></a><a href="img3.png" data-lightbox="image" data-title="Image"><img src="img3.png" ></a>
+
+*/
