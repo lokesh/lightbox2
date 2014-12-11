@@ -406,6 +406,9 @@
   $(function() {
     var options  = new LightboxOptions();
     var lightbox = new Lightbox(options);
+
+	  //Global access to Lightbox instance throw jQuery object
+	  $.lightbox=lightbox;    
   });
 
 }).call(this);
