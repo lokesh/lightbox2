@@ -404,11 +404,11 @@
   })();
 
   $(function() {
-    var options  = new LightboxOptions();
-    var lightbox = new Lightbox(options);
-
-	  //Global access to Lightbox instance throw jQuery object
-	  $.lightbox=lightbox;    
+	if(!$('.lightbox').size()){
+		var options  = new LightboxOptions();
+		var lightbox = new Lightbox(options);
+		 $.lightbox=lightbox;   
+	 }  
   });
 
 }).call(this);
