@@ -7,29 +7,24 @@
  * - Attribution requires leaving author name, author link, and the license info intact
  */
 
+var LightboxOptions = {
+  fadeDuration: 500,
+  fitImagesInViewport: true,
+  resizeDuration: 700,
+  positionFromTop: 50,
+  showImageNumberLabel: true,
+  alwaysShowNavOnTouchDevices: false,
+  wrapAround: true,
+  autoRotate: 5000,
+  stopAutoOnInput: false,
+  albumLabel: function(curImageNum, albumSize) {
+    return "Image " + curImageNum + " of " + albumSize;
+  }
+};
+
 (function() {
   // Use local alias
   var $ = jQuery;
-
-  var LightboxOptions = (function() {
-    function LightboxOptions() {
-      this.fadeDuration                = 500;
-      this.fitImagesInViewport         = true;
-      this.resizeDuration              = 700;
-      this.positionFromTop             = 50;
-      this.showImageNumberLabel        = true;
-      this.alwaysShowNavOnTouchDevices = false;
-      this.wrapAround                  = false;
-    }
-    
-    // Change to localize to non-english language
-    LightboxOptions.prototype.albumLabel = function(curImageNum, albumSize) {
-      return "Image " + curImageNum + " of " + albumSize;
-    };
-
-    return LightboxOptions;
-  })();
-
 
   var Lightbox = (function() {
     function Lightbox(options) {
@@ -58,7 +53,7 @@
     // Attach event handlers to the new DOM elements. click click click
     Lightbox.prototype.build = function() {
       var self = this;
-      $("<div id='lightboxOverlay' class='lightboxOverlay'></div><div id='lightbox' class='lightbox'><div class='lb-outerContainer'><div class='lb-container'><img class='lb-image' src='' /><div class='lb-nav'><a class='lb-prev' href='' ></a><a class='lb-next' href='' ></a></div><div class='lb-loader'><a class='lb-cancel'></a></div></div></div><div class='lb-dataContainer'><div class='lb-data'><div class='lb-details'><span class='lb-caption'></span><span class='lb-number'></span></div><div class='lb-closeContainer'><a class='lb-close'></a></div></div></div></div>").appendTo($('body'));
+      $("<div id='lightboxOverlay' class='lightboxOverlay'></div><div id='lightbox' class='lightbox'><div class='lb-outerContainer'><div class='lb-container'><img class='lb-image' src='' /><div class='lb-nav'><a class='lb-prev' href='' ></a><a class='lb-next' href='' ></a></div><div class='lb-loader'><a class='lb-cancel'></a></div></div></div><div class='lb-dataContainer'><div class='lb-data'><div class='lb-details'><span class='lb-caption'></span><span class='lb-number'></span><a class='slideshow-stop'></a></div><div class='lb-closeContainer'><a class='lb-close'></a></div></div></div></div>").appendTo($('body'));
       
       // Cache jQuery objects
       this.$lightbox       = $('#lightbox');
@@ -93,20 +88,12 @@
       });
 
       this.$lightbox.find('.lb-prev').on('click', function() {
-        if (self.currentImageIndex === 0) {
-          self.changeImage(self.album.length - 1);
-        } else {
-          self.changeImage(self.currentImageIndex - 1);
-        }
+        self.prev(true);
         return false;
       });
 
       this.$lightbox.find('.lb-next').on('click', function() {
-        if (self.currentImageIndex === self.album.length - 1) {
-          self.changeImage(0);
-        } else {
-          self.changeImage(self.currentImageIndex + 1);
-        }
+        self.next(true);
         return false;
       });
 
@@ -176,6 +163,19 @@
       }).fadeIn(this.options.fadeDuration);
 
       this.changeImage(imageNumber);
+
+      if (this.options.autoRotate) {
+        $('.slideshow-stop').text('Stop Slideshow');
+        this.autoSlide();
+        $('.slideshow-stop').toggle(function() {
+          $('.slideshow-stop').text('Start Slideshow');
+          clearTimeout(self.autoInterval);
+        },
+        function()  {
+          $('.slideshow-stop').text('Stop Slideshow');
+          self.autoSlide();
+        })
+      }
     };
 
     // Hide most UI elements in preparation for the animated resizing of the lightbox.
@@ -233,6 +233,45 @@
       preloader.src          = this.album[imageNumber].link;
       this.currentImageIndex = imageNumber;
     };
+
+    // Go to the next slide.
+    // 1 param indicates that this transition was intialized by input from the
+    // user, as opposed to autorotation.
+    Lightbox.prototype.next = function(userInput)  {
+      userInput = userInput ? userInput : false;
+      if (userInput && this.options.stopAutoOnInput) {
+        clearTimeout(this.autoInterval);
+      }
+      if (this.currentImageIndex !== this.album.length - 1) {
+        this.changeImage(this.currentImageIndex + 1);
+      } else if (this.options.wrapAround && this.album.length > 1) {
+        this.changeImage(0);
+      }      
+    }
+
+    // Go to the previous slide.
+    Lightbox.prototype.prev = function(userInput)  {
+      userInput = userInput ? userInput : false;
+      if (userInput && this.options.stopAutoOnInput) {
+        clearTimeout(this.autoInterval);
+      }
+      if (this.currentImageIndex !== 0) {
+        this.changeImage(this.currentImageIndex - 1);
+      } else if (this.options.wrapAround && this.album.length > 1) {
+        this.changeImage(this.album.length - 1);
+      }
+    }
+
+    Lightbox.prototype.autoSlide = function()  {
+      if (!this.options.autoRotate) {
+        return;
+      }
+      var self = this;
+      self.autoInterval = setTimeout(function() {
+        self.next();
+        self.autoSlide();
+      }, this.options.autoRotate);
+    }
 
     // Stretch overlay to fit the viewport
     Lightbox.prototype.sizeOverlay = function() {
@@ -374,17 +413,9 @@
       if (keycode === KEYCODE_ESC || key.match(/x|o|c/)) {
         this.end();
       } else if (key === 'p' || keycode === KEYCODE_LEFTARROW) {
-        if (this.currentImageIndex !== 0) {
-          this.changeImage(this.currentImageIndex - 1);
-        } else if (this.options.wrapAround && this.album.length > 1) {
-          this.changeImage(this.album.length - 1);
-        }
+        this.prev(true);
       } else if (key === 'n' || keycode === KEYCODE_RIGHTARROW) {
-        if (this.currentImageIndex !== this.album.length - 1) {
-          this.changeImage(this.currentImageIndex + 1);
-        } else if (this.options.wrapAround && this.album.length > 1) {
-          this.changeImage(0);
-        }
+        this.next(true);
       }
     };
 
@@ -397,6 +428,7 @@
       $('select, object, embed').css({
         visibility: "visible"
       });
+      clearTimeout(this.autoInterval);
     };
 
     return Lightbox;
@@ -404,8 +436,7 @@
   })();
 
   $(function() {
-    var options  = new LightboxOptions();
-    var lightbox = new Lightbox(options);
+    var lightbox = new Lightbox(LightboxOptions);
   });
 
 }).call(this);
