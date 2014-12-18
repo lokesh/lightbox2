@@ -16,6 +16,7 @@ var LightboxOptions = {
   alwaysShowNavOnTouchDevices: false,
   wrapAround: true,
   autoRotate: 5000,
+  stopAutoOnInput: false,
   albumLabel: function(curImageNum, albumSize) {
     return "Image " + curImageNum + " of " + albumSize;
   }
@@ -238,7 +239,7 @@ var LightboxOptions = {
     // user, as opposed to autorotation.
     Lightbox.prototype.next = function(userInput)  {
       userInput = userInput ? userInput : false;
-      if (userInput) {
+      if (userInput && this.options.stopAutoOnInput) {
         clearTimeout(this.autoInterval);
       }
       if (this.currentImageIndex !== this.album.length - 1) {
@@ -251,7 +252,7 @@ var LightboxOptions = {
     // Go to the previous slide.
     Lightbox.prototype.prev = function(userInput)  {
       userInput = userInput ? userInput : false;
-      if (userInput) {
+      if (userInput && this.options.stopAutoOnInput) {
         clearTimeout(this.autoInterval);
       }
       if (this.currentImageIndex !== 0) {
