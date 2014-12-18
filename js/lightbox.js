@@ -404,8 +404,11 @@
   })();
 
   $(function() {
-    var options  = new LightboxOptions();
-    var lightbox = new Lightbox(options);
+	if(!$('.lightbox').size()){
+		var options  = new LightboxOptions();
+		var lightbox = new Lightbox(options);
+		 $.lightbox=lightbox;   
+	 }  
   });
 
 }).call(this);
