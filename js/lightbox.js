@@ -412,10 +412,9 @@
       lightbox: function(callback){
         var self = this;
         self.off('click').on('click', function(event) {
-          console.log('click');
           lightbox.start($(event.currentTarget), callback);
           return false;
-        }).css('cursor','pointer');	
+        }).css('cursor','pointer');
       }
     });
   });
