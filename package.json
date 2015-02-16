@@ -1,6 +1,6 @@
 {
   "name": "lightbox",
-  "version": "2.7.2",
+  "version": "2.7.3",
   "author": "Lokesh Dhakar",
   "description": "Lightbox is small javascript library used to overlay images on top of the current page. It's a snap to setup and works on all modern browsers.",
   "keywords": [
