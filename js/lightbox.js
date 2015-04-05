@@ -23,6 +23,8 @@
             this.showImageNumberLabel = true;
             this.alwaysShowNavOnTouchDevices = true;
             this.wrapAround = true;
+            this.twitterHandle = "MyTwitterHandle";
+            this.facebookAppID = "MyFacebookAppID";
         }
 
         // Change to localize to non-english language
@@ -476,7 +478,7 @@
             var socialPinterest = this.$lightbox.find('#lb-social-pinterest a');
             socialPinterest.attr('href', pinterestHref);
 
-            var facebookHref = "https://www.facebook.com/dialog/feed?display=popup&app_id=674183722664396" +
+            var facebookHref = "https://www.facebook.com/dialog/feed?display=popup&app_id=" + this.options.facebookAppID +
                 "&redirect_uri=" + pageRef +
                 "&link=" + pageRef +
                 "&picture=" + imageURL +
@@ -487,7 +489,7 @@
 
             var twitterHref = "https://twitter.com/intent/tweet?" +
                 "&url=" + imageURL +
-                "&via=RigsbyWoldCotta" +
+                "&via=" + this.options.twitterHandle +
                 "&text=" + description;
             var socialTwitter = this.$lightbox.find('#lb-social-twitter a');
             socialTwitter.attr('href', twitterHref);
