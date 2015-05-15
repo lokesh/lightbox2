@@ -25,7 +25,14 @@ by Lokesh Dhakar
 * and many others. Thanks!!!
 
 ##License
-Licensed under the [Creative Commons Attribution 2.5 License](http://creativecommons.org/licenses/by/2.5/)
+
+<a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt=
+  "Creative Commons License" style="border-width:0" height="31" src=
+  "http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" /></a><br/>
+  <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">lightbox2</span> by <a xmlns:cc=
+  "http://creativecommons.org/ns#" href="http://lokeshdhakar.com/projects/lightbox2/" property=
+  "cc:attributionName" rel="cc:attributionURL">Lokesh Dhakar</a> is licensed under a <a rel=
+  "license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 License</a>.
 
 * Free for use in both personal and commercial projects.
 * Attribution requires leaving author name, author homepage link, and the license info intact.
