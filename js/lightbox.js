@@ -15,6 +15,7 @@
     function LightboxOptions() {
       this.fadeDuration                = 500;
       this.fitImagesInViewport         = true;
+	  this.scaleWidthPercentageForFitImageInViewport = 80;
       this.resizeDuration              = 700;
       this.positionFromTop             = 50;
       this.showImageNumberLabel        = true;
@@ -215,7 +216,7 @@
           // Is there a fitting issue?
           if ((preloader.width > maxImageWidth) || (preloader.height > maxImageHeight)) {
             if ((preloader.width / maxImageWidth) > (preloader.height / maxImageHeight)) {
-              imageWidth  = maxImageWidth;
+              imageWidth  = (self.options.scaleWidthPercentageForFitImageInViewport < 100 ) ? maxImageWidth * (self.options.scaleWidthPercentageForFitImageInViewport / 100) : maxImageWidth;
               imageHeight = parseInt(preloader.height / (preloader.width / imageWidth), 10);
               $image.width(imageWidth);
               $image.height(imageHeight);
