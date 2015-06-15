@@ -10,34 +10,31 @@
 (function() {
   // Use local alias
   var $ = jQuery;
-
-  var LightboxOptions = (function() {
-    function LightboxOptions() {
-      this.fadeDuration                = 500;
-      this.fitImagesInViewport         = true;
-      this.resizeDuration              = 700;
-      this.positionFromTop             = 50;
-      this.showImageNumberLabel        = true;
-      this.alwaysShowNavOnTouchDevices = false;
-      this.wrapAround                  = false;
-    }
     
-    // Change to localize to non-english language
-    LightboxOptions.prototype.albumLabel = function(curImageNum, albumSize) {
-      return "Image " + curImageNum + " of " + albumSize;
+  window.Lightbox = (function () {
+    var defaultOptions = {
+      fadeDuration: 500,
+      fitImagesInViewport: true,
+      resizeDuration: 700,
+      positionFromTop: 50,
+      showImageNumberLabel: true,
+      alwaysShowNavOnTouchDevices: false,
+      wrapAround: false,
+      albumLabel: function (curImageNum, albumSize) {
+        return "Image " + curImageNum + " of " + albumSize;
+      }
     };
 
-    return LightboxOptions;
-  })();
-
-
-  var Lightbox = (function() {
     function Lightbox(options) {
-      this.options           = options;
+      this.options           = $.extend({}, defaultOptions, options);
       this.album             = [];
       this.currentImageIndex = void 0;
       this.init();
     }
+
+    Lightbox.setDefaultOptions = function (options) {
+      $.extend(defaultOptions, options);
+    };
 
     Lightbox.prototype.init = function() {
       this.enable();
@@ -402,10 +399,5 @@
     return Lightbox;
 
   })();
-
-  $(function() {
-    var options  = new LightboxOptions();
-    var lightbox = new Lightbox(options);
-  });
-
+    
 }).call(this);
