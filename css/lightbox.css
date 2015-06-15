@@ -166,6 +166,14 @@ body:after {
   color: #ccc;
 }
 
+.lb-data:after {
+  content: "."; 
+  display: block; 
+  height: 0; 
+  clear: both; 
+  visibility: hidden;
+}
+
 .lb-data .lb-details {
   width: 85%;
   float: left;
@@ -185,6 +193,21 @@ body:after {
   padding-bottom: 1em;
   font-size: 12px;
   color: #999999;
+}
+
+.lb-data .lb-closeContainer {
+  width: 15%;
+  float: right; 
+  text-align: left;
+  line-height: 1.1em;
+}
+
+.lb-data .lb-closeContainer:after {
+  content: "."; 
+  display: block; 
+  height: 0; 
+  clear: both; 
+  visibility: hidden;
 }
 
 .lb-data .lb-close {
