@@ -202,13 +202,23 @@
 
         $image.width(preloader.width);
         $image.height(preloader.height);
-        
+
         if (self.options.fitImagesInViewport) {
           // Fit image inside the viewport.
           // Take into account the border around the image and an additional 10px gutter on each side.
 
           windowWidth    = $(window).width();
           windowHeight   = $(window).height();
+
+          // fix for old IE8 which can't detect windowWidth and windowHeight in some cases
+          if ( windowWidth == 0 && typeof(document.body.clientWidth) != 'undefined' ) {
+              windowWidth = document.body.clientWidth;
+          }
+
+          if ( windowHeight == 0 && typeof(document.body.clientHeight) != 'undefined' ) {
+              windowHeight = document.body.clientHeight;
+          }
+
           maxImageWidth  = windowWidth - self.containerLeftPadding - self.containerRightPadding - 20;
           maxImageHeight = windowHeight - self.containerTopPadding - self.containerBottomPadding - 120;
 
@@ -227,6 +237,7 @@
             }
           }
         }
+
         self.sizeContainer($image.width(), $image.height());
       };
 
