@@ -1,5 +1,5 @@
 /**
- * Lightbox v2.7.1
+ * Lightbox v2.7.2
  * by Lokesh Dhakar - http://lokeshdhakar.com/projects/lightbox2/
  *
  * @license http://creativecommons.org/licenses/by/2.5/
@@ -13,12 +13,14 @@
 
   var LightboxOptions = (function() {
     function LightboxOptions() {
+      this.alwaysShowNavOnTouchDevices = false;
       this.fadeDuration                = 500;
       this.fitImagesInViewport         = true;
-      this.resizeDuration              = 700;
+      // this.maxWidth                    = 800;
+      // this.maxHeight                   = 600;
       this.positionFromTop             = 50;
+      this.resizeDuration              = 700;
       this.showImageNumberLabel        = true;
-      this.alwaysShowNavOnTouchDevices = false;
       this.wrapAround                  = false;
     }
 
@@ -218,6 +220,14 @@
           windowHeight   = $(window).height();
           maxImageWidth  = windowWidth - self.containerLeftPadding - self.containerRightPadding - 20;
           maxImageHeight = windowHeight - self.containerTopPadding - self.containerBottomPadding - 120;
+
+          // Check if image size is larger then maxWidth|maxHeight in settings
+          if (self.options.maxWidth && self.options.maxWidth < maxImageWidth) {
+            maxImageWidth = self.options.maxWidth;
+          }
+          if (self.options.maxHeight && self.options.maxHeight < maxImageWidth) {
+            maxImageHeight = self.options.maxHeight;
+          }
 
           // Is there a fitting issue?
           if ((preloader.width > maxImageWidth) || (preloader.height > maxImageHeight)) {
