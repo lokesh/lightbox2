@@ -1,7 +1,6 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-    host_config: grunt.file.readJSON('.host_config'),
     compass: {
       dist: {
         options: {
@@ -18,47 +17,21 @@ module.exports = function(grunt) {
         }
       }
     },
-    exec: {
-      zip: {
-        cmd: function(version) {
-          return ['rm -rf lightbox',
-                  'mkdir lightbox',
-                  'cp index.html lightbox',
-                  'cp README.markdown lightbox',
-                  'cp -r css lightbox',
-                  'cp -r js lightbox',
-                  'cp -r img lightbox',
-                  'zip -r lightbox-' + version + '.zip lightbox',
-                  'mv lightbox-' + version + '.zip releases',
-                  'rm -rf lightbox'
-                 ].join('&&');
-        }
-      },
-    },
-    'ftp-deploy': {
-      build: {
-        auth: {
-          host: '<%- host_config.host %>',
-          port: '<%- host_config.port %>'
-        },
-        src: '.',
-        dest: '<%- host_config.directory %>',
-        exclusions: [
-          '.DS_Store',
-          '.sass-cache',
-          '.git*',
-          '.host_config',
-          '.ftppass',
-          'node_modules',
-          'sass',
-          'Gruntfile.js',
-          'package.json',
-          'README.markdown'
-        ]
+    jshint: {
+      all: [
+        "js/lightbox.js"
+      ],
+      options: {
+        jshintrc: true
       }
     },
-    jshint: {
-      files: ['js/lightbox.js']
+    jscs: {
+      src: [
+        "js/lightbox.js"
+      ],
+      options: {
+        config: ".jscsrc"
+      }
     },
     uglify: {
       options: {
@@ -80,9 +53,9 @@ module.exports = function(grunt) {
           spawn: false
         },
       },
-      test: {
+      jshint: {
         files: ['js/lightbox.js'],
-        tasks: ['jshint']
+        tasks: ['jshint', 'jscs']
       }
     }
   });
@@ -92,14 +65,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-exec');
-  grunt.loadNpmTasks('grunt-ftp-deploy');
-
+  grunt.loadNpmTasks("grunt-jscs");
 
   grunt.registerTask('default', ['compass', 'connect', 'watch']);
-  grunt.registerTask('zip', '', function(version) {
-    grunt.task.run('jshint');
-    grunt.task.run('uglify');
-    grunt.task.run('exec:zip:' + version);
-  });
+  grunt.registerTask('test', ['jshint', 'jscs']);
 };

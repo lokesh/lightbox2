@@ -2,8 +2,6 @@
 *.sql
 *.sqlite
 .htaccess
-.ftppass
-.host_config
 
 *.DS_Store
 ehthumbs.db
