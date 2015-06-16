@@ -6,7 +6,7 @@
     "Lokesh Dhakar <lokesh.dhakar@gmail.com>"
   ],
   "description": "The original Lightbox script. Uses jQuery.",
-  "main": "js/lightbox.js",
+  "main": ["js/lightbox.js", "css/lightbox.css"],
   "keywords": [
     "lightbox",
     "overlay",
