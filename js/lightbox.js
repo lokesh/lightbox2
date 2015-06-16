@@ -209,6 +209,12 @@
 
         $preloader = $(preloader);
 
+        var image_is_retina = self.album[imageNumber].link.indexOf('@2x') >= 0;
+        if (image_is_retina) {
+            preloader.width /= 2;
+            preloader.height /= 2;
+        }
+        
         $image.width(preloader.width);
         $image.height(preloader.height);
 
