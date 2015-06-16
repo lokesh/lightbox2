@@ -178,6 +178,17 @@
       }).fadeIn(this.options.fadeDuration);
 
       this.changeImage(imageNumber);
+      
+      $(window).scroll(
+        function(event)
+        {
+            var top = self.options.positionFromTop + $(this).scrollTop();
+            var left = $(this).scrollLeft();
+            self.$lightbox.css({
+                                top: top + 'px',
+                                left: left + 'px'
+                               });    
+        });
     };
 
     // Hide most UI elements in preparation for the animated resizing of the lightbox.
