@@ -5,7 +5,7 @@
 - [Add] CHANGELOG.md :-)
 - [Add] Enable target attribute in caption links [#299](https://github.com/lokesh/lightbox2/pull/299)
 - [Change] Add lightbox.css to bower.json main property
-- [Change] Dropped version property from bower.son. [#453](https://github.com/lokesh/lightbox2/pull/453)
+- [Change] Dropped version property from bower.json. [#453](https://github.com/lokesh/lightbox2/pull/453)
 - [Fix] Remove empty src attribute from img tag [#287](https://github.com/lokesh/lightbox2/pull/287)
 - [Fix] Correct grammatical error in comment [#224](https://github.com/lokesh/lightbox2/pull/224)
 - [Fix] Clear the jquery animation queue before hiding the .lb-loader [#309](https://github.com/lokesh/lightbox2/pull/309)
