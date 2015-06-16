@@ -119,7 +119,7 @@
     };
 
     // Show overlay and lightbox. If the image is part of a set, add siblings to album array.
-    Lightbox.prototype.start = function($link) {
+    Lightbox.prototype.start = function($link, callback) {
       var self    = this;
       var $window = $(window);
 
@@ -136,7 +136,7 @@
 
       function addToAlbum($link) {
         self.album.push({
-          link: $link.attr('href'),
+          link: (typeof(callback) == 'function' )?callback($link):((typeof(callback) == 'string' )?callback:$link.attr('href')),
           title: $link.attr('data-title') || $link.attr('title')
         });
       }
@@ -430,6 +430,17 @@
     var options  = new LightboxOptions();
      /*jshint unused:false*/
     var lightbox = new Lightbox(options);
+	
+	// Enable lightbox for selected jquery object
+    $.fn.extend({
+      lightbox: function(callback){
+        var self = this;
+        self.off('click').on('click', function(event) {
+          lightbox.start($(event.currentTarget), callback);
+          return false;
+        }).css('cursor','pointer');
+      }
+    });
   });
 
 }).call(this);
