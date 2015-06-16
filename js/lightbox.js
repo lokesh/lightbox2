@@ -21,10 +21,10 @@
       this.alwaysShowNavOnTouchDevices = false;
       this.wrapAround                  = false;
     }
-    
+
     // Change to localize to non-english language
     LightboxOptions.prototype.albumLabel = function(curImageNum, albumSize) {
-      return "Image " + curImageNum + " of " + albumSize;
+      return 'Image ' + curImageNum + ' of ' + albumSize;
     };
 
     return LightboxOptions;
@@ -58,8 +58,8 @@
     // Attach event handlers to the new DOM elements. click click click
     Lightbox.prototype.build = function() {
       var self = this;
-      $("<div id='lightboxOverlay' class='lightboxOverlay'></div><div id='lightbox' class='lightbox'><div class='lb-outerContainer'><div class='lb-container'><img class='lb-image' src='data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==' /><div class='lb-nav'><a class='lb-prev' href='' ></a><a class='lb-next' href='' ></a></div><div class='lb-loader'><a class='lb-cancel'></a></div></div></div><div class='lb-dataContainer'><div class='lb-data'><div class='lb-details'><span class='lb-caption'></span><span class='lb-number'></span></div><div class='lb-closeContainer'><a class='lb-close'></a></div></div></div></div>").appendTo($('body'));
-      
+      $('<div id="lightboxOverlay" class="lightboxOverlay"></div><div id="lightbox" class="lightbox"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" /><div class="lb-nav"><a class="lb-prev" href="" ></a><a class="lb-next" href="" ></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div>').appendTo($('body'));
+
       // Cache jQuery objects
       this.$lightbox       = $('#lightbox');
       this.$overlay        = $('#lightboxOverlay');
@@ -71,7 +71,7 @@
       this.containerRightPadding = parseInt(this.$container.css('padding-right'), 10);
       this.containerBottomPadding = parseInt(this.$container.css('padding-bottom'), 10);
       this.containerLeftPadding = parseInt(this.$container.css('padding-left'), 10);
-      
+
       // Attach event handlers to the newly minted DOM elements
       this.$overlay.hide().on('click', function() {
         self.end();
@@ -124,7 +124,7 @@
       $window.on('resize', $.proxy(this.sizeOverlay, this));
 
       $('select, object, embed').css({
-        visibility: "hidden"
+        visibility: 'hidden'
       });
 
       this.sizeOverlay();
@@ -144,7 +144,7 @@
       var $links;
 
       if (dataLightboxValue) {
-        $links = $($link.prop("tagName") + '[data-lightbox="' + dataLightboxValue + '"]');
+        $links = $($link.prop('tagName') + '[data-lightbox="' + dataLightboxValue + '"]');
         for (var i = 0; i < $links.length; i = ++i) {
           addToAlbum($($links[i]));
           if ($links[i] === $link[0]) {
@@ -157,7 +157,7 @@
           addToAlbum($link);
         } else {
           // If image is part of a set
-          $links = $($link.prop("tagName") + '[rel="' + $link.attr('rel') + '"]');
+          $links = $($link.prop('tagName') + '[rel="' + $link.attr('rel') + '"]');
           for (var j = 0; j < $links.length; j = ++j) {
             addToAlbum($($links[j]));
             if ($links[j] === $link[0]) {
@@ -166,7 +166,7 @@
           }
         }
       }
-      
+
       // Position Lightbox
       var top  = $window.scrollTop() + this.options.positionFromTop;
       var left = $window.scrollLeft();
@@ -195,14 +195,21 @@
       // When image to show is preloaded, we send the width and height to sizeContainer()
       var preloader = new Image();
       preloader.onload = function() {
-        var $preloader, imageHeight, imageWidth, maxImageHeight, maxImageWidth, windowHeight, windowWidth;
+        var $preloader;
+        var imageHeight;
+        var imageWidth;
+        var maxImageHeight;
+        var maxImageWidth;
+        var windowHeight;
+        var windowWidth;
+
         $image.attr('src', self.album[imageNumber].link);
 
         $preloader = $(preloader);
 
         $image.width(preloader.width);
         $image.height(preloader.height);
-        
+
         if (self.options.fitImagesInViewport) {
           // Fit image inside the viewport.
           // Take into account the border around the image and an additional 10px gutter on each side.
@@ -244,12 +251,12 @@
     // Animate the size of the lightbox to fit the image we are showing
     Lightbox.prototype.sizeContainer = function(imageWidth, imageHeight) {
       var self = this;
-      
+
       var oldWidth  = this.$outerContainer.outerWidth();
       var oldHeight = this.$outerContainer.outerHeight();
       var newWidth  = imageWidth + this.containerLeftPadding + this.containerRightPadding;
       var newHeight = imageHeight + this.containerTopPadding + this.containerBottomPadding;
-      
+
       function postResize() {
         self.$lightbox.find('.lb-dataContainer').width(newWidth);
         self.$lightbox.find('.lb-prevLink').height(newHeight);
@@ -273,7 +280,7 @@
     Lightbox.prototype.showImage = function() {
       this.$lightbox.find('.lb-loader').stop().hide();
       this.$lightbox.find('.lb-image').fadeIn('slow');
-    
+
       this.updateNav();
       this.updateDetails();
       this.preloadNeighboringImages();
@@ -287,8 +294,8 @@
       // arrows in image sets.
       var alwaysShowNav = false;
       try {
-        document.createEvent("TouchEvent");
-        alwaysShowNav = (this.options.alwaysShowNavOnTouchDevices)? true: false;
+        document.createEvent('TouchEvent');
+        alwaysShowNav = (this.options.alwaysShowNavOnTouchDevices) ? true : false;
       } catch (e) {}
 
       this.$lightbox.find('.lb-nav').show();
@@ -322,27 +329,29 @@
 
       // Enable anchor clicks in the injected caption html.
       // Thanks Nate Wright for the fix. @https://github.com/NateWr
-      if (typeof this.album[this.currentImageIndex].title !== 'undefined' && this.album[this.currentImageIndex].title !== "") {
+      if (typeof this.album[this.currentImageIndex].title !== 'undefined' &&
+        this.album[this.currentImageIndex].title !== '') {
         this.$lightbox.find('.lb-caption')
           .html(this.album[this.currentImageIndex].title)
           .fadeIn('fast')
-          .find('a').on('click', function(event){
-          	if ($(this).attr('target') !== undefined) {
-          	  window.open($(this).attr('href'), $(this).attr('target'));
-          	} else {
-	          location.href = $(this).attr('href');
-	        }
+          .find('a').on('click', function(event) {
+            if ($(this).attr('target') !== undefined) {
+              window.open($(this).attr('href'), $(this).attr('target'));
+            } else {
+              location.href = $(this).attr('href');
+            }
           });
       }
-    
+
       if (this.album.length > 1 && this.options.showImageNumberLabel) {
-        this.$lightbox.find('.lb-number').text(this.options.albumLabel(this.currentImageIndex + 1, this.album.length)).fadeIn('fast');
+        var labelText = this.options.albumLabel(this.currentImageIndex + 1, this.album.length);
+        this.$lightbox.find('.lb-number').text(labelText).fadeIn('fast');
       } else {
         this.$lightbox.find('.lb-number').hide();
       }
-    
+
       this.$outerContainer.removeClass('animating');
-    
+
       this.$lightbox.find('.lb-dataContainer').fadeIn(this.options.resizeDuration, function() {
         return self.sizeOverlay();
       });
@@ -395,11 +404,11 @@
     // Closing time. :-(
     Lightbox.prototype.end = function() {
       this.disableKeyboardNav();
-      $(window).off("resize", this.sizeOverlay);
+      $(window).off('resize', this.sizeOverlay);
       this.$lightbox.fadeOut(this.options.fadeDuration);
       this.$overlay.fadeOut(this.options.fadeDuration);
       $('select, object, embed').css({
-        visibility: "visible"
+        visibility: 'visible'
       });
     };
 
@@ -409,6 +418,7 @@
 
   $(function() {
     var options  = new LightboxOptions();
+     /*jshint unused:false*/
     var lightbox = new Lightbox(options);
   });
 
