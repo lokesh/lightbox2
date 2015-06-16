@@ -67,7 +67,10 @@
       this.$overlay        = $('#lightboxOverlay');
       this.$outerContainer = this.$lightbox.find('.lb-outerContainer');
       this.$container      = this.$lightbox.find('.lb-container');
-
+      
+       // Enabled public access to lightbox instance throw #lightbox to change options 
+      this.$lightbox.data('lightbox',this);
+      
       // Store css values for future lookup
       this.containerTopPadding = parseInt(this.$container.css('padding-top'), 10);
       this.containerRightPadding = parseInt(this.$container.css('padding-right'), 10);
