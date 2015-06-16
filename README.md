@@ -31,11 +31,11 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 - [Fix] Correct grammatical error in comment [#224](https://github.com/lokesh/lightbox2/pull/224)
 - [Fix] Clear the jquery animation queue before hiding the .lb-loader [#309](https://github.com/lokesh/lightbox2/pull/309)
 
-### v2.7.1 - 2014-30-03
+### v2.7.1 - 2014-03-30
 
 - [Fix] Enable links in captions
 
-### v2.7.0 - 2014-29-03
+### v2.7.0 - 2014-03-29
 
 - [Add] Support for data-title attribute for the caption - Thanks https://github.com/copycut
 - [Add] New option to enable always visible prev and next arrows
