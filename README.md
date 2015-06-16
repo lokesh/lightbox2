@@ -23,7 +23,6 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 
 ### 2.7.2 - UNRELEASED
 
-- [Add] CHANGELOG.md :-)
 - [Add] Enable target attribute in caption links [#299](https://github.com/lokesh/lightbox2/pull/299)
 - [Change] Add lightbox.css to bower.json main property
 - [Change] Dropped version property from bower.json. [#453](https://github.com/lokesh/lightbox2/pull/453)
