@@ -28,7 +28,7 @@ body:after {
 .lightbox .lb-image {
   display: block;
   height: auto;
-  max-width: inherit;
+  max-width: inherit !important; /* to fix if other css having img { max-width: 100%} its affect the Auto resize of lightbox preview */
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
