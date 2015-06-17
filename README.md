@@ -23,7 +23,11 @@ Lightbox2 is licensed under The MIT License.
 
 ## Changelog
 
-### 2.7.2 - UNRELEASED
+### 2.7.3 - UNRELEASED
+
+- [ ] Add examples.
+
+### 2.7.2 - 2015-06-16
 
 - [Add] maxWidth and maxHeight options added [#197](https://github.com/lokesh/lightbox2/pull/197)
 - [Add] Enable target attribute in caption links [#299](https://github.com/lokesh/lightbox2/pull/299)
