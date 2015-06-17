@@ -1,14 +1,2 @@
-*.log
-*.sql
-*.sqlite
-.htaccess
-
-*.DS_Store
-ehthumbs.db
-Icon?
-Thumbs.db
-
-.sass-cache
-Rakefile
-rsync-exclude
+bower_components
 node_modules
