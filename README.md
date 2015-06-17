@@ -2,6 +2,8 @@
 
 The original lightbox script. Eight years later — still going strong!
 
+Lightbox is small javascript library used to overlay images on top of the current page. It's a snap to setup and works on all modern browsers.
+
 For demos and usage instructions, visit [lokeshdhakar.com/projects/lightbox2/](http://lokeshdhakar.com/projects/lightbox2/).
 
 by [Lokesh Dhakar](http://www.lokeshdhakar.com)  
@@ -9,10 +11,10 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 
 ## License
 
-<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">lightbox2</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+Lightbox2 is licensed under The MIT License.
 
-- **100% Free.** Lightbox is free to use in both personal and commercial work.
-- **Attribution is required.** This means, leaving the author name, author homepage link, and the license info intact. None of these items have to be user-facing and can remain alongside the code.
+- **100% Free.** Lightbox is free to use in both commercial and non-commercial work.
+- **Attribution is required.** This means you must leave my name, my homepage link, and the license info intact. None of these items have to be user-facing and can remain alongside the code.
 
 
 ## Roadmap
@@ -25,6 +27,7 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 
 - [Add] maxWidth and maxHeight options added [#197](https://github.com/lokesh/lightbox2/pull/197)
 - [Add] Enable target attribute in caption links [#299](https://github.com/lokesh/lightbox2/pull/299)
+- [Change] Switched to The MIT License from  Creative Commons Attribution 4.0 International License.
 - [Change] Add lightbox.css to bower.json main property
 - [Change] Dropped version property from bower.json. [#453](https://github.com/lokesh/lightbox2/pull/453)
 - [Fix] Remove empty src attribute from img tag [#287](https://github.com/lokesh/lightbox2/pull/287)
