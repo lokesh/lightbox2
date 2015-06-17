@@ -1,14 +1,15 @@
 {
-  "name": "lightbox",
-  "version": "2.7.1",
+  "name": "lightbox2",
+  "version": "2.7.2",
   "author": "Lokesh Dhakar",
   "description": "Lightbox is small javascript library used to overlay images on top of the current page. It's a snap to setup and works on all modern browsers.",
   "keywords": [
     "lightbox",
     "lightbox2",
     "overlay",
-    "image",
-    "gallery"
+    "gallery",
+    "slideshow",
+    "images"
   ],
   "homepage": "http://lokeshdhakar.com/projects/lightbox2/",
   "repository": {
@@ -20,14 +21,14 @@
   },
   "licenses": [
     {
-      "type": "Creative Commons Attribution 2.5 License",
-      "url": "http://creativecommons.org/licenses/by/2.5/"
+      "type": "MIT",
+      "url": "https://raw.githubusercontent.com/lokesh/lightbox2/master/LICENSE"
     }
   ],
   "devDependencies": {
     "grunt": "^0.4.5",
-    "grunt-contrib-compass": "^0.7.2",
     "grunt-contrib-connect": "^0.7.1",
+    "grunt-contrib-copy": "^0.8.0",
     "grunt-contrib-jshint": "^0.11.2",
     "grunt-contrib-uglify": "~0.4.0",
     "grunt-contrib-watch": "^0.5.3",

@@ -1,15 +1,6 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-    compass: {
-      dist: {
-        options: {
-          sassDir: 'sass',
-          cssDir: 'css',
-          environment: 'production'
-        }
-      }
-    },
     connect: {
       server: {
         options: {
@@ -17,9 +8,21 @@ module.exports = function(grunt) {
         }
       }
     },
+    copy: {
+      dist: {
+        files: [
+          {
+            expand: true,
+            cwd: 'src/',
+            src: ['**'],
+            dest: 'dist/'
+          }
+        ],
+      },
+    },
     jshint: {
       all: [
-        "js/lightbox.js"
+        'src/js/lightbox.js'
       ],
       options: {
         jshintrc: true
@@ -27,7 +30,7 @@ module.exports = function(grunt) {
     },
     jscs: {
       src: [
-        "js/lightbox.js"
+        'src/js/lightbox.js'
       ],
       options: {
         config: ".jscsrc"
@@ -40,33 +43,26 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'js/lightbox.min.js': ['js/lightbox.js']
+          'dist/js/lightbox.min.js': ['src/js/lightbox.js']
         }
       }
     },   
     watch: {
-      sass: {
-        files: ['sass/*.sass'],
-        tasks: ['compass'],
-        options: {
-          livereload: true,
-          spawn: false
-        },
-      },
       jshint: {
-        files: ['js/lightbox.js'],
+        files: ['src/js/lightbox.js'],
         tasks: ['jshint', 'jscs']
       }
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks("grunt-jscs");
 
-  grunt.registerTask('default', ['compass', 'connect', 'watch']);
+  grunt.registerTask('default', ['connect', 'watch']);
   grunt.registerTask('test', ['jshint', 'jscs']);
+  grunt.registerTask('build', ['jshint', 'jscs', 'copy:dist', 'uglify']);
 };
