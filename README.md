@@ -28,11 +28,13 @@ Lightbox2 is licensed under The MIT License.
 - [Add] maxWidth and maxHeight options added [#197](https://github.com/lokesh/lightbox2/pull/197)
 - [Add] Enable target attribute in caption links [#299](https://github.com/lokesh/lightbox2/pull/299)
 - [Change] Switched to The MIT License from  Creative Commons Attribution 4.0 International License.
-- [Change] Add lightbox.css to bower.json main property
+- [Change] Add CSS and images to bower.json main property.
 - [Change] Dropped version property from bower.json. [#453](https://github.com/lokesh/lightbox2/pull/453)
+- [Change] Use src -> dist folder structure for build.
 - [Fix] Remove empty src attribute from img tag [#287](https://github.com/lokesh/lightbox2/pull/287)
 - [Fix] Correct grammatical error in comment [#224](https://github.com/lokesh/lightbox2/pull/224)
 - [Fix] Clear the jquery animation queue before hiding the .lb-loader [#309](https://github.com/lokesh/lightbox2/pull/309)
+- [Remove] Remove releases's zips from repo.
 
 ### v2.7.1 - 2014-03-30
 
