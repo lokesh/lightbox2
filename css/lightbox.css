@@ -1,3 +1,8 @@
+/* Mobile device fix: an absolute positioning needs a parent which is relatively positioned. */
+body {
+   position:relative;
+}
+
 /* Preload images */
 body:after {
   content: url(../images/close.png) url(../images/loading.gif) url(../images/prev.png) url(../images/next.png);
