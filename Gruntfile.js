@@ -1,6 +1,12 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
+    concat: {
+      dist: {
+        src: ['bower_components/jquery/dist/jquery.js', 'src/js/lightbox.js'],
+        dest: 'dist/js/jquery.lightbox.js',
+      },
+    },
     connect: {
       server: {
         options: {
@@ -43,7 +49,8 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'dist/js/lightbox.min.js': ['src/js/lightbox.js']
+          'dist/js/lightbox.min.js': ['src/js/lightbox.js'],
+          'dist/js/jquery.lightbox.min.js': ['dist/js/jquery.lightbox.js']
         }
       }
     },   
@@ -55,6 +62,7 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -64,5 +72,5 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['connect', 'watch']);
   grunt.registerTask('test', ['jshint', 'jscs']);
-  grunt.registerTask('build', ['jshint', 'jscs', 'copy:dist', 'uglify']);
+  grunt.registerTask('build', ['jshint', 'jscs', 'copy:dist', 'concat', 'uglify']);
 };
