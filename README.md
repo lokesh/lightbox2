@@ -25,8 +25,11 @@ Lightbox2 is licensed under The MIT License.
 
 ### v2.7.3 - UNRELEASED
 
-- [Add] Barebone HTML file with examples added /examples/index.html.
-- [ ] Document options in code.
+- [Add] New barebone HTML file with examples /examples/index.html.
+- [Add] New jquery.lightbox.js which concatenates jQuery and Lightbox. This is for those who are Bower averse or want an extra easy install.
+- [ ] Document options.
+- [ ] Add usage info to README.
+- [ ] Add module compatibility (AMD, etc).
 
 ### v2.7.2 - 2015-06-16
 
