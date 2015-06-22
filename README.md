@@ -25,7 +25,7 @@ Lightbox2 is licensed under The MIT License.
 
 ### v2.7.3 - UNRELEASED
 
-- [ ] Add examples.
+- [Add] Barebone HTML file with examples added /examples/index.html.
 - [ ] Document options in code.
 
 ### v2.7.2 - 2015-06-16
