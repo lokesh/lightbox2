@@ -9,18 +9,11 @@ For demos and usage instructions, visit [lokeshdhakar.com/projects/lightbox2/](h
 by [Lokesh Dhakar](http://www.lokeshdhakar.com)  
 
 
-## License
-
-Lightbox2 is licensed under The MIT License.
-
-- **100% Free.** Lightbox is free to use in both commercial and non-commercial work.
-- **Attribution is required.** This means you must leave my name, my homepage link, and the license info intact. None of these items have to be user-facing and can remain alongside the code.
-
-
 ## Roadmap
 
 - **Maintenance.** No substantial features are being worked on till all open Pull Requests and Issues have been reviewed.
 - **Documentation.** Main features and options need to be documented.
+
 
 ## Changelog
 
