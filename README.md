@@ -17,13 +17,16 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 
 ## Changelog
 
-### v2.7.3 - UNRELEASED
+### v2.7.4 - UNRELEASED
 
-- [Add] Barebone HTML file with examples /examples/index.html.
-- [Add] jquery.lightbox.js which concatenates jQuery and Lightbox. This is for those who are Bower averse or want an extra easy install.
 - [ ] Document options.
 - [ ] Add usage info to README.
 - [ ] Add module compatibility (AMD, etc).
+
+### v2.7.3 - 2015-06-22
+
+- [Add] Barebone HTML file with examples /examples/index.html.
+- [Add] jquery.lightbox.js which concatenates jQuery and Lightbox. This is for those who are Bower averse or want an extra easy install.
 
 ### v2.7.2 - 2015-06-16
 
