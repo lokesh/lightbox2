@@ -28,6 +28,6 @@
     "bower_components"
   ],
   "dependencies": {
-    "jquery": "~2.1.4"
+    "jquery": "~1"
   }
 }
