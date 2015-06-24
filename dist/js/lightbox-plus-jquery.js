@@ -9209,8 +9209,8 @@ return jQuery;
 
 }));
 
-/**
- * Lightbox v2.7.3
+/*!
+ * Lightbox v2.7.4
  * by Lokesh Dhakar
  *
  * More info:
