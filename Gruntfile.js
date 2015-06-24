@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     concat: {
       dist: {
         src: ['bower_components/jquery/dist/jquery.js', 'src/js/lightbox.js'],
-        dest: 'dist/js/jquery.lightbox.js',
+        dest: 'dist/js/lightbox-plus-jquery.js',
       },
     },
     connect: {
@@ -50,7 +50,7 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'dist/js/lightbox.min.js': ['src/js/lightbox.js'],
-          'dist/js/jquery.lightbox.min.js': ['dist/js/jquery.lightbox.js']
+          'dist/js/lightbox-plus-jquery.min.js': ['dist/js/lightbox-plus-jquery.js']
         }
       }
     },   
