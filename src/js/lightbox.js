@@ -14,6 +14,9 @@
   // Use local alias
   var $ = jQuery;
 
+
+  // Descriptions of all options available on the demo site:
+  // http://lokeshdhakar.com/projects/lightbox2/index.html#options
   var LightboxOptions = (function() {
     function LightboxOptions() {
       this.alwaysShowNavOnTouchDevices = false;
