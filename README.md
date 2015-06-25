@@ -26,6 +26,7 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 ### v2.7.4 - 2015-06-23
 
 - [Change] Revert jquery dep version to 2.x from 1.x. Added note to Lightbox page about using jQuery 1.x to get IE6, 7, and 8 support.
+- [Fix] Preserve author and license comments from lightbox.js in minified files.
 
 ### v2.7.3 - 2015-06-22
 
