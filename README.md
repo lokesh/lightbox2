@@ -19,9 +19,11 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 
 ### v2.8.0 - UNRELEASED
 
-- [ ] Document options.
 - [ ] Add build steps to readme.
+- [ ] Allow users to set options with an html attribute per image and image set.
 - [ ] Add module compatibility (AMD, etc).
+- [ ] Add ability to initialize with vanilla Javascript.
+- [ ] Add ability to initialize as a jQuery plugin.
 
 ### v2.7.4 - 2015-06-23
 
