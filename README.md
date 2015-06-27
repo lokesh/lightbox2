@@ -20,7 +20,6 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 ### v2.8.0 - UNRELEASED
 
 - [x] Add CONTRIBUTING.md
-- [ ] Add build steps to readme.
 - [ ] Allow users to set options with an html attribute per image and image set.
 - [ ] Add module compatibility (AMD, etc).
 - [ ] Add ability to initialize with vanilla Javascript.
