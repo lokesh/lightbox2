@@ -11,7 +11,7 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 
 ## Roadmap
 
-- [ ] Add module compatibility (AMD, etc).
+
 - [ ] Allow users to set unique options with an html attribute per image and image set.
 - [ ] Add ability to initialize with vanilla Javascript.
 - [ ] Add ability to initialize as a jQuery plugin.
@@ -19,8 +19,13 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 
 ## Changelog
 
-### v2.7.5 - UNRELEASED
+### v2.8.1 - UNRELEASED
 
+- [ ]
+
+### v2.8.0 - 2015-06-29
+
+- [Add] UMD support (AMD, CommonJS, fallback to global export).[#461](https://github.com/lokesh/lightbox2/pull/461)
 - [Add] CONTRIBUTING.md
 
 ### v2.7.4 - 2015-06-23
