@@ -9648,5 +9648,4 @@ return jQuery;
      /*jshint unused:false*/
     var lightbox = new Lightbox(options);
   });
-
 }).call(this);
