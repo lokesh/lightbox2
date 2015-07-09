@@ -28,7 +28,7 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 
 ## Changelog
 
-### v2.8.1 - UNRELEASED
+### v2.8.1 - 2015-07-09
 
 - [Fix] Change AMD jQuery require statement to use all lowercase. [#464](https://github.com/lokesh/lightbox2/pull/464) Thanks [@vtforester](https://github.com/vtforester)
 
