@@ -91,3 +91,12 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 - [Change] Switch from Javacript to Coffeescript
 - [Change] Switch from CSS to SASS
 - [Add] Repo created on Github
+
+
+## How to deploy
+
+- Update version number in ```src/lightbox.js```
+- Update README.md Changelog with release date
+- grunt build
+- Push to Github repo
+- Create a new Github release along with tag. Naming convention for both ```v2.8.1```
