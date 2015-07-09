@@ -22,9 +22,15 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 - Use inline SVG for UI elements.
 - Do not initialize automatically and allow multiple instances.
 - Add event handlers.
+- Allow the setting of options from HTML.
+- Allow instantiation with jQuery plugin syntax.
+- If one of the two options, maxWidth or maxHeight, is set, maintain aspect ratio.
 - Evaluate start, end, and transition animations.
 - Evaluate preloading and caching.
 - Evaluate droppping jQuery requirement.
+- If user attempts to go forward when at end of image set, animation (shake?) indicating the end or option to close Lightbox.
+- Add Lightbox to NPM Registry.
+
 
 ## Changelog
 
