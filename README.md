@@ -6,16 +6,20 @@ Lightbox is small javascript library used to overlay images on top of the curren
 
 For demos and usage instructions, visit [lokeshdhakar.com/projects/lightbox2/](http://lokeshdhakar.com/projects/lightbox2/).
 
-by [Lokesh Dhakar](http://www.lokeshdhakar.com)  
+by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 
 
 ## Roadmap
- 
+
 - **Maintenance.** Get open Issues and PRs number down.
 - **Mobile experience.** Redo animations and interactions from scratch and include gesture support.
- 
+
 ## Changelog
- 
+
+### v2.8.1 - UNRELEASED
+
+- [Fix] Change AMD jQuery require statement to use all lowercase. [#464](https://github.com/lokesh/lightbox2/pull/464) Thanks [@vtforester](https://github.com/vtforester)
+
 ### v2.8.0 - 2015-06-29
 
 - [Add] UMD support (AMD, CommonJS, fallback to global export).[#461](https://github.com/lokesh/lightbox2/pull/461)
@@ -50,12 +54,12 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 
 ### v2.7.0 - 2014-03-29
 
-- [Add] Support for data-title attribute for the caption - Thanks https://github.com/copycut
+- [Add] Support for data-title attribute for the caption.  - Thanks [@copycut](https://github.com/copycut)
 - [Add] New option to enable always visible prev and next arrows
 - [Change] Rewrite Coffeescript code into plain ole Javascript
 - [Change] Updated jQuery to v1.10.2
-- [Fix] prev/next arrows not appearing in IE9 and IE 10 - Thanks https://github.com/rebizu
-- [Fix]  Support wrap around option w/keyboard actions. Thanks https://github.com/vovayatsyuk
+- [Fix] prev/next arrows not appearing in IE9 and IE 10 - Thanks [@rebizu](https://github.com/rebizu)
+- [Fix]  Support wrap around option w/keyboard actions. Thanks [@vovayatsyuk](https://github.com/vovayatsyuk)
 
 ### v2.6.0 - 2013-07-06
 
