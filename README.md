@@ -18,6 +18,7 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 
 - Add touch gesture support.
 - Optimize layout for mobile.
+- Optimize layout for screens of varying densities.
 - Use inline SVG for UI elements.
 - Do not initialize automatically and allow multiple instances.
 - Add event handlers.
