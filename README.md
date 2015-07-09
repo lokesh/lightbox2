@@ -14,6 +14,17 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 - **Maintenance.** Get open Issues and PRs number down.
 - **Mobile experience.** Redo animations and interactions from scratch and include gesture support.
 
+### v3.0 - IN PLANNING PHASE
+
+- Add touch gesture support.
+- Optimize layout for mobile.
+- Use inline SVG for UI elements.
+- Do not initialize automatically and allow multiple instances.
+- Add event handlers.
+- Evaluate start, end, and transition animations.
+- Evaluate preloading and caching.
+- Evaluate droppping jQuery requirement.
+
 ## Changelog
 
 ### v2.8.1 - UNRELEASED
