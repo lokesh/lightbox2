@@ -41,6 +41,7 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 ### v2.8.0 - 2015-06-29
 
 - [Add] UMD support (AMD, CommonJS, fallback to global export).[#461](https://github.com/lokesh/lightbox2/pull/461)
+- [Add] option method for setting options. [#461](https://github.com/lokesh/lightbox2/commit/d708fbd716aaa90e01ba4198944c8955e7283d87)
 - [Add] CONTRIBUTING.md
 
 ### v2.7.4 - 2015-06-23
