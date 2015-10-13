@@ -60,8 +60,11 @@
   };
 
   Lightbox.prototype.init = function() {
-    this.enable();
-    this.build();
+    var self = this;
+    $(function () {
+      self.enable();
+      self.build();
+    });
   };
 
   // Loop through anchors and areamaps looking for either data-lightbox attributes or rel attributes
