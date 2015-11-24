@@ -155,7 +155,8 @@
     function addToAlbum($link) {
       self.album.push({
         link: $link.attr('href'),
-        title: $link.attr('data-title') || $link.attr('title')
+        title: $link.attr('data-title') || $link.attr('title'),
+        transform: $link.children(':first').css('transform')
       });
     }
 
@@ -224,6 +225,7 @@
       var windowWidth;
 
       $image.attr('src', self.album[imageNumber].link);
+      $image.css('transform', self.album[imageNumber].transform);
 
       $preloader = $(preloader);
 
