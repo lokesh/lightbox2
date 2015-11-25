@@ -272,7 +272,57 @@
       self.sizeContainer($image.width(), $image.height());
     };
 
-    preloader.src          = this.album[imageNumber].link;
+    preloader.setData = function(element) {
+      preloader.src = element.link;
+      if('none' != element.transform)
+      {
+
+        //Get the transform matrix and extract the scale and rotation angle
+        //Extracted from http://stackoverflow.com/questions/27655885/get-position-rotation-and-scale-from-matrix-in-opengl
+        //and adapted to a 2d matrix
+        var values = element.transform.split('(')[1].split(')')[0].split(',');
+      var a = values[0];  //cos(x)
+      var b = values[1];  //sin(x)
+
+      var scale = Math.sqrt(a*a + b*b);
+      var sin = b/scale;
+      var angle = Math.round(Math.atan2(b, a) * (180/Math.PI));
+
+      //Apply the scale and rotation to the 4 points that delimit the image
+      //and compute the bounding box
+      var points = [{x: 0, y: 0}, {x: preloader.width, y: 0}, 
+        {x: 0, y: preloader.height}, {x: preloader.width, y: preloader.height}];
+      var cx = preloader.width/2;
+      var cy = preloader.height/2;
+      for(var i=0; i<4; ++i)
+      {
+
+        var x = points[i].x;
+        var y = points[i].y;
+        points[i].x = a * (x - cx) + b * (y - cy) + cx;
+        points[i].y = a * (y - cy) - b * (x - cx) + cy;
+
+      }
+
+      var bb = [{x:9007199254740992, y:9007199254740992}, {x:0, y:0}];
+      for(var i=0; i<4; ++i)
+      {
+
+        bb[0].x = bb[0].x > points[i].x ? points[i].x : bb[0].x;
+        bb[0].y = bb[0].y > points[i].y ? points[i].y : bb[0].y;
+        bb[1].x = bb[1].x < points[i].x ? points[i].x : bb[1].x;
+        bb[1].y = bb[1].y < points[i].y ? points[i].y : bb[1].y;
+
+      }
+
+      preloader.width = (bb[1].x - bb[0].x) * scale;
+      preloader.height = (bb[1].y - bb[0].y) * scale;
+
+      }
+
+    };
+
+    preloader.setData(this.album[imageNumber]);
     this.currentImageIndex = imageNumber;
   };
 
