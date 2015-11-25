@@ -153,11 +153,16 @@
     var imageNumber = 0;
 
     function addToAlbum($link) {
+      var display = $link.children(':first').css('display');
+      if('none' == display)
+        $link.children(':first').show();
       self.album.push({
         link: $link.attr('href'),
         title: $link.attr('data-title') || $link.attr('title'),
         transform: $link.children(':first').css('transform')
       });
+      if('none' == display)
+        $link.children(':first').hide();
     }
 
     // Support both data-lightbox attribute and rel attribute implementations
