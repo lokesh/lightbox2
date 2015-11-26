@@ -228,14 +228,23 @@
       var maxImageWidth;
       var windowHeight;
       var windowWidth;
+      var destWidth;
+      var destHeight;
 
       $image.attr('src', self.album[imageNumber].link);
-      $image.css('transform', self.album[imageNumber].transform);
 
       $preloader = $(preloader);
 
-      $image.width(preloader.width);
-      $image.height(preloader.height);
+      if('none' == self.album[imageNumber].transform)
+      {
+
+        $image.width(preloader.width);
+        $image.height(preloader.height);
+
+    }
+
+    destWidth = $image.width();
+    destHeight = $image.height();
 
       if (self.options.fitImagesInViewport) {
         // Fit image inside the viewport.
@@ -258,18 +267,36 @@
         if ((preloader.width > maxImageWidth) || (preloader.height > maxImageHeight)) {
           if ((preloader.width / maxImageWidth) > (preloader.height / maxImageHeight)) {
             imageWidth  = maxImageWidth;
+            destWidth = imageWidth;
             imageHeight = parseInt(preloader.height / (preloader.width / imageWidth), 10);
+            destHeight = imageHeight;
+            if('none' != self.album[imageNumber].transform)
+            {
+              imageWidth = imageHeight;
+              imageHeight = destWidth;
+            }
             $image.width(imageWidth);
             $image.height(imageHeight);
           } else {
             imageHeight = maxImageHeight;
+            destHeight = imageHeight;
             imageWidth = parseInt(preloader.width / (preloader.height / imageHeight), 10);
+            destWidth = imageWidth;
+            if('none' != self.album[imageNumber].transform)
+            {
+              imageWidth = imageHeight;
+              imageHeight = destWidth;
+            }
             $image.width(imageWidth);
             $image.height(imageHeight);
           }
         }
       }
-      self.sizeContainer($image.width(), $image.height());
+
+      //Translate the image to the center of the preloader and add the original transform
+      $image.css('transform', 'translate(' + (destWidth/2 - $image.width()/2) + 'px, ' + 
+        (destHeight/2 - $image.height()/2) + 'px) ' + self.album[imageNumber].transform);
+      self.sizeContainer(destWidth, destHeight);
     };
 
     preloader.setData = function(element) {
