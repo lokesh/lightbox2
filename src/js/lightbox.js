@@ -48,7 +48,8 @@
     positionFromTop: 50,
     resizeDuration: 700,
     showImageNumberLabel: true,
-    wrapAround: false
+    wrapAround: false,
+    overlayLocked: false
   };
 
   Lightbox.prototype.option = function(options) {
@@ -194,6 +195,11 @@
       top: top + 'px',
       left: left + 'px'
     }).fadeIn(this.options.fadeDuration);
+
+    // set overlay locked
+    if (this.options.overlayLocked) {
+      $('body').addClass('overlay-locked');
+    }
 
     this.changeImage(imageNumber);
   };
@@ -438,6 +444,9 @@
     $('select, object, embed').css({
       visibility: 'visible'
     });
+    if (this.options.overlayLocked) {
+      $('body').removeClass('overlay-locked');
+    }
   };
 
   return new Lightbox();
