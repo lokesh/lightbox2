@@ -70,7 +70,6 @@
   "disallowTrailingWhitespace": true,
   "disallowTrailingComma": true,
   "requireLineFeedAtFileEnd": true,
-  "requireCapitalizedConstructors": true,
-  "validateLineBreaks": "LF"
+  "requireCapitalizedConstructors": true
 }
 
