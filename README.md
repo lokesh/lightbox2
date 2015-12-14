@@ -36,7 +36,8 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 
 ### v2.8.2 - 2015-07-09
 
-- [Add] - Add option to disable vertical scrolling [#487](https://github.com/lokesh/lightbox2/pull/487)
+- [Add] - Add option to disable vertical scrolling [#487](https://github.com/lokesh/lightbox2/pull/487) Thanks [blacksunshineCoding](https://github.com/blacksunshineCoding)
+- [Fix] - When horizontal scrolling is on page the overlay is not covering entire page [#485](https://github.com/lokesh/lightbox2/pull/485) Thanks [@manuel-io](https://github.com/manuel-io)
 
 ### v2.8.1 - 2015-07-09
 
