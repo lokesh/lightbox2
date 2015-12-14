@@ -49,7 +49,7 @@
     resizeDuration: 700,
     showImageNumberLabel: true,
     wrapAround: false,
-    overlayLocked: false
+    disableScrolling: false
   };
 
   Lightbox.prototype.option = function(options) {
@@ -196,9 +196,9 @@
       left: left + 'px'
     }).fadeIn(this.options.fadeDuration);
 
-    // set overlay locked
-    if (this.options.overlayLocked) {
-      $('body').addClass('overlay-locked');
+    // Disable scrolling of the page while open
+    if (this.options.disableScrolling) {
+      $('body').addClass('lb-disable-scrolling');
     }
 
     this.changeImage(imageNumber);
@@ -444,8 +444,8 @@
     $('select, object, embed').css({
       visibility: 'visible'
     });
-    if (this.options.overlayLocked) {
-      $('body').removeClass('overlay-locked');
+    if (this.options.disableScrolling) {
+      $('body').removeClass('lb-disable-scrolling');
     }
   };
 

@@ -14,7 +14,7 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 - **Maintenance.** Get open Issues and PRs number down.
 - **Mobile experience.** Redo animations and interactions from scratch and include gesture support.
 
-### v3.0 - IN PLANNING PHASE
+### v3.0 - In Brainstorming Phase
 
 - Add touch gesture support.
 - Optimize layout for mobile.
@@ -33,6 +33,10 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 
 
 ## Changelog
+
+### v2.8.2 - 2015-07-09
+
+- [Add] - Add option to disable vertical scrolling [#487](https://github.com/lokesh/lightbox2/pull/487)
 
 ### v2.8.1 - 2015-07-09
 

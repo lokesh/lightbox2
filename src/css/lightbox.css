@@ -4,8 +4,8 @@ body:after {
   display: none;
 }
 
-body.overlay-locked {
-  overflow-y: hidden;
+body.lb-disable-scrolling {
+  overflow: hidden;
 }
 
 .lightboxOverlay {
