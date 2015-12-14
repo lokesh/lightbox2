@@ -34,10 +34,11 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 
 ## Changelog
 
-### v2.8.2 - 2015-07-09
+### v2.8.2 - UNRELEASED
 
-- [Add] - Add option to disable vertical scrolling [#487](https://github.com/lokesh/lightbox2/pull/487) Thanks [blacksunshineCoding](https://github.com/blacksunshineCoding)
-- [Fix] - When horizontal scrolling is on page the overlay is not covering entire page [#485](https://github.com/lokesh/lightbox2/pull/485) Thanks [@manuel-io](https://github.com/manuel-io)
+- [Add] Add option to disable vertical scrolling [#487](https://github.com/lokesh/lightbox2/pull/487) Thanks [blacksunshineCoding](https://github.com/blacksunshineCoding)
+- [Fix] When horizontal scrolling is on page the overlay is not covering entire page [#485](https://github.com/lokesh/lightbox2/pull/485) Thanks [@manuel-io](https://github.com/manuel-io)
+- [Change] Add css minify task to Gruntfile.js and removedlegacy css vendor prefixes for border-radius. [#470](https://github.com/lokesh/lightbox2/pull/470) Thanks [ajerez](https://github.com/ajerez)
 
 ### v2.8.1 - 2015-07-09
 
