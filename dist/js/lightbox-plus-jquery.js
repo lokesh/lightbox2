@@ -9210,7 +9210,7 @@ return jQuery;
 }));
 
 /*!
- * Lightbox v2.8.1
+ * Lightbox v2.8.2
  * by Lokesh Dhakar
  *
  * More info:
@@ -9259,7 +9259,8 @@ return jQuery;
     positionFromTop: 50,
     resizeDuration: 700,
     showImageNumberLabel: true,
-    wrapAround: false
+    wrapAround: false,
+    disableScrolling: false
   };
 
   Lightbox.prototype.option = function(options) {
@@ -9406,6 +9407,11 @@ return jQuery;
       left: left + 'px'
     }).fadeIn(this.options.fadeDuration);
 
+    // Disable scrolling of the page while open
+    if (this.options.disableScrolling) {
+      $('body').addClass('lb-disable-scrolling');
+    }
+
     this.changeImage(imageNumber);
   };
 
@@ -9483,7 +9489,7 @@ return jQuery;
   // Stretch overlay to fit the viewport
   Lightbox.prototype.sizeOverlay = function() {
     this.$overlay
-      .width($(window).width())
+      .width($(document).width())
       .height($(document).height());
   };
 
@@ -9649,6 +9655,9 @@ return jQuery;
     $('select, object, embed').css({
       visibility: 'visible'
     });
+    if (this.options.disableScrolling) {
+      $('body').removeClass('lb-disable-scrolling');
+    }
   };
 
   return new Lightbox();

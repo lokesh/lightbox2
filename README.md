@@ -39,7 +39,7 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 
 ## Changelog
 
-### v2.8.2 - UNRELEASED
+### v2.8.2 - 2015-12-13
 
 - [Add] npm support. ```npm install --save lightbox2```
 - [Add] Add option to disable vertical scrolling [#487](https://github.com/lokesh/lightbox2/pull/487) Thanks [blacksunshineCoding](https://github.com/blacksunshineCoding)
