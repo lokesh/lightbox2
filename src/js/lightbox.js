@@ -235,7 +235,7 @@
 
       $preloader = $(preloader);
 
-      if('none' == self.album[imageNumber].transform)
+      if('none' == self.album[imageNumber].transform || 'matrix(1, 0, 0, 1, 0, 0)' == self.album[imageNumber].transform)
       {
 
         $image.width(preloader.width);
@@ -270,7 +270,7 @@
             destWidth = imageWidth;
             imageHeight = parseInt(preloader.height / (preloader.width / imageWidth), 10);
             destHeight = imageHeight;
-            if('none' != self.album[imageNumber].transform)
+            if('none' != self.album[imageNumber].transform && 'matrix(1, 0, 0, 1, 0, 0)' != self.album[imageNumber].transform)
             {
               imageWidth = imageHeight;
               imageHeight = destWidth;
@@ -282,7 +282,7 @@
             destHeight = imageHeight;
             imageWidth = parseInt(preloader.width / (preloader.height / imageHeight), 10);
             destWidth = imageWidth;
-            if('none' != self.album[imageNumber].transform)
+            if('none' != self.album[imageNumber].transform && 'matrix(1, 0, 0, 1, 0, 0)' != self.album[imageNumber].transform)
             {
               imageWidth = imageHeight;
               imageHeight = destWidth;
