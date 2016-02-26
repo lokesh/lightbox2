@@ -63,6 +63,7 @@
   Lightbox.prototype.init = function() {
     this.enable();
     this.build();
+    this.wordpress();
   };
 
   // Loop through anchors and areamaps looking for either data-lightbox attributes or rel attributes
@@ -135,6 +136,20 @@
       self.end();
       return false;
     });
+  };
+
+  // Lightbox to WordPress gallery
+  Lightbox.prototype.wordpress = function() {
+    if ($('meta[name=generator][content*=WordPress]').length === 1) {
+      $('.gallery').each(function () {
+        var id = $(this).attr('id');
+        $(this).find('a').each(function () {
+          if ($(this).attr('href').indexOf('attachment_id') === -1) {
+            $(this).attr('data-lightbox', id);
+          }
+        });
+      });
+    }
   };
 
   // Show overlay and lightbox. If the image is part of a set, add siblings to album array.
