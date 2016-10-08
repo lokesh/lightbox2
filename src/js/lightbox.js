@@ -448,6 +448,12 @@
       $('body').removeClass('lb-disable-scrolling');
     }
   };
+  
+  Lightbox.prototype.reinit = function(){
+	  this.end();
+	  $("#lightbox,#lightboxOverlay").remove();
+	  this.init();
+  };
 
   return new Lightbox();
 }));
