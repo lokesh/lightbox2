@@ -49,7 +49,9 @@
     resizeDuration: 700,
     showImageNumberLabel: true,
     wrapAround: false,
-    disableScrolling: false
+    disableScrolling: false,
+    // Option to sanitize title
+    sanitizeTitle: false
   };
 
   Lightbox.prototype.option = function(options) {
@@ -369,9 +371,13 @@
     // Thanks Nate Wright for the fix. @https://github.com/NateWr
     if (typeof this.album[this.currentImageIndex].title !== 'undefined' &&
       this.album[this.currentImageIndex].title !== '') {
-      this.$lightbox.find('.lb-caption')
-        .html(this.album[this.currentImageIndex].title)
-        .fadeIn('fast')
+      var $caption = this.$lightbox.find('.lb-caption');
+      if (this.options.sanitizeTitle) {
+        $caption.text(this.album[this.currentImageIndex].title);
+      } else {
+        $caption.html(this.album[this.currentImageIndex].title);
+      }
+      $caption.fadeIn('fast')
         .find('a').on('click', function(event) {
           if ($(this).attr('target') !== undefined) {
             window.open($(this).attr('href'), $(this).attr('target'));
