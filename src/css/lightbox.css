@@ -33,6 +33,7 @@ body.lb-disable-scrolling {
   display: block;
   height: auto;
   max-width: inherit;
+  max-height: none;
   border-radius: 3px;
 }
 
