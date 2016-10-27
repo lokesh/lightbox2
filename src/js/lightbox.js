@@ -61,8 +61,12 @@
   };
 
   Lightbox.prototype.init = function() {
-    this.enable();
-    this.build();
+    var self = this;
+  	// Both enable and build methods require the body tag to be in the DOM.
+    $(document).ready(function() {
+		self.enable();
+		self.build();
+    });
   };
 
   // Loop through anchors and areamaps looking for either data-lightbox attributes or rel attributes
