@@ -28,16 +28,20 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 - Use inline SVG for UI elements.
 - Do not initialize automatically and allow multiple instances.
 - Add event handlers.
+- Allow setting options on the fly.
 - Allow the setting of options from HTML.
 - Allow instantiation with jQuery plugin syntax.
-- If one of the two options, maxWidth or maxHeight, is set, maintain aspect ratio.
 - Evaluate start, end, and transition animations.
 - Evaluate preloading and caching.
 - Evaluate droppping jQuery requirement.
 - If user attempts to go forward when at end of image set, animation (shake?) indicating the end or option to close Lightbox.
-
+- Allow placement inside of a specified element? Orig feature requester was dealing with iframe.
 
 ## Changelog
+
+### v2.9.0 - WIP
+
+- [Fix] Allow loading of lightbox.js anywhere on page. Prev requirement was at the end of the body tag.
 
 ### v2.8.2 - 2015-12-13
 
