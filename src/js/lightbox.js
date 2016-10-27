@@ -50,7 +50,14 @@
     showImageNumberLabel: true,
     wrapAround: false,
     disableScrolling: false,
-    // Option to sanitize title
+    /*
+    Sanitize Title
+    If the caption data is trusted, for example you are hardcoding it in, then leave this to false.
+    This will free you to add html tags, such as links, in the caption.
+
+    If the caption data is user submitted or from some other untrusted source, then set this to true
+    to prevent xss and other injection attacks.
+     */
     sanitizeTitle: false
   };
 
