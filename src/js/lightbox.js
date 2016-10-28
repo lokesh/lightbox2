@@ -241,6 +241,8 @@
 
       $image.width(preloader.width);
       $image.height(preloader.height);
+      imageWidth = preloader.width;
+      imageHeight = preloader.height;
 
       if (self.options.fitImagesInViewport) {
         // Fit image inside the viewport.
@@ -274,7 +276,7 @@
           }
         }
       }
-      self.sizeContainer($image.width(), $image.height());
+      self.sizeContainer(imageWidth, imageHeight);
     };
 
     preloader.src          = this.album[imageNumber].link;
@@ -292,8 +294,8 @@
   Lightbox.prototype.sizeContainer = function(imageWidth, imageHeight) {
     var self = this;
 
-    var oldWidth  = this.$outerContainer.outerWidth();
-    var oldHeight = this.$outerContainer.outerHeight();
+    var oldWidth  = this.$outerContainer.width();
+    var oldHeight = this.$outerContainer.height();
     var newWidth  = imageWidth + this.containerLeftPadding + this.containerRightPadding;
     var newHeight = imageHeight + this.containerTopPadding + this.containerBottomPadding;
 
@@ -318,7 +320,7 @@
 
   // Display the image and its details and begin preload neighboring images.
   Lightbox.prototype.showImage = function() {
-    this.$lightbox.find('.lb-loader').stop(true).hide();
+    this.$lightbox.find('.lb-loader').hide();
     this.$lightbox.find('.lb-image').fadeIn('slow');
 
     this.updateNav();
