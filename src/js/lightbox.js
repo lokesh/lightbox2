@@ -73,8 +73,8 @@
     var self = this;
   	// Both enable and build methods require the body tag to be in the DOM.
     $(document).ready(function() {
-		self.enable();
-		self.build();
+		  self.enable();
+		  self.build();
     });
   };
 
@@ -99,13 +99,23 @@
     this.$overlay        = $('#lightboxOverlay');
     this.$outerContainer = this.$lightbox.find('.lb-outerContainer');
     this.$container      = this.$lightbox.find('.lb-container');
+    this.$image          = this.$lightbox.find('.lb-image');
     this.$nav            = this.$lightbox.find('.lb-nav')
 
     // Store css values for future lookup
-    this.containerTopPadding = parseInt(this.$container.css('padding-top'), 10);
-    this.containerRightPadding = parseInt(this.$container.css('padding-right'), 10);
-    this.containerBottomPadding = parseInt(this.$container.css('padding-bottom'), 10);
-    this.containerLeftPadding = parseInt(this.$container.css('padding-left'), 10);
+    this.containerPadding = {
+      top: parseInt(this.$container.css('padding-top'), 10),
+      right: parseInt(this.$container.css('padding-right'), 10),
+      bottom: parseInt(this.$container.css('padding-bottom'), 10),
+      left: parseInt(this.$container.css('padding-left'), 10)
+    };
+
+    this.imageBorderWidth = {
+      top: parseInt(this.$image.css('border-top-width'), 10),
+      right: parseInt(this.$image.css('border-right-width'), 10),
+      bottom: parseInt(this.$image.css('border-bottom-width'), 10),
+      left: parseInt(this.$image.css('border-left-width'), 10)
+    };
 
     // Attach event handlers to the newly minted DOM elements
     this.$overlay.hide().on('click', function() {
@@ -282,8 +292,8 @@
 
         windowWidth    = $(window).width();
         windowHeight   = $(window).height();
-        maxImageWidth  = windowWidth - self.containerLeftPadding - self.containerRightPadding - 20;
-        maxImageHeight = windowHeight - self.containerTopPadding - self.containerBottomPadding - 120;
+        maxImageWidth  = windowWidth - self.containerPadding.left - self.containerPadding.right - self.imageBorderWidth.left - self.imageBorderWidth.right - 20;
+        maxImageHeight = windowHeight - self.containerPadding.top - self.containerPadding.bottom - self.imageBorderWidth.top - self.imageBorderWidth.bottom - 120;
 
         // Check if image size is larger then maxWidth|maxHeight in settings
         if (self.options.maxWidth && self.options.maxWidth < maxImageWidth) {
@@ -328,8 +338,8 @@
 
     var oldWidth  = this.$outerContainer.outerWidth();
     var oldHeight = this.$outerContainer.outerHeight();
-    var newWidth  = imageWidth + this.containerLeftPadding + this.containerRightPadding;
-    var newHeight = imageHeight + this.containerTopPadding + this.containerBottomPadding;
+    var newWidth  = imageWidth + this.containerPadding.left + this.containerPadding.right + this.imageBorderWidth.left + this.imageBorderWidth.right;
+    var newHeight = imageHeight + this.containerPadding.top + this.containerPadding.bottom + this.imageBorderWidth.top + this.imageBorderWidth.bottom;
 
     function postResize() {
       self.$lightbox.find('.lb-dataContainer').width(newWidth);
