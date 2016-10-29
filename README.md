@@ -56,6 +56,7 @@ API
 
 - [Fix] Allow loading of lightbox.js anywhere on page. Prev requirement was at the end of the body tag.
 - [Change] Right-clicking image now shows context menu for image.
+- [Change] Allow controlling of image border with a simpler css border vs a parent container padding _hack_.
 
 ### v2.8.2 - 2015-12-13
 
