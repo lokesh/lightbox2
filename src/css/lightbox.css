@@ -178,6 +178,10 @@ body.lb-disable-scrolling {
   line-height: 1em;
 }
 
+.lb-data .lb-caption a {
+  color: #4ae;
+}
+
 .lb-data .lb-number {
   display: block;
   clear: left;
