@@ -173,7 +173,7 @@
       if (event.which === 3) {
         self.$nav.css('pointer-events', 'none');
 
-        self.$lightbox.on('contextmenu', function() {
+        self.$lightbox.one('contextmenu', function() {
           setTimeout(function() {
               this.$nav.css('pointer-events', 'auto');
           }.bind(self), 0)
