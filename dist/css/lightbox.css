@@ -33,7 +33,11 @@ body.lb-disable-scrolling {
   display: block;
   height: auto;
   max-width: inherit;
+  max-height: none;
   border-radius: 3px;
+
+  /* Image border */
+  border: 4px solid white;
 }
 
 .lightbox a img {
@@ -42,22 +46,21 @@ body.lb-disable-scrolling {
 
 .lb-outerContainer {
   position: relative;
-  background-color: white;
   *zoom: 1;
   width: 250px;
   height: 250px;
   margin: 0 auto;
   border-radius: 4px;
+
+  /* Background color behind image.
+     This is visible during transitions. */
+  background-color: white;
 }
 
 .lb-outerContainer:after {
   content: "";
   display: table;
   clear: both;
-}
-
-.lb-container {
-  padding: 4px;
 }
 
 .lb-loader {
@@ -173,6 +176,10 @@ body.lb-disable-scrolling {
   font-size: 13px;
   font-weight: bold;
   line-height: 1em;
+}
+
+.lb-data .lb-caption a {
+  color: #4ae;
 }
 
 .lb-data .lb-number {

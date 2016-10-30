@@ -1,5 +1,5 @@
 /*!
- * Lightbox v2.8.2
+ * Lightbox v2.9.0
  * by Lokesh Dhakar
  *
  * More info:
@@ -72,10 +72,10 @@
 
   Lightbox.prototype.init = function() {
     var self = this;
-  	// Both enable and build methods require the body tag to be in the DOM.
+    // Both enable and build methods require the body tag to be in the DOM.
     $(document).ready(function() {
-		  self.enable();
-		  self.build();
+      self.enable();
+      self.build();
     });
   };
 
@@ -101,7 +101,7 @@
     this.$outerContainer = this.$lightbox.find('.lb-outerContainer');
     this.$container      = this.$lightbox.find('.lb-container');
     this.$image          = this.$lightbox.find('.lb-image');
-    this.$nav            = this.$lightbox.find('.lb-nav')
+    this.$nav            = this.$lightbox.find('.lb-nav');
 
     // Store css values for future lookup
     this.containerPadding = {
@@ -176,10 +176,10 @@
         self.$lightbox.one('contextmenu', function() {
           setTimeout(function() {
               this.$nav.css('pointer-events', 'auto');
-          }.bind(self), 0)
+          }.bind(self), 0);
         });
       }
-    })
+    });
 
 
     this.$lightbox.find('.lb-loader, .lb-close').on('click', function() {
