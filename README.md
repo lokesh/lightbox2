@@ -36,6 +36,7 @@ The goal of this script from it's beginnings till today is to to provide a bette
 - Should the dev be able to choose the position of the caption, close button, and nav controls?
 - Optimize layout for mobile.
 - Optimize layout for screens of varying densities.
+- Should the close button still live in the bottom right corner?
 
 **Animations**
 - Evaluate start, end, and transition animations.
@@ -48,6 +49,7 @@ The goal of this script from it's beginnings till today is to to provide a bette
 - Review if and how images should be preloaded
 
 **Accessibility**
+- Should opening lightbox update the url? and should this url be parsed on page load to show Lightbox automatically?
 - Review alt attributes.
 - Review ARIA roles.
 - Review constrast ratios.
@@ -67,7 +69,7 @@ The goal of this script from it's beginnings till today is to to provide a bette
 
 ## Changelog
 
-### v2.9.0 - WIP
+### v2.9.0 - 2016-10-30
 
 - [Fix] Allow loading of lightbox.js anywhere on page. Prev requirement was at the end of the body tag. https://github.com/lokesh/lightbox2/commit/7047214f77cfc8f892e8513426b57d45bf29e9cd
 - [Add] Add imageFadeDuration option. https://github.com/lokesh/lightbox2/commit/6d5f99a65f189a5d2bd7bbfac4682fe36e62871e
