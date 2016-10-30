@@ -13,38 +13,53 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 
 ### Actively being worked on
 
-- **Maintenance.** Get open Issues and PRs number down.
+- **Maintenance.** Geting open Issues and PRs number down. Not working on new features for v2.x.
 
-### Not on the roadmap
+### Features *NOT* on the roadmap
 
-- **HTML or video content.** The goal of the script from the start has been to provide a better image viewing experience and I am planning on staying focused on that vision. Don't worry though there are plenty of alternative scripts a google away for those who need HTML or video content support.
+The goal of this script from it's beginnings till today is to to provide a better *image viewing experience*.
+
+- **HTML or video content.**  If you need to show html or video content, I recommend googling for an alternative script as there are many options.
+- **Social sharing buttons.** 
 
 ### v3.0 - In Brainstorming Phase
 
-Interactions
+**Interactions**
 - Add touch gesture support.
 - Exploring using tilt gesture on mobile devices with extra-wide images.
 - If user attempts to go forward when at end of image set, animation (shake?) indicating the end or option to close Lightbox.
+- Make sure right-click/long pressing works to access the image's context menu.
 
-Layout
+**Layout**
+- Allow vertical centering.
+- Update sizing on window resize.
+- Should the dev be able to choose the position of the caption, close button, and nav controls?
 - Optimize layout for mobile.
 - Optimize layout for screens of varying densities.
 
-Animations
+**Animations**
 - Evaluate start, end, and transition animations.
-- Use inline SVG for UI elements.
-
-Assets
 - Rewrite animations for performance and flexibility.
 
-Accessibility
-- Review
+**Assets**
+- Use inline SVG for UI elements.
 
-API
+**Caching**
+- Review if and how images should be preloaded
+
+**Accessibility**
+- Review alt attributes.
+- Review ARIA roles.
+- Review constrast ratios.
+- Review keyboard input and tabbing.
+- Review click/touch target size.
+- Test with screen reader.
+
+**API**
 - Do not initialize automatically and allow multiple instances.
 - Add event handlers.
 - Allow setting options on the fly.
-- Allow the setting of options from HTML.
+- Allow the setting of options from HTML?
 - Allow instantiation with jQuery plugin syntax.
 - Evaluate preloading and caching.
 - Evaluate droppping jQuery requirement.
