@@ -69,10 +69,10 @@ The goal of this script from it's beginnings till today is to to provide a bette
 
 ### v2.9.0 - WIP
 
-- [Fix] Allow loading of lightbox.js anywhere on page. Prev requirement was at the end of the body tag. 7047214f77cfc8f892e8513426b57d45bf29e9cd
-- [Add] Add imageFadeDuration option. https://github.com/lokesh/lightbox2/commit/6d5f99a65f189a5d2bd7bbfac4682fe36e62871e
-- [Change] Right-clicking image now shows context menu for image. https://github.com/lokesh/lightbox2/commit/363c3cb8af8fae1b6f95d6679df976022290f878
-- [Change] Allow controlling of image border with a simpler css border vs a parent container padding _hack_. https://github.com/lokesh/lightbox2/commit/214361297f1dd5f0c19c1d80ff37c398cdda55cb
+- [Fix] Allow loading of lightbox.js anywhere on page. Prev requirement was at the end of the body tag. [Commit](https://github.com/lokesh/lightbox2/commit/7047214f77cfc8f892e8513426b57d45bf29e9cd)
+- [Add] Add imageFadeDuration option. [Commit](https://github.com/lokesh/lightbox2/commit/6d5f99a65f189a5d2bd7bbfac4682fe36e62871e)
+- [Change] Right-clicking image now shows context menu for image. [Commit](https://github.com/lokesh/lightbox2/commit/363c3cb8af8fae1b6f95d6679df976022290f878)
+- [Change] Allow controlling of image border with a simpler css border vs a parent container padding _hack_. [Commit](https://github.com/lokesh/lightbox2/commit/214361297f1dd5f0c19c1d80ff37c398cdda55cb)
 
 ### v2.8.2 - 2015-12-13
 
