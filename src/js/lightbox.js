@@ -41,8 +41,9 @@
   Lightbox.defaults = {
     albumLabel: 'Image %1 of %2',
     alwaysShowNavOnTouchDevices: false,
-    fadeDuration: 500,
+    fadeDuration: 600,
     fitImagesInViewport: true,
+    imageFadeDuration: 600,
     // maxWidth: 800,
     // maxHeight: 600,
     positionFromTop: 50,
@@ -363,7 +364,7 @@
   // Display the image and its details and begin preload neighboring images.
   Lightbox.prototype.showImage = function() {
     this.$lightbox.find('.lb-loader').stop(true).hide();
-    this.$lightbox.find('.lb-image').fadeIn('slow');
+    this.$lightbox.find('.lb-image').fadeIn(this.options.imageFadeDuration);
 
     this.updateNav();
     this.updateDetails();
