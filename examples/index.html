@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Lightbox Example</title>
-  <link rel="stylesheet" href="../dist/css/lightbox.min.css">
+  <link rel="stylesheet" href="../src/css/lightbox.css">
 </head>
 <body>
 
@@ -31,7 +31,13 @@
     </p>
   </section>
 
-  <script src="../dist/js/lightbox-plus-jquery.min.js"></script>
+  <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="../src/js/lightbox.js"></script>
+  <script>
+  lightbox.option({
+    'zoomable': true
+  })
+  </script>
 
 </body>
 </html>
