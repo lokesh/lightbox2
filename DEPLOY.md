@@ -5,3 +5,4 @@
 - grunt build
 - Push to Github repo
 - Create a new Github release along with tag. Naming convention for both ```v2.8.1```
+- Run `npm publish`
