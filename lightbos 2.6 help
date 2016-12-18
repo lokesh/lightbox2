@@ -1,0 +1,18 @@
+Problem when mouse over Machine part1 it shows this when mouse points into Machine part1 name.
+
+Machine part1 </br><href=”http://www.xxxx.com.xx/index.php?lang=english&content=ab_contact”> <img src=”thumbnails/contact_us.png"></a>
+
+This is my html code:
+<a class="example-image-link" href="thumbnails/Machine part1.png" rel="lightbox" data-lightbox="example-1" 
+title=" Machine part1</br>&lt;a href=&quot;http://www.compunic.com.tw/index.php?lang=english&content=ab_contact&quot;&gt; &lt;img id=&quot;Imgcontact&quot; src=&quot;thumbnails/contact_us.png&quot;&gt;">
+<span class="FF">Machine part1</span>
+</a><span class="spacer_FF"></span>
+
+
+Also I need to put a clickable images for:
+   contact_us (that link to the website)
+   skype (reaching us via our skype account)
+   email (our email address)
+
+how will I put this data(s) inside the lightbox container?
+Or there is any other way around to have this kind of output using lightbox.
