@@ -8,6 +8,8 @@
  * Copyright 2007, 2015 Lokesh Dhakar
  * Released under the MIT license
  * https://github.com/lokesh/lightbox2/blob/master/LICENSE
+ *
+ * @preserve
  */
 
 // Uses Node, AMD or browser globals to create a module.
@@ -59,7 +61,11 @@
     If the caption data is user submitted or from some other untrusted source, then set this to true
     to prevent xss and other injection attacks.
      */
-    sanitizeTitle: false
+    sanitizeTitle: false,
+    /*
+    Adding a hasVideo option, which is false by default.
+    */
+    hasVideo: false
   };
 
   Lightbox.prototype.option = function(options) {
@@ -102,6 +108,10 @@
     this.$container      = this.$lightbox.find('.lb-container');
     this.$image          = this.$lightbox.find('.lb-image');
     this.$nav            = this.$lightbox.find('.lb-nav');
+
+    if (self.options.hasVideo) {
+      this.$image.after($('<iframe class="lb-video" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>'));
+    }
 
     // Store css values for future lookup
     this.containerPadding = {
@@ -222,11 +232,21 @@
         if ($links[i] === $link[0]) {
           imageNumber = i;
         }
+        if (self.options.hasVideo && typeof $($links[i]).attr('data-video') !== 'undefined' && $($links[i]).attr('data-video') === 'true') {
+          self.album[i].video = true;
+        } else {
+          self.album[i].video = false;
+        }
       }
     } else {
       if ($link.attr('rel') === 'lightbox') {
         // If image is not part of a set
         addToAlbum($link);
+        if (self.options.hasVideo && typeof $link.attr('data-video') !== 'undefined' && $link.attr('data-video') === 'true') {
+            self.album[0].video = true;
+          } else {
+            self.album[0].video = false;
+          }
       } else {
         // If image is part of a set
         $links = $($link.prop('tagName') + '[rel="' + $link.attr('rel') + '"]');
@@ -234,6 +254,11 @@
           addToAlbum($($links[j]));
           if ($links[j] === $link[0]) {
             imageNumber = j;
+          }
+          if (self.options.hasVideo && typeof $($links[j]).attr('data-video') !== 'undefined' && $($links[j]).attr('data-video') === 'true') {
+            self.album[j].video = true;
+          } else {
+            self.album[j].video = false;
           }
         }
       }
@@ -265,9 +290,15 @@
     this.$overlay.fadeIn(this.options.fadeDuration);
 
     $('.lb-loader').fadeIn('slow');
-    this.$lightbox.find('.lb-image, .lb-nav, .lb-prev, .lb-next, .lb-dataContainer, .lb-numbers, .lb-caption').hide();
+    this.$lightbox.find('.lb-image, .lb-video, .lb-nav, .lb-prev, .lb-next, .lb-dataContainer, .lb-numbers, .lb-caption').hide();
 
     this.$outerContainer.addClass('animating');
+
+    if (self.options.hasVideo && self.album[imageNumber].video) {
+        var $video = this.$lightbox.find('.lb-video');
+        $video.attr('src', self.album[imageNumber].link);
+        self.sizeContainer($video.width(), $video.height());
+    }
 
     // When image to show is preloaded, we send the width and height to sizeContainer()
     var preloader = new Image();
@@ -304,7 +335,8 @@
           maxImageHeight = self.options.maxHeight;
         }
 
-        // Is there a fitting issue?
+        // Is the current image's width or height is greater than the maxImageWidth or maxImageHeight
+        // option than we need to size down while maintaining the aspect ratio.
         if ((preloader.width > maxImageWidth) || (preloader.height > maxImageHeight)) {
           if ((preloader.width / maxImageWidth) > (preloader.height / maxImageHeight)) {
             imageWidth  = maxImageWidth;
@@ -321,7 +353,6 @@
       }
       self.sizeContainer($image.width(), $image.height());
     };
-
     preloader.src          = this.album[imageNumber].link;
     this.currentImageIndex = imageNumber;
   };
@@ -364,7 +395,11 @@
   // Display the image and its details and begin preload neighboring images.
   Lightbox.prototype.showImage = function() {
     this.$lightbox.find('.lb-loader').stop(true).hide();
-    this.$lightbox.find('.lb-image').fadeIn(this.options.imageFadeDuration);
+    if (this.options.hasVideo && this.album[this.currentImageIndex].video) {
+        this.$lightbox.find('.lb-video').fadeIn(this.options.imageFadeDuration);
+    } else {
+        this.$lightbox.find('.lb-image').fadeIn(this.options.imageFadeDuration);
+    }
 
     this.updateNav();
     this.updateDetails();
