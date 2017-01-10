@@ -95,7 +95,7 @@
   // Attach event handlers to the new DOM elements. click click click
   Lightbox.prototype.build = function() {
     var self = this;
-    $('<div id="lightboxOverlay" class="lightboxOverlay"></div><div id="lightbox" class="lightbox"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" /><div class="lb-nav"><a class="lb-prev" href="" ></a><a class="lb-next" href="" ></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div>').appendTo($('body'));
+    $('<div id="lightboxOverlay" class="lightboxOverlay"></div><div id="lightbox" class="lightbox"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" /><iframe class="lb-embed" frameborder="0" style="display: block;width: 100%; height: 100%;"></iframe><div class="lb-nav"><a class="lb-prev" href="" ></a><a class="lb-next" href="" ></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div>').appendTo($('body'));
 
     // Cache jQuery objects
     this.$lightbox       = $('#lightbox');
@@ -209,7 +209,8 @@
     function addToAlbum($link) {
       self.album.push({
         link: $link.attr('href'),
-        title: $link.attr('data-title') || $link.attr('title')
+        title: $link.attr('data-title') || $link.attr('title'),
+        video: $link.attr('data-lightbox-video')=="true" ?$link.attr('href'):false
       });
     }
 
@@ -271,61 +272,65 @@
 
     this.$outerContainer.addClass('animating');
 
-    // When image to show is preloaded, we send the width and height to sizeContainer()
-    var preloader = new Image();
-    preloader.onload = function() {
-      var $preloader;
-      var imageHeight;
-      var imageWidth;
-      var maxImageHeight;
-      var maxImageWidth;
-      var windowHeight;
-      var windowWidth;
+     if(self.album[imageNumber].video===false){
+      var preloader = new Image();
+      preloader.onload = function() {
+        var $preloader;
+        var imageHeight;
+        var imageWidth;
+        var maxImageHeight;
+        var maxImageWidth;
+        var windowHeight;
+        var windowWidth;
 
-      $image.attr('src', self.album[imageNumber].link);
+        $image.attr('src', self.album[imageNumber].link);
 
-      $preloader = $(preloader);
+        $preloader = $(preloader);
 
-      $image.width(preloader.width);
-      $image.height(preloader.height);
+        $image.width(preloader.width);
+        $image.height(preloader.height);
 
-      if (self.options.fitImagesInViewport) {
+        if (self.options.fitImagesInViewport) {
         // Fit image inside the viewport.
         // Take into account the border around the image and an additional 10px gutter on each side.
 
         windowWidth    = $(window).width();
         windowHeight   = $(window).height();
-        maxImageWidth  = windowWidth - self.containerPadding.left - self.containerPadding.right - self.imageBorderWidth.left - self.imageBorderWidth.right - 20;
-        maxImageHeight = windowHeight - self.containerPadding.top - self.containerPadding.bottom - self.imageBorderWidth.top - self.imageBorderWidth.bottom - 120;
-
-        // Check if image size is larger then maxWidth|maxHeight in settings
-        if (self.options.maxWidth && self.options.maxWidth < maxImageWidth) {
-          maxImageWidth = self.options.maxWidth;
-        }
-        if (self.options.maxHeight && self.options.maxHeight < maxImageWidth) {
-          maxImageHeight = self.options.maxHeight;
-        }
-
-        // Is the current image's width or height is greater than the maxImageWidth or maxImageHeight
-        // option than we need to size down while maintaining the aspect ratio.
-        if ((preloader.width > maxImageWidth) || (preloader.height > maxImageHeight)) {
-          if ((preloader.width / maxImageWidth) > (preloader.height / maxImageHeight)) {
-            imageWidth  = maxImageWidth;
-            imageHeight = parseInt(preloader.height / (preloader.width / imageWidth), 10);
-            $image.width(imageWidth);
-            $image.height(imageHeight);
-          } else {
-            imageHeight = maxImageHeight;
-            imageWidth = parseInt(preloader.width / (preloader.height / imageHeight), 10);
-            $image.width(imageWidth);
-            $image.height(imageHeight);
-          }
-        }
-      }
-      self.sizeContainer($image.width(), $image.height());
-    };
-
-    preloader.src          = this.album[imageNumber].link;
+        maxImageWidth  = windowWidth - self.containerLeftPadding - self.containerRightPadding - 20;
+			maxImageHeight = windowHeight - self.containerTopPadding - self.containerBottomPadding - 120;
+	
+			// Check if image size is larger then maxWidth|maxHeight in settings
+			if (self.options.maxWidth && self.options.maxWidth < maxImageWidth) {
+			  maxImageWidth = self.options.maxWidth;
+			}
+			if (self.options.maxHeight && self.options.maxHeight < maxImageWidth) {
+			  maxImageHeight = self.options.maxHeight;
+			}
+	
+			// Is there a fitting issue?
+			if ((preloader.width > maxImageWidth) || (preloader.height > maxImageHeight)) {
+			  if ((preloader.width / maxImageWidth) > (preloader.height / maxImageHeight)) {
+				imageWidth  = maxImageWidth;
+				imageHeight = parseInt(preloader.height / (preloader.width / imageWidth), 10);
+				$image.width(imageWidth);
+				$image.height(imageHeight);
+			  } else {
+				imageHeight = maxImageHeight;
+				imageWidth = parseInt(preloader.width / (preloader.height / imageHeight), 10);
+				$image.width(imageWidth);
+				$image.height(imageHeight);
+			  }
+			}
+		  }
+		  self.sizeContainer($image.width(), $image.height());
+		};
+		this.$lightbox.find('.lb-embed').hide();
+		preloader.src          = this.album[imageNumber].link;
+	}else{
+		this.$lightbox.find('.lb-embed').height(this.$lightbox.find('.lb-outerContainer').innerHeight()-8);
+		this.$lightbox.find('.lb-embed').show().attr("src",this.album[imageNumber].video);
+		this.$lightbox.find('.lb-loader').stop(true).hide();
+	}
     this.currentImageIndex = imageNumber;
   };
 
@@ -367,7 +372,10 @@
   // Display the image and its details and begin preload neighboring images.
   Lightbox.prototype.showImage = function() {
     this.$lightbox.find('.lb-loader').stop(true).hide();
-    this.$lightbox.find('.lb-image').fadeIn(this.options.imageFadeDuration);
+    if(this.album[this.currentImageIndex ].video===false){
+		  this.$lightbox.find('.lb-image').fadeIn(this.options.imageFadeDuration);
+	  }
+    
 
     this.updateNav();
     this.updateDetails();
