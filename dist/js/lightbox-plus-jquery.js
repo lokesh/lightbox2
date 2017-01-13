@@ -10357,6 +10357,16 @@ return jQuery;
   // Closing time. :-(
   Lightbox.prototype.end = function () {
     this.disableKeyboardNav();
+    if (this.options.hasVideo) {
+      var $video = this.$lightbox.find('.lb-video');
+      var $lbContainer = this.$lightbox.find('.lb-container');
+      var $hasVideoNav = $lbContainer.hasClass('lb-video-nav');
+      $video.attr('src', '');
+      if ($hasVideoNav) {
+        $lbContainer.removeClass('lb-video-nav');
+      }
+    }
+
     $(window).off('resize', this.sizeOverlay);
     this.$lightbox.fadeOut(this.options.fadeDuration);
     this.$overlay.fadeOut(this.options.fadeDuration);
