@@ -296,12 +296,20 @@
 
     if (self.options.hasVideo) {
       var $video = this.$lightbox.find('.lb-video');
+      var $lbContainer = this.$lightbox.find('.lb-container');
+      var $hasVideoNav = $lbContainer.hasClass('lb-video-nav');
 
       if (self.album[imageNumber].video) {
         $video.attr('src', self.album[imageNumber].link);
         self.sizeContainer($video.width(), $video.height());
+        if (!$hasVideoNav) {
+          $lbContainer.addClass('lb-video-nav');
+        }
       } else {
         $video.attr('src', '');
+        if ($hasVideoNav) {
+          $lbContainer.removeClass('lb-video-nav');
+        }
       }
     }
 
