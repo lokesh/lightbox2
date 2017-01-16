@@ -239,6 +239,21 @@
       }
     }
 
+    var sort = true;
+    while (sort) {
+        sort = false;
+        for (var i = 0; i < self.album.length; i = ++i) {
+            if (self.album.length > i+1) {
+                if (self.album[i+1].order < self.album[i].order) {
+                    var tmp = self.album[i];
+                    self.album[i] = self.album[i+1];
+                    self.album[i+1] = tmp;
+                    sort = true;
+                }
+            }
+        }
+    }
+
     // Position Lightbox
     var top  = $window.scrollTop() + this.options.positionFromTop;
     var left = $window.scrollLeft();
