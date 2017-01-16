@@ -9419,7 +9419,7 @@ return jQuery;
       self.album.push({
         link: $link.attr('href'),
         title: $link.attr('data-title') || $link.attr('title'),
-        order: $link.attr('data-order')
+        order: parseInt($link.attr('data-order'))
       });
     }
 

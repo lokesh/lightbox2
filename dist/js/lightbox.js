@@ -207,7 +207,8 @@
     function addToAlbum($link) {
       self.album.push({
         link: $link.attr('href'),
-        title: $link.attr('data-title') || $link.attr('title')
+        title: $link.attr('data-title') || $link.attr('title'),
+        order: parseInt($link.attr('data-order'))
       });
     }
 
