@@ -42,6 +42,7 @@ body.lb-disable-scrolling {
 
 .lightbox .lb-video {
   border: 4px solid white;
+  box-sizing: content-box;
 }
 
 .lightbox a img {
