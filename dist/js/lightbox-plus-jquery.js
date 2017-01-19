@@ -10098,7 +10098,6 @@ return jQuery;
   // Hide most UI elements in preparation for the animated resizing of the lightbox.
   Lightbox.prototype.changeImage = function (imageNumber) {
     var self = this;
-
     this.disableKeyboardNav();
     var $image = this.$lightbox.find('.lb-image');
 
@@ -10116,10 +10115,14 @@ return jQuery;
 
       if (self.album[imageNumber].video) {
         $video.attr('src', self.album[imageNumber].link);
-        self.sizeContainer($video.width(), $video.height());
+        var $videoWidth = parseInt($video.attr('width'));
+        var $videoHeight = parseInt($video.attr('height'));
+        self.sizeContainer($videoWidth, $videoHeight);
         if (!$hasVideoNav) {
           $lbContainer.addClass('lb-video-nav');
         }
+        this.currentImageIndex = imageNumber;
+        return;
       } else {
         $video.attr('src', '');
         if ($hasVideoNav) {
@@ -10195,7 +10198,6 @@ return jQuery;
   // Animate the size of the lightbox to fit the image we are showing
   Lightbox.prototype.sizeContainer = function (imageWidth, imageHeight) {
     var self = this;
-
     var oldWidth = this.$outerContainer.outerWidth();
     var oldHeight = this.$outerContainer.outerHeight();
     var newWidth = imageWidth + this.containerPadding.left + this.containerPadding.right + this.imageBorderWidth.left + this.imageBorderWidth.right;
