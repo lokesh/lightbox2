@@ -9461,6 +9461,12 @@ return jQuery;
                     self.album[i] = self.album[i+1];
                     self.album[i+1] = tmp;
                     sort = true;
+
+                    if (self.album[i].link == $link.attr('href')) {
+                        imageNumber = i;
+                    } else if (self.album[i+1].link == $link.attr('href')) {
+                        imageNumber = i+1;
+                    }
                 }
             }
         }
