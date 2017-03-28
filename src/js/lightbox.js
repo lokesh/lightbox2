@@ -282,7 +282,10 @@
       var windowHeight;
       var windowWidth;
 
-      $image.attr('src', self.album[imageNumber].link);
+      $image.attr({
+        'src': self.album[imageNumber].link,
+        'alt': self.album[imageNumber].title
+      });
 
       $preloader = $(preloader);
 
