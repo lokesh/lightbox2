@@ -63,7 +63,7 @@
      */
     sanitizeTitle: false,
     /*
-     Adding a hasVideo option, which is false by default.
+     Adding a hasVideo option, which is false by default, turn it to true to enable the video feature.
      */
     hasVideo: false
   };
