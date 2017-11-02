@@ -1,6 +1,6 @@
 /* Preload images */
 body:after {
-  content: url(../images/close.png) url(../images/loading.gif) url(../images/prev.png) url(../images/next.png);
+  content: url(images/close.png) url(images/loading.gif) url(images/prev.png) url(images/next.png);
   display: none;
 }
 
@@ -198,12 +198,19 @@ body.lb-disable-scrolling {
   height: 30px;
 }
 
-.lb-data .lb-close {
+.lb-close {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url(images/close.png) top right no-repeat;
+  font-family: "Comic Sans MS";
+}
+
+.lb-data {
   display: block;
   float: right;
   width: 100%;
   height: 100%;
-  background: url(images/close.png) top right no-repeat;
   text-align: right;
   outline: none;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
