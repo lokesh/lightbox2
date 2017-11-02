@@ -190,12 +190,20 @@ body.lb-disable-scrolling {
   color: #999999;
 }
 
+.lb-close-container {
+  position: absolute;
+  right: 0;
+  top: -37px;
+  width: 30px;
+  height: 30px;
+}
+
 .lb-data .lb-close {
   display: block;
   float: right;
-  width: 30px;
-  height: 30px;
-  background: url(../images/close.png) top right no-repeat;
+  width: 100%;
+  height: 100%;
+  background: url(images/close.png) top right no-repeat;
   text-align: right;
   outline: none;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
