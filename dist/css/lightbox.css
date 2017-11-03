@@ -1,6 +1,6 @@
 /* Preload images */
 body:after {
-  content: url(../images/close.png) url(../images/loading.gif) url(../images/prev.png) url(../images/next.png);
+  content: url(images/close.png) url(images/loading.gif) url(images/prev.png) url(images/next.png);
   display: none;
 }
 
@@ -190,12 +190,27 @@ body.lb-disable-scrolling {
   color: #999999;
 }
 
-.lb-data .lb-close {
-  display: block;
-  float: right;
+.lb-close-container {
+  position: absolute;
+  right: 0;
+  top: -37px;
   width: 30px;
   height: 30px;
-  background: url(../images/close.png) top right no-repeat;
+}
+
+.lb-close {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url(images/close.png) top right no-repeat;
+  font-family: "Comic Sans MS";
+}
+
+.lb-data {
+  display: block;
+  float: right;
+  width: 100%;
+  height: 100%;
   text-align: right;
   outline: none;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
