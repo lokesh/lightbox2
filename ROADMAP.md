@@ -12,6 +12,9 @@ The goal of this script from it's beginnings till today is to to provide a bette
 - **HTML or video content.**  If you need to show html or video content, I recommend googling for an alternative script as there are many options.
 - **Social sharing buttons.**
 
+**Image Support**
+- Investigate `srcset` and `<picture>`
+
 **Interactions**
 - Add touch gesture support.
 - Exploring using tilt gesture on mobile devices with extra-wide images.
