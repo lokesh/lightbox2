@@ -207,8 +207,9 @@
     var imageNumber = 0;
 
     function addToAlbum($link) {
+      var src = $link.find('img')[0].currentSrc;
       self.album.push({
-        link: $link.attr('href'),
+        link: src || $link.attr('href'),
         title: $link.attr('data-title') || $link.attr('title')
       });
     }
