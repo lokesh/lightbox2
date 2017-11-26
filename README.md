@@ -10,3 +10,8 @@ Lightbox is small javascript library used to overlay images on top of the curren
 - **License.** Lightbox is licensed under the MIT License. [Learn more about the license.](http://lokeshdhakar.com/projects/lightbox2/#license)
 
 by [Lokesh Dhakar](http://www.lokeshdhakar.com)
+
+### Info for Maintainers
+
+- **Release instructions.** See [DEPLOY.md](https://github.com/lokesh/lightbox2/blob/master/DEPLOY.md).
+- **Issues and PRs requiring review.** See items tagged with [\[status\] needs review](https://github.com/lokesh/lightbox2/labels/%5Bstatus%5D%20needs%20review)
