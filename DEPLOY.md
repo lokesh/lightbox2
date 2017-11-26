@@ -12,3 +12,4 @@
 
 ### Maintenance and Docs
 - **GH clean-up.** Close out issues with `[status] pending release`.
+- **Lightbox Site.** If there are any changes to the options, don't forget to update the [Lightbox Site](http://localhost:8000/dist/#options). The code lives in a separate repo, [lightbox2-site](https://github.com/lokesh/lightbox2-site/).
