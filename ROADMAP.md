@@ -39,6 +39,10 @@ The goal of this script from it's beginnings till today is to to provide a bette
 **Caching**
 - Review if and how images should be preloaded
 
+**Error Handling**
+- What happens when an image url is incorrect?
+- What happens when an image takes too long to load?
+
 **Accessibility**
 - Should opening lightbox update the url? and should this url be parsed on page load to show Lightbox automatically?
 - Review alt attributes.
