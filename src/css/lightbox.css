@@ -1,15 +1,9 @@
-/* Preload images */
-body:after {
-  content: url(../images/close.png) url(../images/loading.gif) url(../images/prev.png) url(../images/next.png);
-  display: none;
-}
-
 html.lb-disable-scrolling {
+  overflow: hidden;
   /* Position fixed required for iOS. Just putting overflow: hidden; on the body is not enough. */
   position: fixed;
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
 }
 
 .lightboxOverlay {
