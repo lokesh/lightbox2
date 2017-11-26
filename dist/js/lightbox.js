@@ -1,13 +1,15 @@
 /*!
- * Lightbox v2.9.0
+ * Lightbox v2.10.0
  * by Lokesh Dhakar
  *
  * More info:
  * http://lokeshdhakar.com/projects/lightbox2/
  *
- * Copyright 2007, 2015 Lokesh Dhakar
+ * Copyright 2007, 2018 Lokesh Dhakar
  * Released under the MIT license
  * https://github.com/lokesh/lightbox2/blob/master/LICENSE
+ *
+ * @preserve
  */
 
 // Uses Node, AMD or browser globals to create a module.
@@ -92,6 +94,10 @@
   // Build html for the lightbox and the overlay.
   // Attach event handlers to the new DOM elements. click click click
   Lightbox.prototype.build = function() {
+    if ($('#lightbox').length > 0) {
+        return;
+    }
+
     var self = this;
     $('<div id="lightboxOverlay" class="lightboxOverlay"></div><div id="lightbox" class="lightbox"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" /><div class="lb-nav"><a class="lb-prev" href="" ></a><a class="lb-next" href="" ></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div>').appendTo($('body'));
 
@@ -206,6 +212,7 @@
 
     function addToAlbum($link) {
       self.album.push({
+        alt: $link.attr('data-alt'),
         link: $link.attr('href'),
         title: $link.attr('data-title') || $link.attr('title')
       });
@@ -249,7 +256,7 @@
 
     // Disable scrolling of the page while open
     if (this.options.disableScrolling) {
-      $('body').addClass('lb-disable-scrolling');
+      $('html').addClass('lb-disable-scrolling');
     }
 
     this.changeImage(imageNumber);
@@ -280,7 +287,10 @@
       var windowHeight;
       var windowWidth;
 
-      $image.attr('src', self.album[imageNumber].link);
+      $image.attr({
+        'alt': self.album[imageNumber].alt,
+        'src': self.album[imageNumber].link
+      });
 
       $preloader = $(preloader);
 
@@ -304,7 +314,8 @@
           maxImageHeight = self.options.maxHeight;
         }
 
-        // Is there a fitting issue?
+        // Is the current image's width or height is greater than the maxImageWidth or maxImageHeight
+        // option than we need to size down while maintaining the aspect ratio.
         if ((preloader.width > maxImageWidth) || (preloader.height > maxImageHeight)) {
           if ((preloader.width / maxImageWidth) > (preloader.height / maxImageHeight)) {
             imageWidth  = maxImageWidth;
@@ -500,7 +511,7 @@
       visibility: 'visible'
     });
     if (this.options.disableScrolling) {
-      $('body').removeClass('lb-disable-scrolling');
+      $('html').removeClass('lb-disable-scrolling');
     }
   };
 
