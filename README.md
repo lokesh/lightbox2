@@ -11,6 +11,8 @@ Lightbox is small javascript library used to overlay images on top of the curren
 
 by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 
+---
+
 ### Info for Maintainers
 
 - **Release instructions.** See [DEPLOY.md](https://github.com/lokesh/lightbox2/blob/master/DEPLOY.md).
