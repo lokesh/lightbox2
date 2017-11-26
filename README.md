@@ -15,5 +15,6 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 
 ### Info for Maintainers
 
-- **Release instructions.** See [DEPLOY.md](https://github.com/lokesh/lightbox2/blob/master/DEPLOY.md).
 - **Issues and PRs requiring review.** See items tagged with [\[status\] needs review](https://github.com/lokesh/lightbox2/labels/%5Bstatus%5D%20needs%20review)
+- **Questions on Stackoverflow.** See Questions tagged with [lightbox2](https://stackoverflow.com/questions/tagged/lightbox2).
+- **Release instructions.** See [DEPLOY.md](https://github.com/lokesh/lightbox2/blob/master/DEPLOY.md).
