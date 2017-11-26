@@ -40,6 +40,11 @@ body.lb-disable-scrolling {
   border: 4px solid white;
 }
 
+.lightbox .lb-video {
+  border: 4px solid white;
+  box-sizing: content-box;
+}
+
 .lightbox a img {
   border: none;
 }
@@ -210,4 +215,30 @@ body.lb-disable-scrolling {
   cursor: pointer;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
+}
+
+.lb-video-nav {
+  position: relative;
+}
+
+.lb-video-nav .lb-nav {
+  position: initial;
+}
+
+.lb-video-nav .lb-nav .lb-prev {
+  position: absolute;
+  width: 65px;
+  height: 70%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.lb-video-nav .lb-nav .lb-next {
+  position: absolute;
+  width: 65px;
+  height: 70%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
 }

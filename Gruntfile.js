@@ -57,7 +57,7 @@ module.exports = function(grunt) {
     watch: {
       jshint: {
         files: ['src/js/lightbox.js'],
-        tasks: ['jshint', 'jscs']
+        tasks: ['jshint', 'jscs', 'cssmin', 'build']
       }
     },
     cssmin: {
