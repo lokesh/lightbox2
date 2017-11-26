@@ -57,7 +57,8 @@ The goal of this script from it's beginnings till today is to to provide a bette
 - Add event handlers.
 - Allow setting options on the fly.
 - Allow the setting of options from HTML?
-- Allow instantiation with jQuery plugin syntax.
 - Evaluate preloading and caching.
-- Evaluate droppping jQuery requirement.
 - Allow placement inside of a specified element? Orig feature requester was dealing with iframe.
+
+**Dependencies**
+- Drop jQuery requirement.
