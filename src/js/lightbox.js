@@ -211,11 +211,17 @@
     var imageNumber = 0;
 
     function addToAlbum($link) {
+      var display = $link.children(':first').css('display');
+      if('none' == display)
+        $link.children(':first').show();
       self.album.push({
         alt: $link.attr('data-alt'),
         link: $link.attr('href'),
-        title: $link.attr('data-title') || $link.attr('title')
+        title: $link.attr('data-title') || $link.attr('title'),
+        transform: $link.children(':first').css('transform')
       });
+      if('none' == display)
+        $link.children(':first').hide();
     }
 
     // Support both data-lightbox attribute and rel attribute implementations
@@ -286,6 +292,8 @@
       var maxImageWidth;
       var windowHeight;
       var windowWidth;
+      var destWidth;
+      var destHeight;
 
       $image.attr({
         'alt': self.album[imageNumber].alt,
@@ -294,8 +302,16 @@
 
       $preloader = $(preloader);
 
-      $image.width(preloader.width);
-      $image.height(preloader.height);
+      if('none' == self.album[imageNumber].transform || 'matrix(1, 0, 0, 1, 0, 0)' == self.album[imageNumber].transform)
+      {
+
+        $image.width(preloader.width);
+        $image.height(preloader.height);
+
+    }
+
+    destWidth = $image.width();
+    destHeight = $image.height();
 
       if (self.options.fitImagesInViewport) {
         // Fit image inside the viewport.
@@ -319,21 +335,89 @@
         if ((preloader.width > maxImageWidth) || (preloader.height > maxImageHeight)) {
           if ((preloader.width / maxImageWidth) > (preloader.height / maxImageHeight)) {
             imageWidth  = maxImageWidth;
+            destWidth = imageWidth;
             imageHeight = parseInt(preloader.height / (preloader.width / imageWidth), 10);
+            destHeight = imageHeight;
+            if('none' != self.album[imageNumber].transform && 'matrix(1, 0, 0, 1, 0, 0)' != self.album[imageNumber].transform)
+            {
+              imageWidth = imageHeight;
+              imageHeight = destWidth;
+            }
             $image.width(imageWidth);
             $image.height(imageHeight);
           } else {
             imageHeight = maxImageHeight;
+            destHeight = imageHeight;
             imageWidth = parseInt(preloader.width / (preloader.height / imageHeight), 10);
+            destWidth = imageWidth;
+            if('none' != self.album[imageNumber].transform && 'matrix(1, 0, 0, 1, 0, 0)' != self.album[imageNumber].transform)
+            {
+              imageWidth = imageHeight;
+              imageHeight = destWidth;
+            }
             $image.width(imageWidth);
             $image.height(imageHeight);
           }
         }
       }
-      self.sizeContainer($image.width(), $image.height());
+
+      //Translate the image to the center of the preloader and add the original transform
+      $image.css('transform', 'translate(' + (destWidth/2 - $image.width()/2) + 'px, ' + 
+        (destHeight/2 - $image.height()/2) + 'px) ' + self.album[imageNumber].transform);
+      self.sizeContainer(destWidth, destHeight);
     };
 
-    preloader.src          = this.album[imageNumber].link;
+    preloader.setData = function(element) {
+      preloader.src = element.link;
+      if('none' != element.transform)
+      {
+
+        //Get the transform matrix and extract the scale and rotation angle
+        //Extracted from http://stackoverflow.com/questions/27655885/get-position-rotation-and-scale-from-matrix-in-opengl
+        //and adapted to a 2d matrix
+        var values = element.transform.split('(')[1].split(')')[0].split(',');
+      var a = values[0];  //cos(x)
+      var b = values[1];  //sin(x)
+
+      var scale = Math.sqrt(a*a + b*b);
+      var sin = b/scale;
+      var angle = Math.round(Math.atan2(b, a) * (180/Math.PI));
+
+      //Apply the scale and rotation to the 4 points that delimit the image
+      //and compute the bounding box
+      var points = [{x: 0, y: 0}, {x: preloader.width, y: 0}, 
+        {x: 0, y: preloader.height}, {x: preloader.width, y: preloader.height}];
+      var cx = preloader.width/2;
+      var cy = preloader.height/2;
+      for(var i=0; i<4; ++i)
+      {
+
+        var x = points[i].x;
+        var y = points[i].y;
+        points[i].x = a * (x - cx) + b * (y - cy) + cx;
+        points[i].y = a * (y - cy) - b * (x - cx) + cy;
+
+      }
+
+      var bb = [{x:9007199254740992, y:9007199254740992}, {x:0, y:0}];
+      for(var i=0; i<4; ++i)
+      {
+
+        bb[0].x = bb[0].x > points[i].x ? points[i].x : bb[0].x;
+        bb[0].y = bb[0].y > points[i].y ? points[i].y : bb[0].y;
+        bb[1].x = bb[1].x < points[i].x ? points[i].x : bb[1].x;
+        bb[1].y = bb[1].y < points[i].y ? points[i].y : bb[1].y;
+
+      }
+
+      preloader.width = (bb[1].x - bb[0].x) * scale;
+      preloader.height = (bb[1].y - bb[0].y) * scale;
+
+      }
+
+    };
+
+    preloader.setData(this.album[imageNumber]);
     this.currentImageIndex = imageNumber;
   };
 
