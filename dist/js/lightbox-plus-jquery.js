@@ -9418,7 +9418,8 @@ return jQuery;
     function addToAlbum($link) {
       self.album.push({
         link: $link.attr('href'),
-        title: $link.attr('data-title') || $link.attr('title')
+        title: $link.attr('data-title') || $link.attr('title'),
+        order: parseInt($link.attr('data-order'))
       });
     }
 
@@ -9448,6 +9449,27 @@ return jQuery;
           }
         }
       }
+    }
+
+    var sort = true;
+    while (sort) {
+        sort = false;
+        for (var i = 0; i < self.album.length; i = ++i) {
+            if (self.album.length > i+1) {
+                if (self.album[i+1].order < self.album[i].order) {
+                    var tmp = self.album[i];
+                    self.album[i] = self.album[i+1];
+                    self.album[i+1] = tmp;
+                    sort = true;
+
+                    if (self.album[i].link == $link.attr('href')) {
+                        imageNumber = i;
+                    } else if (self.album[i+1].link == $link.attr('href')) {
+                        imageNumber = i+1;
+                    }
+                }
+            }
+        }
     }
 
     // Position Lightbox
