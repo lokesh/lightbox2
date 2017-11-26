@@ -24,6 +24,6 @@
     "bower_components"
   ],
   "dependencies": {
-    "jquery": "~2"
+    "jquery": ">2"
   }
 }
