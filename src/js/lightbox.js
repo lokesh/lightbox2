@@ -45,6 +45,7 @@
     alwaysShowNavOnTouchDevices: false,
     fadeDuration: 600,
     fitImagesInViewport: true,
+    fullScreenImages: true,
     imageFadeDuration: 600,
     // maxWidth: 800,
     // maxHeight: 600,
@@ -296,16 +297,34 @@
 
       $image.width(preloader.width);
       $image.height(preloader.height);
+      
+      // Take into account the border around the image and an additional 10px gutter on each side.
+      windowWidth    = $(window).width();
+      windowHeight   = $(window).height();
+      maxImageWidth  = windowWidth - self.containerPadding.left -
+        self.containerPadding.right - self.imageBorderWidth.left -
+        self.imageBorderWidth.right - 20;
+      maxImageHeight = windowHeight - self.containerPadding.top -
+        self.containerPadding.bottom - self.imageBorderWidth.top -
+        self.imageBorderWidth.bottom - 120;
+
+      //Full screen image option
+      if(self.options.fullScreenImages) {
+        $image.width("auto");
+        $image.height("auto");
+        //Scale image to full width
+        $image.width(maxImageWidth);
+
+        //If image height too big scale it down
+        if($image.height() > maxImageHeight) {
+          $image.height(maxImageHeight);
+          $image.width("auto");
+        }
+      }
 
       if (self.options.fitImagesInViewport) {
         // Fit image inside the viewport.
-        // Take into account the border around the image and an additional 10px gutter on each side.
-
-        windowWidth    = $(window).width();
-        windowHeight   = $(window).height();
-        maxImageWidth  = windowWidth - self.containerPadding.left - self.containerPadding.right - self.imageBorderWidth.left - self.imageBorderWidth.right - 20;
-        maxImageHeight = windowHeight - self.containerPadding.top - self.containerPadding.bottom - self.imageBorderWidth.top - self.imageBorderWidth.bottom - 120;
-
+        
         // Check if image size is larger then maxWidth|maxHeight in settings
         if (self.options.maxWidth && self.options.maxWidth < maxImageWidth) {
           maxImageWidth = self.options.maxWidth;
