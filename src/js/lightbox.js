@@ -213,6 +213,7 @@
     function addToAlbum($link) {
       self.album.push({
         alt: $link.attr('data-alt'),
+        srcset: $link.attr('data-srcset'),
         link: $link.attr('href'),
         title: $link.attr('data-title') || $link.attr('title')
       });
@@ -287,9 +288,13 @@
       var windowHeight;
       var windowWidth;
 
+      if(self.album[imageNumber].srcset == undefined){
+        $image.removeAttr('srcset');
+      }
       $image.attr({
         'alt': self.album[imageNumber].alt,
-        'src': self.album[imageNumber].link
+        'src': self.album[imageNumber].link,
+        'srcset': self.album[imageNumber].srcset
       });
 
       $preloader = $(preloader);
