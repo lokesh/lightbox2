@@ -30,6 +30,10 @@
 
   function Lightbox(options) {
     this.album = [];
+    this.albumMutex = $.Deferred(function (promis) {
+      promis.resolve();
+    });
+    this.albumUseCount = 0;
     this.currentImageIndex = void 0;
     this.init();
 
@@ -86,7 +90,9 @@
   Lightbox.prototype.enable = function() {
     var self = this;
     $('body').on('click', 'a[rel^=lightbox], area[rel^=lightbox], a[data-lightbox], area[data-lightbox]', function(event) {
-      self.start($(event.currentTarget));
+      self.albumMutex.always(function () {
+        self.start($(event.currentTarget));
+      });
       return false;
     });
   };
@@ -266,6 +272,9 @@
   Lightbox.prototype.changeImage = function(imageNumber) {
     var self = this;
 
+    if (!this.albumUseCount++)
+      this.albumMutex = $.Deferred();
+
     this.disableKeyboardNav();
     var $image = this.$lightbox.find('.lb-image');
 
@@ -286,7 +295,7 @@
       var maxImageWidth;
       var windowHeight;
       var windowWidth;
-
+      
       $image.attr({
         'alt': self.album[imageNumber].alt,
         'src': self.album[imageNumber].link
@@ -331,6 +340,14 @@
         }
       }
       self.sizeContainer($image.width(), $image.height());
+
+      if (!--self.albumUseCount)
+        self.albumMutex.resolve();
+    };
+    
+    preloader.onerror = function () {
+      if (!--self.albumUseCount)
+        self.albumMutex.reject();
     };
 
     preloader.src          = this.album[imageNumber].link;
