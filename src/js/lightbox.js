@@ -295,9 +295,6 @@
       var maxImageWidth;
       var windowHeight;
       var windowWidth;
-
-      if (!--self.albumUseCount)
-        self.albumMutex.resolve();
       
       $image.attr({
         'alt': self.album[imageNumber].alt,
@@ -343,6 +340,9 @@
         }
       }
       self.sizeContainer($image.width(), $image.height());
+
+      if (!--self.albumUseCount)
+        self.albumMutex.resolve();
     };
     
     preloader.onerror = function () {
