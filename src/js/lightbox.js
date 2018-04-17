@@ -30,6 +30,7 @@
 
   function Lightbox(options) {
     this.album = [];
+    this.albumResetCounter = 0;
     this.currentImageIndex = void 0;
     this.init();
 
@@ -207,6 +208,7 @@
 
     this.sizeOverlay();
 
+    this.albumResetCounter++;
     this.album = [];
     var imageNumber = 0;
 
@@ -265,6 +267,7 @@
   // Hide most UI elements in preparation for the animated resizing of the lightbox.
   Lightbox.prototype.changeImage = function(imageNumber) {
     var self = this;
+    var albumResetCounter = this.albumResetCounter;
 
     this.disableKeyboardNav();
     var $image = this.$lightbox.find('.lb-image');
@@ -286,6 +289,9 @@
       var maxImageWidth;
       var windowHeight;
       var windowWidth;
+
+      if (albumResetCounter !== self.albumResetCounter)
+        return;
 
       $image.attr({
         'alt': self.album[imageNumber].alt,
