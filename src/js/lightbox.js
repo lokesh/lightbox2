@@ -265,6 +265,7 @@
   // Hide most UI elements in preparation for the animated resizing of the lightbox.
   Lightbox.prototype.changeImage = function(imageNumber) {
     var self = this;
+    var album = this.album;
 
     this.disableKeyboardNav();
     var $image = this.$lightbox.find('.lb-image');
@@ -288,8 +289,8 @@
       var windowWidth;
 
       $image.attr({
-        'alt': self.album[imageNumber].alt,
-        'src': self.album[imageNumber].link
+        'alt': album[imageNumber].alt,
+        'src': album[imageNumber].link
       });
 
       $preloader = $(preloader);
@@ -333,7 +334,7 @@
       self.sizeContainer($image.width(), $image.height());
     };
 
-    preloader.src          = this.album[imageNumber].link;
+    preloader.src          = album[imageNumber].link;
     this.currentImageIndex = imageNumber;
   };
 
