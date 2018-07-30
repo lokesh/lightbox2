@@ -50,6 +50,7 @@
     // maxHeight: 600,
     positionFromTop: 50,
     resizeDuration: 700,
+    showDownloadButton: true,
     showImageNumberLabel: true,
     wrapAround: false,
     disableScrolling: false,
@@ -395,6 +396,10 @@
     } catch (e) {}
 
     this.$lightbox.find('.lb-nav').show();
+
+    if(this.options.showDownloadButton === false) {
+      this.$lightbox.find('.lb-download').hide();
+    }
 
     if (this.album.length > 1) {
       if (this.options.wrapAround) {
