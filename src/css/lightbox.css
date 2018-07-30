@@ -205,3 +205,27 @@ html.lb-disable-scrolling {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
+
+.lb-download{
+  border-radius: 5px;
+  display: block;
+  height: 40px;
+  width: 40px;
+  background: url(../images/arrow-down.png) 50% 50% no-repeat;
+  background-color: rgba(0,0,0,.5);
+  -webkit-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+  opacity: 0.7;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  z-index: 11;
+}
+
+.lb-download:hover{
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
