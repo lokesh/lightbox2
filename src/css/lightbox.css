@@ -192,11 +192,10 @@ html.lb-disable-scrolling {
 }
 
 .lb-data .lb-close {
-  display: block;
-  float: right;
+  display: inline-block;
   width: 30px;
   height: 30px;
-  background: url(../images/close.png) top right no-repeat;
+  background: url(../images/close.png) 50% 50% no-repeat;
   text-align: right;
   outline: none;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
@@ -213,26 +212,23 @@ html.lb-disable-scrolling {
   opacity: 1;
 }
 
-.lb-download{
-  border-radius: 5px;
-  display: block;
-  height: 40px;
-  width: 40px;
+.lb-data .lb-download{
+  display: inline-block;
+  height: 30px;
+  width: 30px;
   background: url(../images/arrow-down.png) 50% 50% no-repeat;
-  background-color: rgba(0,0,0,.5);
+  text-align: right;
+  outline: none;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+  opacity: 0.7;
   -webkit-transition: opacity 0.2s;
   -moz-transition: opacity 0.2s;
   -o-transition: opacity 0.2s;
   transition: opacity 0.2s;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
-  opacity: 0.7;
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
-  z-index: 11;
 }
 
-.lb-download:hover{
+.lb-data .lb-download:hover{
+  cursor: pointer;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
