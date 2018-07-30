@@ -166,6 +166,13 @@ html.lb-disable-scrolling {
   line-height: 1.1em;
 }
 
+.lb-data .lb-closeContainer {
+  width: 15%;
+  float: right;
+  text-align: right;
+  line-height: 1.1em
+}
+
 .lb-data .lb-caption {
   font-size: 13px;
   font-weight: bold;
