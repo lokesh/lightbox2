@@ -50,6 +50,7 @@
     // maxHeight: 600,
     positionFromTop: 50,
     resizeDuration: 700,
+    showDownloadButton: true,
     showImageNumberLabel: true,
     wrapAround: false,
     disableScrolling: false,
@@ -99,7 +100,7 @@
     }
 
     var self = this;
-    $('<div id="lightboxOverlay" class="lightboxOverlay"></div><div id="lightbox" class="lightbox"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" /><div class="lb-nav"><a class="lb-prev" href="" ></a><a class="lb-next" href="" ></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div>').appendTo($('body'));
+    $('<div id="lightboxOverlay" class="lightboxOverlay"></div><div id="lightbox" class="lightbox"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" /><div class="lb-nav"><a class="lb-prev" href="" ></a><a class="lb-next" href="" ></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-download"></a><a class="lb-close"></a></div></div></div></div>').appendTo($('body'));
 
     // Cache jQuery objects
     this.$lightbox       = $('#lightbox');
@@ -192,6 +193,10 @@
       self.end();
       return false;
     });
+
+    this.$lightbox.find('.lb-download').on('click', function (e) {
+      window.open(e.target.href);
+    });
   };
 
   // Show overlay and lightbox. If the image is part of a set, add siblings to album array.
@@ -268,6 +273,7 @@
 
     this.disableKeyboardNav();
     var $image = this.$lightbox.find('.lb-image');
+    var $downloadLink = this.$lightbox.find('.lb-download');
 
     this.$overlay.fadeIn(this.options.fadeDuration);
 
@@ -290,6 +296,11 @@
       $image.attr({
         'alt': self.album[imageNumber].alt,
         'src': self.album[imageNumber].link
+      });
+
+      $downloadLink.attr({
+         'href': self.album[imageNumber].link,
+         'download': self.album[imageNumber].link.substr(self.album[imageNumber].link.lastIndexOf('/') + 1)
       });
 
       $preloader = $(preloader);
@@ -395,6 +406,10 @@
     } catch (e) {}
 
     this.$lightbox.find('.lb-nav').show();
+
+    if(this.options.showDownloadButton === false) {
+      this.$lightbox.find('.lb-download').hide();
+    }
 
     if (this.album.length > 1) {
       if (this.options.wrapAround) {
