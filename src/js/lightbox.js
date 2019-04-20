@@ -265,6 +265,8 @@
   // Hide most UI elements in preparation for the animated resizing of the lightbox.
   Lightbox.prototype.changeImage = function(imageNumber) {
     var self = this;
+    var filename = this.album[imageNumber].link;
+    var filetype = filename.split('.').slice(-1)[0];
 
     this.disableKeyboardNav();
     var $image = this.$lightbox.find('.lb-image');
@@ -289,22 +291,37 @@
 
       $image.attr({
         'alt': self.album[imageNumber].alt,
-        'src': self.album[imageNumber].link
+        'src': filename
       });
 
       $preloader = $(preloader);
 
       $image.width(preloader.width);
       $image.height(preloader.height);
+      windowWidth = $(window).width();
+      windowHeight = $(window).height();
 
+      // Calculate the max image dimensions for the current viewport.
+      // Take into account the border around the image and an additional 10px gutter on each side.
+      maxImageWidth  = windowWidth - self.containerPadding.left - self.containerPadding.right - self.imageBorderWidth.left - self.imageBorderWidth.right - 20;
+      maxImageHeight = windowHeight - self.containerPadding.top - self.containerPadding.bottom - self.imageBorderWidth.top - self.imageBorderWidth.bottom - 120;
+
+      /* SVGs that don't have width and height attributes specified are reporting width and height
+      values of 0 in Firefox 47 and IE11 on Windows. To fix, we set the width and height to the max
+      dimensions for the viewport rather than 0 x 0.
+
+      - https://github.com/lokesh/lightbox2/issues/552
+      */
+
+      if (filetype === 'svg') {
+        if ((preloader.width === 0) || preloader.height === 0) {
+          $image.width(maxImageWidth);
+          $image.height(maxImageHeight);
+        }
+      }
+
+      // Fit image inside the viewport.
       if (self.options.fitImagesInViewport) {
-        // Fit image inside the viewport.
-        // Take into account the border around the image and an additional 10px gutter on each side.
-
-        windowWidth    = $(window).width();
-        windowHeight   = $(window).height();
-        maxImageWidth  = windowWidth - self.containerPadding.left - self.containerPadding.right - self.imageBorderWidth.left - self.imageBorderWidth.right - 20;
-        maxImageHeight = windowHeight - self.containerPadding.top - self.containerPadding.bottom - self.imageBorderWidth.top - self.imageBorderWidth.bottom - 120;
 
         // Check if image size is larger then maxWidth|maxHeight in settings
         if (self.options.maxWidth && self.options.maxWidth < maxImageWidth) {
