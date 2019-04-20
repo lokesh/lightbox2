@@ -256,7 +256,7 @@
 
     // Disable scrolling of the page while open
     if (this.options.disableScrolling) {
-      $('html').addClass('lb-disable-scrolling');
+      $('body').addClass('lb-disable-scrolling');
     }
 
     this.changeImage(imageNumber);
@@ -356,9 +356,20 @@
 
   // Stretch overlay to fit the viewport
   Lightbox.prototype.sizeOverlay = function() {
-    this.$overlay
-      .width($(document).width())
-      .height($(document).height());
+    var self = this;
+    /*
+    We use a setTimeout 0 to pause JS execution and let the rendering catch-up.
+    Why do this? If the `disableScrolling` option is set to true, a class is added to the body
+    tag that disables scrolling and hides the scrollbar. We want to make sure the scrollbar is
+    hidden before we measure the document width, as the presence of the scrollbar will affect the
+    number.
+    */
+    setTimeout(function() {
+      self.$overlay
+        .width($(document).width())
+        .height($(document).height());
+
+    }, 0);
   };
 
   // Animate the size of the lightbox to fit the image we are showing
@@ -527,7 +538,7 @@
       visibility: 'visible'
     });
     if (this.options.disableScrolling) {
-      $('html').removeClass('lb-disable-scrolling');
+      $('body').removeClass('lb-disable-scrolling');
     }
   };
 
