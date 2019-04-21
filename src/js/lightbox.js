@@ -302,11 +302,12 @@
       maxImageWidth  = windowWidth - self.containerPadding.left - self.containerPadding.right - self.imageBorderWidth.left - self.imageBorderWidth.right - 20;
       maxImageHeight = windowHeight - self.containerPadding.top - self.containerPadding.bottom - self.imageBorderWidth.top - self.imageBorderWidth.bottom - 120;
 
-      /* SVGs that don't have width and height attributes specified are reporting width and height
+      /*
+      SVGs that don't have width and height attributes specified are reporting width and height
       values of 0 in Firefox 47 and IE11 on Windows. To fix, we set the width and height to the max
       dimensions for the viewport rather than 0 x 0.
 
-      - https://github.com/lokesh/lightbox2/issues/552
+      https://github.com/lokesh/lightbox2/issues/552
       */
 
       if (filetype === 'svg') {
