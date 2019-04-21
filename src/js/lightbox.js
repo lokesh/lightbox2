@@ -134,7 +134,6 @@
       if ($(event.target).attr('id') === 'lightbox') {
         self.end();
       }
-      return false;
     });
 
     this.$outerContainer.on('click', function(event) {
@@ -263,15 +262,15 @@
     var self = this;
     var filename = this.album[imageNumber].link;
     var filetype = filename.split('.').slice(-1)[0];
-
-    this.disableKeyboardNav();
     var $image = this.$lightbox.find('.lb-image');
 
-    this.$overlay.fadeIn(this.options.fadeDuration);
+    // Disable keyboard nav during transitions
+    this.disableKeyboardNav();
 
+    // Show loading state
+    this.$overlay.fadeIn(this.options.fadeDuration);
     $('.lb-loader').fadeIn('slow');
     this.$lightbox.find('.lb-image, .lb-nav, .lb-prev, .lb-next, .lb-dataContainer, .lb-numbers, .lb-caption').hide();
-
     this.$outerContainer.addClass('animating');
 
     // When image to show is preloaded, we send the width and height to sizeContainer()
@@ -302,11 +301,12 @@
       maxImageWidth  = windowWidth - self.containerPadding.left - self.containerPadding.right - self.imageBorderWidth.left - self.imageBorderWidth.right - 20;
       maxImageHeight = windowHeight - self.containerPadding.top - self.containerPadding.bottom - self.imageBorderWidth.top - self.imageBorderWidth.bottom - 120;
 
-      /* SVGs that don't have width and height attributes specified are reporting width and height
+      /*
+      SVGs that don't have width and height attributes specified are reporting width and height
       values of 0 in Firefox 47 and IE11 on Windows. To fix, we set the width and height to the max
       dimensions for the viewport rather than 0 x 0.
 
-      - https://github.com/lokesh/lightbox2/issues/552
+      https://github.com/lokesh/lightbox2/issues/552
       */
 
       if (filetype === 'svg') {
@@ -346,7 +346,8 @@
       self.sizeContainer($image.width(), $image.height());
     };
 
-    preloader.src          = this.album[imageNumber].link;
+    // Preload image before showing
+    preloader.src = this.album[imageNumber].link;
     this.currentImageIndex = imageNumber;
   };
 
@@ -369,6 +370,7 @@
   };
 
   // Animate the size of the lightbox to fit the image we are showing
+  // This method also shows the the image.
   Lightbox.prototype.sizeContainer = function(imageWidth, imageHeight) {
     var self = this;
 
@@ -457,14 +459,7 @@
       } else {
         $caption.html(this.album[this.currentImageIndex].title);
       }
-      $caption.fadeIn('fast')
-        .find('a').on('click', function(event) {
-          if ($(this).attr('target') !== undefined) {
-            window.open($(this).attr('href'), $(this).attr('target'));
-          } else {
-            location.href = $(this).attr('href');
-          }
-        });
+      $caption.fadeIn('fast');
     }
 
     if (this.album.length > 1 && this.options.showImageNumberLabel) {
