@@ -1,9 +1,5 @@
-html.lb-disable-scrolling {
+body.lb-disable-scrolling {
   overflow: hidden;
-  /* Position fixed required for iOS. Just putting overflow: hidden; on the body is not enough. */
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
 }
 
 .lightboxOverlay {
