@@ -10253,13 +10253,13 @@ return jQuery;
 } );
 
 /*!
- * Lightbox v2.10.0
+ * Lightbox v2.11.0
  * by Lokesh Dhakar
  *
  * More info:
  * http://lokeshdhakar.com/projects/lightbox2/
  *
- * Copyright 2007, 2018 Lokesh Dhakar
+ * Copyright Lokesh Dhakar
  * Released under the MIT license
  * https://github.com/lokesh/lightbox2/blob/master/LICENSE
  *
@@ -10353,7 +10353,7 @@ return jQuery;
     }
 
     var self = this;
-    $('<div id="lightboxOverlay" class="lightboxOverlay"></div><div id="lightbox" class="lightbox"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" /><div class="lb-nav"><a class="lb-prev" href="" ></a><a class="lb-next" href="" ></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div>').appendTo($('body'));
+    $('<div id="lightboxOverlay" class="lightboxOverlay"></div><div id="lightbox" class="lightbox"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt=""/><div class="lb-nav"><a class="lb-prev" aria-label="Previous image" href="" ></a><a class="lb-next" aria-label="Next image" href="" ></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div>').appendTo($('body'));
 
     // Cache jQuery objects
     this.$lightbox       = $('#lightbox');
@@ -10388,7 +10388,6 @@ return jQuery;
       if ($(event.target).attr('id') === 'lightbox') {
         self.end();
       }
-      return false;
     });
 
     this.$outerContainer.on('click', function(event) {
@@ -10455,10 +10454,6 @@ return jQuery;
 
     $window.on('resize', $.proxy(this.sizeOverlay, this));
 
-    $('select, object, embed').css({
-      visibility: 'hidden'
-    });
-
     this.sizeOverlay();
 
     this.album = [];
@@ -10510,7 +10505,7 @@ return jQuery;
 
     // Disable scrolling of the page while open
     if (this.options.disableScrolling) {
-      $('html').addClass('lb-disable-scrolling');
+      $('body').addClass('lb-disable-scrolling');
     }
 
     this.changeImage(imageNumber);
@@ -10519,15 +10514,17 @@ return jQuery;
   // Hide most UI elements in preparation for the animated resizing of the lightbox.
   Lightbox.prototype.changeImage = function(imageNumber) {
     var self = this;
-
-    this.disableKeyboardNav();
+    var filename = this.album[imageNumber].link;
+    var filetype = filename.split('.').slice(-1)[0];
     var $image = this.$lightbox.find('.lb-image');
 
-    this.$overlay.fadeIn(this.options.fadeDuration);
+    // Disable keyboard nav during transitions
+    this.disableKeyboardNav();
 
+    // Show loading state
+    this.$overlay.fadeIn(this.options.fadeDuration);
     $('.lb-loader').fadeIn('slow');
     this.$lightbox.find('.lb-image, .lb-nav, .lb-prev, .lb-next, .lb-dataContainer, .lb-numbers, .lb-caption').hide();
-
     this.$outerContainer.addClass('animating');
 
     // When image to show is preloaded, we send the width and height to sizeContainer()
@@ -10543,22 +10540,38 @@ return jQuery;
 
       $image.attr({
         'alt': self.album[imageNumber].alt,
-        'src': self.album[imageNumber].link
+        'src': filename
       });
 
       $preloader = $(preloader);
 
       $image.width(preloader.width);
       $image.height(preloader.height);
+      windowWidth = $(window).width();
+      windowHeight = $(window).height();
 
+      // Calculate the max image dimensions for the current viewport.
+      // Take into account the border around the image and an additional 10px gutter on each side.
+      maxImageWidth  = windowWidth - self.containerPadding.left - self.containerPadding.right - self.imageBorderWidth.left - self.imageBorderWidth.right - 20;
+      maxImageHeight = windowHeight - self.containerPadding.top - self.containerPadding.bottom - self.imageBorderWidth.top - self.imageBorderWidth.bottom - self.options.positionFromTop - 70;
+
+      /*
+      SVGs that don't have width and height attributes specified are reporting width and height
+      values of 0 in Firefox 47 and IE11 on Windows. To fix, we set the width and height to the max
+      dimensions for the viewport rather than 0 x 0.
+
+      https://github.com/lokesh/lightbox2/issues/552
+      */
+
+      if (filetype === 'svg') {
+        if ((preloader.width === 0) || preloader.height === 0) {
+          $image.width(maxImageWidth);
+          $image.height(maxImageHeight);
+        }
+      }
+
+      // Fit image inside the viewport.
       if (self.options.fitImagesInViewport) {
-        // Fit image inside the viewport.
-        // Take into account the border around the image and an additional 10px gutter on each side.
-
-        windowWidth    = $(window).width();
-        windowHeight   = $(window).height();
-        maxImageWidth  = windowWidth - self.containerPadding.left - self.containerPadding.right - self.imageBorderWidth.left - self.imageBorderWidth.right - 20;
-        maxImageHeight = windowHeight - self.containerPadding.top - self.containerPadding.bottom - self.imageBorderWidth.top - self.imageBorderWidth.bottom - 120;
 
         // Check if image size is larger then maxWidth|maxHeight in settings
         if (self.options.maxWidth && self.options.maxWidth < maxImageWidth) {
@@ -10587,18 +10600,31 @@ return jQuery;
       self.sizeContainer($image.width(), $image.height());
     };
 
-    preloader.src          = this.album[imageNumber].link;
+    // Preload image before showing
+    preloader.src = this.album[imageNumber].link;
     this.currentImageIndex = imageNumber;
   };
 
   // Stretch overlay to fit the viewport
   Lightbox.prototype.sizeOverlay = function() {
-    this.$overlay
-      .width($(document).width())
-      .height($(document).height());
+    var self = this;
+    /*
+    We use a setTimeout 0 to pause JS execution and let the rendering catch-up.
+    Why do this? If the `disableScrolling` option is set to true, a class is added to the body
+    tag that disables scrolling and hides the scrollbar. We want to make sure the scrollbar is
+    hidden before we measure the document width, as the presence of the scrollbar will affect the
+    number.
+    */
+    setTimeout(function() {
+      self.$overlay
+        .width($(document).width())
+        .height($(document).height());
+
+    }, 0);
   };
 
   // Animate the size of the lightbox to fit the image we are showing
+  // This method also shows the the image.
   Lightbox.prototype.sizeContainer = function(imageWidth, imageHeight) {
     var self = this;
 
@@ -10687,14 +10713,7 @@ return jQuery;
       } else {
         $caption.html(this.album[this.currentImageIndex].title);
       }
-      $caption.fadeIn('fast')
-        .find('a').on('click', function(event) {
-          if ($(this).attr('target') !== undefined) {
-            window.open($(this).attr('href'), $(this).attr('target'));
-          } else {
-            location.href = $(this).attr('href');
-          }
-        });
+      $caption.fadeIn('fast');
     }
 
     if (this.album.length > 1 && this.options.showImageNumberLabel) {
@@ -10737,16 +10756,15 @@ return jQuery;
     var KEYCODE_RIGHTARROW = 39;
 
     var keycode = event.keyCode;
-    var key     = String.fromCharCode(keycode).toLowerCase();
-    if (keycode === KEYCODE_ESC || key.match(/x|o|c/)) {
+    if (keycode === KEYCODE_ESC) {
       this.end();
-    } else if (key === 'p' || keycode === KEYCODE_LEFTARROW) {
+    } else if (keycode === KEYCODE_LEFTARROW) {
       if (this.currentImageIndex !== 0) {
         this.changeImage(this.currentImageIndex - 1);
       } else if (this.options.wrapAround && this.album.length > 1) {
         this.changeImage(this.album.length - 1);
       }
-    } else if (key === 'n' || keycode === KEYCODE_RIGHTARROW) {
+    } else if (keycode === KEYCODE_RIGHTARROW) {
       if (this.currentImageIndex !== this.album.length - 1) {
         this.changeImage(this.currentImageIndex + 1);
       } else if (this.options.wrapAround && this.album.length > 1) {
@@ -10761,11 +10779,9 @@ return jQuery;
     $(window).off('resize', this.sizeOverlay);
     this.$lightbox.fadeOut(this.options.fadeDuration);
     this.$overlay.fadeOut(this.options.fadeDuration);
-    $('select, object, embed').css({
-      visibility: 'visible'
-    });
+
     if (this.options.disableScrolling) {
-      $('html').removeClass('lb-disable-scrolling');
+      $('body').removeClass('lb-disable-scrolling');
     }
   };
 
