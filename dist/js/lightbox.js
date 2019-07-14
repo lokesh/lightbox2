@@ -1,9 +1,5 @@
 /*!
-<<<<<<< HEAD
- * Lightbox v2.11.0
-=======
  * Lightbox v2.11.1
->>>>>>> f3f625ba65ea8727baa4be30e428de45d5b93faa
  * by Lokesh Dhakar
  *
  * More info:
@@ -103,9 +99,6 @@
     }
 
     var self = this;
-<<<<<<< HEAD
-    $('<div id="lightboxOverlay" class="lightboxOverlay"></div><div id="lightbox" class="lightbox"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt=""/><div class="lb-nav"><a class="lb-prev" aria-label="Previous image" href="" ></a><a class="lb-next" aria-label="Next image" href="" ></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div>').appendTo($('body'));
-=======
 
     // The two root notes generated, #lightboxOverlay and #lightbox are given
     // tabindex attrs so they are focusable. We attach our keyboard event
@@ -119,7 +112,6 @@
     //
     // Github issue: https://github.com/lokesh/lightbox2/issues/663
     $('<div id="lightboxOverlay" tabindex="-1" class="lightboxOverlay"></div><div id="lightbox" tabindex="-1" class="lightbox"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt=""/><div class="lb-nav"><a class="lb-prev" aria-label="Previous image" href="" ></a><a class="lb-next" aria-label="Next image" href="" ></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div>').appendTo($('body'));
->>>>>>> f3f625ba65ea8727baa4be30e428de45d5b93faa
 
     // Cache jQuery objects
     this.$lightbox       = $('#lightbox');
@@ -343,7 +335,7 @@
         if (self.options.maxWidth && self.options.maxWidth < maxImageWidth) {
           maxImageWidth = self.options.maxWidth;
         }
-        if (self.options.maxHeight && self.options.maxHeight < maxImageWidth) {
+        if (self.options.maxHeight && self.options.maxHeight < maxImageHeight) {
           maxImageHeight = self.options.maxHeight;
         }
 
@@ -533,11 +525,8 @@
 
     var keycode = event.keyCode;
     if (keycode === KEYCODE_ESC) {
-<<<<<<< HEAD
-=======
       // Prevent bubbling so as to not affect other components on the page.
       event.stopPropagation();
->>>>>>> f3f625ba65ea8727baa4be30e428de45d5b93faa
       this.end();
     } else if (keycode === KEYCODE_LEFTARROW) {
       if (this.currentImageIndex !== 0) {
