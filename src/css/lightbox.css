@@ -21,6 +21,7 @@ body.lb-disable-scrolling {
   text-align: center;
   line-height: 0;
   font-weight: normal;
+  outline: none;
 }
 
 .lightbox .lb-image {
