@@ -1,5 +1,5 @@
 /*!
- * Lightbox v2.11.1
+ * Lightbox v2.11.2
  * by Lokesh Dhakar
  *
  * More info:
@@ -314,18 +314,13 @@
       maxImageHeight = windowHeight - self.containerPadding.top - self.containerPadding.bottom - self.imageBorderWidth.top - self.imageBorderWidth.bottom - self.options.positionFromTop - 70;
 
       /*
-      SVGs that don't have width and height attributes specified are reporting width and height
-      values of 0 in Firefox 47 and IE11 on Windows. To fix, we set the width and height to the max
-      dimensions for the viewport rather than 0 x 0.
-
-      https://github.com/lokesh/lightbox2/issues/552
+      Since many SVGs have small intrinsic dimensions, but they support scaling
+      up without quality loss because of their vector format, max out their
+      size.
       */
-
       if (filetype === 'svg') {
-        if ((preloader.width === 0) || preloader.height === 0) {
-          $image.width(maxImageWidth);
-          $image.height(maxImageHeight);
-        }
+        $image.width(maxImageWidth);
+        $image.height(maxImageHeight);
       }
 
       // Fit image inside the viewport.

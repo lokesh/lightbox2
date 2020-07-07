@@ -1,6 +1,6 @@
 # Lightbox2
 
-The original lightbox script. Eight years later — still going strong!
+The _original_ lightbox script.
 
 Lightbox is small javascript library used to overlay images on top of the current page. It's a snap to setup and works on all modern browsers.
 
