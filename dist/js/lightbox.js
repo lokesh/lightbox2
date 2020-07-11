@@ -1,5 +1,5 @@
 /*!
- * Lightbox v2.11.2
+ * Lightbox v2.11.3
  * by Lokesh Dhakar
  *
  * More info:
