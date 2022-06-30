@@ -49,6 +49,13 @@
     // maxWidth: 800,
     // maxHeight: 600,
     positionFromTop: 50,
+
+    //add this default option to false
+    //since this option is false, everything is same as before
+    //when this option is true, positionFromTop's option is effectless
+    //and image is vertically center in any screen
+    positionLBMiddle: false,
+
     resizeDuration: 700,
     showImageNumberLabel: true,
     wrapAround: false,
@@ -254,12 +261,37 @@
     }
 
     // Position Lightbox
-    var top  = $window.scrollTop() + this.options.positionFromTop;
-    var left = $window.scrollLeft();
-    this.$lightbox.css({
-      top: top + 'px',
-      left: left + 'px'
-    }).fadeIn(this.options.fadeDuration);
+    Lightbox.prototype.positionLightBox = function (status) {
+
+      //define variables
+      var top,
+          left,
+          windowHeight,
+          image,
+          imageHeight,
+          scrollOffset,
+          viewOffset;
+
+      //set top and left same as before
+      top  = $(window).scrollTop() + this.options.positionFromTop;
+      left = $(window).scrollLeft();
+
+      //if positionLBMiddle's option by user change to true
+      //top variable change as bottom
+      if (status === true) {
+        windowHeight = $(window).height();
+        image = this.$lightbox.find('.lb-image');
+        imageHeight = image.height();
+        scrollOffset = $(window).scrollTop();
+        viewOffset = windowHeight/2 - imageHeight/2;
+        top = scrollOffset + viewOffset;
+      }
+
+      this.$lightbox.css({
+        top: top + 'px',
+        left: left + 'px'
+      }).fadeIn(this.options.fadeDuration);
+    }
 
     // Disable scrolling of the page while open
     if (this.options.disableScrolling) {
@@ -422,6 +454,10 @@
     this.updateDetails();
     this.preloadNeighboringImages();
     this.enableKeyboardNav();
+
+    //add this to show image for initial $image height for open first time
+    //and for run this when image change and open
+    this.positionLightBox(this.options.positionLBMiddle);
   };
 
   // Display previous and next navigation if appropriate.
