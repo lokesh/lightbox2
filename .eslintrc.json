@@ -4,7 +4,7 @@
   "parserOptions": { "sourceType": "module", "ecmaVersion": 2022 },
   "overrides": [
     {
-      "files": ["src/js/*.js"],
+      "files": ["src/js/*.mjs"],
       "extends": ["eslint:recommended", "prettier"],
       "parserOptions": {
         "project": ["./tsconfig.json"]

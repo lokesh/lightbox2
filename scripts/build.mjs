@@ -21,7 +21,6 @@ const errors = [];
 for (const result of results) {
   if (result.status === 'rejected') {
     errors.push(result.reason);
-    continue;
   } else if (result.value.errors.length > 0) {
     errors.push(...result.value.errors);
   }

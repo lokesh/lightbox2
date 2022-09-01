@@ -10,9 +10,8 @@ const browserslistPlugin = esbuildPluginBrowserslist(browserslist(), {
 
 /** @type {BuildOptions} */
 export const commonConfig = {
-  entryPoints: ['src/js/lightbox.js'],
   outbase: 'src/js',
-  bundle: false,
+  bundle: true,
   banner: {
     js: `/*!
   * Lightbox v2.11.2
@@ -32,6 +31,7 @@ export const commonConfig = {
 
 /** @type {BuildOptions} */
 export const esmConfig = {
+  entryPoints: ['src/js/lightbox.mjs'],
   format: 'esm',
   outfile: 'dist/js/lightbox.mjs',
   plugins: [browserslistPlugin]
@@ -39,6 +39,7 @@ export const esmConfig = {
 
 /** @type {BuildOptions} */
 export const cjsConfig = {
+  entryPoints: ['src/js/lightbox.cjs'],
   format: 'cjs',
   platform: 'node',
   outfile: 'dist/js/lightbox.cjs',
@@ -47,9 +48,9 @@ export const cjsConfig = {
 
 /** @type {BuildOptions} */
 export const browserConfig = {
+  entryPoints: ['src/js/browser.mjs'],
   format: 'iife',
   platform: 'browser',
-  globalName: 'lightbox',
   outfile: 'dist/js/lightbox.js',
   plugins: [browserslistPlugin]
 };
