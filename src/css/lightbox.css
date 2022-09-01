@@ -7,32 +7,31 @@ body.lb-disable-scrolling {
   top: 0;
   left: 0;
   z-index: 9999;
-  background-color: black;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
-  opacity: 0.8;
   display: none;
+  background-color: black;
+  opacity: 0.8;
 }
 
 .lightbox {
   position: absolute;
   left: 0;
-  width: 100%;
   z-index: 10000;
-  text-align: center;
-  line-height: 0;
+  width: 100%;
   font-weight: normal;
+  line-height: 0;
+  text-align: center;
   outline: none;
 }
 
 .lightbox .lb-image {
   display: block;
-  height: auto;
   max-width: inherit;
+  height: auto;
   max-height: none;
-  border-radius: 3px;
 
   /* Image border */
   border: 4px solid white;
+  border-radius: 3px;
 }
 
 .lightbox a img {
@@ -41,31 +40,31 @@ body.lb-disable-scrolling {
 
 .lb-outerContainer {
   position: relative;
-  *zoom: 1;
   width: 250px;
   height: 250px;
   margin: 0 auto;
-  border-radius: 4px;
+  *zoom: 1;
 
   /* Background color behind image.
      This is visible during transitions. */
   background-color: white;
+  border-radius: 4px;
 }
 
-.lb-outerContainer:after {
-  content: "";
+.lb-outerContainer::after {
   display: table;
   clear: both;
+  content: '';
 }
 
 .lb-loader {
   position: absolute;
   top: 43%;
   left: 0;
-  height: 25%;
   width: 100%;
-  text-align: center;
+  height: 25%;
   line-height: 0;
+  text-align: center;
 }
 
 .lb-cancel {
@@ -73,16 +72,16 @@ body.lb-disable-scrolling {
   width: 32px;
   height: 32px;
   margin: 0 auto;
-  background: url(../images/loading.gif) no-repeat;
+  background: url('../images/loading.gif') no-repeat;
 }
 
 .lb-nav {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
   z-index: 10;
+  width: 100%;
+  height: 100%;
 }
 
 .lb-container > .nav {
@@ -90,65 +89,56 @@ body.lb-disable-scrolling {
 }
 
 .lb-nav a {
-  outline: none;
   background-image: url('data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
+  outline: none;
 }
 
-.lb-prev, .lb-next {
+.lb-prev,
+.lb-next {
+  display: block;
   height: 100%;
   cursor: pointer;
-  display: block;
 }
 
 .lb-nav a.lb-prev {
-  width: 34%;
   left: 0;
   float: left;
-  background: url(../images/prev.png) left 48% no-repeat;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  width: 34%;
+  background: url('../images/prev.png') left 48% no-repeat;
   opacity: 0;
-  -webkit-transition: opacity 0.6s;
-  -moz-transition: opacity 0.6s;
-  -o-transition: opacity 0.6s;
   transition: opacity 0.6s;
 }
 
 .lb-nav a.lb-prev:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
 
 .lb-nav a.lb-next {
-  width: 64%;
   right: 0;
   float: right;
-  background: url(../images/next.png) right 48% no-repeat;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  width: 64%;
+  background: url('../images/next.png') right 48% no-repeat;
   opacity: 0;
-  -webkit-transition: opacity 0.6s;
-  -moz-transition: opacity 0.6s;
-  -o-transition: opacity 0.6s;
   transition: opacity 0.6s;
 }
 
 .lb-nav a.lb-next:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
 
 .lb-dataContainer {
-  margin: 0 auto;
-  padding-top: 5px;
-  *zoom: 1;
   width: 100%;
-  border-bottom-left-radius: 4px;
+  padding-top: 5px;
+  margin: 0 auto;
+  *zoom: 1;
   border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
 
-.lb-dataContainer:after {
-  content: "";
+.lb-dataContainer::after {
   display: table;
   clear: both;
+  content: '';
 }
 
 .lb-data {
@@ -157,10 +147,10 @@ body.lb-disable-scrolling {
 }
 
 .lb-data .lb-details {
-  width: 85%;
   float: left;
-  text-align: left;
+  width: 85%;
   line-height: 1.1em;
+  text-align: left;
 }
 
 .lb-data .lb-caption {
@@ -175,10 +165,10 @@ body.lb-disable-scrolling {
 
 .lb-data .lb-number {
   display: block;
-  clear: left;
   padding-bottom: 1em;
+  clear: left;
   font-size: 12px;
-  color: #999999;
+  color: #999;
 }
 
 .lb-data .lb-close {
@@ -186,19 +176,14 @@ body.lb-disable-scrolling {
   float: right;
   width: 30px;
   height: 30px;
-  background: url(../images/close.png) top right no-repeat;
   text-align: right;
+  background: url('../images/close.png') top right no-repeat;
   outline: none;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
   opacity: 0.7;
-  -webkit-transition: opacity 0.2s;
-  -moz-transition: opacity 0.2s;
-  -o-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
 
 .lb-data .lb-close:hover {
   cursor: pointer;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }

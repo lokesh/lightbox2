@@ -1,0 +1,20 @@
+{
+  "extends": ["eslint:recommended", "prettier"],
+  "env": { "es2021": true, "node": true },
+  "parserOptions": { "sourceType": "module", "ecmaVersion": 2022 },
+  "overrides": [
+    {
+      "files": ["src/js/*.mjs"],
+      "extends": ["eslint:recommended", "prettier"],
+      "parserOptions": {
+        "project": ["./tsconfig.json"]
+      },
+      "env": { "node": false, "browser": true },
+      "rules": {
+        "no-unused-vars": "off",
+        "no-empty": "off"
+      }
+    }
+  ],
+  "ignorePatterns": ["dist", "node_modules"]
+}

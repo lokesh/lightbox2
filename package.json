@@ -1,11 +1,12 @@
 {
-  "name": "lightbox2",
-  "version": "2.11.2",
+  "name": "lightbox3",
+  "version": "3.0.0-alpha",
   "author": "Lokesh Dhakar <lokesh.dhakar@gmail.com>",
-  "description": "The original Lightbox script. Uses jQuery.",
+  "description": "The original Lightbox script.",
+  "type": "module",
   "keywords": [
     "lightbox",
-    "lightbox2",
+    "lightbox3",
     "overlay",
     "gallery",
     "slideshow",
@@ -13,6 +14,29 @@
   ],
   "homepage": "http://lokeshdhakar.com/projects/lightbox2/",
   "main": "./dist/js/lightbox.js",
+  "module": "./dist/js/lightbox.mjs",
+  "browser": {
+    "lightbox.js": "./dist/js/lightbox.js",
+    "lightbox.mjs": "./dist/js/lightbox.mjs"
+  },
+  "exports": {
+    ".": {
+      "node": {
+        "import": "./dist/js/lightbox.mjs",
+        "require": "./dist/js/lightbox.cjs",
+        "default": "./dist/js/lightbox.js"
+      },
+      "browser": {
+        "import": "./dist/js/lightbox.mjs",
+        "require": "./dist/js/lightbox.cjs",
+        "default": "./dist/js/lightbox.js"
+      },
+      "default": "./dist/js/lightbox.js"
+    },
+    "./css": "./dist/css/*.css",
+    "./css/*.css": "./dist/css/*.css",
+    "./images": "./dist/images/*"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/lokesh/lightbox2.git"
@@ -26,15 +50,52 @@
       "url": "https://raw.githubusercontent.com/lokesh/lightbox2/master/LICENSE"
     }
   ],
+  "files": [
+    "src",
+    "dist"
+  ],
+  "scripts": {
+    "build": "run-p build:*",
+    "build:css": "postcss src/css/lightbox.css -o dist/css/lightbox.css",
+    "build:js": "node scripts/build.mjs",
+    "clean": "del-cli dist",
+    "clean:js": "del-cli dist/js",
+    "format": "prettier --write src",
+    "format:css": "prettier --write src/css/lightbox.css",
+    "format:js": "prettier --write src/ts",
+    "lint": "run-p lint:*",
+    "lint:css": "stylelint src/css/lightbox.css",
+    "lint:js": "eslint src/js/*.mjs",
+    "prebuild:js": "npm run clean:js",
+    "watch": "run-p watch:*",
+    "watch:css": "npm run build:css -- -w",
+    "watch:js": "node scripts/watch.mjs",
+    "start": "node scripts/serve.mjs"
+  },
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-concat": "^0.5.1",
-    "grunt-contrib-connect": "^0.7.1",
-    "grunt-contrib-copy": "^0.8.0",
-    "grunt-contrib-cssmin": "^0.12.3",
-    "grunt-contrib-jshint": "^0.11.2",
-    "grunt-contrib-uglify": "~0.4.0",
-    "grunt-contrib-watch": "^0.5.3",
-    "grunt-jscs": "^1.8.0"
+    "autoprefixer": "^10.4.8",
+    "browserslist": "^4.21.3",
+    "cssnano": "^5.1.12",
+    "del-cli": "^5.0.0",
+    "esbuild": "^0.14.53",
+    "esbuild-plugin-browserslist": "^0.4.13",
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.16",
+    "postcss-cli": "^10.0.0",
+    "postcss-url": "^10.1.3",
+    "prettier": "^2.7.1",
+    "stylelint": "^14.9.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-standard": "^26.0.0"
+  },
+  "browserslist": [
+    "> 1% and last 2 versions",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
