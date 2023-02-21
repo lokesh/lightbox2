@@ -61,7 +61,8 @@
     If the caption data is user submitted or from some other untrusted source, then set this to true
     to prevent xss and other injection attacks.
      */
-    sanitizeTitle: false
+    sanitizeTitle: false,
+    showImageTitle: true
   };
 
   Lightbox.prototype.option = function(options) {
@@ -481,17 +482,19 @@
   Lightbox.prototype.updateDetails = function() {
     var self = this;
 
-    // Enable anchor clicks in the injected caption html.
-    // Thanks Nate Wright for the fix. @https://github.com/NateWr
-    if (typeof this.album[this.currentImageIndex].title !== 'undefined' &&
-      this.album[this.currentImageIndex].title !== '') {
-      var $caption = this.$lightbox.find('.lb-caption');
-      if (this.options.sanitizeTitle) {
-        $caption.text(this.album[this.currentImageIndex].title);
-      } else {
-        $caption.html(this.album[this.currentImageIndex].title);
+    if (self.options.showImageTitle) {
+      // Enable anchor clicks in the injected caption html.
+      // Thanks Nate Wright for the fix. @https://github.com/NateWr
+      if (typeof this.album[this.currentImageIndex].title !== 'undefined' &&
+        this.album[this.currentImageIndex].title !== '') {
+        var $caption = this.$lightbox.find('.lb-caption');
+        if (this.options.sanitizeTitle) {
+          $caption.text(this.album[this.currentImageIndex].title);
+        } else {
+          $caption.html(this.album[this.currentImageIndex].title);
+        }
+        $caption.fadeIn('fast');
       }
-      $caption.fadeIn('fast');
     }
 
     if (this.album.length > 1 && this.options.showImageNumberLabel) {
