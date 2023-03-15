@@ -1,0 +1,167 @@
+// Preload
+
+body
+
+  &:after
+    display: none
+    content: url(#{$lb-image-url}close.png) url(#{$lb-image-url}loading.gif) url(#{$lb-image-url}prev.png) url(#{$lb-image-url}next.png)
+
+  &.lb-disable-scrolling
+    overflow: hidden
+
+// Lightbox
+
+.lightbox
+  width: 100%
+  position: absolute
+  left: 0
+  z-index: 10000
+  text-align: center
+  line-height: 0
+  font-weight: normal
+
+  &Overlay
+    display: none
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 9999
+    background-color: #000
+    opacity: 0.8
+
+  a img
+    border: none
+
+  .lb-image
+    display: block
+    height: auto
+    max-width: inherit
+    border-radius: 3px
+
+// Container
+
+.lb-outerContainer
+  width: 250px
+  height: 250px
+  position: relative
+  background-color: #fff
+  margin: 0 auto
+  border-radius: 4px
+  *zoom: 1
+
+  &:after
+    @extend %clearfix
+
+.lb-container
+  padding: 4px
+
+  & > .nav
+    left: 0
+
+// Controls
+
+.lb-loader
+  width: 100%
+  height: 25%
+  position: absolute
+  top: 43%
+  left: 0
+  text-align: center
+  line-height: 0
+
+.lb-cancel
+  display: block
+  width: 32px
+  height: 32px
+  margin: 0 auto
+  background: url(#{$lb-image-url}loading.gif) no-repeat
+
+// Navigation
+
+.lb-nav
+  width: 100%
+  height: 100%
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 10
+
+  .lb-prev,
+  .lb-next
+    display: block
+    height: 100%
+    cursor: pointer
+
+  a
+    outline: none
+
+    &:hover
+      opacity: 1
+
+    &.lb-prev
+      width: 34%
+      left: 0
+      float: left
+      background: url(#{$lb-image-url}prev.png) left 48% no-repeat
+      opacity: 0
+      transition: opacity 0.6s
+
+    &.lb-next
+      width: 64%
+      right: 0
+      float: right
+      background: url(#{$lb-image-url}next.png) right 48% no-repeat
+      opacity: 0
+      transition: opacity 0.6s
+
+// Data container
+
+.lb-dataContainer
+  width: 100%
+  margin: 0 auto
+  padding-top: 5px
+  border-bottom-left-radius: 4px
+  border-bottom-right-radius: 4px
+  *zoom: 1
+
+  &:after
+    @extend %clearfix
+
+// Data
+
+.lb-data
+  padding: 0 4px
+  color: #CCC
+
+  .lb-details
+    width: 85%
+    float: left
+    text-align: left
+    line-height: 1.1em
+
+  .lb-caption
+    font-size: 13px
+    font-weight: bold
+    line-height: 1em
+
+  .lb-number
+    display: block
+    clear: left
+    padding-bottom: 1em
+    font-size: 12px
+    color: #999
+
+  .lb-close
+    display: block
+    width: 30px
+    height: 30px
+    float: right
+    background: url(#{$lb-image-url}close.png) top right no-repeat
+    text-align: right
+    outline: none
+    opacity: 0.7
+    transition: opacity 0.2s
+
+    &:hover
+      cursor: pointer
+      opacity: 1

@@ -58,12 +58,49 @@ module.exports = function(grunt) {
       jshint: {
         files: ['src/js/lightbox.js'],
         tasks: ['jshint', 'jscs']
+      },
+      sass: {
+        files: ['src/sass/**/*.sass'],
+        tasks: ['sass']
       }
     },
     cssmin: {
       minify: {
-          src: 'dist/css/lightbox.css',
-          dest: 'dist/css/lightbox.min.css'
+        src: 'dist/css/lightbox.css',
+        dest: 'dist/css/lightbox.min.css'
+      }
+    },
+    sass: {
+      minify: {
+        options: {
+          noCache: true,
+          sourcemap: 'none',
+          style: 'compressed'
+        },
+        files: {
+          'dist/css/lightbox.min.css': ['src/sass/**/*.sass']
+        }
+      },
+      default: {
+        options: {
+          noCache: true,
+          sourcemap: 'none',
+          style: 'expanded'
+        },
+        files: {
+          'dist/css/lightbox.css': ['src/sass/**/*.sass']
+        }
+      }
+    },
+    autoprefixer: {
+      options: {
+        browsers: ['last 2 versions']
+      },
+      dist: {
+        files: {
+          'dist/css/lightbox.css': 'dist/css/lightbox.css',
+          'dist/css/lightbox.min.css': 'dist/css/lightbox.min.css'
+        }
       }
     }
   });
@@ -75,9 +112,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks("grunt-jscs");
 
   grunt.registerTask('default', ['connect', 'watch']);
   grunt.registerTask('test', ['jshint', 'jscs']);
   grunt.registerTask('build', ['jshint', 'jscs', 'copy:dist', 'concat', 'uglify', 'cssmin:minify']);
+  grunt.registerTask('buildsass', ['sass', 'autoprefixer']);
 };
