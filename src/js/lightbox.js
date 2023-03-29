@@ -391,8 +391,8 @@
     */
     setTimeout(function() {
       self.$overlay
-        .width($(document).width())
-        .height($(document).height());
+        .width($(window).width())
+        .height($(window).height());
 
     }, 0);
   };
