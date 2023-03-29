@@ -207,8 +207,80 @@
         return false;
       }
     });
+        //bind event to mouse scroll
+        this.img = this.$container.find('.lb-image');
+		this.label = this.$lightbox.find('.lb-dataContainer');
+		$([this.$overlay[0], this.$lightbox[0]]).bind("mousewheel",
+				function(e) {
+					var flag = e.originalEvent.wheelDelta < 0;
+					var imgH = self.img.height();
+					var imgW = self.img.width();
+					var imgY = self.img.offset().top;
+					var imgX = self.img.offset().left;
+					var nw = Math.round(20 * imgW / imgH);
+					var ctH = self.$outerContainer.height();
+					var ctW = self.$outerContainer.width();
+					var layH = self.$overlay.height() - 20;
+					var layW = self.$overlay.width() - nw - 20;
+					var layY = self.$overlay.offset().top;
+					var layX = self.$overlay.offset().left;
+					if (flag && imgH > 20 && imgW > 20) {// scroll down
+						self.img.css('height', imgH - 20);
+						self.img.css('width', imgW - nw);
+						self.$outerContainer.css('height', ctH - 20);
+						self.$outerContainer.css('width', ctW - nw);
+						if (ctW - nw > 240) {
+							self.label.css('width', ctW - nw);
+						}
+					} else if (!flag && (imgH) < layH && (imgW) < layW) {//scroll up
+						if (imgY + imgH + 20 > layY + layH) {
+							self.$overlay.height(self.$overlay.height() + 20);
+						}
+						self.img.css('height', imgH + 20);
+						self.img.css('width', imgW + nw);
+						self.$outerContainer.css('height', ctH + 20);
+						self.$outerContainer.css('width', ctW + nw);
+						self.label.css('width', ctW + nw);
+					}
+					e.stopPropagation();
+					return false;
+				});
+		$([this.$overlay[0], this.$lightbox[0]]).bind("DOMMouseScroll",
+				function(e) {
+					var flag = e.originalEvent.detail > 0;
+					var imgH = self.img.height();
+					var imgW = self.img.width();
+					var imgY = self.img.offset().top;
+					var imgX = self.img.offset().left;
+					var nw = Math.round(20 * imgW / imgH);
+					var ctH = self.$outerContainer.height();
+					var ctW = self.$outerContainer.width();
+					var layH = self.$overlay.height() - 20;
+					var layW = self.$overlay.width() - nw - 20;
+					var layY = self.$overlay.offset().top;
+					var layX = self.$overlay.offset().left;
+					if (flag && imgH > 20 && imgW > 20) {// scroll down
+						self.img.css('height', imgH - 20);
+						self.img.css('width', imgW - nw);
+						self.$outerContainer.css('height', ctH - 20);
+						self.$outerContainer.css('width', ctW - nw);
+						if (ctW - nw > 240) {
+							self.label.css('width', ctW - nw);
+						}
+					} else if (!flag && (imgH) < layH && (imgW) < layW) {//scroll up
+						if (imgY + imgH + 20 > layY + layH) {
+							self.$overlay.height(self.$overlay.height() + 20);
+						}
+						self.img.css('height', imgH + 20);
+						self.img.css('width', imgW + nw);
+						self.$outerContainer.css('height', ctH + 20);
+						self.$outerContainer.css('width', ctW + nw);
+						self.label.css('width', ctW + nw);
+					}
+					e.stopPropagation();
+					return false;
+				});
   };
-
   // Show overlay and lightbox. If the image is part of a set, add siblings to album array.
   Lightbox.prototype.start = function($link) {
     var self    = this;
