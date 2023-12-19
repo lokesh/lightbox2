@@ -11100,7 +11100,7 @@ return jQuery;
     // while Lightbox is opened will keep the focus on or inside one of these
     // two elements.
     //
-    // We do this so we can prevent propogation of the Esc keypress when
+    // We do this so we can prevent propagation of the Esc keypress when
     // Lightbox is open. This prevents it from intefering with other components
     // on the page below.
     //
