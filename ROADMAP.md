@@ -71,3 +71,4 @@ The goal of this script from it's beginnings till today is to to provide a bette
 
 ### Dependencies
 - Drop jQuery requirement.
+- Replace Grunt and Bower with modern alternatives.
