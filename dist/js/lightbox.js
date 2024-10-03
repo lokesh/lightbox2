@@ -1,5 +1,5 @@
 /*!
- * Lightbox v2.11.4
+ * Lightbox v2.11.5
  * by Lokesh Dhakar
  *
  * More info:
@@ -106,8 +106,8 @@
     // while Lightbox is opened will keep the focus on or inside one of these
     // two elements.
     //
-    // We do this so we can prevent propogation of the Esc keypress when
-    // Lightbox is open. This prevents it from intefering with other components
+    // We do this so we can prevent propagation of the Esc keypress when
+    // Lightbox is open. This prevents it from interfering with other components
     // on the page below.
     //
     // Github issue: https://github.com/lokesh/lightbox2/issues/663
