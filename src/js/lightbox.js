@@ -277,7 +277,7 @@
   Lightbox.prototype.changeImage = function(imageNumber) {
     var self = this;
     var filename = this.album[imageNumber].link;
-    var filetype = filename.split('.').slice(-1)[0];
+    var filetype = filename.split('.').slice(-1)[0].toLowerCase();
     var $image = this.$lightbox.find('.lb-image');
 
     // Disable keyboard nav during transitions
