@@ -1,5 +1,5 @@
 /*!
- * Lightbox v2.11.5
+ * Lightbox v2.12.0
  * by Lokesh Dhakar
  *
  * More info:
@@ -221,8 +221,7 @@
 
   // Show overlay and lightbox. If the image is part of a set, add siblings to album array.
   Lightbox.prototype.start = function($link) {
-    var self    = this;
-    var $window = $(window);
+    var self = this;
 
     // Store trigger element for focus restoration on close
     this.$triggerElement = $link;
@@ -485,7 +484,7 @@
     try {
       document.createEvent('TouchEvent');
       alwaysShowNav = (this.options.alwaysShowNavOnTouchDevices) ? true : false;
-    } catch (e) {}
+    } catch (ignore) { /* Touch detection */ }
 
     this.$nav.show();
 
@@ -516,8 +515,6 @@
 
   // Display caption, image number, and closing button.
   Lightbox.prototype.updateDetails = function() {
-    var self = this;
-
     // Enable anchor clicks in the injected caption html.
     // Thanks Nate Wright for the fix. @https://github.com/NateWr
     if (typeof this.album[this.currentImageIndex].title !== 'undefined' &&
@@ -654,7 +651,6 @@
   // images: a URL string, or an array of {link, title, alt} objects.
   // startIndex: which image to show first (default 0).
   Lightbox.prototype.open = function(images, startIndex) {
-    var self = this;
     startIndex = startIndex || 0;
     this.album = [];
 
