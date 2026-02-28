@@ -1,6 +1,6 @@
 {
   "name": "lightbox2",
-  "version": "2.11.5",
+  "version": "2.12.0",
   "author": "Lokesh Dhakar <lokesh.dhakar@gmail.com>",
   "description": "The original Lightbox script. Uses jQuery.",
   "keywords": [
@@ -26,15 +26,21 @@
       "url": "https://raw.githubusercontent.com/lokesh/lightbox2/master/LICENSE"
     }
   ],
+  "scripts": {
+    "lint": "eslint src/js/lightbox.js",
+    "build": "npm run lint && npm run build:copy && npm run build:concat && npm run build:uglify && npm run build:cssmin",
+    "build:copy": "mkdir -p dist/js dist/css dist/images && cp src/js/* dist/js/ && cp src/css/* dist/css/ && cp src/images/* dist/images/",
+    "build:concat": "cat node_modules/jquery/dist/jquery.js src/js/lightbox.js > dist/js/lightbox-plus-jquery.js",
+    "build:uglify": "uglifyjs src/js/lightbox.js -o dist/js/lightbox.min.js --source-map && uglifyjs dist/js/lightbox-plus-jquery.js -o dist/js/lightbox-plus-jquery.min.js --source-map",
+    "build:cssmin": "cleancss src/css/lightbox.css -o dist/css/lightbox.min.css",
+    "test": "npm run lint"
+  },
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-concat": "^0.5.1",
-    "grunt-contrib-connect": "^0.7.1",
-    "grunt-contrib-copy": "^0.8.0",
-    "grunt-contrib-cssmin": "^0.12.3",
-    "grunt-contrib-jshint": "^0.11.2",
-    "grunt-contrib-uglify": "~0.4.0",
-    "grunt-contrib-watch": "^0.5.3",
-    "grunt-jscs": "^1.8.0"
+    "clean-css-cli": "^5.6.3",
+    "eslint": "^10.0.2",
+    "uglify-js": "^3.19.3"
+  },
+  "dependencies": {
+    "jquery": "^3.7.1"
   }
 }

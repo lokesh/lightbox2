@@ -1,19 +1,32 @@
+:root {
+  --lb-overlay-opacity: 0.8;
+  --lb-overlay-bg: black;
+  --lb-border-radius: 3px;
+  --lb-image-border-width: 4px;
+  --lb-image-border-color: white;
+  --lb-container-bg: white;
+  --lb-text-color: #ccc;
+  --lb-caption-link-color: #4ae;
+  --lb-number-color: #999999;
+  --lb-nav-transition-speed: 0.6s;
+  --lb-close-transition-speed: 0.2s;
+}
+
 body.lb-disable-scrolling {
   overflow: hidden;
 }
 
 .lightboxOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: fixed;
+  inset: 0;
   z-index: 9999;
-  background-color: black;
-  opacity: 0.8;
+  background-color: var(--lb-overlay-bg);
+  opacity: var(--lb-overlay-opacity);
   display: none;
 }
 
 .lightbox {
-  position: absolute;
+  position: fixed;
   left: 0;
   width: 100%;
   z-index: 10000;
@@ -28,10 +41,10 @@ body.lb-disable-scrolling {
   height: auto;
   max-width: inherit;
   max-height: none;
-  border-radius: 3px;
+  border-radius: var(--lb-border-radius);
 
   /* Image border */
-  border: 4px solid white;
+  border: var(--lb-image-border-width) solid var(--lb-image-border-color);
 }
 
 .lightbox a img {
@@ -47,7 +60,7 @@ body.lb-disable-scrolling {
 
   /* Background color behind image.
      This is visible during transitions. */
-  background-color: white;
+  background-color: var(--lb-container-bg);
 }
 
 .lb-outerContainer:after {
@@ -104,10 +117,7 @@ body.lb-disable-scrolling {
   float: left;
   background: url(../images/prev.png) left 48% no-repeat;
   opacity: 0;
-  -webkit-transition: opacity 0.6s;
-  -moz-transition: opacity 0.6s;
-  -o-transition: opacity 0.6s;
-  transition: opacity 0.6s;
+  transition: opacity var(--lb-nav-transition-speed);
 }
 
 .lb-nav a.lb-prev:hover {
@@ -120,10 +130,7 @@ body.lb-disable-scrolling {
   float: right;
   background: url(../images/next.png) right 48% no-repeat;
   opacity: 0;
-  -webkit-transition: opacity 0.6s;
-  -moz-transition: opacity 0.6s;
-  -o-transition: opacity 0.6s;
-  transition: opacity 0.6s;
+  transition: opacity var(--lb-nav-transition-speed);
 }
 
 .lb-nav a.lb-next:hover {
@@ -146,7 +153,7 @@ body.lb-disable-scrolling {
 
 .lb-data {
   padding: 0 4px;
-  color: #ccc;
+  color: var(--lb-text-color);
 }
 
 .lb-data .lb-details {
@@ -163,7 +170,7 @@ body.lb-disable-scrolling {
 }
 
 .lb-data .lb-caption a {
-  color: #4ae;
+  color: var(--lb-caption-link-color);
 }
 
 .lb-data .lb-number {
@@ -171,7 +178,7 @@ body.lb-disable-scrolling {
   clear: left;
   padding-bottom: 1em;
   font-size: 12px;
-  color: #999999;
+  color: var(--lb-number-color);
 }
 
 .lb-data .lb-close {
@@ -183,10 +190,7 @@ body.lb-disable-scrolling {
   text-align: right;
   outline: none;
   opacity: 0.7;
-  -webkit-transition: opacity 0.2s;
-  -moz-transition: opacity 0.2s;
-  -o-transition: opacity 0.2s;
-  transition: opacity 0.2s;
+  transition: opacity var(--lb-close-transition-speed);
 }
 
 .lb-data .lb-close:hover {
