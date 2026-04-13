@@ -1,6 +1,8 @@
 # Lightbox2
 
-The _original_ lightbox script.
+> **[Lightbox3](https://lokeshdhakar.com/projects/lightbox3/)** is here — Zero dependencies. Fluid animations. Built for touch. [Check it out →](https://lokeshdhakar.com/projects/lightbox3/)
+
+Lightbox2 is in maintenance mode.
 
 Lightbox is small javascript library used to overlay images on top of the current page. It's a snap to setup and works on all modern browsers.
 
