@@ -541,13 +541,18 @@
 
   // Preload previous and next images in set.
   Lightbox.prototype.preloadNeighboringImages = function() {
-    if (this.album.length > this.currentImageIndex + 1) {
-      var preloadNext = new Image();
-      preloadNext.src = this.album[this.currentImageIndex + 1].link;
-    }
-    if (this.currentImageIndex > 0) {
-      var preloadPrev = new Image();
-      preloadPrev.src = this.album[this.currentImageIndex - 1].link;
+    var indexes = [ this.currentImageIndex - 1, this.currentImageIndex + 1 ];
+    for (var i = 0; i < 2; i++) {
+      var index = indexes[i];
+      if (index >= this.album.length) {
+        if (!this.options.wrapAround) continue;
+        index = 0;
+      } else if (index < 0) {
+        if (!this.options.wrapAround) continue;
+        index = this.album.length - 1;
+      }
+      var preload = new Image();
+      preload.src = this.album[index].link;
     }
   };
 
